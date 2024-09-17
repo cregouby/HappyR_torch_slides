@@ -1,0 +1,263 @@
+---
+title: "HappyR {torch} {tabnet} and friends"
+author: "Christophe Regouby"
+footer:  "[{torch} {tabnet} and friends](https://github.com/cregouby/happyR-torch-slides)"
+logo: "img/wtf-logo-square-transparent.png"
+format: 
+  revealjs: 
+    theme: [night, slides.scss]
+    highlight-style: a11y
+    transition: fade
+    slide-number: true
+    chalkboard: true
+editor: visual
+execute:
+  freeze: auto
+---
+
+# Agenda
+
+Getting started
+
+{torch}
+
+{tabnet}
+
+mlverse
+
+GPT2 avec R
+
+Fine-Tuning de GPT2 en français avec un LORA
+
+Un classifieur d'images avec ResNext50 fine-tuning
+
+Une tête de classification hiérarchique à {tabnet}
+
+# Getting started
+
+```{r}
+library(countdown)
+```
+
+```{r font-awesome-color}
+# fill for font awesome icons
+fa_fill <- "#C7B41D"
+```
+
+## Licensing
+
+<br> <br> This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA4.0).
+
+## Checklist
+
+<br>
+
+`r fontawesome::fa("check", fill = fa_fill)` R & RStudio installed?
+
+     I'm on 4.4.1 and 2024.08.0 build 351
+
+`r fontawesome::fa("check", fill = fa_fill)` {torch} installed?
+
+     `torch::torch_is_installed()`<br>      *Your system is ready!*
+
+`r fontawesome::fa("check", fill = fa_fill)` Any {torch} device ?
+
+     `torch::backends_xxxx_is_available()`<br>      *Your system has power!*
+
+## Autres ressources {.smaller}
+
+-   torch for R *website* <br> <https://torch.mlverse.org/>
+
+-   Deep-Learning and scientific computing with R *book* <br> <https://skeydan.github.io/Deep-Learning-and-Scientific-Computing-with-R-torch/>
+
+-   torch for R *cheatsheet* <br> <https://rstudio.github.io/cheatsheets/torch.pdf>
+
+-   Deep-learning avec torch *Aide-mémoire* <br> <https://github.com/rstudio/cheatsheets/blob/main/translations/french/torch_fr.pdf>
+
+-   Tutoriel de UseR2021! <https://github.com/mlverse/torch-learnr>
+
+-   Tutoriel des RencontresR 2024 par Tristan Mary-Huard : <https://stateofther.github.io/finistR2022/autodiff.html>
+
+::: footer
+:::
+
+# {torch}
+
+## **...**
+
+## Your turn, exercise 00
+
+```{r}
+countdown(
+  minutes = 2,
+  # Fanfare when it's over
+  play_sound = TRUE,
+  # Set timer theme to match solarized colors
+  color_border              = "#FFFFFF",
+  color_text                = "#7aa81e",
+  color_running_background  = "#7aa81e",
+  color_running_text        = "#FFFFFF",
+  color_finished_background = "#ffa07a",
+  color_finished_text       = "#FFFFFF",
+  font_size = "2em",
+  )
+```
+
+## But what if
+
+![](img/swat-bugs.gif)
+
+::: footer
+<https://giphy.com/gifs/TreehouseDirect-agent-binky-8UabbehIqkR0akDt1y>
+:::
+
+# {tabnet}
+
+## Your turn, exercise 01
+
+::: question
+Complete 01_exercise to practice debugging your own code.
+:::
+
+::: small
+Check out the `README.md` for some getting started tips!
+
+-   `01_debugging_spartan.R` (directions to explore without suggested code)
+
+-   `01_debugging_comfy.R` (directions to explore with suggested code)
+
+-   `01_debugging_solution.R` (directions to explore with code solutions)
+:::
+
+```{r}
+countdown(
+  minutes = 15,
+  # Fanfare when it's over
+  play_sound = TRUE,
+  # Set timer theme to match solarized colors
+  color_border              = "#FFFFFF",
+  color_text                = "#7aa81e",
+  color_running_background  = "#7aa81e",
+  color_running_text        = "#FFFFFF",
+  color_finished_background = "#ffa07a",
+  color_finished_text       = "#FFFFFF",
+  font_size = "2em",
+  )
+```
+
+::: footer
+<https://github.com/rstats-wtf/wtf-debugging>
+:::
+
+# mlverse
+
+## Un univers de packages dédiés à {torch}
+
+------------------------------------------------------------------------
+
+## Un univers de packages en français
+
+::: small
+| paquet | les messages[^1] | l'aide |
+|----------------|--------------------------|------------------------------|
+| {torch} | `r fontawesome::fa("check", fill = fa_fill)` |  |
+| {torchvision} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/torchvision.fr](https://github.com/cregouby/torchvision.fr) |
+| {tabnet} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/tabnet.fr](https://github.com/cregouby/tabnet.fr) |
+| {luz} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/luz.fr](https://github.com/cregouby/luz.fr) |
+| {hfhub} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/hfhub.fr](https://github.com/cregouby/hfhub.fr) |
+| {tok} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/tok.fr](https://github.com/cregouby/tok.fr) |
+| {safetensors} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/safetensors.fr](https://github.com/cregouby/safetensors.fr) |
+
+: Les packages disponibles en français
+:::
+
+[^1]: P.R en cours pour {torch}, {torchvision}, {hfhub}, {luz}, {tok}, {safetensors}
+
+## 
+
+Your turn, exercise 02
+
+<br>
+
+::: question
+Complete 02_exercise to practice debugging a slightly different version of your own code, using features from the RStudio IDE.
+:::
+
+```{r}
+countdown(
+  minutes = 7
+  )
+```
+
+::: footer
+<https://github.com/rstats-wtf/wtf-debugging>
+:::
+
+# GPT2 avec R
+
+## 
+
+## Your turn, exercise 03
+
+<br>
+
+```{r, eval=FALSE, echo=TRUE}
+# already installed in the Posit Cloud work space
+# install.packages("devtools")
+# devtools::install_github("rstats-wtf/wtfdbg")
+```
+
+<br>
+
+::: question
+Complete 03_exercise to practice debugging others' code.
+:::
+
+```{r}
+countdown(
+  minutes = 10
+  )
+```
+
+::: footer
+<https://github.com/rstats-wtf/wtf-debugging>
+:::
+
+# Fine-Tuning de GPT2 en français avec un LORA
+
+# Un classifieur d'images avec ResNext50 fine-tuning
+
+# Une tête de classification hiérarchique à {tabnet}
+
+## Pick your favorite
+
+![](img/debugging_pick.svg)
+
+# Wrap-up
+
+## Go forth, <br> and learn from your bugs!
+
+:::::: columns
+::: {.column width="53%"}
+![](img/butterflies.gif){fig-align="center"}
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="45%"}
+`r fontawesome::fa("road", fill = "white")` traceback
+
+<br>
+
+`r fontawesome::fa("bug", fill = "white")` interactive debugger
+
+<br>
+
+`r fontawesome::fa("magnifying-glass", fill = "white")` your code   vs   <br> `r fontawesome::fa("hat-wizard", fill = "white")` their code
+:::
+::::::
+
+::: footer
+<https://giphy.com/gifs/TreehouseDirect-max-and-ruby-maxandruby-maxruby-S3qtrEqiU5OuwAtg5Z>
+:::
