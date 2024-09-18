@@ -393,14 +393,27 @@ predict(ames_fit, ames)
 
 ::: {.column width="70%"}
 ```{r}
+#| echo: true
+metrics <- metric_set(rmse, rsq, ccc)
+cbind(ames, predict(ames_fit, ames)) |> 
+  metrics(Sale_Price, estimate = .pred)
+```
+:::
+:::::
+::::::
+
+---
+
+::: small
+
+```{r}
 #| label: "tabnet vip"
 #| echo: true
 # variable importance
 vip::vip(ames_fit)
 ```
+
 :::
-:::::
-::::::
 
 ------------------------------------------------------------------------
 
@@ -465,16 +478,17 @@ Et si on l'applique à toute les colonnes ?
 ```{r}
 #| echo: TRUE
 #| code-fold: TRUE
-col_with_zero_as_na <- ames %>% 
-  select(where(is.numeric)) %>% 
-  select(matches("_SF|Area|Misc_Val|[Pp]orch$")) %>% 
-  summarise_each(min) %>% 
-  select_if(~.x==0) %>% 
+#| label: "tabnet missing dataset"
+col_with_zero_as_na <- ames |>  
+  select(where(is.numeric)) |>  
+  select(matches("_SF|Area|Misc_Val|[Pp]orch$")) |> 
+  summarise_each(min) |> 
+  select_if(~.x==0) |> 
   names()
-ames_missing <- ames %>% mutate_at(col_with_zero_as_na, na_if, 0) %>% 
-  mutate_at("Alley", na_if, "No_Alley_Access") %>% 
-  mutate_at("Fence", na_if, "No_Fence") %>% 
-  mutate_at(c("Garage_Cond", "Garage_Finish"), na_if, "No_Garage") %>% 
+ames_missing <- ames %>% mutate_at(col_with_zero_as_na, na_if, 0) |> 
+  mutate_at("Alley", na_if, "No_Alley_Access")  |>  
+  mutate_at("Fence", na_if, "No_Fence") |> 
+  mutate_at(c("Garage_Cond", "Garage_Finish"), na_if, "No_Garage") |> 
   mutate_at(c("Bsmt_Exposure", "BsmtFin_Type_1", "BsmtFin_Type_2"), na_if, "No_Basement")
 
 visdat::vis_miss(ames_missing)
@@ -499,8 +513,7 @@ ames_missing_rec <- recipe(Sale_Price ~ ., data=ames_missing) |>
 Pre-training
 
 ```{r}
-#| label: "tabnet missing  pretrain"
-#| cache: true
+#| label: "tabnet missing pretrain"
 #| echo: true
 library(tabnet)
 ames_missing_pretrain <- tabnet_pretrain(
@@ -520,9 +533,11 @@ autoplot(ames_missing_pretrain)
 Training
 
 ```{r}
-#| label: "tabnet missing  fit"
+#| label: "tabnet missing fit"
 #| cache: true
 #| echo: true
+#| code-fold: TRUE
+
 ames_missing_fit <- tabnet_fit(
   ames_missing_rec,   data = ames_missing,
   tabnet_model = ames_missing_pretrain,
@@ -544,18 +559,35 @@ Prediction
 ::::: columns
 ::: {.column width="30%"}
 ```{r}
-#| label: "tabnet missing  predict"
+#| label: "tabnet missing predict"
 #| echo: true
 predict(ames_missing_fit, ames_missing)
 ```
 :::
 
 ::: {.column width="70%"}
+```{r}
+#| echo: true
+metrics <- metric_set(rmse, rsq, ccc)
+cbind(ames_missing, predict(ames_missing_fit, ames_missing)) |> 
+  metrics(Sale_Price, estimate = .pred)
+```
+
+:::
+:::::
+:::::: 
+
+---
+
+:::::: small
+Variable importance
+
+::::: columns
+::: {.column width="50%"}
+
 
 ```{r}
-#| echo: TRUE
 #| code-fold: TRUE
- 
 col_with_missings <- ames_missing %>%
   summarise_all(~sum(is.na(.))>0) %>%
   t %>% enframe(name="Variable") %>% 
@@ -569,16 +601,28 @@ vip_color <- function(object, col_has_missing) {
   ggplot(vis_miss_plus, aes(x=Variable, y=Importance, fill=has_missing)) +
     geom_col() + coord_flip() + scale_fill_grey()
 }
-vip_color(ames_pretrain, col_with_missings)
 ```
 
 
 ```{r}
-#| label: "tabnet missing  vip"
+#| label: "tabnet pretrain vip color"
+#| echo: TRUE
+# original ames
+vip_color(ames_pretrain, col_with_missings)
+vip_color(ames_fit, col_with_missings)
+```
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| label: "tabnet pretrain missing vip color"
 #| echo: true
-# variable importance
+# ames with missing values
+vip_color(ames_missing_pretrain, col_with_missings)
 vip_color(ames_missing_fit, col_with_missings)
 ```
+
 :::
 :::::
 ::::::
@@ -589,11 +633,11 @@ vip_color(ames_missing_fit, col_with_missings)
 Explainability
 
 ```{r}
-#| label: "tabnet missing  explain"
+#| label: "tabnet missing explain"
 #| echo: true
 ames_missing_explain <- tabnet::tabnet_explain(ames_missing_fit, ames_missing)
 # variable importance
-autoplot(ames_missing_explain, quantile = 0.99)
+autoplot(ames_missing_explain, quantile = 0.99, type="step")
 ```
 :::
 

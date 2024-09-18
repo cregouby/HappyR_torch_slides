@@ -544,14 +544,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.3936  0.6695  0.4533  0.0874
-  0.0995  0.6403  0.8330  0.1408
-  0.3542  0.7269  0.9365  0.9876
+  0.3313  0.1480  0.8700  0.9330
+  0.5595  0.2275  0.9225  0.7896
+  0.0575  0.8199  0.1553  0.9001
 
 (2,.,.) = 
-  0.1062  0.7872  0.4691  0.8279
-  0.5348  0.5142  0.5391  0.0458
-  0.5533  0.1045  0.8840  0.4558
+  0.0811  0.4738  0.1903  0.4775
+  0.9689  0.7435  0.1756  0.1319
+  0.8320  0.5453  0.4046  0.3991
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -569,34 +569,34 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.0995  0.6403  0.8330  0.1408
-  0.3542  0.7269  0.9365  0.9876
+  0.5595  0.2275  0.9225  0.7896
+  0.0575  0.8199  0.1553  0.9001
 
 (2,.,.) = 
-  0.5348  0.5142  0.5391  0.0458
-  0.5533  0.1045  0.8840  0.4558
+  0.9689  0.7435  0.1756  0.1319
+  0.8320  0.5453  0.4046  0.3991
 [ CPUFloatType{2,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>tt[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.0995  0.6403  0.8330  0.1408
- 0.3542  0.7269  0.9365  0.9876
+ 0.5595  0.2275  0.9225  0.7896
+ 0.0575  0.8199  0.1553  0.9001
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.0995  0.6403  0.8330  0.1408
-  0.3542  0.7269  0.9365  0.9876
+  0.5595  0.2275  0.9225  0.7896
+  0.0575  0.8199  0.1553  0.9001
 [ CPUFloatType{1,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">torch_squeeze</span>(tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.0995  0.6403  0.8330  0.1408
- 0.3542  0.7269  0.9365  0.9876
+ 0.5595  0.2275  0.9225  0.7896
+ 0.0575  0.8199  0.1553  0.9001
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 </div>
@@ -608,7 +608,7 @@ Christophe Regouby
 <p>Installations : `00_installation.R``</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_50e82915" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_25305c43" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -620,7 +620,7 @@ Christophe Regouby
 <p>Exercice : `01_exercice.R``</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_48d9ca2b" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_80266514" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -901,14 +901,16 @@ Christophe Regouby
 </div>
 </div><div class="column" style="width:70%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co"># variable importance</span></span>
-<span id="cb22-2"><a href=""></a>vip<span class="sc">::</span><span class="fu">vip</span>(ames_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20vip-1.png" width="960"></p>
-</figure>
-</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>metrics <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(rmse, rsq, ccc)</span>
+<span id="cb22-2"><a href=""></a><span class="fu">cbind</span>(ames, <span class="fu">predict</span>(ames_fit, ames)) <span class="sc">|&gt;</span> </span>
+<span id="cb22-3"><a href=""></a>  <span class="fu">metrics</span>(Sale_Price, <span class="at">estimate =</span> .pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 rmse    standard      2.39  
+2 rsq     standard      0.0461
+3 ccc     standard     -0.0114</code></pre>
 </div>
 </div>
 </div></div>
@@ -917,11 +919,27 @@ Christophe Regouby
 <section class="slide level2">
 
 <div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># variable importance</span></span>
+<span id="cb24-2"><a href=""></a>vip<span class="sc">::</span><span class="fu">vip</span>(ames_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/tabnet%20vip-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="small">
 <p>Explainability</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>ames_explain <span class="ot">&lt;-</span> tabnet<span class="sc">::</span><span class="fu">tabnet_explain</span>(ames_fit, ames)</span>
-<span id="cb23-2"><a href=""></a><span class="co"># variable importance</span></span>
-<span id="cb23-3"><a href=""></a><span class="fu">autoplot</span>(ames_explain, <span class="at">quantile =</span> <span class="fl">0.99</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>ames_explain <span class="ot">&lt;-</span> tabnet<span class="sc">::</span><span class="fu">tabnet_explain</span>(ames_fit, ames)</span>
+<span id="cb25-2"><a href=""></a><span class="co"># variable importance</span></span>
+<span id="cb25-3"><a href=""></a><span class="fu">autoplot</span>(ames_explain, <span class="at">quantile =</span> <span class="fl">0.99</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -939,7 +957,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_fbebb008" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_b1c268b0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -969,11 +987,11 @@ Christophe Regouby
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">data</span>(<span class="st">"ames"</span>, <span class="at">package =</span> <span class="st">"modeldata"</span>)</span>
-<span id="cb24-2"><a href=""></a><span class="fu">qplot</span>(ames<span class="sc">$</span>Mas_Vnr_Area)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">data</span>(<span class="st">"ames"</span>, <span class="at">package =</span> <span class="st">"modeldata"</span>)</span>
+<span id="cb26-2"><a href=""></a><span class="fu">qplot</span>(ames<span class="sc">$</span>Mas_Vnr_Area)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"><div class="question">
+<img data-src="index_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"><div class="question">
 <p>Comment le modèle peut-il capturer cette distribution ?</p>
 </div>
 </section>
@@ -984,24 +1002,24 @@ Christophe Regouby
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>col_with_zero_as_na <span class="ot">&lt;-</span> ames <span class="sc">%&gt;%</span> </span>
-<span id="cb25-2"><a href=""></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-3"><a href=""></a>  <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">"_SF|Area|Misc_Val|[Pp]orch$"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-4"><a href=""></a>  <span class="fu">summarise_each</span>(min) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-5"><a href=""></a>  <span class="fu">select_if</span>(<span class="sc">~</span>.x<span class="sc">==</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-6"><a href=""></a>  <span class="fu">names</span>()</span>
-<span id="cb25-7"><a href=""></a>ames_missing <span class="ot">&lt;-</span> ames <span class="sc">%&gt;%</span> <span class="fu">mutate_at</span>(col_with_zero_as_na, na_if, <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-8"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="st">"Alley"</span>, na_if, <span class="st">"No_Alley_Access"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-9"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="st">"Fence"</span>, na_if, <span class="st">"No_Fence"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-10"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"Garage_Cond"</span>, <span class="st">"Garage_Finish"</span>), na_if, <span class="st">"No_Garage"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-11"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"Bsmt_Exposure"</span>, <span class="st">"BsmtFin_Type_1"</span>, <span class="st">"BsmtFin_Type_2"</span>), na_if, <span class="st">"No_Basement"</span>)</span>
-<span id="cb25-12"><a href=""></a></span>
-<span id="cb25-13"><a href=""></a>visdat<span class="sc">::</span><span class="fu">vis_miss</span>(ames_missing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>col_with_zero_as_na <span class="ot">&lt;-</span> ames <span class="sc">|&gt;</span>  </span>
+<span id="cb27-2"><a href=""></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">|&gt;</span>  </span>
+<span id="cb27-3"><a href=""></a>  <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">"_SF|Area|Misc_Val|[Pp]orch$"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb27-4"><a href=""></a>  <span class="fu">summarise_each</span>(min) <span class="sc">|&gt;</span> </span>
+<span id="cb27-5"><a href=""></a>  <span class="fu">select_if</span>(<span class="sc">~</span>.x<span class="sc">==</span><span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb27-6"><a href=""></a>  <span class="fu">names</span>()</span>
+<span id="cb27-7"><a href=""></a>ames_missing <span class="ot">&lt;-</span> ames <span class="sc">%&gt;%</span> <span class="fu">mutate_at</span>(col_with_zero_as_na, na_if, <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb27-8"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="st">"Alley"</span>, na_if, <span class="st">"No_Alley_Access"</span>)  <span class="sc">|&gt;</span>  </span>
+<span id="cb27-9"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="st">"Fence"</span>, na_if, <span class="st">"No_Fence"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb27-10"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"Garage_Cond"</span>, <span class="st">"Garage_Finish"</span>), na_if, <span class="st">"No_Garage"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb27-11"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"Bsmt_Exposure"</span>, <span class="st">"BsmtFin_Type_1"</span>, <span class="st">"BsmtFin_Type_2"</span>), na_if, <span class="st">"No_Basement"</span>)</span>
+<span id="cb27-12"><a href=""></a></span>
+<span id="cb27-13"><a href=""></a>visdat<span class="sc">::</span><span class="fu">vis_miss</span>(ames_missing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/tabnet%20missing%20dataset-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1013,21 +1031,21 @@ Christophe Regouby
 <div class="small">
 <p>Recipe</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>ames_missing <span class="ot">&lt;-</span> ames_missing <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Sale_Price =</span> <span class="fu">log10</span>(Sale_Price))</span>
-<span id="cb26-2"><a href=""></a>ames_missing_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(Sale_Price <span class="sc">~</span> ., <span class="at">data=</span>ames_missing) <span class="sc">|&gt;</span> </span>
-<span id="cb26-3"><a href=""></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a>ames_missing <span class="ot">&lt;-</span> ames_missing <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Sale_Price =</span> <span class="fu">log10</span>(Sale_Price))</span>
+<span id="cb28-2"><a href=""></a>ames_missing_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(Sale_Price <span class="sc">~</span> ., <span class="at">data=</span>ames_missing) <span class="sc">|&gt;</span> </span>
+<span id="cb28-3"><a href=""></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Pre-training</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">library</span>(tabnet)</span>
-<span id="cb27-2"><a href=""></a>ames_missing_pretrain <span class="ot">&lt;-</span> <span class="fu">tabnet_pretrain</span>(</span>
-<span id="cb27-3"><a href=""></a>  ames_missing_rec, <span class="at">data=</span>ames_missing,  <span class="at">epoch=</span><span class="dv">50</span>, <span class="at">cat_emb_dim =</span> <span class="dv">1</span>,</span>
-<span id="cb27-4"><a href=""></a>  <span class="at">valid_split =</span> <span class="fl">0.2</span>, <span class="at">verbose=</span><span class="cn">TRUE</span>, </span>
-<span id="cb27-5"><a href=""></a>  <span class="at">early_stopping_patience =</span> <span class="dv">3</span>L, </span>
-<span id="cb27-6"><a href=""></a>  <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span></span>
-<span id="cb27-7"><a href=""></a>)</span>
-<span id="cb27-8"><a href=""></a><span class="co"># model diagnostic</span></span>
-<span id="cb27-9"><a href=""></a><span class="fu">autoplot</span>(ames_missing_pretrain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">library</span>(tabnet)</span>
+<span id="cb29-2"><a href=""></a>ames_missing_pretrain <span class="ot">&lt;-</span> <span class="fu">tabnet_pretrain</span>(</span>
+<span id="cb29-3"><a href=""></a>  ames_missing_rec, <span class="at">data=</span>ames_missing,  <span class="at">epoch=</span><span class="dv">50</span>, <span class="at">cat_emb_dim =</span> <span class="dv">1</span>,</span>
+<span id="cb29-4"><a href=""></a>  <span class="at">valid_split =</span> <span class="fl">0.2</span>, <span class="at">verbose=</span><span class="cn">TRUE</span>, </span>
+<span id="cb29-5"><a href=""></a>  <span class="at">early_stopping_patience =</span> <span class="dv">3</span>L, </span>
+<span id="cb29-6"><a href=""></a>  <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span></span>
+<span id="cb29-7"><a href=""></a>)</span>
+<span id="cb29-8"><a href=""></a><span class="co"># model diagnostic</span></span>
+<span id="cb29-9"><a href=""></a><span class="fu">autoplot</span>(ames_missing_pretrain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1043,16 +1061,19 @@ Christophe Regouby
 <div class="small">
 <p>Training</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a>ames_missing_fit <span class="ot">&lt;-</span> <span class="fu">tabnet_fit</span>(</span>
-<span id="cb28-2"><a href=""></a>  ames_missing_rec,   <span class="at">data =</span> ames_missing,</span>
-<span id="cb28-3"><a href=""></a>  <span class="at">tabnet_model =</span> ames_missing_pretrain,</span>
-<span id="cb28-4"><a href=""></a>  <span class="at">epoch =</span> <span class="dv">50</span>,  <span class="at">cat_emb_dim =</span> <span class="dv">1</span>,  <span class="at">valid_split =</span> <span class="fl">0.2</span>,</span>
-<span id="cb28-5"><a href=""></a>  <span class="at">verbose =</span> <span class="cn">TRUE</span>,  <span class="at">batch =</span> <span class="dv">2930</span>,</span>
-<span id="cb28-6"><a href=""></a>  <span class="at">early_stopping_patience =</span> <span class="dv">5</span>L,</span>
-<span id="cb28-7"><a href=""></a>  <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span></span>
-<span id="cb28-8"><a href=""></a>)</span>
-<span id="cb28-9"><a href=""></a><span class="co"># model diagnostic</span></span>
-<span id="cb28-10"><a href=""></a><span class="fu">autoplot</span>(ames_missing_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>ames_missing_fit <span class="ot">&lt;-</span> <span class="fu">tabnet_fit</span>(</span>
+<span id="cb30-2"><a href=""></a>  ames_missing_rec,   <span class="at">data =</span> ames_missing,</span>
+<span id="cb30-3"><a href=""></a>  <span class="at">tabnet_model =</span> ames_missing_pretrain,</span>
+<span id="cb30-4"><a href=""></a>  <span class="at">epoch =</span> <span class="dv">50</span>,  <span class="at">cat_emb_dim =</span> <span class="dv">1</span>,  <span class="at">valid_split =</span> <span class="fl">0.2</span>,</span>
+<span id="cb30-5"><a href=""></a>  <span class="at">verbose =</span> <span class="cn">TRUE</span>,  <span class="at">batch =</span> <span class="dv">2930</span>,</span>
+<span id="cb30-6"><a href=""></a>  <span class="at">early_stopping_patience =</span> <span class="dv">5</span>L,</span>
+<span id="cb30-7"><a href=""></a>  <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span></span>
+<span id="cb30-8"><a href=""></a>)</span>
+<span id="cb30-9"><a href=""></a><span class="co"># model diagnostic</span></span>
+<span id="cb30-10"><a href=""></a><span class="fu">autoplot</span>(ames_missing_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1070,58 +1091,82 @@ Christophe Regouby
 <div class="columns">
 <div class="column" style="width:30%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">predict</span>(ames_missing_fit, ames_missing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">predict</span>(ames_missing_fit, ames_missing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2,930 × 1
    .pred
    &lt;dbl&gt;
- 1  3.04
- 2  5.20
- 3  2.53
- 4  3.47
- 5  3.26
- 6  2.96
- 7  3.47
- 8  2.59
- 9  3.20
-10  3.49
+ 1  3.41
+ 2  5.07
+ 3  2.64
+ 4  3.29
+ 5  3.32
+ 6  3.09
+ 7  4.50
+ 8  2.02
+ 9  2.58
+10  2.56
 # ℹ 2,920 more rows</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:70%;">
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a>col_with_missings <span class="ot">&lt;-</span> ames_missing <span class="sc">%&gt;%</span></span>
-<span id="cb31-2"><a href=""></a>  <span class="fu">summarise_all</span>(<span class="sc">~</span><span class="fu">sum</span>(<span class="fu">is.na</span>(.))<span class="sc">&gt;</span><span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb31-3"><a href=""></a>  t <span class="sc">%&gt;%</span> <span class="fu">enframe</span>(<span class="at">name=</span><span class="st">"Variable"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-4"><a href=""></a>  <span class="fu">rename</span>(<span class="at">has_missing=</span><span class="st">"value"</span>)</span>
-<span id="cb31-5"><a href=""></a></span>
-<span id="cb31-6"><a href=""></a>vip_color <span class="ot">&lt;-</span> <span class="cf">function</span>(object, col_has_missing) {</span>
-<span id="cb31-7"><a href=""></a>  vip_data <span class="ot">&lt;-</span> vip<span class="sc">::</span><span class="fu">vip</span>(object)<span class="sc">$</span>data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Importance)</span>
-<span id="cb31-8"><a href=""></a>  vis_miss_plus <span class="ot">&lt;-</span> <span class="fu">left_join</span>(vip_data, col_has_missing , <span class="at">by=</span><span class="st">"Variable"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb31-9"><a href=""></a>    <span class="fu">mutate</span>(<span class="at">Variable=</span><span class="fu">factor</span>(Variable, <span class="at">levels =</span> vip_data<span class="sc">$</span>Variable))</span>
-<span id="cb31-10"><a href=""></a>  vis_miss_plus</span>
-<span id="cb31-11"><a href=""></a>  <span class="fu">ggplot</span>(vis_miss_plus, <span class="fu">aes</span>(<span class="at">x=</span>Variable, <span class="at">y=</span>Importance, <span class="at">fill=</span>has_missing)) <span class="sc">+</span></span>
-<span id="cb31-12"><a href=""></a>    <span class="fu">geom_col</span>() <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">scale_fill_grey</span>()</span>
-<span id="cb31-13"><a href=""></a>}</span>
-<span id="cb31-14"><a href=""></a><span class="fu">vip_color</span>(ames_pretrain, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>metrics <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(rmse, rsq, ccc)</span>
+<span id="cb33-2"><a href=""></a><span class="fu">cbind</span>(ames_missing, <span class="fu">predict</span>(ames_missing_fit, ames_missing)) <span class="sc">|&gt;</span> </span>
+<span id="cb33-3"><a href=""></a>  <span class="fu">metrics</span>(Sale_Price, <span class="at">estimate =</span> .pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 rmse    standard      2.00  
+2 rsq     standard      0.0286
+3 ccc     standard     -0.0150</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="small">
+<p>Variable importance</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="co"># original ames</span></span>
+<span id="cb35-2"><a href=""></a><span class="fu">vip_color</span>(ames_pretrain, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-22-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="fu">vip_color</span>(ames_fit, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-2.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
+</div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="co"># variable importance</span></span>
-<span id="cb32-2"><a href=""></a><span class="fu">vip_color</span>(ames_missing_fit, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="co"># ames with missing values</span></span>
+<span id="cb37-2"><a href=""></a><span class="fu">vip_color</span>(ames_missing_pretrain, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20missing%20vip-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">vip_color</span>(ames_missing_fit, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-2.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1134,9 +1179,9 @@ Christophe Regouby
 <div class="small">
 <p>Explainability</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>ames_missing_explain <span class="ot">&lt;-</span> tabnet<span class="sc">::</span><span class="fu">tabnet_explain</span>(ames_missing_fit, ames_missing)</span>
-<span id="cb33-2"><a href=""></a><span class="co"># variable importance</span></span>
-<span id="cb33-3"><a href=""></a><span class="fu">autoplot</span>(ames_missing_explain, <span class="at">quantile =</span> <span class="fl">0.99</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a>ames_missing_explain <span class="ot">&lt;-</span> tabnet<span class="sc">::</span><span class="fu">tabnet_explain</span>(ames_missing_fit, ames_missing)</span>
+<span id="cb39-2"><a href=""></a><span class="co"># variable importance</span></span>
+<span id="cb39-3"><a href=""></a><span class="fu">autoplot</span>(ames_missing_explain, <span class="at">quantile =</span> <span class="fl">0.99</span>, <span class="at">type=</span><span class="st">"step"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1159,9 +1204,9 @@ Christophe Regouby
 <h2>Your turn, exercise 03</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="co"># already installed in the Posit Cloud work space</span></span>
-<span id="cb34-2"><a href=""></a><span class="co"># install.packages("devtools")</span></span>
-<span id="cb34-3"><a href=""></a><span class="co"># devtools::install_github("rstats-wtf/wtfdbg")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="co"># already installed in the Posit Cloud work space</span></span>
+<span id="cb40-2"><a href=""></a><span class="co"># install.packages("devtools")</span></span>
+<span id="cb40-3"><a href=""></a><span class="co"># devtools::install_github("rstats-wtf/wtfdbg")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="question">
@@ -1169,7 +1214,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_f666b0dc" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_5061f3c9" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
