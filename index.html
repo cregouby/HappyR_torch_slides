@@ -463,10 +463,22 @@ Christophe Regouby
 
 </section>
 <section id="section" class="slide level2">
-<h2><a href="https://torch.mlverse.org/"><img data-src="images/clipboard-604787592.png"></a></h2>
+<h2><img data-src="images/clipboard-3520749809.png"><img data-src="images/clipboard-4058077362.png"></h2>
+</section>
+<section id="section-1" class="slide level2">
+<h2><img data-src="images/clipboard-154709511.png"></h2>
 <div class="footer">
-
+<p>source https://xkcd.com/1987/</p>
 </div>
+</section>
+<section id="section-2" class="slide level2">
+<h2><img data-src="images/clipboard-1267880778.png"></h2>
+<div class="footer">
+<p>source https://xkcd.com/1987/</p>
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2><a href="https://torch.mlverse.org/"><img data-src="images/clipboard-604787592.png"></a></h2>
 </section>
 <section id="torch-pour-r-pourquoi-réinventer-leau-chaude" class="slide level2">
 <h2>{torch} pour R : pourquoi réinventer l’eau chaude?</h2>
@@ -481,12 +493,41 @@ Christophe Regouby
 <p><img data-src="images/clipboard-872398520.png"></p></li>
 </ul>
 </section>
+<section id="la-pile-logicielle" class="slide level2">
+<h2>La pile logicielle</h2>
+</section>
+<section id="la-manipulation-de-tenseurs" class="slide level2">
+<h2><img data-src="images/clipboard-1623978672.png">La manipulation de tenseurs</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/clipboard-1496841808.png"></p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>torch_tensor
+(1,.,.) = 
+  0.4895  0.2836  0.1346  0.5552
+  0.6492  0.3125  0.1925  0.1646
+  0.4792  0.4746  0.9250  0.9431
+
+(2,.,.) = 
+  0.6607  0.5713  0.0553  0.4844
+  0.0262  0.5699  0.8041  0.0284
+  0.6393  0.4139  0.5009  0.2818
+[ CPUFloatType{2,3,4} ]</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+</section>
 <section id="à-vous-de-jouer-exercise-00" class="slide level2">
 <h2>À vous de jouer, exercise 00</h2>
 <p>Installations : `00_installation.R``</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_502cebc4" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_99bf9d68" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -520,7 +561,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_10d81e62" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_de821d31" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -601,9 +642,9 @@ Christophe Regouby
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">Sys.setLanguage</span>(<span class="at">lang =</span> <span class="st">"fr"</span>)</span>
-<span id="cb1-2"><a href=""></a><span class="fu">library</span>(torchvision)</span>
-<span id="cb1-3"><a href=""></a><span class="fu">transform_normalize</span>(torch<span class="sc">::</span><span class="fu">torch_rand</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>)), <span class="dv">3</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">Sys.setLanguage</span>(<span class="at">lang =</span> <span class="st">"fr"</span>)</span>
+<span id="cb2-2"><a href=""></a><span class="fu">library</span>(torchvision)</span>
+<span id="cb2-3"><a href=""></a><span class="fu">transform_normalize</span>(torch<span class="sc">::</span><span class="fu">torch_rand</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>)), <span class="dv">3</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <img data-src="images/clipboard-3331382707.png" class="r-stretch"></section>
@@ -612,10 +653,10 @@ Christophe Regouby
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">Sys.setenv</span>(<span class="at">LANGUAGE=</span><span class="st">"fr"</span>)</span>
-<span id="cb2-2"><a href=""></a><span class="fu">library</span>(torchvision.fr)</span>
-<span id="cb2-3"><a href=""></a><span class="fu">library</span>(torchvision)</span>
-<span id="cb2-4"><a href=""></a>?transform_normalize</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">Sys.setenv</span>(<span class="at">LANGUAGE=</span><span class="st">"fr"</span>)</span>
+<span id="cb3-2"><a href=""></a><span class="fu">library</span>(torchvision.fr)</span>
+<span id="cb3-3"><a href=""></a><span class="fu">library</span>(torchvision)</span>
+<span id="cb3-4"><a href=""></a>?transform_normalize</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <p><img data-src="images/clipboard-1958985727.png"></p>
@@ -630,7 +671,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_dec1abaa" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_a4702d72" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -645,16 +686,16 @@ Christophe Regouby
 <h1>GPT2 avec R</h1>
 
 </section>
-<section id="section-1" class="slide level2">
+<section id="section-5" class="slide level2">
 <h2></h2>
 </section>
 <section id="your-turn-exercise-03" class="slide level2">
 <h2>Your turn, exercise 03</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># already installed in the Posit Cloud work space</span></span>
-<span id="cb3-2"><a href=""></a><span class="co"># install.packages("devtools")</span></span>
-<span id="cb3-3"><a href=""></a><span class="co"># devtools::install_github("rstats-wtf/wtfdbg")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># already installed in the Posit Cloud work space</span></span>
+<span id="cb4-2"><a href=""></a><span class="co"># install.packages("devtools")</span></span>
+<span id="cb4-3"><a href=""></a><span class="co"># devtools::install_github("rstats-wtf/wtfdbg")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="question">
@@ -662,7 +703,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_e8edc454" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_d3aa9e94" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>

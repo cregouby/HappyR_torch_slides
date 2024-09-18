@@ -93,9 +93,21 @@ fa_fill <- "#C7B41D"
 
 # {torch}
 
-## [![](images/clipboard-604787592.png)](https://torch.mlverse.org/)
+## ![](images/clipboard-3520749809.png)![](images/clipboard-4058077362.png)
+
+## ![](images/clipboard-154709511.png)
+
 ::: footer
+source https://xkcd.com/1987/
 :::
+
+## ![](images/clipboard-1267880778.png)
+
+::: footer
+source https://xkcd.com/1987/
+:::
+
+## [![](images/clipboard-604787592.png)](https://torch.mlverse.org/)
 
 ## {torch} pour R : pourquoi réinventer l'eau chaude?
 
@@ -114,6 +126,26 @@ fa_fill <- "#C7B41D"
 -   plein de possibilités de contributions
 
     ![](images/clipboard-872398520.png)
+
+## La pile logicielle
+
+## ![](images/clipboard-1623978672.png)La manipulation de tenseurs
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-1496841808.png)
+:::
+
+::: {.column width="50%"}
+```{r}
+library(torch)
+x <- torch_rand(2, 3, 4)
+x
+```
+:::
+:::::
+
+## 
 
 ## À vous de jouer, exercise 00
 
@@ -191,7 +223,7 @@ countdown(
 
 ::: small
 | paquet | les messages | l'aide | les vignettes |
-|----------------|-------------------|----------------------|----------------|
+|------------------|------------------|--------------------|------------------|
 | {torch} | `r fontawesome::fa("check", fill = fa_fill)`[^1] |  |  |
 | {torchvision} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/torchvision.fr](https://github.com/cregouby/torchvision.fr) |  |
 | {tabnet} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/tabnet.fr](https://github.com/cregouby/tabnet.fr) |  |
