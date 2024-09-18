@@ -2,7 +2,7 @@
 title: "HappyR {torch} {tabnet} and friends"
 author: "Christophe Regouby"
 footer:  "[{torch} {tabnet} and friends](https://github.com/cregouby/happyR-torch-slides)"
-logo: "img/wtf-logo-square-transparent.png"
+logo: "images/mlverse.png"
 format: 
   revealjs: 
     theme: [night, slides.scss]
@@ -21,9 +21,13 @@ Getting started
 
 {torch}
 
+mlverse
+
 {tabnet}
 
-mlverse
+{tabnet} pour la regression avec valeurs manquantes
+
+{tabnet} pour la classification hierarchique
 
 GPT2 avec R
 
@@ -31,9 +35,13 @@ Fine-Tuning de GPT2 en français avec un LORA
 
 Un classifieur d'images avec ResNext50 fine-tuning
 
-Une tête de classification hiérarchique à {tabnet}
-
 # Getting started
+
+------------------------------------------------------------------------
+
+![](images/clipboard-1733121037.png)
+
+------------------------------------------------------------------------
 
 ```{r}
 library(countdown)
@@ -78,14 +86,38 @@ fa_fill <- "#C7B41D"
 
 -   Tutoriel des RencontresR 2024 par Tristan Mary-Huard : <https://stateofther.github.io/finistR2022/autodiff.html>
 
+-   le blog AI de Posit (avec la catégorie torch): <https://blogs.rstudio.com/ai/#category:Torch>
+
 ::: footer
 :::
 
 # {torch}
 
-## **...**
+## [![](images/clipboard-604787592.png)](https://torch.mlverse.org/)
+::: footer
+:::
 
-## Your turn, exercise 00
+## {torch} pour R : pourquoi réinventer l'eau chaude?
+
+-   facilité d'installation CPU, GPU, MPS, ...
+
+-   frugalité d'installation
+
+-   confort de RStudio pour développer, déverminer, visualiser
+
+-   confort de R pour l'indexation à 1
+
+-   la qualité des articles de blog de Posit AI blog
+
+-   l'écosystème des packages
+
+-   plein de possibilités de contributions
+
+    ![](images/clipboard-872398520.png)
+
+## À vous de jouer, exercise 00
+
+Installations : \`00_installation.R\`\`
 
 ```{r}
 countdown(
@@ -151,29 +183,56 @@ countdown(
 
 # mlverse
 
-## Un univers de packages dédiés à {torch}
+## Un univers de 📦 dédiés à {torch}
 
 ------------------------------------------------------------------------
 
-## Un univers de packages en français
+## Un univers de 📦 en français
 
 ::: small
-| paquet | les messages[^1] | l'aide |
-|----------------|--------------------------|------------------------------|
-| {torch} | `r fontawesome::fa("check", fill = fa_fill)` |  |
-| {torchvision} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/torchvision.fr](https://github.com/cregouby/torchvision.fr) |
-| {tabnet} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/tabnet.fr](https://github.com/cregouby/tabnet.fr) |
-| {luz} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/luz.fr](https://github.com/cregouby/luz.fr) |
-| {hfhub} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/hfhub.fr](https://github.com/cregouby/hfhub.fr) |
-| {tok} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/tok.fr](https://github.com/cregouby/tok.fr) |
-| {safetensors} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/safetensors.fr](https://github.com/cregouby/safetensors.fr) |
+| paquet | les messages | l'aide | les vignettes |
+|----------------|-------------------|----------------------|----------------|
+| {torch} | `r fontawesome::fa("check", fill = fa_fill)`[^1] |  |  |
+| {torchvision} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/torchvision.fr](https://github.com/cregouby/torchvision.fr) |  |
+| {tabnet} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/tabnet.fr](https://github.com/cregouby/tabnet.fr) |  |
+| {luz} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/luz.fr](https://github.com/cregouby/luz.fr) |  |
+| {hfhub} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/hfhub.fr](https://github.com/cregouby/hfhub.fr) |  |
+| {tok} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/tok.fr](https://github.com/cregouby/tok.fr) |  |
+| {safetensors} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/safetensors.fr](https://github.com/cregouby/safetensors.fr) |  |
 
-: Les packages disponibles en français
+: Les paquets disponibles en français
 :::
 
-[^1]: P.R en cours pour {torch}, {torchvision}, {hfhub}, {luz}, {tok}, {safetensors}
+[^1]: P.R en cours
 
-## 
+------------------------------------------------------------------------
+
+```{r, eval=FALSE, echo=TRUE}
+Sys.setLanguage(lang = "fr")
+library(torchvision)
+transform_normalize(torch::torch_rand(c(3,5,5)), 3, 0)
+```
+
+![](images/clipboard-3331382707.png)
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="40%"}
+```{r, echo=TRUE}
+Sys.setenv(LANGUAGE="fr")
+library(torchvision.fr)
+library(torchvision)
+?transform_normalize
+```
+:::
+
+::: {.column width="60%"}
+![](images/clipboard-1958985727.png)
+:::
+:::::
+
+------------------------------------------------------------------------
 
 Your turn, exercise 02
 

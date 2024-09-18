@@ -410,12 +410,13 @@ Christophe Regouby
 <h1>Agenda</h1>
 <p>Getting started</p>
 <p>{torch}</p>
-<p>{tabnet}</p>
 <p>mlverse</p>
+<p>{tabnet}</p>
+<p>{tabnet} pour la regression avec valeurs manquantes</p>
+<p>{tabnet} pour la classification hierarchique</p>
 <p>GPT2 avec R</p>
 <p>Fine-Tuning de GPT2 en français avec un LORA</p>
 <p>Un classifieur d’images avec ResNext50 fine-tuning</p>
-<p>Une tête de classification hiérarchique à {tabnet}</p>
 </section>
 
 <section>
@@ -423,6 +424,10 @@ Christophe Regouby
 <h1>Getting started</h1>
 
 </section>
+<section class="slide level2">
+
+
+<img data-src="images/clipboard-1733121037.png" class="r-stretch"></section>
 <section id="licensing" class="slide level2">
 <h2>Licensing</h2>
 <p><br> <br> This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> (CC BY-SA4.0).</p>
@@ -446,6 +451,7 @@ Christophe Regouby
 <li><p>Deep-learning avec torch <em>Aide-mémoire</em> <br> <a href="https://github.com/rstudio/cheatsheets/blob/main/translations/french/torch_fr.pdf" class="uri">https://github.com/rstudio/cheatsheets/blob/main/translations/french/torch_fr.pdf</a></p></li>
 <li><p>Tutoriel de UseR2021! <a href="https://github.com/mlverse/torch-learnr" class="uri">https://github.com/mlverse/torch-learnr</a></p></li>
 <li><p>Tutoriel des RencontresR 2024 par Tristan Mary-Huard : <a href="https://stateofther.github.io/finistR2022/autodiff.html" class="uri">https://stateofther.github.io/finistR2022/autodiff.html</a></p></li>
+<li><p>le blog AI de Posit (avec la catégorie torch): <a href="https://blogs.rstudio.com/ai/#category:Torch" class="uri">https://blogs.rstudio.com/ai/#category:Torch</a></p></li>
 </ul>
 <div class="footer">
 
@@ -457,13 +463,30 @@ Christophe Regouby
 
 </section>
 <section id="section" class="slide level2">
-<h2><strong>…</strong></h2>
+<h2><a href="https://torch.mlverse.org/"><img data-src="images/clipboard-604787592.png"></a></h2>
+<div class="footer">
+
+</div>
 </section>
-<section id="your-turn-exercise-00" class="slide level2">
-<h2>Your turn, exercise 00</h2>
+<section id="torch-pour-r-pourquoi-réinventer-leau-chaude" class="slide level2">
+<h2>{torch} pour R : pourquoi réinventer l’eau chaude?</h2>
+<ul>
+<li><p>facilité d’installation CPU, GPU, MPS, …</p></li>
+<li><p>frugalité d’installation</p></li>
+<li><p>confort de RStudio pour développer, déverminer, visualiser</p></li>
+<li><p>confort de R pour l’indexation à 1</p></li>
+<li><p>la qualité des articles de blog de Posit AI blog</p></li>
+<li><p>l’écosystème des packages</p></li>
+<li><p>plein de possibilités de contributions</p>
+<p><img data-src="images/clipboard-872398520.png"></p></li>
+</ul>
+</section>
+<section id="à-vous-de-jouer-exercise-00" class="slide level2">
+<h2>À vous de jouer, exercise 00</h2>
+<p>Installations : `00_installation.R``</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_3bb07ead" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_502cebc4" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -497,7 +520,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_2b2224ee" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_10d81e62" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -512,63 +535,94 @@ Christophe Regouby
 <h1>mlverse</h1>
 
 </section>
-<section id="un-univers-de-packages-dédiés-à-torch" class="slide level2">
-<h2>Un univers de packages dédiés à {torch}</h2>
+<section id="un-univers-de-dédiés-à-torch" class="slide level2">
+<h2>Un univers de 📦 dédiés à {torch}</h2>
 </section>
-<section id="un-univers-de-packages-en-français" class="slide level2">
-<h2>Un univers de packages en français</h2>
+<section id="un-univers-de-en-français" class="slide level2">
+<h2>Un univers de 📦 en français</h2>
 <div class="small">
 <table class="caption-top">
-<caption>Les packages disponibles en français</caption>
+<caption>Les paquets disponibles en français</caption>
 <thead>
 <tr class="header">
 <th>paquet</th>
-<th>les messages<sup>1</sup></th>
+<th>les messages</th>
 <th>l’aide</th>
+<th>les vignettes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>{torch}</td>
-<td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></td>
+<td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg><sup>1</sup></td>
+<td></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>{torchvision}</td>
 <td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></td>
 <td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> <a href="https://github.com/cregouby/torchvision.fr">cregouby/torchvision.fr</a></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>{tabnet}</td>
 <td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></td>
 <td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> <a href="https://github.com/cregouby/tabnet.fr">cregouby/tabnet.fr</a></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>{luz}</td>
 <td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></td>
 <td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> <a href="https://github.com/cregouby/luz.fr">cregouby/luz.fr</a></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>{hfhub}</td>
 <td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></td>
 <td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> <a href="https://github.com/cregouby/hfhub.fr">cregouby/hfhub.fr</a></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>{tok}</td>
 <td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></td>
 <td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> <a href="https://github.com/cregouby/tok.fr">cregouby/tok.fr</a></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>{safetensors}</td>
 <td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></td>
 <td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> <a href="https://github.com/cregouby/safetensors.fr">cregouby/safetensors.fr</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>P.R en cours</p></li></ol></aside></section>
-<section id="section-1" class="slide level2">
-<h2></h2>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">Sys.setLanguage</span>(<span class="at">lang =</span> <span class="st">"fr"</span>)</span>
+<span id="cb1-2"><a href=""></a><span class="fu">library</span>(torchvision)</span>
+<span id="cb1-3"><a href=""></a><span class="fu">transform_normalize</span>(torch<span class="sc">::</span><span class="fu">torch_rand</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>)), <span class="dv">3</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="images/clipboard-3331382707.png" class="r-stretch"></section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">Sys.setenv</span>(<span class="at">LANGUAGE=</span><span class="st">"fr"</span>)</span>
+<span id="cb2-2"><a href=""></a><span class="fu">library</span>(torchvision.fr)</span>
+<span id="cb2-3"><a href=""></a><span class="fu">library</span>(torchvision)</span>
+<span id="cb2-4"><a href=""></a>?transform_normalize</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<p><img data-src="images/clipboard-1958985727.png"></p>
+</div></div>
+</section>
+<section class="slide level2">
+
 <p>Your turn, exercise 02</p>
 <p><br></p>
 <div class="question">
@@ -576,7 +630,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_80a38cfe" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_dec1abaa" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -591,16 +645,16 @@ Christophe Regouby
 <h1>GPT2 avec R</h1>
 
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 </section>
 <section id="your-turn-exercise-03" class="slide level2">
 <h2>Your turn, exercise 03</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># already installed in the Posit Cloud work space</span></span>
-<span id="cb1-2"><a href=""></a><span class="co"># install.packages("devtools")</span></span>
-<span id="cb1-3"><a href=""></a><span class="co"># devtools::install_github("rstats-wtf/wtfdbg")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># already installed in the Posit Cloud work space</span></span>
+<span id="cb3-2"><a href=""></a><span class="co"># install.packages("devtools")</span></span>
+<span id="cb3-3"><a href=""></a><span class="co"># devtools::install_github("rstats-wtf/wtfdbg")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="question">
@@ -608,7 +662,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_f43ea5b6" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_e8edc454" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -664,7 +718,7 @@ Christophe Regouby
 <p><a href="https://giphy.com/gifs/TreehouseDirect-max-and-ruby-maxandruby-maxruby-S3qtrEqiU5OuwAtg5Z" class="uri">https://giphy.com/gifs/TreehouseDirect-max-and-ruby-maxandruby-maxruby-S3qtrEqiU5OuwAtg5Z</a></p>
 </div>
 <div class="quarto-auto-generated-content">
-<p><img src="img/wtf-logo-square-transparent.png" class="slide-logo"></p>
+<p><img src="images/mlverse.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://github.com/cregouby/happyR-torch-slides">{torch} {tabnet} and friends</a></p>
 </div>
