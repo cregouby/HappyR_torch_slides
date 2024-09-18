@@ -109,8 +109,16 @@ source https://xkcd.com/1987/
 
 ## [![](images/clipboard-604787592.png)](https://torch.mlverse.org/)
 
-## {torch} pour R : pourquoi réinventer l'eau chaude?
+::: footer
+et {torchdatasets}, {tok}, {hfhub}, {safetensors}, {tabnet}, {ETM}, {tft}, {innsight}, {brulee},...
+:::
 
+![](images/clipboard-419128090.png)
+
+## {torch} : pourquoi réinventer l'eau chaude?
+
+::: small
+```         
 -   facilité d'installation CPU, GPU, MPS, ...
 
 -   frugalité d'installation
@@ -126,10 +134,40 @@ source https://xkcd.com/1987/
 -   plein de possibilités de contributions
 
     ![](images/clipboard-872398520.png)
+```
+:::
+
+## Installation
+
+Nominale
+
+![](images/clipboard-1225111648.png)
+
+Avancée
+
+![](images/clipboard-2395058596.png)
+
+::: footer
+https://torch.mlverse.org/docs/articles/installation.html
+:::
+
+------------------------------------------------------------------------
+
+Expert : air-gap server
+
+![](images/clipboard-3643950338.png)
+
+Expert : déverminage 31b8e172-b470-440e-83d8-e6b185028602:dAB5AHAAZQA6AE8AUQBCAGoAQQBHAEkAQQBOAHcAQQA1AEEARwBVAEEATgBnAEIAagBBAEMAMABBAE8AQQBBADQAQQBEAGcAQQBaAEEAQQB0AEEARABRAEEAWQBRAEEAdwBBAEcAVQBBAEwAUQBBADUAQQBHAE0AQQBPAFEAQgBpAEEAQwAwAEEAWgBnAEIAbQBBAEQAWQBBAE4AdwBCAGoAQQBHAFEAQQBOAEEAQQB3AEEARABRAEEAWgBRAEEAMgBBAEQAQQBBAAoAcABvAHMAaQB0AGkAbwBuADoATQB3AEEAMQBBAEQAZwBBAE4AQQBBAD0ACgBwAHIAZQBmAGkAeAA6AAoAcwBvAHUAcgBjAGUAOgBZAEEAQgBnAEEARwBBAEEAZQB3AEIANwBBAEgASQBBAGYAUQBCADkAQQBBAG8AQQBVAHcAQgA1AEEASABNAEEATABnAEIAegBBAEcAVQBBAGQAQQBCAGwAQQBHADQAQQBkAGcAQQBvAEEARgBRAEEAVAB3AEIAUwBBAEUATQBBAFMAQQBCAGYAQQBFAGsAQQBUAGcAQgBUAEEARgBRAEEAUQBRAEIATQBBAEUAdwBBAFgAdwBCAEUAQQBFAFUAQQBRAGcAQgBWAEEARQBjAEEAUABRAEEAaQBBAEQARQBBAEkAZwBBAHAAQQBBAG8AQQBQAHcAQgBwAEEARwA0AEEAYwB3AEIAMABBAEcARQBBAGIAQQBCAHMAQQBGADgAQQBkAEEAQgB2AEEASABJAEEAWQB3AEIAbwBBAEMAZwBBAEsAUQBBAEsAQQBHAEEAQQBZAEEAQgBnAEEAQQA9AD0ACgBzAHUAZgBmAGkAeAA6AA==:31b8e172-b470-440e-83d8-e6b185028602
+
+::: footer
+https://torch.mlverse.org/docs/articles/installation.html
+:::
 
 ## La pile logicielle
 
-## ![](images/clipboard-1623978672.png)La manipulation de tenseurs
+![](images/clipboard-1623978672.png)
+
+## La manipulation de tenseurs
 
 ::::: columns
 ::: {.column width="50%"}
@@ -137,17 +175,34 @@ source https://xkcd.com/1987/
 :::
 
 ::: {.column width="50%"}
-```{r}
+```{r, echo=TRUE}
 library(torch)
-x <- torch_rand(2, 3, 4)
-x
+tt <- torch_rand(2, 3, 4)
+tt
 ```
 :::
 :::::
 
-## 
+------------------------------------------------------------------------
 
-## À vous de jouer, exercise 00
+:::::: columns
+::: {.column width="50%"}
+![](images/clipboard-4006123911.png)
+:::
+
+:::: {.column width="50%"}
+::: small
+```{r, echo=TRUE}
+tt[, 2:N, ]
+tt[1, 2:N, ]
+tt[1:1, 2:N, ]
+torch_squeeze(tt[1:1, 2:N, ])
+```
+:::
+::::
+::::::
+
+## À vous de jouer, exercise 01
 
 Installations : \`00_installation.R\`\`
 
@@ -167,35 +222,13 @@ countdown(
   )
 ```
 
-## But what if
+------------------------------------------------------------------------
 
-![](img/swat-bugs.gif)
-
-::: footer
-<https://giphy.com/gifs/TreehouseDirect-agent-binky-8UabbehIqkR0akDt1y>
-:::
-
-# {tabnet}
-
-## Your turn, exercise 01
-
-::: question
-Complete 01_exercise to practice debugging your own code.
-:::
-
-::: small
-Check out the `README.md` for some getting started tips!
-
--   `01_debugging_spartan.R` (directions to explore without suggested code)
-
--   `01_debugging_comfy.R` (directions to explore with suggested code)
-
--   `01_debugging_solution.R` (directions to explore with code solutions)
-:::
+Exercice : \`01_exercice.R\`\`
 
 ```{r}
 countdown(
-  minutes = 15,
+  minutes = 5,
   # Fanfare when it's over
   play_sound = TRUE,
   # Set timer theme to match solarized colors
@@ -209,10 +242,6 @@ countdown(
   )
 ```
 
-::: footer
-<https://github.com/rstats-wtf/wtf-debugging>
-:::
-
 # mlverse
 
 ## Un univers de 📦 dédiés à {torch}
@@ -223,7 +252,7 @@ countdown(
 
 ::: small
 | paquet | les messages | l'aide | les vignettes |
-|------------------|------------------|--------------------|------------------|
+|------------------|------------------|-------------------|------------------|
 | {torch} | `r fontawesome::fa("check", fill = fa_fill)`[^1] |  |  |
 | {torchvision} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/torchvision.fr](https://github.com/cregouby/torchvision.fr) |  |
 | {tabnet} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/tabnet.fr](https://github.com/cregouby/tabnet.fr) |  |
@@ -264,15 +293,121 @@ library(torchvision)
 :::
 :::::
 
-------------------------------------------------------------------------
+# {tabnet}
 
-Your turn, exercise 02
+## ![](images/clipboard-534052795.png)
 
-<br>
+v0.6.0 is on CRAN
+
+## Fonctionnement
+
+![](images/clipboard-2272997678.png)
+
+## Usage intégré dans tidymodels
+
+::: small
+ Dataset
+```{r}
+#| label: "dataset"
+#| echo: true
+library(tidymodels, quietly = TRUE)
+data("ames", package = "modeldata")
+str(ames)
+```
+
+
+ Recipe
+```{r}
+#| label: "tabnet recipe"
+#| echo: true
+ames <- ames |> mutate(Sale_Price = log10(Sale_Price))
+ames_rec <- recipe(Sale_Price ~ ., data=ames) |> 
+  step_normalize(all_numeric(), -all_outcomes()) 
+```
+
+:::
+
+---
+
+::: small
+
+ Pre-training
+```{r}
+#| label: "tabnet pretrain"
+#| cache: true
+#| echo: true
+library(tabnet)
+ames_pretrain <- tabnet_pretrain(
+  ames_rec, data=ames,  epoch=50, cat_emb_dim = 1,
+  valid_split = 0.2, verbose=TRUE, 
+  early_stopping_patience = 3L, 
+  early_stopping_tolerance = 1e-4
+)
+# model diagnostic
+autoplot(ames_pretrain)
+```
+
+:::
+
+---
+
+::: small
+
+Training
+
+```{r}
+#| label: "tabnet fit"
+#| cache: true
+#| echo: true
+ames_fit <- tabnet_fit(ames_rec, data=ames,  tabnet_model = ames_pretrain, 
+                       epoch=50, cat_emb_dim = 1, clip_value = 1e2,
+                       valid_split = 0.2, verbose=TRUE, batch=2930, 
+                       early_stopping_patience = 5L, 
+                       early_stopping_tolerance = 1e-4)
+# model diagnostic
+autoplot(ames_fit)
+```
+
+:::
+
+---
+
+::: small
+
+Prediction
+
+```{r}
+#| label: "tabnet predict"
+#| echo: true
+predict(ames_fit, ames) 
+# variable importance
+vip::vip(ames_fit)
+```
+
+:::
+
+---
+
+::: small
+
+Explainability
+
+```{r}
+#| label: "tabnet explain"
+#| echo: true
+ames_explain <- tabnet_explain(ames_fit, ames)
+# variable importance
+autoplot(ames_explain, quantile = 0.99)
+```
+
+:::
+
+## À vous de jouer, exercise 02
 
 ::: question
-Complete 02_exercise to practice debugging a slightly different version of your own code, using features from the RStudio IDE.
+Complete 02_exercise to practice tabnet model training.
 :::
+
 
 ```{r}
 countdown(
