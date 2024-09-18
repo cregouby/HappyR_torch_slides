@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.6.5">
 
   <meta name="author" content="Christophe Regouby">
-  <title>HappyR {torch} {tabnet} and friends</title>
+  <title>{torch} {tabnet} and friends</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -395,7 +395,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">HappyR {torch} {tabnet} and friends</h1>
+  <h1 class="title">{torch} {tabnet} and friends</h1>
+  <p class="subtitle">Atelier HappyR, sept 2024</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -544,14 +545,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.3313  0.1480  0.8700  0.9330
-  0.5595  0.2275  0.9225  0.7896
-  0.0575  0.8199  0.1553  0.9001
+  0.9788  0.3144  0.0270  0.0979
+  0.3033  0.6254  0.0730  0.6808
+  0.2520  0.7676  0.3660  0.1535
 
 (2,.,.) = 
-  0.0811  0.4738  0.1903  0.4775
-  0.9689  0.7435  0.1756  0.1319
-  0.8320  0.5453  0.4046  0.3991
+  0.4270  0.8957  0.8510  0.4115
+  0.3044  0.5833  0.3121  0.6338
+  0.3446  0.2027  0.7394  0.1579
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -569,34 +570,34 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.5595  0.2275  0.9225  0.7896
-  0.0575  0.8199  0.1553  0.9001
+  0.3033  0.6254  0.0730  0.6808
+  0.2520  0.7676  0.3660  0.1535
 
 (2,.,.) = 
-  0.9689  0.7435  0.1756  0.1319
-  0.8320  0.5453  0.4046  0.3991
+  0.3044  0.5833  0.3121  0.6338
+  0.3446  0.2027  0.7394  0.1579
 [ CPUFloatType{2,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>tt[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.5595  0.2275  0.9225  0.7896
- 0.0575  0.8199  0.1553  0.9001
+ 0.3033  0.6254  0.0730  0.6808
+ 0.2520  0.7676  0.3660  0.1535
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.5595  0.2275  0.9225  0.7896
-  0.0575  0.8199  0.1553  0.9001
+  0.3033  0.6254  0.0730  0.6808
+  0.2520  0.7676  0.3660  0.1535
 [ CPUFloatType{1,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">torch_squeeze</span>(tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.5595  0.2275  0.9225  0.7896
- 0.0575  0.8199  0.1553  0.9001
+ 0.3033  0.6254  0.0730  0.6808
+ 0.2520  0.7676  0.3660  0.1535
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 </div>
@@ -605,10 +606,10 @@ Christophe Regouby
 </section>
 <section id="à-vous-de-jouer-exercise-01" class="slide level2">
 <h2>À vous de jouer, exercise 01</h2>
-<p>Installations : `00_installation.R``</p>
+<p>Installations : `00_installation.R`</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_25305c43" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_c8169a14" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -617,10 +618,10 @@ Christophe Regouby
 </section>
 <section class="slide level2">
 
-<p>Exercice : `01_exercice.R``</p>
+<p>Exercice : `01_exercice.R`</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_80266514" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_b75d8ff9" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -957,7 +958,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_b1c268b0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_9251a7f1" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1008,7 +1009,7 @@ Christophe Regouby
 <span id="cb27-4"><a href=""></a>  <span class="fu">summarise_each</span>(min) <span class="sc">|&gt;</span> </span>
 <span id="cb27-5"><a href=""></a>  <span class="fu">select_if</span>(<span class="sc">~</span>.x<span class="sc">==</span><span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb27-6"><a href=""></a>  <span class="fu">names</span>()</span>
-<span id="cb27-7"><a href=""></a>ames_missing <span class="ot">&lt;-</span> ames <span class="sc">%&gt;%</span> <span class="fu">mutate_at</span>(col_with_zero_as_na, na_if, <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb27-7"><a href=""></a>ames_missing <span class="ot">&lt;-</span> ames <span class="sc">|&gt;</span><span class="fu">mutate_at</span>(col_with_zero_as_na, na_if, <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb27-8"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="st">"Alley"</span>, na_if, <span class="st">"No_Alley_Access"</span>)  <span class="sc">|&gt;</span>  </span>
 <span id="cb27-9"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="st">"Fence"</span>, na_if, <span class="st">"No_Fence"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb27-10"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"Garage_Cond"</span>, <span class="st">"Garage_Finish"</span>), na_if, <span class="st">"No_Garage"</span>) <span class="sc">|&gt;</span> </span>
@@ -1193,89 +1194,174 @@ Christophe Regouby
 </div>
 </section></section>
 <section>
+<section id="tabnet-avec-un-outcome-hierarchique" class="title-slide slide level1 center">
+<h1>{tabnet} avec un <code>outcome()</code> hierarchique</h1>
+
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>{tabnet} admet des variable à prédire catégorielle, multi-label multi-class.</p></li>
+<li><p>et si on pouvait mettre une contrainte entre les classes des différents labels ?</p></li>
+<li><p>nouveauté de la 0.5.0</p></li>
+<li><p>la variable de sortie doit être de type <code>data.tree::as.Node()</code></p></li>
+</ul>
+</section>
+<section id="exemple-avec-starwars" class="slide level2">
+<h2>Exemple avec <code>starwars</code></h2>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="fu">library</span>(data.tree)</span>
+<span id="cb40-2"><a href=""></a><span class="fu">data</span>(starwars, <span class="at">package =</span> <span class="st">"dplyr"</span>)</span>
+<span id="cb40-3"><a href=""></a><span class="fu">head</span>(starwars, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 14
+  name      height  mass hair_color skin_color eye_color birth_year sex   gender
+  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1 Luke Sky…    172    77 blond      fair       blue            19   male  mascu…
+2 C-3PO        167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
+3 R2-D2         96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
+4 Darth Va…    202   136 none       white      yellow          41.9 male  mascu…
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="small">
+<p>On construit la variable de sortie comme un chaîne avec des séparateurs <code>/</code> dans une variable <code>"pathString"</code> (erronné)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a>starwars_tree <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> </span>
+<span id="cb42-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pathString =</span> <span class="fu">paste</span>(<span class="st">"StarWars_characters"</span>, species, sex, <span class="st">`</span><span class="at">name</span><span class="st">`</span>, <span class="at">sep =</span> <span class="st">"/"</span>))  <span class="sc">|&gt;</span> </span>
+<span id="cb42-3"><a href=""></a>  <span class="fu">as.Node</span>()</span>
+<span id="cb42-4"><a href=""></a><span class="fu">print</span>(starwars_tree, <span class="st">"name"</span>,<span class="st">"height"</span>, <span class="st">"mass"</span>, <span class="st">"eye_color"</span>, <span class="at">limit =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                           levelName                    name height mass
+1  StarWars_characters                   StarWars_characters      4   NA
+2   ¦--Human                                           Human      3   NA
+3   ¦   ¦--male                                         male      2   NA
+4   ¦   ¦   ¦--Luke Skywalker                 Luke Skywalker      1   77
+5   ¦   ¦   ¦--Darth Vader                       Darth Vader      1  136
+6   ¦   ¦   ¦--Owen Lars                           Owen Lars      1  120
+7   ¦   ¦   ¦--Biggs Darklighter           Biggs Darklighter      1   84
+8   ¦   ¦   °--... 22 nodes w/ 0 sub   ... 22 nodes w/ 0 sub      1   NA
+9   ¦   °--... 1 nodes w/ 31 sub       ... 1 nodes w/ 31 sub      1   NA
+10  °--... 37 nodes w/ 123 sub       ... 37 nodes w/ 123 sub      1   NA
+   eye_color
+1           
+2           
+3           
+4       blue
+5     yellow
+6       blue
+7      brown
+8           
+9           
+10          </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="mais-avec-des-rêgles-sur-les-noms-et-les-types" class="slide level2">
+<h2>Mais avec des rêgles sur les noms et les types</h2>
+<ul>
+<li>pas d’usage des noms internes de {data.tree} :
+<ul>
+<li><code>name</code>, <code>height</code> sont interdits comme tous les noms de <code>NODE_RESERVED_NAMES_CONST</code>. Il seraient supprimer au moment de la conversion.</li>
+<li>pas de <code>factor()</code></li>
+<li>pas de colonne <code>level_*</code></li>
+<li>le dernier niveau hierarchique doit être l’individu (donc un Id unique)</li>
+<li>il doit y avoir une racine à la hierarchie</li>
+</ul></li>
+</ul>
+</section>
+<section id="construction-correcte-de-la-variable-de-sortie-pathstring" class="slide level2">
+<h2>Construction correcte de la variable de sortie <code>"pathString"</code></h2>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a>starwars_tree <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span></span>
+<span id="cb44-2"><a href=""></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">_name</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"name"</span>, <span class="st">`</span><span class="at">_height</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"height"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb44-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pathString =</span> <span class="fu">paste</span>(<span class="st">"StarWars_characters"</span>, species, sex, <span class="st">`</span><span class="at">_name</span><span class="st">`</span>, <span class="at">sep =</span> <span class="st">"/"</span>))  <span class="sc">|&gt;</span> </span>
+<span id="cb44-4"><a href=""></a>  <span class="fu">as.Node</span>()</span>
+<span id="cb44-5"><a href=""></a><span class="fu">print</span>(starwars_tree, <span class="st">"name"</span>, <span class="st">"_name"</span>,<span class="st">"_height"</span>, <span class="st">"mass"</span>, <span class="st">"eye_color"</span>, <span class="at">limit =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                           levelName                    name             _name
+1  StarWars_characters                   StarWars_characters                  
+2   ¦--Human                                           Human                  
+3   ¦   ¦--male                                         male                  
+4   ¦   ¦   ¦--Luke Skywalker                 Luke Skywalker    Luke Skywalker
+5   ¦   ¦   ¦--Darth Vader                       Darth Vader       Darth Vader
+6   ¦   ¦   ¦--Owen Lars                           Owen Lars         Owen Lars
+7   ¦   ¦   ¦--Biggs Darklighter           Biggs Darklighter Biggs Darklighter
+8   ¦   ¦   °--... 22 nodes w/ 0 sub   ... 22 nodes w/ 0 sub                  
+9   ¦   °--... 1 nodes w/ 31 sub       ... 1 nodes w/ 31 sub                  
+10  °--... 37 nodes w/ 123 sub       ... 37 nodes w/ 123 sub                  
+   _height mass eye_color
+1       NA   NA          
+2       NA   NA          
+3       NA   NA          
+4      172   77      blue
+5      202  136    yellow
+6      178  120      blue
+7      183   84     brown
+8       NA   NA          
+9       NA   NA          
+10      NA   NA          </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="initial-split-et-construction" class="slide level2">
+<h2>Initial split et construction</h2>
+<p><code>starwars</code> a des colonnes de <code>list()</code> qu’il faut dérouler</p>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a>starw_split <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> </span>
+<span id="cb46-2"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">unnest_longer</span>(films) <span class="sc">|&gt;</span> </span>
+<span id="cb46-3"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">unnest_longer</span>(vehicles, <span class="at">keep_empty =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb46-4"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">unnest_longer</span>(starships, <span class="at">keep_empty =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb46-5"><a href=""></a>  <span class="fu">initial_split</span>( <span class="at">prop =</span> .<span class="dv">8</span>, <span class="at">strata =</span> <span class="st">"species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a>starwars_train_tree <span class="ot">&lt;-</span> starw_split <span class="sc">|&gt;</span> </span>
+<span id="cb47-2"><a href=""></a>  <span class="fu">training</span>() <span class="sc">|&gt;</span></span>
+<span id="cb47-3"><a href=""></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">_name</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"name"</span>, <span class="st">`</span><span class="at">_height</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"height"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb47-4"><a href=""></a>  <span class="fu">rowid_to_column</span>() <span class="sc">|&gt;</span></span>
+<span id="cb47-5"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pathString =</span> <span class="fu">paste</span>(<span class="st">"StarWars_characters"</span>, species, sex, rowid, <span class="at">sep =</span> <span class="st">"/"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb47-6"><a href=""></a>  <span class="co"># remove outcomes labels from predictors</span></span>
+<span id="cb47-7"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>species, <span class="sc">-</span>sex, <span class="sc">-</span><span class="st">`</span><span class="at">_name</span><span class="st">`</span>, <span class="sc">-</span>rowid) <span class="sc">|&gt;</span></span>
+<span id="cb47-8"><a href=""></a>  <span class="co"># turn it as hierarchical Node</span></span>
+<span id="cb47-9"><a href=""></a>  <span class="fu">as.Node</span>()</span>
+<span id="cb47-10"><a href=""></a></span>
+<span id="cb47-11"><a href=""></a>starwars_test_tree <span class="ot">&lt;-</span> starw_split <span class="sc">|&gt;</span></span>
+<span id="cb47-12"><a href=""></a>  <span class="fu">testing</span>() <span class="sc">|&gt;</span></span>
+<span id="cb47-13"><a href=""></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">_name</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"name"</span>, <span class="st">`</span><span class="at">_height</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"height"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb47-14"><a href=""></a>  <span class="fu">rowid_to_column</span>() <span class="sc">|&gt;</span></span>
+<span id="cb47-15"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pathString =</span> <span class="fu">paste</span>(<span class="st">"StarWars_characters"</span>, species, sex, rowid, <span class="at">sep =</span> <span class="st">"/"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb47-16"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>species, <span class="sc">-</span>sex, <span class="sc">-</span><span class="st">`</span><span class="at">_name</span><span class="st">`</span>, <span class="sc">-</span>rowid) <span class="sc">|&gt;</span></span>
+<span id="cb47-17"><a href=""></a>  <span class="fu">as.Node</span>()</span>
+<span id="cb47-18"><a href=""></a></span>
+<span id="cb47-19"><a href=""></a>starwars_train_tree<span class="sc">$</span>attributesAll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "_height"    "birth_year" "eye_color"  "films"      "gender"    
+ [6] "hair_color" "homeworld"  "mass"       "skin_color" "starships" 
+[11] "vehicles"  </code></pre>
+</div>
+</div>
+</div>
+</section></section>
 <section id="gpt2-avec-r" class="title-slide slide level1 center">
 <h1>GPT2 avec R</h1>
 
 </section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-</section>
-<section id="your-turn-exercise-03" class="slide level2">
-<h2>Your turn, exercise 03</h2>
-<p><br></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="co"># already installed in the Posit Cloud work space</span></span>
-<span id="cb40-2"><a href=""></a><span class="co"># install.packages("devtools")</span></span>
-<span id="cb40-3"><a href=""></a><span class="co"># devtools::install_github("rstats-wtf/wtfdbg")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><br></p>
-<div class="question">
-<p>Complete 03_exercise to practice debugging others’ code.</p>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_5061f3c9" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-<div class="footer">
-<p><a href="https://github.com/rstats-wtf/wtf-debugging" class="uri">https://github.com/rstats-wtf/wtf-debugging</a></p>
-</div>
-</section></section>
-<section id="fine-tuning-de-gpt2-en-français-avec-un-lora" class="title-slide slide level1 center">
-<h1>Fine-Tuning de GPT2 en français avec un LORA</h1>
 
-</section>
-
-<section id="un-classifieur-dimages-avec-resnext50-fine-tuning" class="title-slide slide level1 center">
-<h1>Un classifieur d’images avec ResNext50 fine-tuning</h1>
-
-</section>
-
-<section>
-<section id="une-tête-de-classification-hiérarchique-à-tabnet" class="title-slide slide level1 center">
-<h1>Une tête de classification hiérarchique à {tabnet}</h1>
-
-</section>
-<section id="pick-your-favorite" class="slide level2">
-<h2>Pick your favorite</h2>
-
-<img data-src="img/debugging_pick.svg" class="r-stretch"></section></section>
-<section>
-<section id="wrap-up" class="title-slide slide level1 center">
-<h1>Wrap-up</h1>
-
-</section>
-<section id="go-forth-and-learn-from-your-bugs" class="slide level2">
-<h2>Go forth, <br> and learn from your bugs!</h2>
-<div class="columns">
-<div class="column" style="width:53%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/butterflies.gif" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div><div class="column" style="width:2%;">
-
-</div><div class="column" style="width:45%;">
-<p><svg aria-hidden="true" role="img" viewbox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M256 32H181.2c-27.1 0-51.3 17.1-60.3 42.6L3.1 407.2C1.1 413 0 419.2 0 425.4C0 455.5 24.5 480 54.6 480H256V416c0-17.7 14.3-32 32-32s32 14.3 32 32v64H521.4c30.2 0 54.6-24.5 54.6-54.6c0-6.2-1.1-12.4-3.1-18.2L455.1 74.6C446 49.1 421.9 32 394.8 32H320V96c0 17.7-14.3 32-32 32s-32-14.3-32-32V32zm64 192v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32s32 14.3 32 32z"></path></svg> traceback</p>
-<p><br></p>
-<p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M256 0c53 0 96 43 96 96v3.6c0 15.7-12.7 28.4-28.4 28.4H188.4c-15.7 0-28.4-12.7-28.4-28.4V96c0-53 43-96 96-96zM41.4 105.4c12.5-12.5 32.8-12.5 45.3 0l64 64c.7 .7 1.3 1.4 1.9 2.1c14.2-7.3 30.4-11.4 47.5-11.4H312c17.1 0 33.2 4.1 47.5 11.4c.6-.7 1.2-1.4 1.9-2.1l64-64c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-64 64c-.7 .7-1.4 1.3-2.1 1.9c6.2 12 10.1 25.3 11.1 39.5H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H416c0 24.6-5.5 47.8-15.4 68.6c2.2 1.3 4.2 2.9 6 4.8l64 64c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0l-63.1-63.1c-24.5 21.8-55.8 36.2-90.3 39.6V240c0-8.8-7.2-16-16-16s-16 7.2-16 16V479.2c-34.5-3.4-65.8-17.8-90.3-39.6L86.6 502.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l64-64c1.9-1.9 3.9-3.4 6-4.8C101.5 367.8 96 344.6 96 320H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H96.3c1.1-14.1 5-27.5 11.1-39.5c-.7-.6-1.4-1.2-2.1-1.9l-64-64c-12.5-12.5-12.5-32.8 0-45.3z"></path></svg> interactive debugger</p>
-<p><br></p>
-<p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></svg> your code &nbsp; vs &nbsp; <br> <svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 416L168.6 180.7c15.3-34.4 40.3-63.5 72-83.7l146.9-94c3-1.9 6.5-2.9 10-2.9C407.7 0 416 8.3 416 18.6v1.6c0 2.6-.5 5.1-1.4 7.5L354.8 176.9c-1.9 4.7-2.8 9.7-2.8 14.7c0 5.5 1.2 11 3.4 16.1L448 416H240.9l11.8-35.4 40.4-13.5c6.5-2.2 10.9-8.3 10.9-15.2s-4.4-13-10.9-15.2l-40.4-13.5-13.5-40.4C237 276.4 230.9 272 224 272s-13 4.4-15.2 10.9l-13.5 40.4-40.4 13.5C148.4 339 144 345.1 144 352s4.4 13 10.9 15.2l40.4 13.5L207.1 416H64zM279.6 141.5c-1.1-3.3-4.1-5.5-7.6-5.5s-6.5 2.2-7.6 5.5l-6.7 20.2-20.2 6.7c-3.3 1.1-5.5 4.1-5.5 7.6s2.2 6.5 5.5 7.6l20.2 6.7 6.7 20.2c1.1 3.3 4.1 5.5 7.6 5.5s6.5-2.2 7.6-5.5l6.7-20.2 20.2-6.7c3.3-1.1 5.5-4.1 5.5-7.6s-2.2-6.5-5.5-7.6l-20.2-6.7-6.7-20.2zM32 448H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg> their code</p>
-</div></div>
-<div class="footer">
-<p><a href="https://giphy.com/gifs/TreehouseDirect-max-and-ruby-maxandruby-maxruby-S3qtrEqiU5OuwAtg5Z" class="uri">https://giphy.com/gifs/TreehouseDirect-max-and-ruby-maxandruby-maxruby-S3qtrEqiU5OuwAtg5Z</a></p>
-</div>
-<div class="quarto-auto-generated-content">
-<p><img src="images/mlverse.png" class="slide-logo"></p>
-<div class="footer footer-default">
-<p><a href="https://github.com/cregouby/happyR-torch-slides">{torch} {tabnet} and friends</a></p>
-</div>
-</div>
-</section></section>
 
     </div>
   </div>

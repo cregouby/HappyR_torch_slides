@@ -1,5 +1,6 @@
 ---
-title: "HappyR {torch} {tabnet} and friends"
+title: "{torch} {tabnet} and friends"
+subtitle: "Atelier HappyR, sept 2024" 
 author: "Christophe Regouby"
 footer:  "[{torch} {tabnet} and friends](https://github.com/cregouby/happyR-torch-slides)"
 logo: "images/mlverse.png"
@@ -193,9 +194,9 @@ tt
 ------------------------------------------------------------------------
 
 :::::: columns
-::: {.column width="50%"}
+:::: {.column width="50%"}
 ![](images/clipboard-4006123911.png)
-:::
+::::
 
 :::: {.column width="50%"}
 ::: small
@@ -211,7 +212,7 @@ torch_squeeze(tt[1:1, 2:N, ])
 
 ## À vous de jouer, exercise 01
 
-Installations : \`00_installation.R\`\`
+Installations : \`00_installation.R\`
 
 ```{r}
 countdown(
@@ -231,7 +232,7 @@ countdown(
 
 ------------------------------------------------------------------------
 
-Exercice : \`01_exercice.R\`\`
+Exercice : \`01_exercice.R\`
 
 ```{r}
 countdown(
@@ -380,6 +381,7 @@ autoplot(ames_fit)
 ------------------------------------------------------------------------
 
 :::::: small
+
 Prediction
 
 ::::: columns
@@ -418,6 +420,7 @@ vip::vip(ames_fit)
 ------------------------------------------------------------------------
 
 ::: small
+
 Explainability
 
 ```{r}
@@ -427,6 +430,7 @@ ames_explain <- tabnet::tabnet_explain(ames_fit, ames)
 # variable importance
 autoplot(ames_explain, quantile = 0.99)
 ```
+
 :::
 
 ## À vous de jouer, exercise 02
@@ -449,6 +453,7 @@ countdown(
 ## retour sur le jeu de données Ames
 
 :::: small
+
 -   les tenseurs ne peuvent pas inclure de valeur manquantes.
 
 -   `ames` nous fait le plaisir d'être sans valeur manquante.
@@ -456,6 +461,7 @@ countdown(
 ::: question
 Quelle est la surface de la piscine quand il n'y a pas de piscine?
 :::
+
 ::::
 
 ------------------------------------------------------------------------
@@ -469,7 +475,7 @@ qplot(ames$Mas_Vnr_Area)
 Comment le modèle peut-il capturer cette distribution ?
 :::
 
----
+------------------------------------------------------------------------
 
 Et si on l'applique à toute les colonnes ?
 
@@ -485,7 +491,7 @@ col_with_zero_as_na <- ames |>
   summarise_each(min) |> 
   select_if(~.x==0) |> 
   names()
-ames_missing <- ames %>% mutate_at(col_with_zero_as_na, na_if, 0) |> 
+ames_missing <- ames |>mutate_at(col_with_zero_as_na, na_if, 0) |> 
   mutate_at("Alley", na_if, "No_Alley_Access")  |>  
   mutate_at("Fence", na_if, "No_Fence") |> 
   mutate_at(c("Garage_Cond", "Garage_Finish"), na_if, "No_Garage") |> 
@@ -496,7 +502,7 @@ visdat::vis_miss(ames_missing)
 
 :::
 
----
+------------------------------------------------------------------------
 
 ::: small
 
@@ -525,11 +531,13 @@ ames_missing_pretrain <- tabnet_pretrain(
 # model diagnostic
 autoplot(ames_missing_pretrain)
 ```
+
 :::
 
 ------------------------------------------------------------------------
 
 ::: small
+
 Training
 
 ```{r}
@@ -549,11 +557,13 @@ ames_missing_fit <- tabnet_fit(
 # model diagnostic
 autoplot(ames_missing_fit)
 ```
+
 :::
 
 ------------------------------------------------------------------------
 
 :::::: small
+
 Prediction
 
 ::::: columns
@@ -575,11 +585,13 @@ cbind(ames_missing, predict(ames_missing_fit, ames_missing)) |>
 
 :::
 :::::
+
 :::::: 
 
----
+------------------------------------------------------------------------
 
 :::::: small
+
 Variable importance
 
 ::::: columns
@@ -588,14 +600,14 @@ Variable importance
 
 ```{r}
 #| code-fold: TRUE
-col_with_missings <- ames_missing %>%
-  summarise_all(~sum(is.na(.))>0) %>%
-  t %>% enframe(name="Variable") %>% 
+col_with_missings <- ames_missing |>
+  summarise_all(~sum(is.na(.))>0) |>
+  t() |> enframe(name="Variable") |>
   rename(has_missing="value")
 
 vip_color <- function(object, col_has_missing) {
-  vip_data <- vip::vip(object)$data %>% arrange(Importance)
-  vis_miss_plus <- left_join(vip_data, col_has_missing , by="Variable") %>%
+  vip_data <- vip::vip(object)$data |> arrange(Importance)
+  vis_miss_plus <- left_join(vip_data, col_has_missing , by="Variable") |>
     mutate(Variable=factor(Variable, levels = vip_data$Variable))
   vis_miss_plus
   ggplot(vis_miss_plus, aes(x=Variable, y=Importance, fill=has_missing)) +
@@ -611,6 +623,7 @@ vip_color <- function(object, col_has_missing) {
 vip_color(ames_pretrain, col_with_missings)
 vip_color(ames_fit, col_with_missings)
 ```
+
 :::
 
 ::: {.column width="50%"}
@@ -625,11 +638,13 @@ vip_color(ames_missing_fit, col_with_missings)
 
 :::
 :::::
+
 ::::::
 
 ------------------------------------------------------------------------
 
 ::: small
+
 Explainability
 
 ```{r}
@@ -641,11 +656,15 @@ autoplot(ames_missing_explain, quantile = 0.99, type="step")
 ```
 :::
 
+# {tabnet} avec un `outcome()` hierarchique
 
+
+{{< include _hierarchical_outcome.qmd> }}
 
 # GPT2 avec R
 
-## 
+{{< include _gpt2.qmd> }}
+
 
 ## Your turn, exercise 03
 
@@ -660,7 +679,7 @@ autoplot(ames_missing_explain, quantile = 0.99, type="step")
 <br>
 
 ::: question
-Complete 03_exercise to practice debugging others' code.
+Complete 03_exercise 
 :::
 
 ```{r}
@@ -670,44 +689,10 @@ countdown(
 ```
 
 ::: footer
-<https://github.com/rstats-wtf/wtf-debugging>
 :::
 
 # Fine-Tuning de GPT2 en français avec un LORA
 
 # Un classifieur d'images avec ResNext50 fine-tuning
 
-# Une tête de classification hiérarchique à {tabnet}
 
-## Pick your favorite
-
-![](img/debugging_pick.svg)
-
-# Wrap-up
-
-## Go forth, <br> and learn from your bugs!
-
-:::::: columns
-::: {.column width="53%"}
-![](img/butterflies.gif){fig-align="center"}
-:::
-
-::: {.column width="2%"}
-:::
-
-::: {.column width="45%"}
-`r fontawesome::fa("road", fill = "white")` traceback
-
-<br>
-
-`r fontawesome::fa("bug", fill = "white")` interactive debugger
-
-<br>
-
-`r fontawesome::fa("magnifying-glass", fill = "white")` your code   vs   <br> `r fontawesome::fa("hat-wizard", fill = "white")` their code
-:::
-::::::
-
-::: footer
-<https://giphy.com/gifs/TreehouseDirect-max-and-ruby-maxandruby-maxruby-S3qtrEqiU5OuwAtg5Z>
-:::
