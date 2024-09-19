@@ -481,7 +481,7 @@ Christophe Regouby
 <section id="section-3" class="slide level2">
 <h2><a href="https://torch.mlverse.org/"><img data-src="images/clipboard-604787592.png"></a></h2>
 <div class="footer">
-<p>et {torchdatasets}, {tok}, {hfhub}, {safetensors}, {tabnet}, {ETM}, {tft}, {innsight}, {brulee},…</p>
+<p>et {torchdatasets}, {minihub}, {tok}, {hfhub}, {safetensors}, {tabnet}, {ETM}, {tft}, {innsight}, {brulee},…</p>
 </div>
 <p><img data-src="images/clipboard-419128090.png"></p>
 </section>
@@ -545,14 +545,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.9788  0.3144  0.0270  0.0979
-  0.3033  0.6254  0.0730  0.6808
-  0.2520  0.7676  0.3660  0.1535
+  0.4236  0.5996  0.9851  0.4567
+  0.2360  0.3087  0.0921  0.1502
+  0.8213  0.7890  0.1524  0.3648
 
 (2,.,.) = 
-  0.4270  0.8957  0.8510  0.4115
-  0.3044  0.5833  0.3121  0.6338
-  0.3446  0.2027  0.7394  0.1579
+  0.0821  0.8948  0.3706  0.9476
+  0.7695  0.6790  0.8333  0.3301
+  0.3143  0.7771  0.9717  0.0122
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -570,34 +570,34 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.3033  0.6254  0.0730  0.6808
-  0.2520  0.7676  0.3660  0.1535
+  0.2360  0.3087  0.0921  0.1502
+  0.8213  0.7890  0.1524  0.3648
 
 (2,.,.) = 
-  0.3044  0.5833  0.3121  0.6338
-  0.3446  0.2027  0.7394  0.1579
+  0.7695  0.6790  0.8333  0.3301
+  0.3143  0.7771  0.9717  0.0122
 [ CPUFloatType{2,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>tt[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.3033  0.6254  0.0730  0.6808
- 0.2520  0.7676  0.3660  0.1535
+ 0.2360  0.3087  0.0921  0.1502
+ 0.8213  0.7890  0.1524  0.3648
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.3033  0.6254  0.0730  0.6808
-  0.2520  0.7676  0.3660  0.1535
+  0.2360  0.3087  0.0921  0.1502
+  0.8213  0.7890  0.1524  0.3648
 [ CPUFloatType{1,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">torch_squeeze</span>(tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.3033  0.6254  0.0730  0.6808
- 0.2520  0.7676  0.3660  0.1535
+ 0.2360  0.3087  0.0921  0.1502
+ 0.8213  0.7890  0.1524  0.3648
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 </div>
@@ -609,7 +609,7 @@ Christophe Regouby
 <p>Installations : `00_installation.R`</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_c8169a14" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_fdf7b6eb" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -621,7 +621,7 @@ Christophe Regouby
 <p>Exercice : `01_exercice.R`</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_b75d8ff9" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_346c9d89" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -958,7 +958,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_9251a7f1" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_0f01bc57" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1203,8 +1203,12 @@ Christophe Regouby
 <ul>
 <li><p>{tabnet} admet des variable à prédire catégorielle, multi-label multi-class.</p></li>
 <li><p>et si on pouvait mettre une contrainte entre les classes des différents labels ?</p></li>
+<li><p>le dataset doit être de type <code>data.tree::as.Node()</code></p>
+<ul>
+<li>conversion de trainset et testset avec <code>as.Node()</code> avant les fonctions <code>tabnet_</code></li>
+<li>conversion de inverse avec <code>node_to_df()</code></li>
+</ul></li>
 <li><p>nouveauté de la 0.5.0</p></li>
-<li><p>la variable de sortie doit être de type <code>data.tree::as.Node()</code></p></li>
 </ul>
 </section>
 <section id="exemple-avec-starwars" class="slide level2">
@@ -1266,16 +1270,19 @@ Christophe Regouby
 </section>
 <section id="mais-avec-des-rêgles-sur-les-noms-et-les-types" class="slide level2">
 <h2>Mais avec des rêgles sur les noms et les types</h2>
+<div class="small">
 <ul>
 <li>pas d’usage des noms internes de {data.tree} :
 <ul>
-<li><code>name</code>, <code>height</code> sont interdits comme tous les noms de <code>NODE_RESERVED_NAMES_CONST</code>. Il seraient supprimer au moment de la conversion.</li>
-<li>pas de <code>factor()</code></li>
-<li>pas de colonne <code>level_*</code></li>
-<li>le dernier niveau hierarchique doit être l’individu (donc un Id unique)</li>
-<li>il doit y avoir une racine à la hierarchie</li>
+<li><code>name</code>, <code>height</code> sont interdits</li>
+<li>comme tous les noms de <code>NODE_RESERVED_NAMES_CONST</code>. (Ils seraient supprimés au moment de la conversion.)</li>
 </ul></li>
+<li>pas de <code>factor()</code></li>
+<li>pas de colonne nomée <code>level_*</code></li>
+<li>le dernier niveau hiérarchique doit être l’individu (donc un Id unique)</li>
+<li>il doit y avoir une racine à la hiérarchie</li>
 </ul>
+</div>
 </section>
 <section id="construction-correcte-de-la-variable-de-sortie-pathstring" class="slide level2">
 <h2>Construction correcte de la variable de sortie <code>"pathString"</code></h2>
@@ -1346,9 +1353,11 @@ Christophe Regouby
 <span id="cb47-14"><a href=""></a>  <span class="fu">rowid_to_column</span>() <span class="sc">|&gt;</span></span>
 <span id="cb47-15"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pathString =</span> <span class="fu">paste</span>(<span class="st">"StarWars_characters"</span>, species, sex, rowid, <span class="at">sep =</span> <span class="st">"/"</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb47-16"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>species, <span class="sc">-</span>sex, <span class="sc">-</span><span class="st">`</span><span class="at">_name</span><span class="st">`</span>, <span class="sc">-</span>rowid) <span class="sc">|&gt;</span></span>
-<span id="cb47-17"><a href=""></a>  <span class="fu">as.Node</span>()</span>
-<span id="cb47-18"><a href=""></a></span>
-<span id="cb47-19"><a href=""></a>starwars_train_tree<span class="sc">$</span>attributesAll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb47-17"><a href=""></a>  <span class="fu">as.Node</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Les <code>$attributesAll</code> du Node seront les predicteurs :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a>starwars_train_tree<span class="sc">$</span>attributesAll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "_height"    "birth_year" "eye_color"  "films"      "gender"    
  [6] "hair_color" "homeworld"  "mass"       "skin_color" "starships" 
@@ -1356,6 +1365,56 @@ Christophe Regouby
 </div>
 </div>
 </div>
+</section>
+<section id="entraînement-du-modèle" class="slide level2">
+<h2>Entraînement du modèle</h2>
+<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb50-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb50-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb50-3"><a href=""></a><span class="in">#| label: "starwars fit"</span></span>
+<span id="cb50-4"><a href=""></a></span>
+<span id="cb50-5"><a href=""></a><span class="in">config &lt;- tabnet_config(</span></span>
+<span id="cb50-6"><a href=""></a><span class="in">  decision_width = 8,</span></span>
+<span id="cb50-7"><a href=""></a><span class="in">  attention_width = 8,</span></span>
+<span id="cb50-8"><a href=""></a><span class="in">  num_steps = 3,</span></span>
+<span id="cb50-9"><a href=""></a><span class="in">  penalty = .003,</span></span>
+<span id="cb50-10"><a href=""></a><span class="in">  cat_emb_dim = 2,</span></span>
+<span id="cb50-11"><a href=""></a><span class="in">  valid_split = 0.2,</span></span>
+<span id="cb50-12"><a href=""></a><span class="in">  learn_rate = 1e-3,</span></span>
+<span id="cb50-13"><a href=""></a><span class="in">  lr_scheduler = "reduce_on_plateau",</span></span>
+<span id="cb50-14"><a href=""></a><span class="in">  early_stopping_monitor = "valid_loss",</span></span>
+<span id="cb50-15"><a href=""></a><span class="in">  early_stopping_patience = 4,</span></span>
+<span id="cb50-16"><a href=""></a><span class="in">  verbose = FALSE</span></span>
+<span id="cb50-17"><a href=""></a><span class="in">)</span></span>
+<span id="cb50-18"><a href=""></a></span>
+<span id="cb50-19"><a href=""></a><span class="in">starw_model &lt;- tabnet_fit(starwars_train_tree, config = config, epoch = 75, checkpoint_epochs = 15)</span></span>
+<span id="cb50-20"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="diagnostique" class="slide level2">
+<h2>Diagnostique</h2>
+<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb51-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb51-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb51-3"><a href=""></a><span class="in">#| label: "starwars diag"</span></span>
+<span id="cb51-4"><a href=""></a></span>
+<span id="cb51-5"><a href=""></a><span class="in">autoplot(starw_model)</span></span>
+<span id="cb51-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb52-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb52-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb52-3"><a href=""></a><span class="in">#| label: "starwars vip"</span></span>
+<span id="cb52-4"><a href=""></a></span>
+<span id="cb52-5"><a href=""></a><span class="in">vip::vip(starw_model)</span></span>
+<span id="cb52-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="inférence-sur-le-modèle-hierarchique" class="slide level2">
+<h2>Inférence sur le modèle hierarchique</h2>
+<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb53-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb53-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb53-3"><a href=""></a><span class="in">#| label: "starwars inference"</span></span>
+<span id="cb53-4"><a href=""></a><span class="in">starwars_hat &lt;- bind_cols(</span></span>
+<span id="cb53-5"><a href=""></a><span class="in">    predict(starw_model, starwars_test_tree),</span></span>
+<span id="cb53-6"><a href=""></a><span class="in">    node_to_df(starwars_test_tree)$y</span></span>
+<span id="cb53-7"><a href=""></a><span class="in">  )</span></span>
+<span id="cb53-8"><a href=""></a><span class="in">tail(starwars_hat, n = 5)</span></span>
+<span id="cb53-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section id="gpt2-avec-r" class="title-slide slide level1 center">
 <h1>GPT2 avec R</h1>
