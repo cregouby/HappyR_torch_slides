@@ -483,7 +483,7 @@ Christophe Regouby
 <div class="footer">
 <p>et {torchdatasets}, {minihub}, {tok}, {hfhub}, {safetensors}, {tabnet}, {ETM}, {tft}, {innsight}, {brulee},…</p>
 </div>
-<p><img data-src="images/clipboard-419128090.png"></p>
+<p><img data-src="images/clipboard-872398520.png"></p>
 </section>
 <section id="torch-pourquoi-réinventer-leau-chaude" class="slide level2">
 <h2>{torch} : pourquoi réinventer l’eau chaude?</h2>
@@ -545,14 +545,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.4236  0.5996  0.9851  0.4567
-  0.2360  0.3087  0.0921  0.1502
-  0.8213  0.7890  0.1524  0.3648
+  0.4020  0.5095  0.4796  0.6999
+  0.4689  0.3213  0.5042  0.3366
+  0.3706  0.7441  0.7699  0.0196
 
 (2,.,.) = 
-  0.0821  0.8948  0.3706  0.9476
-  0.7695  0.6790  0.8333  0.3301
-  0.3143  0.7771  0.9717  0.0122
+  0.2713  0.2315  0.4703  0.1746
+  0.1011  0.3889  0.2055  0.9369
+  0.6047  0.3164  0.9550  0.5750
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -570,34 +570,34 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.2360  0.3087  0.0921  0.1502
-  0.8213  0.7890  0.1524  0.3648
+  0.4689  0.3213  0.5042  0.3366
+  0.3706  0.7441  0.7699  0.0196
 
 (2,.,.) = 
-  0.7695  0.6790  0.8333  0.3301
-  0.3143  0.7771  0.9717  0.0122
+  0.1011  0.3889  0.2055  0.9369
+  0.6047  0.3164  0.9550  0.5750
 [ CPUFloatType{2,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>tt[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.2360  0.3087  0.0921  0.1502
- 0.8213  0.7890  0.1524  0.3648
+ 0.4689  0.3213  0.5042  0.3366
+ 0.3706  0.7441  0.7699  0.0196
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.2360  0.3087  0.0921  0.1502
-  0.8213  0.7890  0.1524  0.3648
+  0.4689  0.3213  0.5042  0.3366
+  0.3706  0.7441  0.7699  0.0196
 [ CPUFloatType{1,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">torch_squeeze</span>(tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.2360  0.3087  0.0921  0.1502
- 0.8213  0.7890  0.1524  0.3648
+ 0.4689  0.3213  0.5042  0.3366
+ 0.3706  0.7441  0.7699  0.0196
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 </div>
@@ -609,7 +609,7 @@ Christophe Regouby
 <p>Installations : `00_installation.R`</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_fdf7b6eb" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_da22e230" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -621,7 +621,7 @@ Christophe Regouby
 <p>Exercice : `01_exercice.R`</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_346c9d89" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_1a4d7a0f" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -958,7 +958,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_0f01bc57" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_6af57cd1" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1040,13 +1040,11 @@ Christophe Regouby
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">library</span>(tabnet)</span>
 <span id="cb29-2"><a href=""></a>ames_missing_pretrain <span class="ot">&lt;-</span> <span class="fu">tabnet_pretrain</span>(</span>
-<span id="cb29-3"><a href=""></a>  ames_missing_rec, <span class="at">data=</span>ames_missing,  <span class="at">epoch=</span><span class="dv">50</span>, <span class="at">cat_emb_dim =</span> <span class="dv">1</span>,</span>
-<span id="cb29-4"><a href=""></a>  <span class="at">valid_split =</span> <span class="fl">0.2</span>, <span class="at">verbose=</span><span class="cn">TRUE</span>, </span>
-<span id="cb29-5"><a href=""></a>  <span class="at">early_stopping_patience =</span> <span class="dv">3</span>L, </span>
-<span id="cb29-6"><a href=""></a>  <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span></span>
-<span id="cb29-7"><a href=""></a>)</span>
-<span id="cb29-8"><a href=""></a><span class="co"># model diagnostic</span></span>
-<span id="cb29-9"><a href=""></a><span class="fu">autoplot</span>(ames_missing_pretrain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-3"><a href=""></a>  ames_missing_rec, <span class="at">data=</span>ames_missing,  <span class="at">epoch=</span><span class="dv">50</span>, <span class="at">cat_emb_dim =</span> <span class="dv">1</span>,  <span class="at">valid_split =</span> <span class="fl">0.2</span>,</span>
+<span id="cb29-4"><a href=""></a>  <span class="at">verbose=</span><span class="cn">TRUE</span>,   <span class="at">early_stopping_patience =</span> <span class="dv">3</span>L,   <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span></span>
+<span id="cb29-5"><a href=""></a>)</span>
+<span id="cb29-6"><a href=""></a><span class="co"># model diagnostic</span></span>
+<span id="cb29-7"><a href=""></a><span class="fu">autoplot</span>(ames_missing_pretrain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1416,9 +1414,223 @@ Christophe Regouby
 <span id="cb53-8"><a href=""></a><span class="in">tail(starwars_hat, n = 5)</span></span>
 <span id="cb53-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
+<section>
 <section id="gpt2-avec-r" class="title-slide slide level1 center">
 <h1>GPT2 avec R</h1>
+<p>basé sur 4 packages {minhub}, {hfhub}, {tok}, {safetensors}</p>
+<ul>
+<li>{minhub} : un dépot de <strong>réseau de neurones</strong> classiques pour {torch}</li>
+<li>{hfhub} : l’accès aux téléchargement de <strong>modèles</strong> préentraînés du hub hugging-face</li>
+<li>{tok} : un wrappeur des tokenizers d’hugging-face en R</li>
+<li>{safetensors} : sauvegarde et lecture des données de tenseurs au format <code>.safetensors</code></li>
+</ul>
+</section>
+<section id="téléchargement-du-modèle-et-de-ses-poids" class="slide level2">
+<h2>Téléchargement du modèle et de ses poids</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a><span class="fu">library</span>(minhub)</span>
+<span id="cb54-2"><a href=""></a>identifier <span class="ot">&lt;-</span> <span class="st">"gpt2"</span></span>
+<span id="cb54-3"><a href=""></a>revision <span class="ot">&lt;-</span> <span class="st">"e7da7f2"</span></span>
+<span id="cb54-4"><a href=""></a><span class="co"># instantiate model and load Hugging Face weights</span></span>
+<span id="cb54-5"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">gpt2_from_pretrained</span>(identifier, revision)</span>
+<span id="cb54-6"><a href=""></a><span class="co"># load matching tokenizer</span></span>
+<span id="cb54-7"><a href=""></a>tok <span class="ot">&lt;-</span> tok<span class="sc">::</span>tokenizer<span class="sc">$</span><span class="fu">from_pretrained</span>(identifier)</span>
+<span id="cb54-8"><a href=""></a>model<span class="sc">$</span><span class="fu">eval</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tokenisation-de-la-phrase" class="slide level2">
+<h2>Tokenisation de la phrase</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a>text <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"Quel plaisir de participer aux ateliers HappyR !"</span>,</span>
+<span id="cb55-2"><a href=""></a>             <span class="st">"Vivement le prochain évènement"</span> )</span>
+<span id="cb55-3"><a href=""></a></span>
+<span id="cb55-4"><a href=""></a></span>
+<span id="cb55-5"><a href=""></a>idx <span class="ot">&lt;-</span> <span class="fu">torch_tensor</span>(</span>
+<span id="cb55-6"><a href=""></a>  tok<span class="sc">$</span><span class="fu">encode</span>(</span>
+<span id="cb55-7"><a href=""></a>    text</span>
+<span id="cb55-8"><a href=""></a>  )<span class="sc">$</span></span>
+<span id="cb55-9"><a href=""></a>    ids</span>
+<span id="cb55-10"><a href=""></a>)<span class="sc">$</span></span>
+<span id="cb55-11"><a href=""></a>  <span class="fu">view</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb55-12"><a href=""></a>idx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="génération-dune-entrée" class="slide level2">
+<h2>Génération d’une entrée</h2>
+<p>La génération est un process itératif, chaque prédiction du modèle est ajoutée au prompt qui grossit.</p>
+<p>Ajoutons y 30 tokens :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a>prompt_length <span class="ot">&lt;-</span> idx<span class="sc">$</span><span class="fu">size</span>(<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb56-2"><a href=""></a></span>
+<span id="cb56-3"><a href=""></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>) { <span class="co"># decide on maximal length of output sequence</span></span>
+<span id="cb56-4"><a href=""></a>  <span class="co"># obtain next prediction (raw score)</span></span>
+<span id="cb56-5"><a href=""></a>  <span class="fu">with_no_grad</span>({</span>
+<span id="cb56-6"><a href=""></a>    logits <span class="ot">&lt;-</span> <span class="fu">model</span>(idx <span class="sc">+</span> <span class="dv">1</span>L)</span>
+<span id="cb56-7"><a href=""></a>  })</span>
+<span id="cb56-8"><a href=""></a>  last_logits <span class="ot">&lt;-</span> logits[, <span class="sc">-</span><span class="dv">1</span>, ]</span>
+<span id="cb56-9"><a href=""></a>  <span class="co"># pick highest scores (how many is up to you)</span></span>
+<span id="cb56-10"><a href=""></a>  <span class="fu">c</span>(prob, ind) <span class="sc">%&lt;-%</span> last_logits<span class="sc">$</span><span class="fu">topk</span>(<span class="dv">50</span>)</span>
+<span id="cb56-11"><a href=""></a>  last_logits <span class="ot">&lt;-</span> <span class="fu">torch_full_like</span>(last_logits, <span class="sc">-</span><span class="cn">Inf</span>)<span class="sc">$</span><span class="fu">scatter_</span>(<span class="sc">-</span><span class="dv">1</span>, ind, prob)</span>
+<span id="cb56-12"><a href=""></a>  <span class="co"># convert to probabilities</span></span>
+<span id="cb56-13"><a href=""></a>  probs <span class="ot">&lt;-</span> <span class="fu">nnf_softmax</span>(last_logits, <span class="at">dim =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb56-14"><a href=""></a>  <span class="co"># probabilistic sampling</span></span>
+<span id="cb56-15"><a href=""></a>  id_next <span class="ot">&lt;-</span> <span class="fu">torch_multinomial</span>(probs, <span class="at">num_samples =</span> <span class="dv">1</span>) <span class="sc">-</span> <span class="dv">1</span>L</span>
+<span id="cb56-16"><a href=""></a>  <span class="co"># stop if end of sequence predicted</span></span>
+<span id="cb56-17"><a href=""></a>  <span class="cf">if</span> (id_next<span class="sc">$</span><span class="fu">item</span>() <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb56-18"><a href=""></a>    <span class="cf">break</span></span>
+<span id="cb56-19"><a href=""></a>  }</span>
+<span id="cb56-20"><a href=""></a>  <span class="co"># append prediction to prompt</span></span>
+<span id="cb56-21"><a href=""></a>  idx <span class="ot">&lt;-</span> <span class="fu">torch_cat</span>(<span class="fu">list</span>(idx, id_next), <span class="at">dim =</span> <span class="dv">2</span>)</span>
+<span id="cb56-22"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="décodage-des-tokens-du-résultat" class="slide level2">
+<h2>décodage des tokens du résultat</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a>tok<span class="sc">$</span><span class="fu">decode</span>(<span class="fu">as.integer</span>(idx))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section id="fine-tuning-avec-lora" class="title-slide slide level1 center">
+<h1>Fine-Tuning avec LoRA</h1>
 
+</section>
+
+<section>
+<section id="lora-avec-r" class="title-slide slide level1 center">
+<h1>LoRA avec R</h1>
+
+</section>
+<section id="est-ce-que-les-llms-dépossèdent-le-data-scientist" class="slide level2">
+<h2>Est-ce que les LLMs dépossèdent le data-scientist ?</h2>
+<ul>
+<li><p>des réseaux toujours plus gros impliquent des entraînements prohibitifs</p></li>
+<li><p>la promesse de la prochaîne version qui résoud les faiblesses</p></li>
+<li><p>le jeu de donnée de réference difficile à constituer</p></li>
+</ul>
+</section>
+<section id="lora-à-la-rescousse" class="slide level2">
+<h2>LoRA à la rescousse</h2>
+<p>Low Rank Adaptation</p>
+
+<img data-src="images/lora.png" class="r-stretch"></section>
+<section id="method" class="slide level2">
+<h2>Method</h2>
+<div class="small">
+<p>The problem of fine-tuning a neural network can be expressed by finding a <span class="math inline">\(\Delta \Theta\)</span> that minimizes <span class="math inline">\(L(X, y; \Theta_0 + \Delta\Theta)\)</span> where <span class="math inline">\(L\)</span> is a loss function, <span class="math inline">\(X\)</span> and <span class="math inline">\(y\)</span> are the data and <span class="math inline">\(\Theta_0\)</span> the weights from a pre-trained model.</p>
+<p>We learn the parameters <span class="math inline">\(\Delta \Theta\)</span> with dimension <span class="math inline">\(|\Delta \Theta|\)</span> equals to <span class="math inline">\(|\Theta_0|\)</span>. When <span class="math inline">\(|\Theta_0|\)</span> is very large, such as in large scale pre-trained models, finding <span class="math inline">\(\Delta \Theta\)</span> becomes computationally challenging. Also, for each task you need to learn a new <span class="math inline">\(\Delta \Theta\)</span> parameter set, making it even more challenging to deploy fine-tuned models if you have more than a few specific tasks. LoRA proposes using an approximation <span class="math inline">\(\Delta \Phi \approx \Delta \Theta\)</span> with <span class="math inline">\(|\Delta \Phi| &lt;&lt; |\Delta \Theta|\)</span>. The observation is that neural nets have many dense layers performing matrix multiplication, and while they typically have full-rank during pre-training, when adapting to a specific task the weight updates will have a low “intrinsic dimension”.</p>
+</div>
+<div class="footer">
+<p>d’après https://blogs.rstudio.com/ai/posts/2023-06-22-understanding-lora/</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="small">
+<p>A simple matrix decomposition is applied for each weight matrix update <span class="math inline">\(\Delta \theta \in \Delta \Theta\)</span>. Considering <span class="math inline">\(\Delta \theta_i \in \mathbb{R}^{d \times k}\)</span> the update for the <span class="math inline">\(i\)</span>th weight in the network, LoRA approximates it with:</p>
+<p><span class="math display">\[\Delta \theta_i  \approx \Delta \phi_i = BA\]</span> where <span class="math inline">\(B \in \mathbb{R}^{d \times r}\)</span>, <span class="math inline">\(A \in \mathbb{R}^{r \times d}\)</span> and the rank <span class="math inline">\(r &lt;&lt; min(d, k)\)</span>. Thus instead of learning <span class="math inline">\(d \times k\)</span> parameters we now need to learn <span class="math inline">\((d + k) \times r\)</span> which is easily a lot smaller given the multiplicative aspect. In practice, <span class="math inline">\(\Delta \theta_i\)</span> is scaled by <span class="math inline">\(\frac{\alpha}{r}\)</span> before being added to <span class="math inline">\(\theta_i\)</span>, which can be interpreted as a ‘learning rate’ for the LoRA update.</p>
+<p>LoRA does not increase inference latency, as once fine tuning is done, you can simply update the weights in <span class="math inline">\(\Theta\)</span> by adding their respective <span class="math inline">\(\Delta \theta \approx \Delta \phi\)</span>. It also makes it simpler to deploy multiple task specific models on top of one large model, as <span class="math inline">\(|\Delta \Phi|\)</span> is much smaller than <span class="math inline">\(|\Delta \Theta|\)</span>.</p>
+</div>
+<div class="footer">
+<p>d’après https://blogs.rstudio.com/ai/posts/2023-06-22-understanding-lora/</p>
+</div>
+</section>
+<section id="implémentation-avec-torch" class="slide level2">
+<h2>Implémentation avec torch</h2>
+<p>On simule un jeu de données <span class="math inline">\(y = X \theta\)</span> model. <span class="math inline">\(\theta \in \mathbb{R}^{1001, 1000}\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="fu">library</span>(torch)</span>
+<span id="cb58-2"><a href=""></a></span>
+<span id="cb58-3"><a href=""></a>n <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb58-4"><a href=""></a>d_in <span class="ot">&lt;-</span> <span class="dv">1001</span></span>
+<span id="cb58-5"><a href=""></a>d_out <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb58-6"><a href=""></a></span>
+<span id="cb58-7"><a href=""></a>thetas <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(d_in, d_out)</span>
+<span id="cb58-8"><a href=""></a></span>
+<span id="cb58-9"><a href=""></a>X <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(n, d_in)</span>
+<span id="cb58-10"><a href=""></a>y <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(X, thetas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>On entraine un modèle pour estimer <span class="math inline">\(\theta\)</span>. C’est notre modèle entraîné.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">nn_linear</span>(d_in, d_out, <span class="at">bias =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a>train <span class="ot">&lt;-</span> <span class="cf">function</span>(model, X, y, <span class="at">batch_size =</span> <span class="dv">128</span>, <span class="at">epochs =</span> <span class="dv">100</span>) {</span>
+<span id="cb60-2"><a href=""></a>  opt <span class="ot">&lt;-</span> <span class="fu">optim_adam</span>(model<span class="sc">$</span>parameters)</span>
+<span id="cb60-3"><a href=""></a></span>
+<span id="cb60-4"><a href=""></a>  <span class="cf">for</span> (epoch <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>epochs) {</span>
+<span id="cb60-5"><a href=""></a>    <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(n<span class="sc">/</span>batch_size)) {</span>
+<span id="cb60-6"><a href=""></a>      idx <span class="ot">&lt;-</span> <span class="fu">sample.int</span>(n, <span class="at">size =</span> batch_size)</span>
+<span id="cb60-7"><a href=""></a>      loss <span class="ot">&lt;-</span> <span class="fu">nnf_mse_loss</span>(<span class="fu">model</span>(X[idx,]), y[idx])</span>
+<span id="cb60-8"><a href=""></a>      </span>
+<span id="cb60-9"><a href=""></a>      <span class="fu">with_no_grad</span>({</span>
+<span id="cb60-10"><a href=""></a>        opt<span class="sc">$</span><span class="fu">zero_grad</span>()</span>
+<span id="cb60-11"><a href=""></a>        loss<span class="sc">$</span><span class="fu">backward</span>()</span>
+<span id="cb60-12"><a href=""></a>        opt<span class="sc">$</span><span class="fu">step</span>()  </span>
+<span id="cb60-13"><a href=""></a>      })</span>
+<span id="cb60-14"><a href=""></a>    }</span>
+<span id="cb60-15"><a href=""></a>    </span>
+<span id="cb60-16"><a href=""></a>    <span class="cf">if</span> (epoch <span class="sc">%%</span> <span class="dv">10</span> <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb60-17"><a href=""></a>      <span class="fu">with_no_grad</span>({</span>
+<span id="cb60-18"><a href=""></a>        loss <span class="ot">&lt;-</span> <span class="fu">nnf_mse_loss</span>(<span class="fu">model</span>(X), y)</span>
+<span id="cb60-19"><a href=""></a>      })</span>
+<span id="cb60-20"><a href=""></a>      <span class="fu">cat</span>(<span class="st">"["</span>, epoch, <span class="st">"] Loss:"</span>, loss<span class="sc">$</span><span class="fu">item</span>(), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb60-21"><a href=""></a>    }</span>
+<span id="cb60-22"><a href=""></a>  }</span>
+<span id="cb60-23"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section class="slide level2">
+
+<p>On entraine le modèle</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">train</span>(model, X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[ 10 ] Loss: 576.074 
+[ 20 ] Loss: 311.5254 
+[ 30 ] Loss: 154.5969 
+[ 40 ] Loss: 68.1488 
+[ 50 ] Loss: 25.47743 
+[ 60 ] Loss: 7.52371 
+[ 70 ] Loss: 1.574381 
+[ 80 ] Loss: 0.2002759 
+[ 90 ] Loss: 0.01300205 
+[ 100 ] Loss: 0.0004028342 </code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>On simule une distribution des données différente en appliquant une transformation à <span class="math inline">\(\theta\)</span></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a>thetas2 <span class="ot">&lt;-</span> thetas <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb63-2"><a href=""></a></span>
+<span id="cb63-3"><a href=""></a>X2 <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(n, d_in)</span>
+<span id="cb63-4"><a href=""></a>y2 <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(X2, thetas2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section></section>
+<section id="un-classifieur-dimages-métier-avec-le-fine-tuning-de-resnext50" class="title-slide slide level1 center">
+<h1>Un classifieur d’images métier avec le fine tuning de ResNext50</h1>
+<div class="quarto-auto-generated-content">
+<p><img src="images/mlverse.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://github.com/cregouby/happyR-torch-slides">{torch} {tabnet} and friends</a></p>
+</div>
+</div>
 </section>
 
 

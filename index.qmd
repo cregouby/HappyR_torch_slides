@@ -114,7 +114,7 @@ source https://xkcd.com/1987/
 et {torchdatasets}, {minihub}, {tok}, {hfhub}, {safetensors}, {tabnet}, {ETM}, {tft}, {innsight}, {brulee},...
 :::
 
-![](images/clipboard-419128090.png)
+![](images/clipboard-872398520.png)
 
 ## {torch} : pourquoi réinventer l'eau chaude?
 
@@ -523,10 +523,8 @@ Pre-training
 #| echo: true
 library(tabnet)
 ames_missing_pretrain <- tabnet_pretrain(
-  ames_missing_rec, data=ames_missing,  epoch=50, cat_emb_dim = 1,
-  valid_split = 0.2, verbose=TRUE, 
-  early_stopping_patience = 3L, 
-  early_stopping_tolerance = 1e-4
+  ames_missing_rec, data=ames_missing,  epoch=50, cat_emb_dim = 1,  valid_split = 0.2,
+  verbose=TRUE,   early_stopping_patience = 3L,   early_stopping_tolerance = 1e-4
 )
 # model diagnostic
 autoplot(ames_missing_pretrain)
@@ -825,40 +823,215 @@ tail(starwars_hat, n = 5)
 
 # GPT2 avec R
 
-{{< include _gpt2.qmd> }}
+basé sur 4 packages {minhub}, {hfhub}, {tok}, {safetensors}
 
-# Fine-Tuning de GPT2 en français avec un LORA
+-   {minhub} : un dépot de **réseau de neurones** classiques pour {torch}
+-   {hfhub} : l'accès aux téléchargement de **modèles** préentraînés du hub hugging-face
+-   {tok} : un wrappeur des tokenizers d'hugging-face en R
+-   {safetensors} : sauvegarde et lecture des données de tenseurs au format `.safetensors`
 
-{{< include lora.qmd> }}
-
-
-
-## Your turn, exercise 03
-
-<br>
-
-```{r, eval=FALSE, echo=TRUE}
-# already installed in the Posit Cloud work space
-# install.packages("devtools")
-# devtools::install_github("rstats-wtf/wtfdbg")
-```
-
-<br>
-
-::: question
-Complete 03_exercise 
-:::
+## Téléchargement du modèle et de ses poids
 
 ```{r}
-countdown(
-  minutes = 10
-  )
+#| echo: true
+#| eval: false
+library(minhub)
+identifier <- "gpt2"
+revision <- "e7da7f2"
+# instantiate model and load Hugging Face weights
+model <- gpt2_from_pretrained(identifier, revision)
+# load matching tokenizer
+tok <- tok::tokenizer$from_pretrained(identifier)
+model$eval()
+
 ```
 
-::: footer
+## Tokenisation de la phrase
+
+```{r}
+#| echo: true
+#| eval: false
+text = paste("Quel plaisir de participer aux ateliers HappyR !",
+             "Vivement le prochain évènement" )
+
+
+idx <- torch_tensor(
+  tok$encode(
+    text
+  )$
+    ids
+)$
+  view(c(1, -1))
+idx
+```
+
+## Génération d'une entrée
+
+La génération est un process itératif, chaque prédiction du modèle est ajoutée au prompt qui grossit.
+
+Ajoutons y 30 tokens :
+
+```{r}
+#| echo: true
+#| eval: false
+prompt_length <- idx$size(-1)
+
+for (i in 1:30) { # decide on maximal length of output sequence
+  # obtain next prediction (raw score)
+  with_no_grad({
+    logits <- model(idx + 1L)
+  })
+  last_logits <- logits[, -1, ]
+  # pick highest scores (how many is up to you)
+  c(prob, ind) %<-% last_logits$topk(50)
+  last_logits <- torch_full_like(last_logits, -Inf)$scatter_(-1, ind, prob)
+  # convert to probabilities
+  probs <- nnf_softmax(last_logits, dim = -1)
+  # probabilistic sampling
+  id_next <- torch_multinomial(probs, num_samples = 1) - 1L
+  # stop if end of sequence predicted
+  if (id_next$item() == 0) {
+    break
+  }
+  # append prediction to prompt
+  idx <- torch_cat(list(idx, id_next), dim = 2)
+}
+```
+
+## décodage des tokens du résultat
+
+```{r}
+#| echo: true
+#| eval: false
+tok$decode(as.integer(idx))
+```
+
+# Fine-Tuning avec LoRA
+# LoRA avec R
+
+## Est-ce que les LLMs dépossèdent le data-scientist ?
+
+-   des réseaux toujours plus gros impliquent des entraînements prohibitifs
+
+-   la promesse de la prochaîne version qui résoud les faiblesses
+
+-   le jeu de donnée de réference difficile à constituer
+
+## LoRA à la rescousse
+
+Low Rank Adaptation
+
+![](images/lora.png)
+
+## Method
+
+::: small
+The problem of fine-tuning a neural network can be expressed by finding a $\Delta \Theta$ that minimizes $L(X, y; \Theta_0 + \Delta\Theta)$ where $L$ is a loss function, $X$ and $y$ are the data and $\Theta_0$ the weights from a pre-trained model.
+
+We learn the parameters $\Delta \Theta$ with dimension $|\Delta \Theta|$ equals to $|\Theta_0|$. When $|\Theta_0|$ is very large, such as in large scale pre-trained models, finding $\Delta \Theta$ becomes computationally challenging. Also, for each task you need to learn a new $\Delta \Theta$ parameter set, making it even more challenging to deploy fine-tuned models if you have more than a few specific tasks.
+LoRA proposes using an approximation $\Delta \Phi \approx \Delta \Theta$ with $|\Delta \Phi| << |\Delta \Theta|$. The observation is that neural nets have many dense layers performing matrix multiplication, and while they typically have full-rank during pre-training, when adapting to a specific task the weight updates will have a low "intrinsic dimension".
+
 :::
 
+::: footer
+d'après https://blogs.rstudio.com/ai/posts/2023-06-22-understanding-lora/
+:::
+------------------------------------------------------------------------
 
-# Un classifieur d'images avec ResNext50 fine-tuning
+::: small
+A simple matrix decomposition is applied for each weight matrix update $\Delta \theta \in \Delta \Theta$. Considering $\Delta \theta_i \in \mathbb{R}^{d \times k}$ the update for the $i$th weight in the network, LoRA approximates it with:
+
+$$\Delta \theta_i  \approx \Delta \phi_i = BA$$ where $B \in \mathbb{R}^{d \times r}$, $A \in \mathbb{R}^{r \times d}$ and the rank $r << min(d, k)$. Thus instead of learning $d \times k$ parameters we now need to learn $(d + k) \times r$ which is easily a lot smaller given the multiplicative aspect. In practice, $\Delta \theta_i$ is scaled by $\frac{\alpha}{r}$ before being added to $\theta_i$, which can be interpreted as a 'learning rate' for the LoRA update.
+
+LoRA does not increase inference latency, as once fine tuning is done, you can simply update the weights in $\Theta$ by adding their respective $\Delta \theta \approx \Delta \phi$. It also makes it simpler to deploy multiple task specific models on top of one large model, as $|\Delta \Phi|$ is much smaller than $|\Delta \Theta|$.
+:::
+
+::: footer
+d'après https://blogs.rstudio.com/ai/posts/2023-06-22-understanding-lora/
+:::
+
+## Implémentation avec torch
+
+On simule un jeu de données $y = X \theta$ model. $\theta \in \mathbb{R}^{1001, 1000}$.
+
+```{r}
+#| echo: true
+library(torch)
+
+n <- 10000
+d_in <- 1001
+d_out <- 1000
+
+thetas <- torch_randn(d_in, d_out)
+
+X <- torch_randn(n, d_in)
+y <- torch_matmul(X, thetas)
+```
+
+------------------------------------------------------------------------
+
+On entraine un modèle pour estimer $\theta$. C'est notre modèle entraîné.
+
+```{r}
+#| echo: true
+#| code-fold: true
+model <- nn_linear(d_in, d_out, bias = FALSE)
+
+
+```
+
+```{r}
+#| echo: true
+#| code-fold: true
+train <- function(model, X, y, batch_size = 128, epochs = 100) {
+  opt <- optim_adam(model$parameters)
+
+  for (epoch in 1:epochs) {
+    for(i in seq_len(n/batch_size)) {
+      idx <- sample.int(n, size = batch_size)
+      loss <- nnf_mse_loss(model(X[idx,]), y[idx])
+      
+      with_no_grad({
+        opt$zero_grad()
+        loss$backward()
+        opt$step()  
+      })
+    }
+    
+    if (epoch %% 10 == 0) {
+      with_no_grad({
+        loss <- nnf_mse_loss(model(X), y)
+      })
+      cat("[", epoch, "] Loss:", loss$item(), "\n")
+    }
+  }
+}
+```
+
+------------------------------------------------------------------------
+
+On entraine le modèle
+
+```{r}
+#| echo: true
+#| code-fold: true
+train(model, X, y)
+```
+
+------------------------------------------------------------------------
+
+On simule une distribution des données différente en appliquant une transformation à $\theta$
+
+```{r}
+#| echo: true
+#| code-fold: true
+thetas2 <- thetas + 1
+
+X2 <- torch_randn(n, d_in)
+y2 <- torch_matmul(X2, thetas2)
+```
+
+
+# Un classifieur d'images métier avec le fine tuning de ResNext50
 
 
