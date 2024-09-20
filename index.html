@@ -545,14 +545,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.4020  0.5095  0.4796  0.6999
-  0.4689  0.3213  0.5042  0.3366
-  0.3706  0.7441  0.7699  0.0196
+  0.5113  0.7240  0.2231  0.7171
+  0.2707  0.1827  0.6711  0.1541
+  0.6131  0.9882  0.3075  0.5069
 
 (2,.,.) = 
-  0.2713  0.2315  0.4703  0.1746
-  0.1011  0.3889  0.2055  0.9369
-  0.6047  0.3164  0.9550  0.5750
+  0.3541  0.0129  0.2919  0.0758
+  0.7849  0.1660  0.5629  0.1750
+  0.4279  0.3991  0.9372  0.5699
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -570,34 +570,34 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.4689  0.3213  0.5042  0.3366
-  0.3706  0.7441  0.7699  0.0196
+  0.2707  0.1827  0.6711  0.1541
+  0.6131  0.9882  0.3075  0.5069
 
 (2,.,.) = 
-  0.1011  0.3889  0.2055  0.9369
-  0.6047  0.3164  0.9550  0.5750
+  0.7849  0.1660  0.5629  0.1750
+  0.4279  0.3991  0.9372  0.5699
 [ CPUFloatType{2,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>tt[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.4689  0.3213  0.5042  0.3366
- 0.3706  0.7441  0.7699  0.0196
+ 0.2707  0.1827  0.6711  0.1541
+ 0.6131  0.9882  0.3075  0.5069
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.4689  0.3213  0.5042  0.3366
-  0.3706  0.7441  0.7699  0.0196
+  0.2707  0.1827  0.6711  0.1541
+  0.6131  0.9882  0.3075  0.5069
 [ CPUFloatType{1,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">torch_squeeze</span>(tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.4689  0.3213  0.5042  0.3366
- 0.3706  0.7441  0.7699  0.0196
+ 0.2707  0.1827  0.6711  0.1541
+ 0.6131  0.9882  0.3075  0.5069
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 </div>
@@ -609,7 +609,7 @@ Christophe Regouby
 <p>Installations : `00_installation.R`</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_da22e230" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_b94b18c4" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -621,7 +621,7 @@ Christophe Regouby
 <p>Exercice : `01_exercice.R`</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_1a4d7a0f" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_3a34cc01" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -958,7 +958,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_6af57cd1" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_cd0a72c2" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1490,14 +1490,9 @@ Christophe Regouby
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a>tok<span class="sc">$</span><span class="fu">decode</span>(<span class="fu">as.integer</span>(idx))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
+<section>
 <section id="fine-tuning-avec-lora" class="title-slide slide level1 center">
 <h1>Fine-Tuning avec LoRA</h1>
-
-</section>
-
-<section>
-<section id="lora-avec-r" class="title-slide slide level1 center">
-<h1>LoRA avec R</h1>
 
 </section>
 <section id="est-ce-que-les-llms-dépossèdent-le-data-scientist" class="slide level2">

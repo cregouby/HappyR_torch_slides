@@ -111,15 +111,12 @@ source https://xkcd.com/1987/
 ## [![](images/clipboard-604787592.png)](https://torch.mlverse.org/)
 
 ::: footer
-et {torchdatasets}, {minihub}, {tok}, {hfhub}, {safetensors}, {tabnet}, {ETM}, {tft}, {innsight}, {brulee},...
+et {torchdatasets}, {minhub}, {tok}, {hfhub}, {safetensors}, {tabnet}, {ETM}, {tft}, {innsight}, {brulee},...
 :::
-
-![](images/clipboard-872398520.png)
 
 ## {torch} : pourquoi réinventer l'eau chaude?
 
 ::: small
-```         
 -   facilité d'installation CPU, GPU, MPS, ...
 
 -   frugalité d'installation
@@ -134,8 +131,8 @@ et {torchdatasets}, {minihub}, {tok}, {hfhub}, {safetensors}, {tabnet}, {ETM}, {
 
 -   plein de possibilités de contributions
 
-    ![](images/clipboard-872398520.png)
-```
+
+![](images/clipboard-872398520.png)
 :::
 
 ## Installation
@@ -210,9 +207,9 @@ torch_squeeze(tt[1:1, 2:N, ])
 ::::
 ::::::
 
-## À vous de jouer, exercise 01
+## À vous de jouer, exercices
 
-Installations : \`00_installation.R\`
+Installations : `00_installation.R`
 
 ```{r}
 countdown(
@@ -232,7 +229,7 @@ countdown(
 
 ------------------------------------------------------------------------
 
-Exercice : \`01_exercice.R\`
+Exercice : `01_exercice.`
 
 ```{r}
 countdown(
@@ -834,25 +831,24 @@ basé sur 4 packages {minhub}, {hfhub}, {tok}, {safetensors}
 
 ```{r}
 #| echo: true
-#| eval: false
 library(minhub)
+library(zeallot)
+
 identifier <- "gpt2"
 revision <- "e7da7f2"
 # instantiate model and load Hugging Face weights
 model <- gpt2_from_pretrained(identifier, revision)
 # load matching tokenizer
-tok <- tok::tokenizer$from_pretrained(identifier)
+tok <- tok::tokenizer$from_pretrained(identifier,)
 model$eval()
-
 ```
 
 ## Tokenisation de la phrase
 
 ```{r}
 #| echo: true
-#| eval: false
-text = paste("Quel plaisir de participer aux ateliers HappyR !",
-             "Vivement le prochain évènement" )
+text = paste("✨ Quel plaisir de participer aux ateliers HappyR !✨",
+             "Vivement le prochain évènement " )
 
 
 idx <- torch_tensor(
@@ -873,7 +869,6 @@ Ajoutons y 30 tokens :
 
 ```{r}
 #| echo: true
-#| eval: false
 prompt_length <- idx$size(-1)
 
 for (i in 1:30) { # decide on maximal length of output sequence
@@ -902,12 +897,10 @@ for (i in 1:30) { # decide on maximal length of output sequence
 
 ```{r}
 #| echo: true
-#| eval: false
 tok$decode(as.integer(idx))
 ```
 
 # Fine-Tuning avec LoRA
-# LoRA avec R
 
 ## Est-ce que les LLMs dépossèdent le data-scientist ?
 
@@ -975,7 +968,7 @@ On entraine un modèle pour estimer $\theta$. C'est notre modèle entraîné.
 ```{r}
 #| echo: true
 #| code-fold: true
-model <- nn_linear(d_in, d_out, bias = FALSE)
+lin_model <- nn_linear(d_in, d_out, bias = FALSE)
 
 
 ```
@@ -1010,12 +1003,12 @@ train <- function(model, X, y, batch_size = 128, epochs = 100) {
 
 ------------------------------------------------------------------------
 
-On entraine le modèle
+On entraine le modèle   
 
 ```{r}
 #| echo: true
 #| code-fold: true
-train(model, X, y)
+train(lin_model, X, y)
 ```
 
 ------------------------------------------------------------------------
@@ -1030,6 +1023,88 @@ thetas2 <- thetas + 1
 X2 <- torch_randn(n, d_in)
 y2 <- torch_matmul(X2, thetas2)
 ```
+
+Sur ces données, le modèle donne de mauvais résultats : 
+```{r}
+#| echo: true
+nnf_mse_loss(lin_model(X2), y2)
+```
+
+---
+::: small
+Le nouveau LoRA 
+ - s'ajoute au modèle `linear` dont on gèle les poids
+ - avec des tenseurs A et B de dimension intérieure `r`
+```{r}
+#| echo: true
+lora_nn_linear <- nn_module(
+  initialize = function(linear, r = 16L, alpha = 1) {
+    self$linear <- linear
+    
+    # parameters from the original linear module are 'freezed', so they are not
+    # tracked by autograd. They are considered just constants.
+    purrr::walk(self$linear$parameters, \(x) x$requires_grad_(FALSE))
+    
+    # the low rank parameters that will be trained (shortcut here, specific to our lin_model)
+    self$A <- nn_parameter(torch_randn(linear$in_features, r))
+    self$B <- nn_parameter(torch_zeros(r, linear$out_features))
+    
+    # the scaling constant
+    self$scaling <- alpha / r
+  },
+  forward = function(x) {
+    # the modified forward, that just adds the result from the base model
+    # and ABx.
+    self$linear(x) + torch_matmul(x, torch_matmul(self$A, self$B) * self$scaling)
+  }
+)
+```
+:::
+
+---
+Essayons un LoRA avec $r = 1$ i.e. A et B sont des vecteurs
+```{r}
+#| echo: true
+
+lora <- lora_nn_linear(lin_model, r = 1L)
+```
+
+entraînement du LoRA sur la nouvelle distribution
+
+```{r}
+#| echo: true
+#| label: "train LoRA"
+train(lora, X2, y2)
+```
+
+---
+Le tenseur $\Delta \theta$ est idéalement constant à 1 :
+```{r}
+#| echo: true
+delta_theta <- torch_matmul(lora$A, lora$B)*lora$scaling
+delta_theta[1:5, 1:5]
+
+```
+
+---
+
+::: small
+Pour diminuer le temps d'inférence, unne astuce consiste à ajouter le LoRA directement au poids du modèle avec la fonction `$add_`. Ainsi on passe de deux inférences séquentielle, à une seule.
+```{r}
+#| echo: true
+with_no_grad({
+  lin_model$weight$add_(delta_theta$t())  
+})
+```
+
+Quel est la performance sur la nouvelle distribution ? 
+```{r}
+#| echo: true
+nnf_mse_loss(lin_model(X2), y2)
+
+```
+:::
+
 
 
 # Un classifieur d'images métier avec le fine tuning de ResNext50
