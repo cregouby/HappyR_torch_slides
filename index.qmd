@@ -20,15 +20,15 @@ execute:
 
 Getting started
 
-{torch}
+\{torch\}
 
 mlverse
 
-{tabnet}
+\{tabnet\}
 
-{tabnet} pour la regression avec valeurs manquantes
+\{tabnet\} pour la regression avec valeurs manquantes
 
-{tabnet} pour la classification hierarchique
+\{tabnet\} pour la classification hierarchique
 
 GPT2 avec R
 
@@ -191,18 +191,21 @@ tt
 ------------------------------------------------------------------------
 
 :::::: columns
+
 :::: {.column width="50%"}
 ![](images/clipboard-4006123911.png)
 ::::
 
 :::: {.column width="50%"}
 ::: small
+
 ```{r, echo=TRUE}
 tt[, 2:N, ]
 tt[1, 2:N, ]
 tt[1:1, 2:N, ]
 torch_squeeze(tt[1:1, 2:N, ])
 ```
+
 :::
 ::::
 ::::::
@@ -285,12 +288,14 @@ transform_normalize(torch::torch_rand(c(3,5,5)), 3, 0)
 
 ::::: columns
 ::: {.column width="40%"}
+
 ```{r, echo=TRUE}
 Sys.setenv(LANGUAGE="fr")
 library(torchvision.fr)
 library(torchvision)
 ?transform_normalize
 ```
+
 :::
 
 ::: {.column width="60%"}
@@ -354,6 +359,7 @@ ames_pretrain <- tabnet_pretrain(
 # model diagnostic
 autoplot(ames_pretrain)
 ```
+
 :::
 
 ------------------------------------------------------------------------
@@ -373,6 +379,7 @@ ames_fit <- tabnet_fit(ames_rec, data=ames,  tabnet_model = ames_pretrain,
 # model diagnostic
 autoplot(ames_fit)
 ```
+
 :::
 
 ------------------------------------------------------------------------
@@ -388,6 +395,7 @@ Prediction
 #| echo: true
 predict(ames_fit, ames)
 ```
+
 :::
 
 ::: {.column width="70%"}
@@ -397,6 +405,7 @@ metrics <- metric_set(rmse, rsq, ccc)
 cbind(ames, predict(ames_fit, ames)) |> 
   metrics(Sale_Price, estimate = .pred)
 ```
+
 :::
 :::::
 ::::::
@@ -649,6 +658,7 @@ ames_missing_explain <- tabnet::tabnet_explain(ames_missing_fit, ames_missing)
 # variable importance
 autoplot(ames_missing_explain, quantile = 0.99, type="step")
 ```
+
 :::
 
 # {tabnet} avec un `outcome()` hierarchique
