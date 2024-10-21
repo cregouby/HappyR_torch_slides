@@ -1069,10 +1069,13 @@ lora_nn_linear <- nn_module(
   }
 )
 ```
+
 :::
 
 ---
+
 Essayons un LoRA avec $r = 1$ i.e. A et B sont des vecteurs
+
 ```{r}
 #| echo: true
 
@@ -1088,6 +1091,7 @@ train(lora, X2, y2)
 ```
 
 ---
+
 Le tenseur $\Delta \theta$ est idéalement constant à 1 :
 ```{r}
 #| echo: true
