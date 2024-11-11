@@ -185,6 +185,7 @@ library(torch)
 tt <- torch_rand(2, 3, 4)
 tt
 ```
+
 :::
 :::::
 
@@ -335,6 +336,7 @@ ames <- ames |> mutate(Sale_Price = log10(Sale_Price))
 ames_rec <- recipe(Sale_Price ~ ., data=ames) |> 
   step_normalize(all_numeric(), -all_outcomes()) 
 ```
+
 :::
 
 ::: footer
@@ -577,6 +579,7 @@ Prediction
 #| echo: true
 predict(ames_missing_fit, ames_missing)
 ```
+
 :::
 
 ::: {.column width="70%"}
@@ -642,7 +645,6 @@ vip_color(ames_missing_fit, col_with_missings)
 
 :::
 :::::
-
 ::::::
 
 ------------------------------------------------------------------------
@@ -716,11 +718,11 @@ print(starwars_tree, "name","height", "mass", "eye_color", limit = 8)
 - pas de colonne nomée `level_*`
 - le dernier niveau hiérarchique doit être l'individu (donc un Id unique)
 - il doit y avoir une racine à la hiérarchie
-
 :::
 
 
 ## Construction correcte de la variable de sortie `"pathString"`
+
 ::: small
 
 ```{r}
@@ -739,6 +741,7 @@ print(starwars_tree, "name", "_name","_height", "mass", "eye_color", limit = 8)
 `starwars` a des colonnes de `list()` qu'il faut dérouler
 
 ::: small
+
 ```{r}
 #| echo: true
 starw_split <- starwars |> 
@@ -747,11 +750,13 @@ starw_split <- starwars |>
   tidyr::unnest_longer(starships, keep_empty = TRUE) |> 
   initial_split( prop = .8, strata = "species")
 ```
+
 :::
 
 --- 
 
 ::: small
+
 ```{r}
 #| echo: true
 starwars_train_tree <- starw_split |> 
@@ -778,6 +783,7 @@ Les `$attributesAll` du Node seront les predicteurs :
 #| echo: true
 starwars_train_tree$attributesAll
 ```
+
 :::
 
 ## Entraînement du modèle
@@ -841,6 +847,7 @@ basé sur 4 packages {minhub}, {hfhub}, {tok}, {safetensors}
 
 ```{r}
 #| echo: true
+#| label: "GPT2 model download"
 library(minhub)
 library(zeallot)
 
@@ -857,17 +864,11 @@ model$eval()
 
 ```{r}
 #| echo: true
+#| label: "GPT2 tokenize"
 text = paste("✨ Quel plaisir de participer aux ateliers HappyR !✨",
              "Vivement le prochain évènement " )
 
-
-idx <- torch_tensor(
-  tok$encode(
-    text
-  )$
-    ids
-)$
-  view(c(1, -1))
+idx <- torch_tensor(tok$encode(text)$ids)$view(c(1, -1))
 idx
 ```
 
@@ -879,6 +880,7 @@ Ajoutons y 30 tokens :
 
 ```{r}
 #| echo: true
+#| label: "GPT2 generate"
 prompt_length <- idx$size(-1)
 
 for (i in 1:30) { # decide on maximal length of output sequence
@@ -907,6 +909,7 @@ for (i in 1:30) { # decide on maximal length of output sequence
 
 ```{r}
 #| echo: true
+#| label: "GPT2 decode"
 tok$decode(as.integer(idx))
 ```
 
@@ -959,6 +962,7 @@ On simule un jeu de données $y = X \theta$ model. $\theta \in \mathbb{R}^{1001,
 
 ```{r}
 #| echo: true
+#| label: "LoRA"
 library(torch)
 
 n <- 10000
@@ -978,6 +982,7 @@ On entraine un modèle pour estimer $\theta$. C'est notre modèle entraîné.
 ```{r}
 #| echo: true
 #| code-fold: true
+#| label: "pre-LoRA single layer network"
 lin_model <- nn_linear(d_in, d_out, bias = FALSE)
 
 
@@ -986,6 +991,7 @@ lin_model <- nn_linear(d_in, d_out, bias = FALSE)
 ```{r}
 #| echo: true
 #| code-fold: true
+#| label: "pre-LoRA model"
 train <- function(model, X, y, batch_size = 128, epochs = 100) {
   opt <- optim_adam(model$parameters)
 
@@ -1013,11 +1019,12 @@ train <- function(model, X, y, batch_size = 128, epochs = 100) {
 
 ------------------------------------------------------------------------
 
-On entraine le modèle   
+On entraîne le modèle   
 
 ```{r}
 #| echo: true
 #| code-fold: true
+#| label: "pre-LoRA train"
 train(lin_model, X, y)
 ```
 
@@ -1028,6 +1035,7 @@ On simule une distribution des données différente en appliquant une transforma
 ```{r}
 #| echo: true
 #| code-fold: true
+#| label: "LoRA shifted density data"
 thetas2 <- thetas + 1
 
 X2 <- torch_randn(n, d_in)
@@ -1041,12 +1049,16 @@ nnf_mse_loss(lin_model(X2), y2)
 ```
 
 ---
+
 ::: small
+
 Le nouveau LoRA 
  - s'ajoute au modèle `linear` dont on gèle les poids
- - avec des tenseurs A et B de dimension intérieure `r`
+ - avec des tenseurs A et B de dimension intérieure $r$
+ 
 ```{r}
 #| echo: true
+#| label: "LoRA add weight to model"
 lora_nn_linear <- nn_module(
   initialize = function(linear, r = 16L, alpha = 1) {
     self$linear <- linear
@@ -1078,6 +1090,7 @@ Essayons un LoRA avec $r = 1$ i.e. A et B sont des vecteurs
 
 ```{r}
 #| echo: true
+#| label: "LoRA-added linear model"
 
 lora <- lora_nn_linear(lin_model, r = 1L)
 ```
@@ -1095,6 +1108,7 @@ train(lora, X2, y2)
 Le tenseur $\Delta \theta$ est idéalement constant à 1 :
 ```{r}
 #| echo: true
+#| label: "LoRA check conformity"
 delta_theta <- torch_matmul(lora$A, lora$B)*lora$scaling
 delta_theta[1:5, 1:5]
 
@@ -1103,6 +1117,7 @@ delta_theta[1:5, 1:5]
 ---
 
 ::: small
+
 Pour diminuer le temps d'inférence, unne astuce consiste à ajouter le LoRA directement au poids du modèle avec la fonction `$add_`. Ainsi on passe de deux inférences séquentielle, à une seule.
 ```{r}
 #| echo: true
@@ -1117,6 +1132,7 @@ Quel est la performance sur la nouvelle distribution ?
 nnf_mse_loss(lin_model(X2), y2)
 
 ```
+
 :::
 
 
