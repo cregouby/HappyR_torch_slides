@@ -6,7 +6,10 @@
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark-0e5c805777bb127c27a6fd03f558df56.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark-0e5c805777bb127c27a6fd03f558df56.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="index_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="index_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.26">
 
   <meta name="author" content="Christophe Regouby">
@@ -408,9 +411,9 @@ Christophe Regouby
 </section>
 <section id="agenda" class="title-slide slide level1 center">
 <h1>Agenda</h1>
-<p>Getting started</p>
+<p>Bien commencer avec torch</p>
 <p>{torch}</p>
-<p>mlverse</p>
+<p>Le mlverse</p>
 <p>{tabnet}</p>
 <p>{tabnet} pour la regression avec valeurs manquantes</p>
 <p>{tabnet} pour la classification hierarchique</p>
@@ -426,8 +429,8 @@ Christophe Regouby
 </section>
 <section class="slide level2">
 
-
-<img data-src="images/clipboard-1733121037.png" class="r-stretch"></section>
+<p><a href="images/clipboard-1733121037.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="images/clipboard-1733121037.png"></a></p>
+</section>
 <section id="licensing" class="slide level2">
 <h2>Licensing</h2>
 <p><br> <br> This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> (CC BY-SA4.0).</p>
@@ -435,11 +438,11 @@ Christophe Regouby
 <section id="checklist" class="slide level2">
 <h2>Checklist</h2>
 <p><br></p>
-<p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> R &amp; RStudio installed?</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; I’m on 4.4.1 and 2024.08.0 build 351</p>
-<p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> {torch} installed?</p>
+<p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> R &amp; RStudio installés?</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; J’ai R 4.4.2 and 2024.12.0 build 67</p>
+<p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> {torch} est installé ?</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <code>torch::torch_is_installed()</code><br> &nbsp;&nbsp;&nbsp;&nbsp; <em>Your system is ready!</em></p>
-<p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> Any {torch} device ?</p>
+<p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> Un accélérateur {torch} ?</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <code>torch::backends_xxxx_is_available()</code><br> &nbsp;&nbsp;&nbsp;&nbsp; <em>Your system has power!</em></p>
 </section>
 <section id="autres-ressources" class="slide level2 smaller">
@@ -495,15 +498,15 @@ Christophe Regouby
 <li><p>l’écosystème des packages</p></li>
 <li><p>plein de possibilités de contributions</p></li>
 </ul>
-<p><img data-src="images/clipboard-872398520.png"></p>
+<p><a href="images/clipboard-872398520.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="images/clipboard-872398520.png"></a></p>
 </div>
 </section>
 <section id="installation" class="slide level2">
 <h2>Installation</h2>
 <p>Nominale</p>
-<p><img data-src="images/clipboard-1225111648.png"></p>
+<p><a href="images/clipboard-1225111648.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="images/clipboard-1225111648.png"></a></p>
 <p>Avancée</p>
-<p><img data-src="images/clipboard-2395058596.png"></p>
+<p><a href="images/clipboard-2395058596.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="images/clipboard-2395058596.png"></a></p>
 <div class="footer">
 <p>https://torch.mlverse.org/docs/articles/installation.html</p>
 </div>
@@ -511,8 +514,8 @@ Christophe Regouby
 <section class="slide level2">
 
 <p>Expert : air-gap server</p>
-
-<img data-src="images/clipboard-3643950338.png" class="r-stretch"><p>Expert : déverminage</p>
+<p><a href="images/clipboard-3643950338.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="images/clipboard-3643950338.png"></a></p>
+<p>Expert : déverminage</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {r}} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>Sys.setenv(TORCH_INSTALL_DEBUG = 1)</span>
 <span id="cb1-2"><a href=""></a>install_torch()</span>
 <span id="cb1-3"><a href=""></a></span>
@@ -523,13 +526,13 @@ Christophe Regouby
 </section>
 <section id="la-pile-logicielle" class="slide level2">
 <h2>La pile logicielle</h2>
-
-<img data-src="images/clipboard-1623978672.png" class="r-stretch"></section>
+<p><a href="images/clipboard-1623978672.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="images/clipboard-1623978672.png"></a></p>
+</section>
 <section id="la-manipulation-de-tenseurs" class="slide level2">
 <h2>La manipulation de tenseurs</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><img data-src="images/clipboard-1496841808.png"></p>
+<p><a href="images/clipboard-1496841808.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="images/clipboard-1496841808.png"></a></p>
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(torch)</span>
@@ -538,14 +541,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.9795  0.1875  0.2980  0.0509
-  0.7213  0.7557  0.9511  0.2496
-  0.0896  0.3535  0.7425  0.1663
+  0.9068  0.8225  0.9761  0.4548
+  0.1228  0.5623  0.8058  0.0567
+  0.0749  0.4578  0.1666  0.4133
 
 (2,.,.) = 
-  0.0960  0.2198  0.2652  0.1589
-  0.2842  0.0544  0.6260  0.1367
-  0.5224  0.0922  0.2634  0.7953
+  0.3863  0.7079  0.6039  0.0321
+  0.1337  0.8026  0.4949  0.3819
+  0.5342  0.2944  0.2606  0.4308
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -555,7 +558,7 @@ Christophe Regouby
 
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><img data-src="images/clipboard-4006123911.png"></p>
+<p><a href="images/clipboard-4006123911.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="images/clipboard-4006123911.png"></a></p>
 </div><div class="column" style="width:50%;">
 <div class="small">
 <div class="cell">
@@ -563,34 +566,34 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.7213  0.7557  0.9511  0.2496
-  0.0896  0.3535  0.7425  0.1663
+  0.1228  0.5623  0.8058  0.0567
+  0.0749  0.4578  0.1666  0.4133
 
 (2,.,.) = 
-  0.2842  0.0544  0.6260  0.1367
-  0.5224  0.0922  0.2634  0.7953
+  0.1337  0.8026  0.4949  0.3819
+  0.5342  0.2944  0.2606  0.4308
 [ CPUFloatType{2,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>tt[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.7213  0.7557  0.9511  0.2496
- 0.0896  0.3535  0.7425  0.1663
+ 0.1228  0.5623  0.8058  0.0567
+ 0.0749  0.4578  0.1666  0.4133
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.7213  0.7557  0.9511  0.2496
-  0.0896  0.3535  0.7425  0.1663
+  0.1228  0.5623  0.8058  0.0567
+  0.0749  0.4578  0.1666  0.4133
 [ CPUFloatType{1,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">torch_squeeze</span>(tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.7213  0.7557  0.9511  0.2496
- 0.0896  0.3535  0.7425  0.1663
+ 0.1228  0.5623  0.8058  0.0567
+ 0.0749  0.4578  0.1666  0.4133
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 </div>
@@ -602,7 +605,7 @@ Christophe Regouby
 <p>Installations : <code>00_installation.R</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_894ba363" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_43b7aeae" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -614,7 +617,7 @@ Christophe Regouby
 <p>Exercice : <code>01_exercice.</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_62ea9290" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_69105f7d" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -633,11 +636,11 @@ Christophe Regouby
 <h2>Un univers de 📦 en français</h2>
 <div class="small">
 <table class="caption-top">
-<caption>Les paquets disponibles en français</caption>
+<caption>Les paquetages disponibles en français</caption>
 <thead>
 <tr class="header">
-<th>paquet</th>
-<th>les messages</th>
+<th>paquetage</th>
+<th>messages</th>
 <th>l’aide</th>
 <th>les vignettes</th>
 </tr>
@@ -645,7 +648,7 @@ Christophe Regouby
 <tbody>
 <tr class="odd">
 <td>{torch}</td>
-<td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg><sup>1</sup></td>
+<td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></td>
 <td></td>
 <td></td>
 </tr>
@@ -694,7 +697,7 @@ Christophe Regouby
 </tbody>
 </table>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>P.R en cours</p></li></ol></aside></section>
+</section>
 <section class="slide level2">
 
 <div class="cell">
@@ -702,8 +705,8 @@ Christophe Regouby
 <span id="cb12-2"><a href=""></a><span class="fu">library</span>(torchvision)</span>
 <span id="cb12-3"><a href=""></a><span class="fu">transform_normalize</span>(torch<span class="sc">::</span><span class="fu">torch_rand</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>)), <span class="dv">3</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-
-<img data-src="images/clipboard-3331382707.png" class="r-stretch"></section>
+<p><a href="images/clipboard-3331382707.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="images/clipboard-3331382707.png"></a></p>
+</section>
 <section class="slide level2">
 
 <div class="columns">
@@ -715,7 +718,7 @@ Christophe Regouby
 <span id="cb13-4"><a href=""></a>?transform_normalize</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
-<p><img data-src="images/clipboard-1958985727.png"></p>
+<p><a href="images/clipboard-1958985727.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="images/clipboard-1958985727.png"></a></p>
 </div></div>
 </section></section>
 <section>
@@ -729,8 +732,8 @@ Christophe Regouby
 </section>
 <section id="fonctionnement" class="slide level2">
 <h2>Fonctionnement</h2>
-
-<img data-src="images/clipboard-2272997678.png" class="r-stretch"></section>
+<p><a href="images/clipboard-2272997678.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="images/clipboard-2272997678.png"></a></p>
+</section>
 <section id="usage-intégré-dans-tidymodels" class="slide level2">
 <h2>Usage intégré dans tidymodels</h2>
 <div class="small">
@@ -845,7 +848,7 @@ Christophe Regouby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20pretrain-1.png" width="960"></p>
+<p><a href="index_files/figure-revealjs/tabnet%20pretrain-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img data-src="index_files/figure-revealjs/tabnet%20pretrain-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -867,7 +870,7 @@ Christophe Regouby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20fit-1.png" width="960"></p>
+<p><a href="index_files/figure-revealjs/tabnet%20fit-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img data-src="index_files/figure-revealjs/tabnet%20fit-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -925,7 +928,7 @@ Christophe Regouby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20vip-1.png" width="960"></p>
+<p><a href="index_files/figure-revealjs/tabnet%20vip-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img data-src="index_files/figure-revealjs/tabnet%20vip-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -943,7 +946,7 @@ Christophe Regouby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20explain-1.png" width="960"></p>
+<p><a href="index_files/figure-revealjs/tabnet%20explain-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img data-src="index_files/figure-revealjs/tabnet%20explain-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -957,7 +960,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_255d0a7e" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_9e06eccd" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -989,9 +992,15 @@ Christophe Regouby
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">data</span>(<span class="st">"ames"</span>, <span class="at">package =</span> <span class="st">"modeldata"</span>)</span>
 <span id="cb25-2"><a href=""></a><span class="fu">qplot</span>(ames<span class="sc">$</span>Mas_Vnr_Area)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="index_files/figure-revealjs/unnamed-chunk-17-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img data-src="index_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></a></p>
+</figure>
 </div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"><div class="question">
+</div>
+</div>
+<div class="question">
 <p>Comment le modèle peut-il capturer cette distribution ?</p>
 </div>
 </section>
@@ -1019,7 +1028,7 @@ Christophe Regouby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20missing%20dataset-1.png" width="960"></p>
+<p><a href="index_files/figure-revealjs/tabnet%20missing%20dataset-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img data-src="index_files/figure-revealjs/tabnet%20missing%20dataset-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1047,7 +1056,7 @@ Christophe Regouby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20missing%20pretrain-1.png" width="960"></p>
+<p><a href="index_files/figure-revealjs/tabnet%20missing%20pretrain-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img data-src="index_files/figure-revealjs/tabnet%20missing%20pretrain-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1075,7 +1084,7 @@ Christophe Regouby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20missing%20fit-1.png" width="960"></p>
+<p><a href="index_files/figure-revealjs/tabnet%20missing%20fit-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img data-src="index_files/figure-revealjs/tabnet%20missing%20fit-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1136,7 +1145,7 @@ Christophe Regouby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-1.png" width="960"></p>
+<p><a href="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1144,7 +1153,7 @@ Christophe Regouby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-2.png" width="960"></p>
+<p><a href="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-2.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1156,7 +1165,7 @@ Christophe Regouby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-1.png" width="960"></p>
+<p><a href="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1164,7 +1173,7 @@ Christophe Regouby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-2.png" width="960"></p>
+<p><a href="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-2.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1183,7 +1192,7 @@ Christophe Regouby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/tabnet%20missing%20explain-1.png" width="960"></p>
+<p><a href="index_files/figure-revealjs/tabnet%20missing%20explain-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img data-src="index_files/figure-revealjs/tabnet%20missing%20explain-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1442,7 +1451,7 @@ Christophe Regouby
 <section id="tokenisation-de-la-phrase" class="slide level2">
 <h2>Tokenisation de la phrase</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a>text <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"✨ Quel plaisir de participer aux ateliers HappyR !✨"</span>,</span>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a>text <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"✨ Quel plaisir de participer aux ateliers HRencontres R 2025 à  Mons  !✨"</span>,</span>
 <span id="cb54-2"><a href=""></a>             <span class="st">"Vivement le prochain évènement "</span> )</span>
 <span id="cb54-3"><a href=""></a></span>
 <span id="cb54-4"><a href=""></a>idx <span class="ot">&lt;-</span> <span class="fu">torch_tensor</span>(tok<span class="sc">$</span><span class="fu">encode</span>(text)<span class="sc">$</span>ids)<span class="sc">$</span><span class="fu">view</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>))</span>
@@ -1451,10 +1460,12 @@ Christophe Regouby
 <pre><code>torch_tensor
 Columns 1 to 11 26486    101   2264    417    458  15152    343    390   1344   9346  27506
 
-Columns 12 to 22   379    417   3183  14628     49   5145  26486    101  29237    434    443
+Columns 12 to 22   379    417   3183  15172    268   3642    411    371  32190  28141    220
 
-Columns 23 to 30   386   7983  38251     85  14064     77    972    220
-[ CPULongType{1,30} ]</code></pre>
+Columns 23 to 33 19853    220   5145  26486    101  29237    434    443    386   7983  38251
+
+Columns 34 to 38    85  14064     77    972    220
+[ CPULongType{1,38} ]</code></pre>
 </div>
 </div>
 </section>
@@ -1492,7 +1503,7 @@ Columns 23 to 30   386   7983  38251     85  14064     77    972    220
 <div class="cell">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a>tok<span class="sc">$</span><span class="fu">decode</span>(<span class="fu">as.integer</span>(idx))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "✨ Quel plaisir de participer aux ateliers HappyR !✨ Vivement le prochain évènement étour sur le l'affaire !✬\n\nLa vère monde est révolution de plus en fait.\n\n"</code></pre>
+<pre><code>[1] "✨ Quel plaisir de participer aux ateliers HRencontres R 2025 à  Mons  !✨ Vivement le prochain évènement étour sur l'assurance en vrai !✨ Mère moyen révolutionnelle en la fin. — Jean"</code></pre>
 </div>
 </div>
 </section></section>
@@ -1512,8 +1523,8 @@ Columns 23 to 30   386   7983  38251     85  14064     77    972    220
 <section id="lora-à-la-rescousse" class="slide level2">
 <h2>LoRA à la rescousse</h2>
 <p>Low Rank Adaptation</p>
-
-<img data-src="images/lora.png" class="r-stretch"></section>
+<p><a href="images/lora.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img data-src="images/lora.png"></a></p>
+</section>
 <section id="method" class="slide level2">
 <h2>Method</h2>
 <div class="small">
@@ -1761,8 +1772,6 @@ Columns 1 to 6 1.3296e+00  1.8897e+00  1.9052e+00  8.8789e-01  5.7730e-01 -7.243
 <h1>Un classifieur d’images métier avec le fine tuning de ResNext50</h1>
 
 </section>
-
-
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="images/mlverse.png" class="slide-logo"></p>
@@ -2206,6 +2215,38 @@ Columns 1 to 6 1.3296e+00  1.8897e+00  1.9052e+00  8.8789e-01  5.7730e-01 -7.243
       }
     });
     </script>
+    <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

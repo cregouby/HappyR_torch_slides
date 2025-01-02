@@ -11,6 +11,7 @@ format:
     transition: fade
     slide-number: true
     chalkboard: true
+    lightbox: true
 editor: visual
 execute:
   freeze: auto
@@ -18,11 +19,11 @@ execute:
 
 # Agenda
 
-Getting started
+Bien commencer avec torch
 
 \{torch\}
 
-mlverse
+Le mlverse
 
 \{tabnet\}
 
@@ -61,15 +62,15 @@ fa_fill <- "#C7B41D"
 
 <br>
 
-`r fontawesome::fa("check", fill = fa_fill)` R & RStudio installed?
+`r fontawesome::fa("check", fill = fa_fill)` R & RStudio installés?
 
-     I'm on 4.4.1 and 2024.08.0 build 351
+     J'ai R 4.4.2 and 2024.12.0 build 67
 
-`r fontawesome::fa("check", fill = fa_fill)` {torch} installed?
+`r fontawesome::fa("check", fill = fa_fill)` {torch} est installé ?
 
      `torch::torch_is_installed()`<br>      *Your system is ready!*
 
-`r fontawesome::fa("check", fill = fa_fill)` Any {torch} device ?
+`r fontawesome::fa("check", fill = fa_fill)` Un accélérateur {torch} ?
 
      `torch::backends_xxxx_is_available()`<br>      *Your system has power!*
 
@@ -260,9 +261,9 @@ countdown(
 ## Un univers de 📦 en français
 
 ::: small
-| paquet | les messages | l'aide | les vignettes |
+| paquetage | messages | l'aide | les vignettes |
 |------------------|------------------|-------------------|------------------|
-| {torch} | `r fontawesome::fa("check", fill = fa_fill)`[^1] |  |  |
+| {torch} | `r fontawesome::fa("check", fill = fa_fill)` |  |  |
 | {torchvision} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/torchvision.fr](https://github.com/cregouby/torchvision.fr) |  |
 | {tabnet} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/tabnet.fr](https://github.com/cregouby/tabnet.fr) |  |
 | {luz} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/luz.fr](https://github.com/cregouby/luz.fr) | `r fontawesome::fa("check", fill = fa_fill)` [cregouby.github.io/luz.fr/](https://cregouby.github.io/luz.fr/)|
@@ -271,10 +272,8 @@ countdown(
 | {safetensors} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/safetensors.fr](https://github.com/cregouby/safetensors.fr) |  |
 | {minhub} |  | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/minhub.fr](https://github.com/cregouby/minhub.fr) |  |
 
-: Les paquets disponibles en français
+: Les paquetages disponibles en français
 :::
-
-[^1]: P.R en cours
 
 ------------------------------------------------------------------------
 
@@ -865,7 +864,7 @@ model$eval()
 ```{r}
 #| echo: true
 #| label: "GPT2 tokenize"
-text = paste("✨ Quel plaisir de participer aux ateliers HappyR !✨",
+text = paste("✨ Quel plaisir de participer aux ateliers HRencontres R 2025 à  Mons  !✨",
              "Vivement le prochain évènement " )
 
 idx <- torch_tensor(tok$encode(text)$ids)$view(c(1, -1))
