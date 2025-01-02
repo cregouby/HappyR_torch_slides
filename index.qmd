@@ -265,6 +265,7 @@ countdown(
 | {hfhub} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/hfhub.fr](https://github.com/cregouby/hfhub.fr) |  |
 | {tok} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/tok.fr](https://github.com/cregouby/tok.fr) |  |
 | {safetensors} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/safetensors.fr](https://github.com/cregouby/safetensors.fr) |  |
+| {minhub} |  | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/minhub.fr](https://github.com/cregouby/minhub.fr) |  |
 
 : Les paquets disponibles en français
 :::
@@ -568,6 +569,7 @@ Prediction
 #| echo: true
 predict(ames_missing_fit, ames_missing)
 ```
+
 :::
 
 ::: {.column width="70%"}
@@ -580,8 +582,7 @@ cbind(ames_missing, predict(ames_missing_fit, ames_missing)) |>
 
 :::
 :::::
-
-:::::: 
+::::::
 
 ------------------------------------------------------------------------
 
@@ -649,6 +650,7 @@ ames_missing_explain <- tabnet::tabnet_explain(ames_missing_fit, ames_missing)
 # variable importance
 autoplot(ames_missing_explain, quantile = 0.99, type="step")
 ```
+
 :::
 
 # {tabnet} avec un `outcome()` hierarchique
@@ -729,6 +731,7 @@ print(starwars_tree, "name", "_name","_height", "mass", "eye_color", limit = 8)
 `starwars` a des colonnes de `list()` qu'il faut dérouler
 
 ::: small
+
 ```{r}
 #| echo: true
 starw_split <- starwars |> 
@@ -737,11 +740,13 @@ starw_split <- starwars |>
   tidyr::unnest_longer(starships, keep_empty = TRUE) |> 
   initial_split( prop = .8, strata = "species")
 ```
+
 :::
 
 --- 
 
 ::: small
+
 ```{r}
 #| echo: true
 starwars_train_tree <- starw_split |> 
@@ -768,6 +773,7 @@ Les `$attributesAll` du Node seront les predicteurs :
 #| echo: true
 starwars_train_tree$attributesAll
 ```
+
 :::
 
 ## Entraînement du modèle
@@ -1032,6 +1038,7 @@ nnf_mse_loss(lin_model(X2), y2)
 
 ---
 ::: small
+
 Le nouveau LoRA 
  - s'ajoute au modèle `linear` dont on gèle les poids
  - avec des tenseurs A et B de dimension intérieure `r`
@@ -1059,6 +1066,7 @@ lora_nn_linear <- nn_module(
   }
 )
 ```
+
 :::
 
 ---
@@ -1089,6 +1097,7 @@ delta_theta[1:5, 1:5]
 ---
 
 ::: small
+
 Pour diminuer le temps d'inférence, unne astuce consiste à ajouter le LoRA directement au poids du modèle avec la fonction `$add_`. Ainsi on passe de deux inférences séquentielle, à une seule.
 ```{r}
 #| echo: true
@@ -1103,6 +1112,7 @@ Quel est la performance sur la nouvelle distribution ?
 nnf_mse_loss(lin_model(X2), y2)
 
 ```
+
 :::
 
 
