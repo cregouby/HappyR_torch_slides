@@ -918,7 +918,7 @@ tok$decode(as.integer(idx))
 
 -   des réseaux toujours plus gros impliquent des entraînements prohibitifs
 
--   la promesse de la prochaîne version qui résoud les faiblesses
+-   la promesse de la prochaîne version qui résoudra les faiblesses constatées
 
 -   le jeu de donnée de réference difficile à constituer
 
