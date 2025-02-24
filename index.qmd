@@ -1138,4 +1138,13 @@ nnf_mse_loss(lin_model(X2), y2)
 
 # Un classifieur d'images métier avec le fine tuning de ResNext50
 
+```{r}
+#| label: TBC
+library(minhub)
+library(hfhub)
+withr::with_envvar(new = c("SSL_CERT_FILE"="/Users/to94498/.ssl/airbus-ca.crt"),
+      yolo_8n_nn <- hub_download("nielsr/yolov8n", filename = "model.safetensors")
+      )
+#> Error: Timeout was reached [huggingface.co]: Resolving timed out after 10001 milliseconds
+```
 
