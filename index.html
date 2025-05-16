@@ -495,24 +495,24 @@ Christophe Regouby
 <li><p>l’écosystème des packages</p></li>
 <li><p>plein de possibilités de contributions</p></li>
 </ul>
-<p><img data-src="images/clipboard-872398520.png"></p>
+<p><img data-src="images/clipboard-torch0130.png"> <img data-src="images/clipboard-torch0142.png"></p>
 </div>
 </section>
 <section id="installation" class="slide level2">
 <h2>Installation</h2>
 <p>Nominale</p>
-<p><img data-src="images/clipboard-1225111648.png"></p>
+<p><img data-src="images/clipboard-install.png"></p>
 <p>Avancée</p>
-<p><img data-src="images/clipboard-2395058596.png"></p>
+<p><img data-src="images/clipboard-install-adv.png"></p>
 <div class="footer">
 <p>https://torch.mlverse.org/docs/articles/installation.html</p>
 </div>
 </section>
 <section class="slide level2">
 
-<p>Expert : air-gap server</p>
+<p>Expert : Machine sans connexion</p>
 
-<img data-src="images/clipboard-3643950338.png" class="r-stretch"><p>Expert : déverminage</p>
+<img data-src="images/clipboard-install-airgap.png" class="r-stretch"><p>Expert : déverminage</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {r}} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>Sys.setenv(TORCH_INSTALL_DEBUG = 1)</span>
 <span id="cb1-2"><a href=""></a>install_torch()</span>
 <span id="cb1-3"><a href=""></a></span>
@@ -538,14 +538,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.4248  0.7449  0.8515  0.3936
-  0.1909  0.7350  0.4296  0.7082
-  0.7723  0.2927  0.3656  0.6288
+  0.9767  0.1513  0.5678  0.2726
+  0.2623  0.1988  0.2058  0.3422
+  0.1445  0.4773  0.9750  0.9662
 
 (2,.,.) = 
-  0.9594  0.8763  0.9447  0.9428
-  0.8682  0.3093  0.7562  0.7651
-  0.3565  0.2330  0.1964  0.1147
+  0.0546  0.7646  0.4292  0.7336
+  0.1643  0.3659  0.5475  0.2584
+  0.2472  0.4408  0.3083  0.7068
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -563,34 +563,34 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.1909  0.7350  0.4296  0.7082
-  0.7723  0.2927  0.3656  0.6288
+  0.2623  0.1988  0.2058  0.3422
+  0.1445  0.4773  0.9750  0.9662
 
 (2,.,.) = 
-  0.8682  0.3093  0.7562  0.7651
-  0.3565  0.2330  0.1964  0.1147
+  0.1643  0.3659  0.5475  0.2584
+  0.2472  0.4408  0.3083  0.7068
 [ CPUFloatType{2,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>tt[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.1909  0.7350  0.4296  0.7082
- 0.7723  0.2927  0.3656  0.6288
+ 0.2623  0.1988  0.2058  0.3422
+ 0.1445  0.4773  0.9750  0.9662
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.1909  0.7350  0.4296  0.7082
-  0.7723  0.2927  0.3656  0.6288
+  0.2623  0.1988  0.2058  0.3422
+  0.1445  0.4773  0.9750  0.9662
 [ CPUFloatType{1,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">torch_squeeze</span>(tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.1909  0.7350  0.4296  0.7082
- 0.7723  0.2927  0.3656  0.6288
+ 0.2623  0.1988  0.2058  0.3422
+ 0.1445  0.4773  0.9750  0.9662
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 </div>
@@ -602,7 +602,7 @@ Christophe Regouby
 <p>Installations : <code>00_installation.R</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_0144f03f" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_4df548dd" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -614,7 +614,7 @@ Christophe Regouby
 <p>Exercice : <code>01_exercice.</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_80582f23" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_32071c78" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -628,6 +628,39 @@ Christophe Regouby
 </section>
 <section id="un-univers-de-dédiés-à-torch" class="slide level2">
 <h2>Un univers de 📦 dédiés à {torch}</h2>
+<div class="small">
+<table class="caption-top">
+<caption>Les paquets par famille de donnée traitées</caption>
+<thead>
+<tr class="header">
+<th>famille</th>
+<th>packages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>fondations</td>
+<td><img data-src="images/tile_torch_tools.png"></td>
+</tr>
+<tr class="even">
+<td>vision</td>
+<td><img data-src="images/tile_torch_vision.png"></td>
+</tr>
+<tr class="odd">
+<td>données tabulaires</td>
+<td><img data-src="images/tile_torch_tabular.png"></td>
+</tr>
+<tr class="even">
+<td>traitement automatique du langage</td>
+<td><img data-src="images/tile_torch_nlp.png"></td>
+</tr>
+<tr class="odd">
+<td>séries temporelles</td>
+<td><img data-src="images/tile_torch_ts.png"></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="un-univers-de-en-français" class="slide level2">
 <h2>Un univers de 📦 en français</h2>
@@ -645,7 +678,7 @@ Christophe Regouby
 <tbody>
 <tr class="odd">
 <td>{torch}</td>
-<td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg><sup>1</sup></td>
+<td><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></td>
 <td></td>
 <td></td>
 </tr>
@@ -688,7 +721,7 @@ Christophe Regouby
 </tbody>
 </table>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>P.R en cours</p></li></ol></aside></section>
+</section>
 <section class="slide level2">
 
 <div class="cell">
@@ -719,7 +752,7 @@ Christophe Regouby
 </section>
 <section id="section-4" class="slide level2">
 <h2><img data-src="images/clipboard-534052795.png"></h2>
-<p>v0.6.0 is on CRAN</p>
+<p>v0.7.0 is on CRAN</p>
 </section>
 <section id="fonctionnement" class="slide level2">
 <h2>Fonctionnement</h2>
@@ -951,7 +984,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_2a332cb3" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_222f6462" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -985,7 +1018,7 @@ Christophe Regouby
 <span id="cb25-2"><a href=""></a><span class="fu">qplot</span>(ames<span class="sc">$</span>Mas_Vnr_Area)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"><div class="question">
+<img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"><div class="question">
 <p>Comment le modèle peut-il capturer cette distribution ?</p>
 </div>
 </section>
@@ -1436,8 +1469,8 @@ Christophe Regouby
 <section id="tokenisation-de-la-phrase" class="slide level2">
 <h2>Tokenisation de la phrase</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a>text <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"✨ Quel plaisir de participer aux ateliers HappyR !✨"</span>,</span>
-<span id="cb54-2"><a href=""></a>             <span class="st">"Vivement le prochain évènement "</span> )</span>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a>text <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"✨ Quel plaisir de participer aux Rencontres R! ✨"</span>,</span>
+<span id="cb54-2"><a href=""></a>             <span class="st">"Vivement la prochaine "</span> )</span>
 <span id="cb54-3"><a href=""></a></span>
 <span id="cb54-4"><a href=""></a>idx <span class="ot">&lt;-</span> <span class="fu">torch_tensor</span>(tok<span class="sc">$</span><span class="fu">encode</span>(text)<span class="sc">$</span>ids)<span class="sc">$</span><span class="fu">view</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>))</span>
 <span id="cb54-5"><a href=""></a>idx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1445,10 +1478,10 @@ Christophe Regouby
 <pre><code>torch_tensor
 Columns 1 to 11 26486    101   2264    417    458  15152    343    390   1344   9346  27506
 
-Columns 12 to 22   379    417   3183  14628     49   5145  26486    101  29237    434    443
+Columns 12 to 22  7152   3642    411    371      0  14519    101  29237    434   8591    386
 
-Columns 23 to 30   386   7983  38251     85  14064     77    972    220
-[ CPULongType{1,30} ]</code></pre>
+Columns 23 to 25   354   5718    220
+[ CPULongType{1,25} ]</code></pre>
 </div>
 </div>
 </section>
@@ -1486,7 +1519,7 @@ Columns 23 to 30   386   7983  38251     85  14064     77    972    220
 <div class="cell">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a>tok<span class="sc">$</span><span class="fu">decode</span>(<span class="fu">as.integer</span>(idx))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "✨ Quel plaisir de participer aux ateliers HappyR !✨ Vivement le prochain évènement était pas de mécurité de l'institure, puis en été avoir l'informatique jusqu"</code></pre>
+<pre><code>[1] "✨ Quel plaisir de participer aux Rencontres R! ✨ Vivement la prochaine était préclar d'esprit, que hou vous trouve dans le temps de préclar quel"</code></pre>
 </div>
 </div>
 </section></section>
@@ -1592,16 +1625,16 @@ Columns 23 to 30   386   7983  38251     85  14064     77    972    220
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="fu">train</span>(lin_model, X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[ 10 ] Loss: 577.892 
-[ 20 ] Loss: 312.8016 
-[ 30 ] Loss: 155.3573 
-[ 40 ] Loss: 68.56746 
-[ 50 ] Loss: 25.67733 
-[ 60 ] Loss: 7.605734 
-[ 70 ] Loss: 1.594969 
-[ 80 ] Loss: 0.2023816 
-[ 90 ] Loss: 0.01287452 
-[ 100 ] Loss: 0.0003566072 </code></pre>
+<pre><code>[ 10 ] Loss: 575.422 
+[ 20 ] Loss: 310.9893 
+[ 30 ] Loss: 154.1616 
+[ 40 ] Loss: 67.88356 
+[ 50 ] Loss: 25.34627 
+[ 60 ] Loss: 7.473612 
+[ 70 ] Loss: 1.557202 
+[ 80 ] Loss: 0.1963304 
+[ 90 ] Loss: 0.01243985 
+[ 100 ] Loss: 0.0003520371 </code></pre>
 </div>
 </div>
 </section>
@@ -1622,7 +1655,7 @@ Columns 23 to 30   386   7983  38251     85  14064     77    972    220
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="fu">nnf_mse_loss</span>(<span class="fu">lin_model</span>(X2), y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
-1002.51
+1023.75
 [ CPUFloatType{} ][ grad_fn = &lt;MseLossBackward0&gt; ]</code></pre>
 </div>
 </div>
@@ -1666,16 +1699,16 @@ Columns 23 to 30   386   7983  38251     85  14064     77    972    220
 <div class="cell">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="fu">train</span>(lora, X2, y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[ 10 ] Loss: 791.6555 
-[ 20 ] Loss: 479.2241 
-[ 30 ] Loss: 250.6071 
-[ 40 ] Loss: 115.7826 
-[ 50 ] Loss: 45.41722 
-[ 60 ] Loss: 14.16656 
-[ 70 ] Loss: 3.09627 
-[ 80 ] Loss: 0.4027587 
-[ 90 ] Loss: 0.02466404 
-[ 100 ] Loss: 0.0009793749 </code></pre>
+<pre><code>[ 10 ] Loss: 803.9484 
+[ 20 ] Loss: 480.2847 
+[ 30 ] Loss: 252.2604 
+[ 40 ] Loss: 117.0122 
+[ 50 ] Loss: 45.98793 
+[ 60 ] Loss: 14.2972 
+[ 70 ] Loss: 3.188789 
+[ 80 ] Loss: 0.4264118 
+[ 90 ] Loss: 0.02679148 
+[ 100 ] Loss: 0.001070438 </code></pre>
 </div>
 </div>
 </section>
@@ -1687,11 +1720,11 @@ Columns 23 to 30   386   7983  38251     85  14064     77    972    220
 <span id="cb71-2"><a href=""></a>delta_theta[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.9991  0.9991  0.9991  0.9991  0.9990
- 1.0001  1.0000  1.0001  1.0000  1.0000
- 0.9999  0.9999  0.9999  0.9999  0.9998
- 1.0005  1.0004  1.0005  1.0005  1.0004
- 1.0001  1.0001  1.0001  1.0001  1.0001
+ 0.9999  0.9999  1.0000  0.9999  1.0000
+ 1.0016  1.0015  1.0016  1.0016  1.0016
+ 0.9995  0.9995  0.9996  0.9995  0.9996
+ 1.0002  1.0001  1.0002  1.0002  1.0002
+ 0.9991  0.9991  0.9992  0.9991  0.9992
 [ CPUFloatType{5,5} ][ grad_fn = &lt;SliceBackward0&gt; ]</code></pre>
 </div>
 </div>
@@ -1706,36 +1739,36 @@ Columns 23 to 30   386   7983  38251     85  14064     77    972    220
 <span id="cb73-3"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
-Columns 1 to 6 3.2681e-01  1.0393e+00  2.1898e+00  2.3237e+00  2.6971e+00  9.8932e-01
--5.9771e-01  5.3262e-01  1.0759e+00  1.3716e+00  6.8702e-01  8.6348e-02
- 6.4505e-02  1.5819e+00  1.7171e+00 -1.3643e-01  1.6412e-01  1.6744e+00
- 1.4636e+00  1.6587e+00  1.1924e+00  3.3813e+00 -6.7334e-01  2.0218e+00
- 1.1415e+00  1.7688e+00  1.6474e+00  1.4472e+00 -3.0804e-02  2.6524e+00
- 1.4136e+00  1.0413e+00  1.1639e+00  4.4975e-01  1.4917e+00  9.2961e-01
- 1.6459e+00  1.2494e+00  3.2319e+00 -8.9925e-01  7.7800e-01  1.6841e+00
--3.3682e-01  7.2377e-01  1.3804e+00  1.6220e+00  1.4361e+00  2.0720e+00
- 1.5573e+00  5.3958e-01  1.2897e+00  2.3317e+00 -6.9229e-02 -1.0341e+00
- 1.0979e-01  1.0785e+00  4.4461e-01  1.8183e+00  4.6288e-01 -1.6252e-01
- 2.6295e-01  4.3873e-01  4.6162e-01  2.1516e-01  1.0814e+00  1.5438e+00
- 7.3979e-01 -2.1113e-01  4.3491e-01 -6.4957e-01  7.3029e-01  1.2759e+00
- 3.0752e-01  6.8625e-01  6.1667e-01  7.0434e-01  2.9449e+00  9.8075e-01
- 1.9030e+00 -3.1665e-01  2.3990e+00  2.3735e+00  1.0265e+00  2.2386e+00
- 2.6790e+00  1.8776e+00  1.4326e+00  1.3553e+00  1.8663e+00  3.1572e-02
- 2.0337e+00 -1.1539e-01  6.9113e-01  1.6566e+00 -3.7004e-02 -8.7005e-01
- 8.0626e-01 -5.5610e-02  6.5586e-01  5.5784e-01 -2.2332e-01  3.9234e-02
- 1.0477e+00  1.9123e+00  1.7981e+00 -3.0669e-01 -7.3537e-01  2.1789e+00
- 1.5051e+00  9.8176e-01 -8.0678e-01  1.7542e+00  6.2196e-01  1.4195e+00
- 1.1336e+00  4.3118e-01  7.0956e-01 -5.7444e-01  3.4379e-01 -5.2514e-01
- 9.4128e-01  1.5642e+00  2.1121e+00  1.8787e+00 -9.4848e-02  1.1380e+00
- 2.0200e+00  6.6737e-01 -2.1222e-01  2.4371e+00  9.9393e-01  1.0467e+00
- 2.7555e+00  3.2591e-01  1.6672e+00  5.7639e-01  9.5376e-01  1.6751e+00
- 2.7145e-01 -1.5230e-01  7.4211e-01  2.1741e-01  9.7182e-01  4.7652e-01
- 7.5101e-01 -6.2411e-02  5.1946e-01  2.1490e+00  1.1787e+00  2.2427e+00
- 1.9661e-01  5.7866e-01 -2.6181e-02  1.3119e-01  1.9949e+00  1.0289e+00
- 8.9338e-01  3.7566e-01 -4.3458e-01  7.8343e-02  1.1840e+00  1.3514e+00
- 9.3834e-01 -7.6723e-01  8.1441e-01  7.1647e-01 -1.0275e-01  1.8269e+00
--3.2620e-01  7.8910e-01 -4.4934e-01  2.2940e+00  1.8107e+00  1.6346e+00
- 8.5301e-01 -6.0569e-02  3.8882e-01  3.0693e+00  1.7880e-01  9.9240e-01
+Columns 1 to 6 1.4608e+00  1.4832e-01  1.0855e+00 -4.6586e-01  3.4173e+00  2.2003e+00
+ 6.3969e-01  1.4460e+00 -8.3464e-01  1.1718e+00  1.5487e-01  1.1839e-01
+ 2.3930e+00  3.4553e-01  1.2667e+00  2.0035e+00  3.1237e+00  2.2208e+00
+ 2.3505e+00 -8.7305e-01  1.2058e+00  2.6163e+00  2.0951e-01 -3.6495e-01
+ 9.9051e-01  8.8047e-01  1.1119e+00  8.0270e-01 -2.7352e+00  3.0182e+00
+-5.5888e-01  2.2633e+00  1.9990e-01  8.1551e-01 -7.1926e-02  4.8817e-01
+ 1.1169e+00 -8.3901e-01  1.0511e+00  1.0677e+00 -1.5975e-01  2.2745e-01
+ 1.5007e+00  1.3094e+00  2.7305e+00  2.5220e+00  2.4543e+00 -4.0146e-01
+ 1.1302e+00 -1.3373e+00  1.1700e+00 -7.2382e-01  2.2343e-01  1.5552e+00
+-2.5999e-01  1.0585e+00  2.0944e-01  1.1137e+00  1.5470e+00  3.3976e+00
+ 1.1989e+00  6.6120e-01  1.3563e+00  3.9246e-01  1.5080e+00  4.5174e-01
+ 7.0564e-01  3.0223e-02 -1.0418e+00 -5.4982e-01 -7.2899e-01  8.0567e-01
+ 1.2956e+00 -5.2330e-01  6.4052e-01  9.4862e-01  9.1250e-01  1.9367e+00
+-4.6782e-01  1.0975e+00  3.2024e-01  1.8246e+00  7.1909e-01  1.0941e+00
+ 2.8025e+00  2.8253e+00 -1.2111e+00  1.5760e+00  1.0622e+00  1.0814e+00
+-7.5597e-01  7.7020e-01  1.8426e+00  2.2841e+00  7.9444e-01  1.2054e+00
+ 1.9494e+00  5.0966e-01  1.0474e-01 -3.7499e-01  6.7931e-01 -6.5781e-01
+ 7.9797e-01  3.1237e+00  2.2232e+00  2.5179e+00  1.1920e+00  1.4969e+00
+ 5.5161e-02  3.6955e-01  2.8414e-01  5.1382e-01  1.2287e+00  6.0631e-01
+ 1.1125e+00  9.3417e-01  6.6432e-01  1.3433e+00  1.5651e+00  4.3941e-01
+ 1.6437e-01  7.1616e-01  7.9644e-01  8.8036e-02  1.2231e-02  1.4469e+00
+ 2.2355e+00 -7.2850e-01  1.3811e+00  2.0855e+00  1.4528e+00  5.8415e-01
+ 1.9571e+00  6.6288e-01  1.1650e-01  2.2784e+00 -1.1371e+00  1.9474e+00
+ 7.9449e-01  2.8141e+00  2.9612e-01 -1.4491e+00  1.6438e+00  6.3446e-01
+ 1.2263e+00 -6.7014e-01  2.4019e+00  1.1409e+00  1.0557e+00  3.5879e-01
+ 9.5502e-02  1.0984e+00  5.7211e-02 -1.9494e+00  3.6906e-01  6.0768e-01
+ 1.7602e+00  1.3321e+00  1.3469e+00  5.4957e-01  2.0006e+00  2.0967e+00
+ 3.9261e-01  5.5575e-01  1.6822e+00  1.6071e+00  3.5817e-01  1.0657e+00
+ 1.2990e+00 -4.3984e-01 -5.2681e-01  4.0141e-02  1.0120e+00  1.8717e+00
+ 1.3480e+00  4.3400e-01  7.5643e-01  1.5599e+00  4.4630e-01  2.3230e-01
 ... [the output was truncated (use n=-1 to disable)]
 [ CPUFloatType{1000,1001} ]</code></pre>
 </div>
@@ -1745,7 +1778,7 @@ Columns 1 to 6 3.2681e-01  1.0393e+00  2.1898e+00  2.3237e+00  2.6971e+00  9.893
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="fu">nnf_mse_loss</span>(<span class="fu">lin_model</span>(X2), y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
-0.000979376
+0.00107044
 [ CPUFloatType{} ]</code></pre>
 </div>
 </div>
@@ -1755,8 +1788,6 @@ Columns 1 to 6 3.2681e-01  1.0393e+00  2.1898e+00  2.3237e+00  2.6971e+00  9.893
 <h1>Un classifieur d’images métier avec le fine tuning de ResNext50</h1>
 
 </section>
-
-
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="images/mlverse.png" class="slide-logo"></p>

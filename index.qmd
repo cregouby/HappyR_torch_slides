@@ -322,7 +322,7 @@ library(torchvision)
 
 ## ![](images/clipboard-534052795.png)
 
-v0.6.0 is on CRAN
+v0.7.0 is on CRAN
 
 ## Fonctionnement
 
@@ -879,8 +879,8 @@ model$eval()
 ```{r}
 #| echo: true
 #| label: "GPT2 tokenize"
-text = paste("✨ Quel plaisir de participer aux ateliers HappyR !✨",
-             "Vivement le prochain évènement " )
+text = paste("✨ Quel plaisir de participer aux Rencontres R! ✨",
+             "Vivement la prochaine " )
 
 idx <- torch_tensor(tok$encode(text)$ids)$view(c(1, -1))
 idx
