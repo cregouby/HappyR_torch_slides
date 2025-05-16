@@ -132,18 +132,19 @@ et {torchdatasets}, {minhub}, {tok}, {hfhub}, {safetensors}, {tabnet}, {ETM}, {t
 -   plein de possibilités de contributions
 
 
-![](images/clipboard-872398520.png)
+![](images/clipboard-torch0130.png)
+![](images/clipboard-torch0142.png)
 :::
 
 ## Installation
 
 Nominale
 
-![](images/clipboard-1225111648.png)
+![](images/clipboard-install.png)
 
 Avancée
 
-![](images/clipboard-2395058596.png)
+![](images/clipboard-install-adv.png)
 
 ::: footer
 https://torch.mlverse.org/docs/articles/installation.html
@@ -151,9 +152,9 @@ https://torch.mlverse.org/docs/articles/installation.html
 
 ------------------------------------------------------------------------
 
-Expert : air-gap server
+Expert : Machine sans connexion
 
-![](images/clipboard-3643950338.png)
+![](images/clipboard-install-airgap.png)
 
 Expert : déverminage
 
@@ -255,6 +256,19 @@ countdown(
 
 ## Un univers de 📦 dédiés à {torch}
 
+::: small
+| famille     |  packages        |
+|-------------|------------------|
+| fondations  | ![](images/tile_torch_tools.png) |
+| vision      | ![](images/tile_torch_vision.png) |
+| données tabulaires| ![](images/tile_torch_tabular.png) |
+| traitement automatique du langage| ![](images/tile_torch_nlp.png) |
+| séries temporelles| ![](images/tile_torch_ts.png) |
+
+: Les paquets par famille de donnée traitées
+:::
+
+
 ------------------------------------------------------------------------
 
 ## Un univers de 📦 en français
@@ -262,7 +276,7 @@ countdown(
 ::: small
 | paquet | les messages | l'aide | les vignettes |
 |------------------|------------------|-------------------|------------------|
-| {torch} | `r fontawesome::fa("check", fill = fa_fill)`[^1] |  |  |
+| {torch} | `r fontawesome::fa("check", fill = fa_fill)` |  |  |
 | {torchvision} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/torchvision.fr](https://github.com/cregouby/torchvision.fr) |  |
 | {tabnet} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/tabnet.fr](https://github.com/cregouby/tabnet.fr) |  |
 | {luz} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/luz.fr](https://github.com/cregouby/luz.fr) |  |
@@ -273,7 +287,7 @@ countdown(
 : Les paquets disponibles en français
 :::
 
-[^1]: P.R en cours
+
 
 ------------------------------------------------------------------------
 
