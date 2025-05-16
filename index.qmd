@@ -1,6 +1,6 @@
 ---
 title: "{torch} {tabnet} and friends"
-subtitle: "Atelier des Rencontres R, 2025" 
+subtitle: "Atelier des Rencontres R 2025" 
 author: "Christophe Regouby"
 footer:  "[{torch} {tabnet} and friends](https://github.com/cregouby/happyR-torch-slides)"
 logo: "images/mlverse.png"
@@ -62,9 +62,9 @@ fa_fill <- "#C7B41D"
 
 <br>
 
-`r fontawesome::fa("check", fill = fa_fill)` R & RStudio installés?
+`r fontawesome::fa("check", fill = fa_fill)` R & RStudio/un IDE confortable installés?
 
-     J'ai R 4.4.2 and 2024.12.0 build 67
+     J'ai R 4.5.0 et RStudio 2025.05.0 build 496
 
 `r fontawesome::fa("check", fill = fa_fill)` {torch} est installé ?
 
@@ -112,7 +112,6 @@ source https://xkcd.com/1987/
 ## [![](images/clipboard-604787592.png)](https://torch.mlverse.org/)
 
 ::: footer
-et {torchdatasets}, {minhub}, {tok}, {hfhub}, {safetensors}, {tabnet}, {ETM}, {tft}, {innsight}, {brulee},...
 :::
 
 ## {torch} : pourquoi réinventer l'eau chaude?
@@ -141,7 +140,7 @@ et {torchdatasets}, {minhub}, {tok}, {hfhub}, {safetensors}, {tabnet}, {ETM}, {t
 
 Nominale
 
-![](images/clipboard-install.png)
+![](images/clipboard-install_.png)
 
 Avancée
 
@@ -258,13 +257,10 @@ countdown(
 ## Un univers de 📦 dédiés à {torch}
 
 ::: small
-| famille     |  packages        |
-|-------------|------------------|
-| fondations  | ![](images/tile_torch_tools.png) |
-| vision      | ![](images/tile_torch_vision.png) |
-| données tabulaires| ![](images/tile_torch_tabular.png) |
-| traitement automatique du langage| ![](images/tile_torch_nlp.png) |
-| séries temporelles| ![](images/tile_torch_ts.png) |
+ ![Packages de fondation](images/tile_torch_tools.png)  ![Vision ](images/tile_torch_vision.png)
+ ![données tabulaires](images/tile_torch_tabular.png)
+ ![traitement automatique du langage](images/tile_torch_nlp.png)
+ ![séries temporelles|](images/tile_torch_ts.png)
 
 : Les paquets par famille de donnée traitées
 :::

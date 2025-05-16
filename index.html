@@ -398,7 +398,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">{torch} {tabnet} and friends</h1>
-  <p class="subtitle">Atelier des Rencontres R, 2025</p>
+  <p class="subtitle">Atelier des Rencontres R 2025</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -438,8 +438,8 @@ Christophe Regouby
 <section id="checklist" class="slide level2">
 <h2>Checklist</h2>
 <p><br></p>
-<p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> R &amp; RStudio installés?</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; J’ai R 4.4.2 and 2024.12.0 build 67</p>
+<p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> R &amp; RStudio/un IDE confortable installés?</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; J’ai R 4.4.25.0 and 2025.05.0 build 496</p>
 <p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> {torch} est installé ?</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <code>torch::torch_is_installed()</code><br> &nbsp;&nbsp;&nbsp;&nbsp; <em>Your system is ready!</em></p>
 <p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> Un accélérateur {torch} ?</p>
@@ -541,14 +541,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.0844  0.5103  0.7135  0.3061
-  0.7720  0.1107  0.3859  0.4933
-  0.1047  0.9094  0.6928  0.5189
+  0.5593  0.6980  0.0166  0.8921
+  0.2387  0.0533  0.5077  0.7401
+  0.2680  0.5925  0.0976  0.7596
 
 (2,.,.) = 
-  0.2901  0.2386  0.5968  0.8672
-  0.9877  0.4099  0.0547  0.8236
-  0.4798  0.9496  0.1350  0.7640
+  0.2693  0.7745  0.6465  0.7454
+  0.0505  0.5471  0.2715  0.9463
+  0.9624  0.7067  0.3956  0.0449
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -566,34 +566,34 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.7720  0.1107  0.3859  0.4933
-  0.1047  0.9094  0.6928  0.5189
+  0.2387  0.0533  0.5077  0.7401
+  0.2680  0.5925  0.0976  0.7596
 
 (2,.,.) = 
-  0.9877  0.4099  0.0547  0.8236
-  0.4798  0.9496  0.1350  0.7640
+  0.0505  0.5471  0.2715  0.9463
+  0.9624  0.7067  0.3956  0.0449
 [ CPUFloatType{2,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>tt[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.7720  0.1107  0.3859  0.4933
- 0.1047  0.9094  0.6928  0.5189
+ 0.2387  0.0533  0.5077  0.7401
+ 0.2680  0.5925  0.0976  0.7596
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.7720  0.1107  0.3859  0.4933
-  0.1047  0.9094  0.6928  0.5189
+  0.2387  0.0533  0.5077  0.7401
+  0.2680  0.5925  0.0976  0.7596
 [ CPUFloatType{1,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">torch_squeeze</span>(tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.7720  0.1107  0.3859  0.4933
- 0.1047  0.9094  0.6928  0.5189
+ 0.2387  0.0533  0.5077  0.7401
+ 0.2680  0.5925  0.0976  0.7596
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 </div>
@@ -605,7 +605,7 @@ Christophe Regouby
 <p>Installations : <code>00_installation.R</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_f8bd96cb" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_ed492001" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -617,7 +617,7 @@ Christophe Regouby
 <p>Exercice : <code>01_exercice.</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_c26129e3" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_3b25322e" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -993,7 +993,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_1442c211" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_280131eb" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -2246,7 +2246,7 @@ Columns 1 to 6 1.4608e+00  1.4832e-01  1.0855e+00 -4.6586e-01  3.4173e+00  2.200
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom"});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
     (function() {
       let previousOnload = window.onload;
       window.onload = () => {
