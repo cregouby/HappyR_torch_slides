@@ -318,15 +318,15 @@ net <- nn_module(
 :::
 
 
-## entraîner un réseau avec luz
+## entraîner un réseau avec luz {.small}
 
-::: small
-
-```{r, eval=FALSE}
+```{r}
+#| eval: false
+#| echo: true
 fitted <- net %>%
   setup(
     loss = nn_cross_entropy_loss(),
-    optimizer = optim_adam,
+    optimizer = optim_ignite_adam,
     metrics = list(
       luz_metric_accuracy()
     )
@@ -334,8 +334,25 @@ fitted <- net %>%
   fit(train_dl, epochs = 10, valid_data = test_dl)
 ```
 
-:::
+------------------------------------------------------------------------
 
+Exercice : `02_exercice.`
+
+```{r}
+countdown(
+  minutes = 5,
+  # Fanfare when it's over
+  play_sound = TRUE,
+  # Set timer theme to match solarized colors
+  color_border              = "#FFFFFF",
+  color_text                = "#7aa81e",
+  color_running_background  = "#7aa81e",
+  color_running_text        = "#FFFFFF",
+  color_finished_background = "#ffa07a",
+  color_finished_text       = "#FFFFFF",
+  font_size = "2em",
+  )
+```
 
 # mlverse
 
@@ -355,14 +372,14 @@ fitted <- net %>%
 | {hfhub} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [/hfhub.fr](https://github.com/cregouby/hfhub.fr) |  |
 | {tok} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [/tok.fr](https://github.com/cregouby/tok.fr) |  |
 | {safetensors} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [/safetensors.fr](https://github.com/cregouby/safetensors.fr) |  |
-| {minhub} |  | `r fontawesome::fa("check", fill = fa_fill)` [/minhub.fr](https://github.com/cregouby/minhub.fr) |  |
+| {minhub} | `r fontawesome::fa("check", fill = fa_fill)`[^2] | `r fontawesome::fa("check", fill = fa_fill)` [/minhub.fr](https://github.com/cregouby/minhub.fr) |  |
 
 : Les paquetages disponibles en français
 :::
 
 [^1]: https://github.com/cregouby/...
 
-
+[^2]: P.R. en cours
 ------------------------------------------------------------------------
 
 ```{r, eval=FALSE, echo=TRUE}
