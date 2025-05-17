@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.6.28">
 
   <meta name="author" content="Christophe Regouby">
-  <title>{torch} {tabnet} and friends</title>
+  <title>{torch} {tabnet} et l’apprentissage profond par l’usage</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -397,7 +397,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">{torch} {tabnet} and friends</h1>
+  <h1 class="title">{torch} {tabnet} et l’apprentissage profond par l’usage</h1>
   <p class="subtitle">Atelier des Rencontres R 2025</p>
 
 <div class="quarto-title-authors">
@@ -423,23 +423,23 @@ Christophe Regouby
 </section>
 
 <section>
-<section id="getting-started" class="title-slide slide level1 center">
-<h1>Getting started</h1>
+<section id="bien-commencer-avec-torch" class="title-slide slide level1 center">
+<h1>Bien commencer avec torch</h1>
 
 </section>
 <section class="slide level2">
 
 <p><a href="images/clipboard-1733121037.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="images/clipboard-1733121037.png"></a></p>
 </section>
-<section id="licensing" class="slide level2">
-<h2>Licensing</h2>
-<p><br> <br> This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> (CC BY-SA4.0).</p>
+<section id="licence" class="slide level2">
+<h2>Licence</h2>
+<p><br> <br> Ce contenu est sous licence <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> (CC BY-SA4.0).</p>
 </section>
 <section id="checklist" class="slide level2">
 <h2>Checklist</h2>
 <p><br></p>
 <p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> R &amp; RStudio/un IDE confortable installés?</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; J’ai R 4.4.25.0 and 2025.05.0 build 496</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; J’ai R 4.5.0 et RStudio 2025.05.0 build 496</p>
 <p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> {torch} est installé ?</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; <code>torch::torch_is_installed()</code><br> &nbsp;&nbsp;&nbsp;&nbsp; <em>Your system is ready!</em></p>
 <p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#C7B41D;overflow:visible;position:relative;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg> Un accélérateur {torch} ?</p>
@@ -483,20 +483,19 @@ Christophe Regouby
 <section id="section-3" class="slide level2">
 <h2><a href="https://torch.mlverse.org/"><img data-src="images/clipboard-604787592.png"></a></h2>
 <div class="footer">
-<p>et {torchdatasets}, {minhub}, {tok}, {hfhub}, {safetensors}, {tabnet}, {ETM}, {tft}, {innsight}, {brulee},…</p>
+
 </div>
 </section>
 <section id="torch-pourquoi-réinventer-leau-chaude" class="slide level2">
-<h2>{torch} : pourquoi réinventer l’eau chaude?</h2>
+<h2>{torch}: pourquoi réinventer l’eau chaude?</h2>
 <div class="small">
 <ul>
-<li><p>facilité d’installation CPU, GPU, MPS, …</p></li>
-<li><p>frugalité d’installation</p></li>
+<li><p><strong>facilité</strong> et <strong>frugalité</strong> d’installation sur CPU, GPU, MPS, …</p></li>
 <li><p>confort de RStudio pour développer, déverminer, visualiser</p></li>
-<li><p>confort de R pour l’indexation à 1</p></li>
+<li><p>confort de R pour l’<strong>indexation à 1</strong></p></li>
 <li><p>la qualité des articles de blog de Posit AI blog</p></li>
 <li><p>l’écosystème des packages</p></li>
-<li><p>plein de possibilités de contributions</p></li>
+<li><p>plein de possibilités de <strong>contributions</strong></p></li>
 </ul>
 <p><img data-src="images/clipboard-torch0130.png"> <img data-src="images/clipboard-torch0142.png"></p>
 </div>
@@ -504,7 +503,7 @@ Christophe Regouby
 <section id="installation" class="slide level2">
 <h2>Installation</h2>
 <p>Nominale</p>
-<p><a href="images/clipboard-install.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="images/clipboard-install.png"></a></p>
+<p><a href="images/clipboard-install_.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="images/clipboard-install_.png"></a></p>
 <p>Avancée</p>
 <p><a href="images/clipboard-install-adv.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="images/clipboard-install-adv.png"></a></p>
 <div class="footer">
@@ -526,7 +525,7 @@ Christophe Regouby
 </section>
 <section id="la-pile-logicielle" class="slide level2">
 <h2>La pile logicielle</h2>
-<p><a href="images/clipboard-1623978672.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="images/clipboard-1623978672.png"></a></p>
+<p><a href="images/clipboard-1623978672.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="images/clipboard-1623978672.png" style="height:60.0%"></a></p>
 </section>
 <section id="la-manipulation-de-tenseurs" class="slide level2">
 <h2>La manipulation de tenseurs</h2>
@@ -541,14 +540,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.5593  0.6980  0.0166  0.8921
-  0.2387  0.0533  0.5077  0.7401
-  0.2680  0.5925  0.0976  0.7596
+  0.4033  0.2920  0.1898  0.8985
+  0.1473  0.2942  0.4074  0.9547
+  0.7364  0.9975  0.2508  0.6422
 
 (2,.,.) = 
-  0.2693  0.7745  0.6465  0.7454
-  0.0505  0.5471  0.2715  0.9463
-  0.9624  0.7067  0.3956  0.0449
+  0.8338  0.2081  0.9088  0.1239
+  0.2958  0.3036  0.3586  0.3784
+  0.3338  0.9350  0.7777  0.4459
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -558,43 +557,103 @@ Christophe Regouby
 
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><a href="images/clipboard-4006123911.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="images/clipboard-4006123911.png"></a></p>
-</div><div class="column" style="width:50%;">
 <div class="small">
+<p><a href="images/clipboard-4006123911.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="images/clipboard-4006123911.png"></a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>tt[, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.2387  0.0533  0.5077  0.7401
-  0.2680  0.5925  0.0976  0.7596
+  0.1473  0.2942  0.4074  0.9547
+  0.7364  0.9975  0.2508  0.6422
 
 (2,.,.) = 
-  0.0505  0.5471  0.2715  0.9463
-  0.9624  0.7067  0.3956  0.0449
+  0.2958  0.3036  0.3586  0.3784
+  0.3338  0.9350  0.7777  0.4459
 [ CPUFloatType{2,2,4} ]</code></pre>
 </div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="small">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>tt[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.2387  0.0533  0.5077  0.7401
- 0.2680  0.5925  0.0976  0.7596
+ 0.1473  0.2942  0.4074  0.9547
+ 0.7364  0.9975  0.2508  0.6422
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.2387  0.0533  0.5077  0.7401
-  0.2680  0.5925  0.0976  0.7596
+  0.1473  0.2942  0.4074  0.9547
+  0.7364  0.9975  0.2508  0.6422
 [ CPUFloatType{1,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">torch_squeeze</span>(tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.2387  0.0533  0.5077  0.7401
- 0.2680  0.5925  0.0976  0.7596
+ 0.1473  0.2942  0.4074  0.9547
+ 0.7364  0.9975  0.2508  0.6422
 [ CPUFloatType{2,4} ]</code></pre>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><a href="images/clipboard-torch_device.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="images/clipboard-torch_device.png"></a></p>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>tt<span class="sc">$</span><span class="fu">to</span>(<span class="at">device =</span> <span class="st">"cpu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>torch_tensor
+(1,.,.) = 
+  0.4033  0.2920  0.1898  0.8985
+  0.1473  0.2942  0.4074  0.9547
+  0.7364  0.9975  0.2508  0.6422
+
+(2,.,.) = 
+  0.8338  0.2081  0.9088  0.1239
+  0.2958  0.3036  0.3586  0.3784
+  0.3338  0.9350  0.7777  0.4459
+[ CPUFloatType{2,3,4} ]</code></pre>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">as.array</span>(tt<span class="sc">$</span><span class="fu">to</span>(<span class="at">device =</span> <span class="st">"cpu"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>, , 1
+
+          [,1]      [,2]      [,3]
+[1,] 0.4033134 0.1472971 0.7364465
+[2,] 0.8337815 0.2958033 0.3338451
+
+, , 2
+
+          [,1]      [,2]      [,3]
+[1,] 0.2920203 0.2942277 0.9974988
+[2,] 0.2081079 0.3036427 0.9350285
+
+, , 3
+
+          [,1]      [,2]      [,3]
+[1,] 0.1897815 0.4074464 0.2508361
+[2,] 0.9088359 0.3585877 0.7776825
+
+, , 4
+
+          [,1]      [,2]      [,3]
+[1,] 0.8984624 0.9546714 0.6422476
+[2,] 0.1238685 0.3783743 0.4458781</code></pre>
 </div>
 </div>
 </div>
@@ -605,7 +664,7 @@ Christophe Regouby
 <p>Installations : <code>00_installation.R</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_ed492001" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_245a4f9a" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -617,11 +676,49 @@ Christophe Regouby
 <p>Exercice : <code>01_exercice.</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_3b25322e" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_7000d768" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
+</div>
+</section>
+<section id="les-nn_modules-construire-un-réseau" class="slide level2">
+<h2>les <code>nn_modules</code>: construire un réseau</h2>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>net <span class="ot">&lt;-</span> <span class="fu">nn_module</span>(</span>
+<span id="cb16-2"><a href=""></a>  <span class="st">"Net"</span>,</span>
+<span id="cb16-3"><a href=""></a>  <span class="at">initialize =</span> <span class="cf">function</span>() {</span>
+<span id="cb16-4"><a href=""></a>    self<span class="sc">$</span>conv1 <span class="ot">&lt;-</span> <span class="fu">nn_conv2d</span>(<span class="dv">1</span>, <span class="dv">32</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb16-5"><a href=""></a>    self<span class="sc">$</span>conv2 <span class="ot">&lt;-</span> <span class="fu">nn_conv2d</span>(<span class="dv">32</span>, <span class="dv">64</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb16-6"><a href=""></a>    self<span class="sc">$</span>dropout1 <span class="ot">&lt;-</span> <span class="fu">nn_dropout</span>(<span class="fl">0.25</span>)</span>
+<span id="cb16-7"><a href=""></a>    self<span class="sc">$</span>dropout2 <span class="ot">&lt;-</span> <span class="fu">nn_dropout</span>(<span class="fl">0.5</span>)</span>
+<span id="cb16-8"><a href=""></a>    self<span class="sc">$</span>fc1 <span class="ot">&lt;-</span> <span class="fu">nn_linear</span>(<span class="dv">9216</span>, <span class="dv">128</span>)</span>
+<span id="cb16-9"><a href=""></a>    self<span class="sc">$</span>fc2 <span class="ot">&lt;-</span> <span class="fu">nn_linear</span>(<span class="dv">128</span>, <span class="dv">10</span>)</span>
+<span id="cb16-10"><a href=""></a>  },</span>
+<span id="cb16-11"><a href=""></a>  <span class="at">forward =</span> <span class="cf">function</span>(x) {</span>
+<span id="cb16-12"><a href=""></a>    x <span class="sc">%&gt;%</span> </span>
+<span id="cb16-13"><a href=""></a>      self<span class="sc">$</span><span class="fu">conv1</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-14"><a href=""></a>      <span class="fu">nnf_relu</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-15"><a href=""></a>      self<span class="sc">$</span><span class="fu">conv2</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-16"><a href=""></a>      <span class="fu">nnf_relu</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-17"><a href=""></a>      <span class="fu">nnf_max_pool2d</span>(<span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-18"><a href=""></a>      self<span class="sc">$</span><span class="fu">dropout1</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-19"><a href=""></a>      <span class="fu">torch_flatten</span>(<span class="at">start_dim =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-20"><a href=""></a>      self<span class="sc">$</span><span class="fu">fc1</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-21"><a href=""></a>      <span class="fu">nnf_relu</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-22"><a href=""></a>      self<span class="sc">$</span><span class="fu">dropout2</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-23"><a href=""></a>      self<span class="sc">$</span><span class="fu">fc2</span>()</span>
+<span id="cb16-24"><a href=""></a>  }</span>
+<span id="cb16-25"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="entraîner-un-réseau-avec-luz" class="slide level2">
+<h2>entraîner un réseau avec luz</h2>
+<div class="small">
+
 </div>
 </section></section>
 <section>
@@ -631,38 +728,11 @@ Christophe Regouby
 </section>
 <section id="un-univers-de-dédiés-à-torch" class="slide level2">
 <h2>Un univers de 📦 dédiés à {torch}</h2>
-<div class="small">
-<table class="caption-top">
-<caption>Les paquets par famille de donnée traitées</caption>
-<thead>
-<tr class="header">
-<th>famille</th>
-<th>packages</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>fondations</td>
-<td><img data-src="images/tile_torch_tools.png"></td>
-</tr>
-<tr class="even">
-<td>vision</td>
-<td><img data-src="images/tile_torch_vision.png"></td>
-</tr>
-<tr class="odd">
-<td>données tabulaires</td>
-<td><img data-src="images/tile_torch_tabular.png"></td>
-</tr>
-<tr class="even">
-<td>traitement automatique du langage</td>
-<td><img data-src="images/tile_torch_nlp.png"></td>
-</tr>
-<tr class="odd">
-<td>séries temporelles</td>
-<td><img data-src="images/tile_torch_ts.png"></td>
-</tr>
-</tbody>
-</table>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/tile_mlverse.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Packages du mlverse / utilisant torch"><img data-src="images/tile_mlverse.png" alt="Packages du mlverse / utilisant torch"></a></p>
+<figcaption>Packages du mlverse / utilisant torch</figcaption>
+</figure>
 </div>
 </section>
 <section id="un-univers-de-en-français" class="slide level2">
@@ -734,24 +804,24 @@ Christophe Regouby
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">Sys.setLanguage</span>(<span class="at">lang =</span> <span class="st">"fr"</span>)</span>
-<span id="cb12-2"><a href=""></a><span class="fu">library</span>(torchvision)</span>
-<span id="cb12-3"><a href=""></a><span class="fu">transform_normalize</span>(torch<span class="sc">::</span><span class="fu">torch_rand</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>)), <span class="dv">3</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">Sys.setLanguage</span>(<span class="at">lang =</span> <span class="st">"fr"</span>)</span>
+<span id="cb17-2"><a href=""></a><span class="fu">library</span>(torchvision)</span>
+<span id="cb17-3"><a href=""></a><span class="fu">transform_normalize</span>(torch<span class="sc">::</span><span class="fu">torch_rand</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>)), <span class="dv">3</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="images/clipboard-3331382707.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="images/clipboard-3331382707.png"></a></p>
+<p><a href="images/clipboard-3331382707.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="images/clipboard-3331382707.png"></a></p>
 </section>
 <section class="slide level2">
 
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">Sys.setenv</span>(<span class="at">LANGUAGE=</span><span class="st">"fr"</span>)</span>
-<span id="cb13-2"><a href=""></a><span class="fu">library</span>(torchvision.fr)</span>
-<span id="cb13-3"><a href=""></a><span class="fu">library</span>(torchvision)</span>
-<span id="cb13-4"><a href=""></a>?transform_normalize</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">Sys.setenv</span>(<span class="at">LANGUAGE=</span><span class="st">"fr"</span>)</span>
+<span id="cb18-2"><a href=""></a><span class="fu">library</span>(torchvision.fr)</span>
+<span id="cb18-3"><a href=""></a><span class="fu">library</span>(torchvision)</span>
+<span id="cb18-4"><a href=""></a>?transform_normalize</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
-<p><a href="images/clipboard-1958985727.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="images/clipboard-1958985727.png"></a></p>
+<p><a href="images/clipboard-1958985727.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="images/clipboard-1958985727.png"></a></p>
 </div></div>
 </section></section>
 <section>
@@ -765,16 +835,16 @@ Christophe Regouby
 </section>
 <section id="fonctionnement" class="slide level2">
 <h2>Fonctionnement</h2>
-<p><a href="images/clipboard-2272997678.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="images/clipboard-2272997678.png"></a></p>
+<p><a href="images/clipboard-2272997678.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img data-src="images/clipboard-2272997678.png"></a></p>
 </section>
 <section id="usage-intégré-dans-tidymodels" class="slide level2">
 <h2>Usage intégré dans tidymodels</h2>
 <div class="small">
 <p>Dataset</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">library</span>(tidymodels, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb14-2"><a href=""></a><span class="fu">data</span>(<span class="st">"ames"</span>, <span class="at">package =</span> <span class="st">"modeldata"</span>)</span>
-<span id="cb14-3"><a href=""></a><span class="fu">str</span>(ames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">library</span>(tidymodels, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-2"><a href=""></a><span class="fu">data</span>(<span class="st">"ames"</span>, <span class="at">package =</span> <span class="st">"modeldata"</span>)</span>
+<span id="cb19-3"><a href=""></a><span class="fu">str</span>(ames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [2,930 × 74] (S3: tbl_df/tbl/data.frame)
  $ MS_SubClass       : Factor w/ 16 levels "One_Story_1946_and_Newer_All_Styles",..: 1 1 1 1 6 6 12 12 12 6 ...
@@ -855,9 +925,9 @@ Christophe Regouby
 </div>
 <p>Recipe</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>ames <span class="ot">&lt;-</span> ames <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Sale_Price =</span> <span class="fu">log10</span>(Sale_Price))</span>
-<span id="cb16-2"><a href=""></a>ames_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(Sale_Price <span class="sc">~</span> ., <span class="at">data=</span>ames) <span class="sc">|&gt;</span> </span>
-<span id="cb16-3"><a href=""></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>ames <span class="ot">&lt;-</span> ames <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Sale_Price =</span> <span class="fu">log10</span>(Sale_Price))</span>
+<span id="cb21-2"><a href=""></a>ames_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(Sale_Price <span class="sc">~</span> ., <span class="at">data=</span>ames) <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a href=""></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="footer">
@@ -869,19 +939,19 @@ Christophe Regouby
 <div class="small">
 <p>Pre-training</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">library</span>(tabnet)</span>
-<span id="cb17-2"><a href=""></a>ames_pretrain <span class="ot">&lt;-</span> <span class="fu">tabnet_pretrain</span>(</span>
-<span id="cb17-3"><a href=""></a>  ames_rec, <span class="at">data=</span>ames,  <span class="at">epoch=</span><span class="dv">50</span>, <span class="at">cat_emb_dim =</span> <span class="dv">1</span>,</span>
-<span id="cb17-4"><a href=""></a>  <span class="at">valid_split =</span> <span class="fl">0.2</span>, <span class="at">verbose=</span><span class="cn">TRUE</span>, </span>
-<span id="cb17-5"><a href=""></a>  <span class="at">early_stopping_patience =</span> <span class="dv">3</span>L, </span>
-<span id="cb17-6"><a href=""></a>  <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span></span>
-<span id="cb17-7"><a href=""></a>)</span>
-<span id="cb17-8"><a href=""></a><span class="co"># model diagnostic</span></span>
-<span id="cb17-9"><a href=""></a><span class="fu">autoplot</span>(ames_pretrain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="fu">library</span>(tabnet)</span>
+<span id="cb22-2"><a href=""></a>ames_pretrain <span class="ot">&lt;-</span> <span class="fu">tabnet_pretrain</span>(</span>
+<span id="cb22-3"><a href=""></a>  ames_rec, <span class="at">data=</span>ames,  <span class="at">epoch=</span><span class="dv">50</span>, <span class="at">cat_emb_dim =</span> <span class="dv">1</span>,</span>
+<span id="cb22-4"><a href=""></a>  <span class="at">valid_split =</span> <span class="fl">0.2</span>, <span class="at">verbose=</span><span class="cn">TRUE</span>, </span>
+<span id="cb22-5"><a href=""></a>  <span class="at">early_stopping_patience =</span> <span class="dv">3</span>L, </span>
+<span id="cb22-6"><a href=""></a>  <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span></span>
+<span id="cb22-7"><a href=""></a>)</span>
+<span id="cb22-8"><a href=""></a><span class="co"># model diagnostic</span></span>
+<span id="cb22-9"><a href=""></a><span class="fu">autoplot</span>(ames_pretrain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="index_files/figure-revealjs/tabnet%20pretrain-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="index_files/figure-revealjs/tabnet%20pretrain-1.png" width="960"></a></p>
+<p><a href="index_files/figure-revealjs/tabnet%20pretrain-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img data-src="index_files/figure-revealjs/tabnet%20pretrain-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -893,17 +963,17 @@ Christophe Regouby
 <div class="small">
 <p>Training</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>ames_fit <span class="ot">&lt;-</span> <span class="fu">tabnet_fit</span>(ames_rec, <span class="at">data=</span>ames,  <span class="at">tabnet_model =</span> ames_pretrain, </span>
-<span id="cb18-2"><a href=""></a>                       <span class="at">epoch=</span><span class="dv">50</span>, <span class="at">cat_emb_dim =</span> <span class="dv">1</span>, </span>
-<span id="cb18-3"><a href=""></a>                       <span class="at">valid_split =</span> <span class="fl">0.2</span>, <span class="at">verbose=</span><span class="cn">TRUE</span>, <span class="at">batch=</span><span class="dv">2930</span>, </span>
-<span id="cb18-4"><a href=""></a>                       <span class="at">early_stopping_patience =</span> <span class="dv">5</span>L, </span>
-<span id="cb18-5"><a href=""></a>                       <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span>)</span>
-<span id="cb18-6"><a href=""></a><span class="co"># model diagnostic</span></span>
-<span id="cb18-7"><a href=""></a><span class="fu">autoplot</span>(ames_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>ames_fit <span class="ot">&lt;-</span> <span class="fu">tabnet_fit</span>(ames_rec, <span class="at">data=</span>ames,  <span class="at">tabnet_model =</span> ames_pretrain, </span>
+<span id="cb23-2"><a href=""></a>                       <span class="at">epoch=</span><span class="dv">50</span>, <span class="at">cat_emb_dim =</span> <span class="dv">1</span>, </span>
+<span id="cb23-3"><a href=""></a>                       <span class="at">valid_split =</span> <span class="fl">0.2</span>, <span class="at">verbose=</span><span class="cn">TRUE</span>, <span class="at">batch=</span><span class="dv">2930</span>, </span>
+<span id="cb23-4"><a href=""></a>                       <span class="at">early_stopping_patience =</span> <span class="dv">5</span>L, </span>
+<span id="cb23-5"><a href=""></a>                       <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span>)</span>
+<span id="cb23-6"><a href=""></a><span class="co"># model diagnostic</span></span>
+<span id="cb23-7"><a href=""></a><span class="fu">autoplot</span>(ames_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="index_files/figure-revealjs/tabnet%20fit-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img data-src="index_files/figure-revealjs/tabnet%20fit-1.png" width="960"></a></p>
+<p><a href="index_files/figure-revealjs/tabnet%20fit-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img data-src="index_files/figure-revealjs/tabnet%20fit-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -917,7 +987,7 @@ Christophe Regouby
 <div class="columns">
 <div class="column" style="width:30%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">predict</span>(ames_fit, ames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">predict</span>(ames_fit, ames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2,930 × 1
    .pred
@@ -937,9 +1007,9 @@ Christophe Regouby
 </div>
 </div><div class="column" style="width:70%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>metrics <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(rmse, rsq, ccc)</span>
-<span id="cb21-2"><a href=""></a><span class="fu">cbind</span>(ames, <span class="fu">predict</span>(ames_fit, ames)) <span class="sc">|&gt;</span> </span>
-<span id="cb21-3"><a href=""></a>  <span class="fu">metrics</span>(Sale_Price, <span class="at">estimate =</span> .pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>metrics <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(rmse, rsq, ccc)</span>
+<span id="cb26-2"><a href=""></a><span class="fu">cbind</span>(ames, <span class="fu">predict</span>(ames_fit, ames)) <span class="sc">|&gt;</span> </span>
+<span id="cb26-3"><a href=""></a>  <span class="fu">metrics</span>(Sale_Price, <span class="at">estimate =</span> .pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   .metric .estimator .estimate
@@ -956,12 +1026,12 @@ Christophe Regouby
 
 <div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="co"># variable importance</span></span>
-<span id="cb23-2"><a href=""></a>vip<span class="sc">::</span><span class="fu">vip</span>(ames_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="co"># variable importance</span></span>
+<span id="cb28-2"><a href=""></a>vip<span class="sc">::</span><span class="fu">vip</span>(ames_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="index_files/figure-revealjs/tabnet%20vip-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img data-src="index_files/figure-revealjs/tabnet%20vip-1.png" width="960"></a></p>
+<p><a href="index_files/figure-revealjs/tabnet%20vip-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img data-src="index_files/figure-revealjs/tabnet%20vip-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -973,13 +1043,13 @@ Christophe Regouby
 <div class="small">
 <p>Explainability</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>ames_explain <span class="ot">&lt;-</span> tabnet<span class="sc">::</span><span class="fu">tabnet_explain</span>(ames_fit, ames)</span>
-<span id="cb24-2"><a href=""></a><span class="co"># variable importance</span></span>
-<span id="cb24-3"><a href=""></a><span class="fu">autoplot</span>(ames_explain, <span class="at">quantile =</span> <span class="fl">0.99</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>ames_explain <span class="ot">&lt;-</span> tabnet<span class="sc">::</span><span class="fu">tabnet_explain</span>(ames_fit, ames)</span>
+<span id="cb29-2"><a href=""></a><span class="co"># variable importance</span></span>
+<span id="cb29-3"><a href=""></a><span class="fu">autoplot</span>(ames_explain, <span class="at">quantile =</span> <span class="fl">0.99</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="index_files/figure-revealjs/tabnet%20explain-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img data-src="index_files/figure-revealjs/tabnet%20explain-1.png" width="960"></a></p>
+<p><a href="index_files/figure-revealjs/tabnet%20explain-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img data-src="index_files/figure-revealjs/tabnet%20explain-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -993,7 +1063,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_280131eb" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_42cf7a3c" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1023,12 +1093,12 @@ Christophe Regouby
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">data</span>(<span class="st">"ames"</span>, <span class="at">package =</span> <span class="st">"modeldata"</span>)</span>
-<span id="cb25-2"><a href=""></a><span class="fu">qplot</span>(ames<span class="sc">$</span>Mas_Vnr_Area)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">data</span>(<span class="st">"ames"</span>, <span class="at">package =</span> <span class="st">"modeldata"</span>)</span>
+<span id="cb30-2"><a href=""></a><span class="fu">qplot</span>(ames<span class="sc">$</span>Mas_Vnr_Area)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="index_files/figure-revealjs/unnamed-chunk-10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></a></p>
+<p><a href="index_files/figure-revealjs/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img data-src="index_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1044,24 +1114,24 @@ Christophe Regouby
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>col_with_zero_as_na <span class="ot">&lt;-</span> ames <span class="sc">|&gt;</span>  </span>
-<span id="cb26-2"><a href=""></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">|&gt;</span>  </span>
-<span id="cb26-3"><a href=""></a>  <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">"_SF|Area|Misc_Val|[Pp]orch$"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb26-4"><a href=""></a>  <span class="fu">summarise_each</span>(min) <span class="sc">|&gt;</span> </span>
-<span id="cb26-5"><a href=""></a>  <span class="fu">select_if</span>(<span class="sc">~</span>.x<span class="sc">==</span><span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb26-6"><a href=""></a>  <span class="fu">names</span>()</span>
-<span id="cb26-7"><a href=""></a>ames_missing <span class="ot">&lt;-</span> ames <span class="sc">|&gt;</span><span class="fu">mutate_at</span>(col_with_zero_as_na, na_if, <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb26-8"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="st">"Alley"</span>, na_if, <span class="st">"No_Alley_Access"</span>)  <span class="sc">|&gt;</span>  </span>
-<span id="cb26-9"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="st">"Fence"</span>, na_if, <span class="st">"No_Fence"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb26-10"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"Garage_Cond"</span>, <span class="st">"Garage_Finish"</span>), na_if, <span class="st">"No_Garage"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb26-11"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"Bsmt_Exposure"</span>, <span class="st">"BsmtFin_Type_1"</span>, <span class="st">"BsmtFin_Type_2"</span>), na_if, <span class="st">"No_Basement"</span>)</span>
-<span id="cb26-12"><a href=""></a></span>
-<span id="cb26-13"><a href=""></a>visdat<span class="sc">::</span><span class="fu">vis_miss</span>(ames_missing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a>col_with_zero_as_na <span class="ot">&lt;-</span> ames <span class="sc">|&gt;</span>  </span>
+<span id="cb31-2"><a href=""></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">|&gt;</span>  </span>
+<span id="cb31-3"><a href=""></a>  <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">"_SF|Area|Misc_Val|[Pp]orch$"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb31-4"><a href=""></a>  <span class="fu">summarise_each</span>(min) <span class="sc">|&gt;</span> </span>
+<span id="cb31-5"><a href=""></a>  <span class="fu">select_if</span>(<span class="sc">~</span>.x<span class="sc">==</span><span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb31-6"><a href=""></a>  <span class="fu">names</span>()</span>
+<span id="cb31-7"><a href=""></a>ames_missing <span class="ot">&lt;-</span> ames <span class="sc">|&gt;</span><span class="fu">mutate_at</span>(col_with_zero_as_na, na_if, <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb31-8"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="st">"Alley"</span>, na_if, <span class="st">"No_Alley_Access"</span>)  <span class="sc">|&gt;</span>  </span>
+<span id="cb31-9"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="st">"Fence"</span>, na_if, <span class="st">"No_Fence"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb31-10"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"Garage_Cond"</span>, <span class="st">"Garage_Finish"</span>), na_if, <span class="st">"No_Garage"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb31-11"><a href=""></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"Bsmt_Exposure"</span>, <span class="st">"BsmtFin_Type_1"</span>, <span class="st">"BsmtFin_Type_2"</span>), na_if, <span class="st">"No_Basement"</span>)</span>
+<span id="cb31-12"><a href=""></a></span>
+<span id="cb31-13"><a href=""></a>visdat<span class="sc">::</span><span class="fu">vis_miss</span>(ames_missing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="index_files/figure-revealjs/tabnet%20missing%20dataset-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img data-src="index_files/figure-revealjs/tabnet%20missing%20dataset-1.png" width="960"></a></p>
+<p><a href="index_files/figure-revealjs/tabnet%20missing%20dataset-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img data-src="index_files/figure-revealjs/tabnet%20missing%20dataset-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1073,23 +1143,23 @@ Christophe Regouby
 <div class="small">
 <p>Recipe</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>ames_missing <span class="ot">&lt;-</span> ames_missing <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Sale_Price =</span> <span class="fu">log10</span>(Sale_Price))</span>
-<span id="cb27-2"><a href=""></a>ames_missing_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(Sale_Price <span class="sc">~</span> ., <span class="at">data=</span>ames_missing) <span class="sc">|&gt;</span> </span>
-<span id="cb27-3"><a href=""></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a>ames_missing <span class="ot">&lt;-</span> ames_missing <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Sale_Price =</span> <span class="fu">log10</span>(Sale_Price))</span>
+<span id="cb32-2"><a href=""></a>ames_missing_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(Sale_Price <span class="sc">~</span> ., <span class="at">data=</span>ames_missing) <span class="sc">|&gt;</span> </span>
+<span id="cb32-3"><a href=""></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Pre-training</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">library</span>(tabnet)</span>
-<span id="cb28-2"><a href=""></a>ames_missing_pretrain <span class="ot">&lt;-</span> <span class="fu">tabnet_pretrain</span>(</span>
-<span id="cb28-3"><a href=""></a>  ames_missing_rec, <span class="at">data=</span>ames_missing,  <span class="at">epoch=</span><span class="dv">50</span>, <span class="at">cat_emb_dim =</span> <span class="dv">1</span>,  <span class="at">valid_split =</span> <span class="fl">0.2</span>,</span>
-<span id="cb28-4"><a href=""></a>  <span class="at">verbose=</span><span class="cn">TRUE</span>,   <span class="at">early_stopping_patience =</span> <span class="dv">3</span>L,   <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span></span>
-<span id="cb28-5"><a href=""></a>)</span>
-<span id="cb28-6"><a href=""></a><span class="co"># model diagnostic</span></span>
-<span id="cb28-7"><a href=""></a><span class="fu">autoplot</span>(ames_missing_pretrain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">library</span>(tabnet)</span>
+<span id="cb33-2"><a href=""></a>ames_missing_pretrain <span class="ot">&lt;-</span> <span class="fu">tabnet_pretrain</span>(</span>
+<span id="cb33-3"><a href=""></a>  ames_missing_rec, <span class="at">data=</span>ames_missing,  <span class="at">epoch=</span><span class="dv">50</span>, <span class="at">cat_emb_dim =</span> <span class="dv">1</span>,  <span class="at">valid_split =</span> <span class="fl">0.2</span>,</span>
+<span id="cb33-4"><a href=""></a>  <span class="at">verbose=</span><span class="cn">TRUE</span>,   <span class="at">early_stopping_patience =</span> <span class="dv">3</span>L,   <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span></span>
+<span id="cb33-5"><a href=""></a>)</span>
+<span id="cb33-6"><a href=""></a><span class="co"># model diagnostic</span></span>
+<span id="cb33-7"><a href=""></a><span class="fu">autoplot</span>(ames_missing_pretrain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="index_files/figure-revealjs/tabnet%20missing%20pretrain-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img data-src="index_files/figure-revealjs/tabnet%20missing%20pretrain-1.png" width="960"></a></p>
+<p><a href="index_files/figure-revealjs/tabnet%20missing%20pretrain-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img data-src="index_files/figure-revealjs/tabnet%20missing%20pretrain-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1103,21 +1173,21 @@ Christophe Regouby
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>ames_missing_fit <span class="ot">&lt;-</span> <span class="fu">tabnet_fit</span>(</span>
-<span id="cb29-2"><a href=""></a>  ames_missing_rec,   <span class="at">data =</span> ames_missing,</span>
-<span id="cb29-3"><a href=""></a>  <span class="at">tabnet_model =</span> ames_missing_pretrain,</span>
-<span id="cb29-4"><a href=""></a>  <span class="at">epoch =</span> <span class="dv">50</span>,  <span class="at">cat_emb_dim =</span> <span class="dv">1</span>,  <span class="at">valid_split =</span> <span class="fl">0.2</span>,</span>
-<span id="cb29-5"><a href=""></a>  <span class="at">verbose =</span> <span class="cn">TRUE</span>,  <span class="at">batch =</span> <span class="dv">2930</span>,</span>
-<span id="cb29-6"><a href=""></a>  <span class="at">early_stopping_patience =</span> <span class="dv">5</span>L,</span>
-<span id="cb29-7"><a href=""></a>  <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span></span>
-<span id="cb29-8"><a href=""></a>)</span>
-<span id="cb29-9"><a href=""></a><span class="co"># model diagnostic</span></span>
-<span id="cb29-10"><a href=""></a><span class="fu">autoplot</span>(ames_missing_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>ames_missing_fit <span class="ot">&lt;-</span> <span class="fu">tabnet_fit</span>(</span>
+<span id="cb34-2"><a href=""></a>  ames_missing_rec,   <span class="at">data =</span> ames_missing,</span>
+<span id="cb34-3"><a href=""></a>  <span class="at">tabnet_model =</span> ames_missing_pretrain,</span>
+<span id="cb34-4"><a href=""></a>  <span class="at">epoch =</span> <span class="dv">50</span>,  <span class="at">cat_emb_dim =</span> <span class="dv">1</span>,  <span class="at">valid_split =</span> <span class="fl">0.2</span>,</span>
+<span id="cb34-5"><a href=""></a>  <span class="at">verbose =</span> <span class="cn">TRUE</span>,  <span class="at">batch =</span> <span class="dv">2930</span>,</span>
+<span id="cb34-6"><a href=""></a>  <span class="at">early_stopping_patience =</span> <span class="dv">5</span>L,</span>
+<span id="cb34-7"><a href=""></a>  <span class="at">early_stopping_tolerance =</span> <span class="fl">1e-4</span></span>
+<span id="cb34-8"><a href=""></a>)</span>
+<span id="cb34-9"><a href=""></a><span class="co"># model diagnostic</span></span>
+<span id="cb34-10"><a href=""></a><span class="fu">autoplot</span>(ames_missing_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="index_files/figure-revealjs/tabnet%20missing%20fit-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img data-src="index_files/figure-revealjs/tabnet%20missing%20fit-1.png" width="960"></a></p>
+<p><a href="index_files/figure-revealjs/tabnet%20missing%20fit-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img data-src="index_files/figure-revealjs/tabnet%20missing%20fit-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1131,7 +1201,7 @@ Christophe Regouby
 <div class="columns">
 <div class="column" style="width:30%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">predict</span>(ames_missing_fit, ames_missing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">predict</span>(ames_missing_fit, ames_missing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2,930 × 1
    .pred
@@ -1151,9 +1221,9 @@ Christophe Regouby
 </div>
 </div><div class="column" style="width:70%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a>metrics <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(rmse, rsq, ccc)</span>
-<span id="cb32-2"><a href=""></a><span class="fu">cbind</span>(ames_missing, <span class="fu">predict</span>(ames_missing_fit, ames_missing)) <span class="sc">|&gt;</span> </span>
-<span id="cb32-3"><a href=""></a>  <span class="fu">metrics</span>(Sale_Price, <span class="at">estimate =</span> .pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>metrics <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(rmse, rsq, ccc)</span>
+<span id="cb37-2"><a href=""></a><span class="fu">cbind</span>(ames_missing, <span class="fu">predict</span>(ames_missing_fit, ames_missing)) <span class="sc">|&gt;</span> </span>
+<span id="cb37-3"><a href=""></a>  <span class="fu">metrics</span>(Sale_Price, <span class="at">estimate =</span> .pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   .metric .estimator .estimate
@@ -1173,40 +1243,40 @@ Christophe Regouby
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="co"># original ames</span></span>
-<span id="cb34-2"><a href=""></a><span class="fu">vip_color</span>(ames_pretrain, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="co"># original ames</span></span>
+<span id="cb39-2"><a href=""></a><span class="fu">vip_color</span>(ames_pretrain, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-1.png" width="960"></a></p>
+<p><a href="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">vip_color</span>(ames_fit, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="fu">vip_color</span>(ames_fit, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-2.png" width="960"></a></p>
+<p><a href="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20vip%20color-2.png" width="960"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="co"># ames with missing values</span></span>
-<span id="cb36-2"><a href=""></a><span class="fu">vip_color</span>(ames_missing_pretrain, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="co"># ames with missing values</span></span>
+<span id="cb41-2"><a href=""></a><span class="fu">vip_color</span>(ames_missing_pretrain, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-1.png" width="960"></a></p>
+<p><a href="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="fu">vip_color</span>(ames_missing_fit, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="fu">vip_color</span>(ames_missing_fit, col_with_missings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-2.png" width="960"></a></p>
+<p><a href="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img data-src="index_files/figure-revealjs/tabnet%20pretrain%20missing%20vip%20color-2.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1219,13 +1289,13 @@ Christophe Regouby
 <div class="small">
 <p>Explainability</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a>ames_missing_explain <span class="ot">&lt;-</span> tabnet<span class="sc">::</span><span class="fu">tabnet_explain</span>(ames_missing_fit, ames_missing)</span>
-<span id="cb38-2"><a href=""></a><span class="co"># variable importance</span></span>
-<span id="cb38-3"><a href=""></a><span class="fu">autoplot</span>(ames_missing_explain, <span class="at">quantile =</span> <span class="fl">0.99</span>, <span class="at">type=</span><span class="st">"step"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a>ames_missing_explain <span class="ot">&lt;-</span> tabnet<span class="sc">::</span><span class="fu">tabnet_explain</span>(ames_missing_fit, ames_missing)</span>
+<span id="cb43-2"><a href=""></a><span class="co"># variable importance</span></span>
+<span id="cb43-3"><a href=""></a><span class="fu">autoplot</span>(ames_missing_explain, <span class="at">quantile =</span> <span class="fl">0.99</span>, <span class="at">type=</span><span class="st">"step"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="index_files/figure-revealjs/tabnet%20missing%20explain-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img data-src="index_files/figure-revealjs/tabnet%20missing%20explain-1.png" width="960"></a></p>
+<p><a href="index_files/figure-revealjs/tabnet%20missing%20explain-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img data-src="index_files/figure-revealjs/tabnet%20missing%20explain-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -1254,9 +1324,9 @@ Christophe Regouby
 <h2>Exemple avec <code>starwars</code></h2>
 <div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">library</span>(data.tree)</span>
-<span id="cb39-2"><a href=""></a><span class="fu">data</span>(starwars, <span class="at">package =</span> <span class="st">"dplyr"</span>)</span>
-<span id="cb39-3"><a href=""></a><span class="fu">head</span>(starwars, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="fu">library</span>(data.tree)</span>
+<span id="cb44-2"><a href=""></a><span class="fu">data</span>(starwars, <span class="at">package =</span> <span class="st">"dplyr"</span>)</span>
+<span id="cb44-3"><a href=""></a><span class="fu">head</span>(starwars, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
@@ -1276,10 +1346,10 @@ Christophe Regouby
 <div class="small">
 <p>On construit la variable de sortie comme un chaîne avec des séparateurs <code>/</code> dans une variable <code>"pathString"</code> (erronné)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a>starwars_tree <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> </span>
-<span id="cb41-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pathString =</span> <span class="fu">paste</span>(<span class="st">"StarWars_characters"</span>, species, sex, <span class="st">`</span><span class="at">name</span><span class="st">`</span>, <span class="at">sep =</span> <span class="st">"/"</span>))  <span class="sc">|&gt;</span> </span>
-<span id="cb41-3"><a href=""></a>  <span class="fu">as.Node</span>()</span>
-<span id="cb41-4"><a href=""></a><span class="fu">print</span>(starwars_tree, <span class="st">"name"</span>,<span class="st">"height"</span>, <span class="st">"mass"</span>, <span class="st">"eye_color"</span>, <span class="at">limit =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a>starwars_tree <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> </span>
+<span id="cb46-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pathString =</span> <span class="fu">paste</span>(<span class="st">"StarWars_characters"</span>, species, sex, <span class="st">`</span><span class="at">name</span><span class="st">`</span>, <span class="at">sep =</span> <span class="st">"/"</span>))  <span class="sc">|&gt;</span> </span>
+<span id="cb46-3"><a href=""></a>  <span class="fu">as.Node</span>()</span>
+<span id="cb46-4"><a href=""></a><span class="fu">print</span>(starwars_tree, <span class="st">"name"</span>,<span class="st">"height"</span>, <span class="st">"mass"</span>, <span class="st">"eye_color"</span>, <span class="at">limit =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                           levelName                    name height mass
 1  StarWars_characters                   StarWars_characters      4   NA
@@ -1327,11 +1397,11 @@ Christophe Regouby
 <h2>Construction correcte de la variable de sortie <code>"pathString"</code></h2>
 <div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a>starwars_tree <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span></span>
-<span id="cb43-2"><a href=""></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">_name</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"name"</span>, <span class="st">`</span><span class="at">_height</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"height"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb43-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pathString =</span> <span class="fu">paste</span>(<span class="st">"StarWars_characters"</span>, species, sex, <span class="st">`</span><span class="at">_name</span><span class="st">`</span>, <span class="at">sep =</span> <span class="st">"/"</span>))  <span class="sc">|&gt;</span> </span>
-<span id="cb43-4"><a href=""></a>  <span class="fu">as.Node</span>()</span>
-<span id="cb43-5"><a href=""></a><span class="fu">print</span>(starwars_tree, <span class="st">"name"</span>, <span class="st">"_name"</span>,<span class="st">"_height"</span>, <span class="st">"mass"</span>, <span class="st">"eye_color"</span>, <span class="at">limit =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a>starwars_tree <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span></span>
+<span id="cb48-2"><a href=""></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">_name</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"name"</span>, <span class="st">`</span><span class="at">_height</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"height"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb48-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pathString =</span> <span class="fu">paste</span>(<span class="st">"StarWars_characters"</span>, species, sex, <span class="st">`</span><span class="at">_name</span><span class="st">`</span>, <span class="at">sep =</span> <span class="st">"/"</span>))  <span class="sc">|&gt;</span> </span>
+<span id="cb48-4"><a href=""></a>  <span class="fu">as.Node</span>()</span>
+<span id="cb48-5"><a href=""></a><span class="fu">print</span>(starwars_tree, <span class="st">"name"</span>, <span class="st">"_name"</span>,<span class="st">"_height"</span>, <span class="st">"mass"</span>, <span class="st">"eye_color"</span>, <span class="at">limit =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                           levelName                    name             _name
 1  StarWars_characters                   StarWars_characters                  
@@ -1364,11 +1434,11 @@ Christophe Regouby
 <p><code>starwars</code> a des colonnes de <code>list()</code> qu’il faut dérouler</p>
 <div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a>starw_split <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> </span>
-<span id="cb45-2"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">unnest_longer</span>(films) <span class="sc">|&gt;</span> </span>
-<span id="cb45-3"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">unnest_longer</span>(vehicles, <span class="at">keep_empty =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb45-4"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">unnest_longer</span>(starships, <span class="at">keep_empty =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb45-5"><a href=""></a>  <span class="fu">initial_split</span>( <span class="at">prop =</span> .<span class="dv">8</span>, <span class="at">strata =</span> <span class="st">"species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a>starw_split <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> </span>
+<span id="cb50-2"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">unnest_longer</span>(films) <span class="sc">|&gt;</span> </span>
+<span id="cb50-3"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">unnest_longer</span>(vehicles, <span class="at">keep_empty =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb50-4"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">unnest_longer</span>(starships, <span class="at">keep_empty =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb50-5"><a href=""></a>  <span class="fu">initial_split</span>( <span class="at">prop =</span> .<span class="dv">8</span>, <span class="at">strata =</span> <span class="st">"species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1376,27 +1446,27 @@ Christophe Regouby
 
 <div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a>starwars_train_tree <span class="ot">&lt;-</span> starw_split <span class="sc">|&gt;</span> </span>
-<span id="cb46-2"><a href=""></a>  <span class="fu">training</span>() <span class="sc">|&gt;</span></span>
-<span id="cb46-3"><a href=""></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">_name</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"name"</span>, <span class="st">`</span><span class="at">_height</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"height"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb46-4"><a href=""></a>  <span class="fu">rowid_to_column</span>() <span class="sc">|&gt;</span></span>
-<span id="cb46-5"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pathString =</span> <span class="fu">paste</span>(<span class="st">"StarWars_characters"</span>, species, sex, rowid, <span class="at">sep =</span> <span class="st">"/"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb46-6"><a href=""></a>  <span class="co"># remove outcomes labels from predictors</span></span>
-<span id="cb46-7"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>species, <span class="sc">-</span>sex, <span class="sc">-</span><span class="st">`</span><span class="at">_name</span><span class="st">`</span>, <span class="sc">-</span>rowid) <span class="sc">|&gt;</span></span>
-<span id="cb46-8"><a href=""></a>  <span class="co"># turn it as hierarchical Node</span></span>
-<span id="cb46-9"><a href=""></a>  <span class="fu">as.Node</span>()</span>
-<span id="cb46-10"><a href=""></a></span>
-<span id="cb46-11"><a href=""></a>starwars_test_tree <span class="ot">&lt;-</span> starw_split <span class="sc">|&gt;</span></span>
-<span id="cb46-12"><a href=""></a>  <span class="fu">testing</span>() <span class="sc">|&gt;</span></span>
-<span id="cb46-13"><a href=""></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">_name</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"name"</span>, <span class="st">`</span><span class="at">_height</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"height"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb46-14"><a href=""></a>  <span class="fu">rowid_to_column</span>() <span class="sc">|&gt;</span></span>
-<span id="cb46-15"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pathString =</span> <span class="fu">paste</span>(<span class="st">"StarWars_characters"</span>, species, sex, rowid, <span class="at">sep =</span> <span class="st">"/"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb46-16"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>species, <span class="sc">-</span>sex, <span class="sc">-</span><span class="st">`</span><span class="at">_name</span><span class="st">`</span>, <span class="sc">-</span>rowid) <span class="sc">|&gt;</span></span>
-<span id="cb46-17"><a href=""></a>  <span class="fu">as.Node</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a>starwars_train_tree <span class="ot">&lt;-</span> starw_split <span class="sc">|&gt;</span> </span>
+<span id="cb51-2"><a href=""></a>  <span class="fu">training</span>() <span class="sc">|&gt;</span></span>
+<span id="cb51-3"><a href=""></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">_name</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"name"</span>, <span class="st">`</span><span class="at">_height</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"height"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb51-4"><a href=""></a>  <span class="fu">rowid_to_column</span>() <span class="sc">|&gt;</span></span>
+<span id="cb51-5"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pathString =</span> <span class="fu">paste</span>(<span class="st">"StarWars_characters"</span>, species, sex, rowid, <span class="at">sep =</span> <span class="st">"/"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb51-6"><a href=""></a>  <span class="co"># remove outcomes labels from predictors</span></span>
+<span id="cb51-7"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>species, <span class="sc">-</span>sex, <span class="sc">-</span><span class="st">`</span><span class="at">_name</span><span class="st">`</span>, <span class="sc">-</span>rowid) <span class="sc">|&gt;</span></span>
+<span id="cb51-8"><a href=""></a>  <span class="co"># turn it as hierarchical Node</span></span>
+<span id="cb51-9"><a href=""></a>  <span class="fu">as.Node</span>()</span>
+<span id="cb51-10"><a href=""></a></span>
+<span id="cb51-11"><a href=""></a>starwars_test_tree <span class="ot">&lt;-</span> starw_split <span class="sc">|&gt;</span></span>
+<span id="cb51-12"><a href=""></a>  <span class="fu">testing</span>() <span class="sc">|&gt;</span></span>
+<span id="cb51-13"><a href=""></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">_name</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"name"</span>, <span class="st">`</span><span class="at">_height</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"height"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb51-14"><a href=""></a>  <span class="fu">rowid_to_column</span>() <span class="sc">|&gt;</span></span>
+<span id="cb51-15"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">pathString =</span> <span class="fu">paste</span>(<span class="st">"StarWars_characters"</span>, species, sex, rowid, <span class="at">sep =</span> <span class="st">"/"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb51-16"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>species, <span class="sc">-</span>sex, <span class="sc">-</span><span class="st">`</span><span class="at">_name</span><span class="st">`</span>, <span class="sc">-</span>rowid) <span class="sc">|&gt;</span></span>
+<span id="cb51-17"><a href=""></a>  <span class="fu">as.Node</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Les <code>$attributesAll</code> du Node seront les predicteurs :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a>starwars_train_tree<span class="sc">$</span>attributesAll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a>starwars_train_tree<span class="sc">$</span>attributesAll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "_height"    "birth_year" "eye_color"  "films"      "gender"    
  [6] "hair_color" "homeworld"  "mass"       "skin_color" "starships" 
@@ -1407,53 +1477,53 @@ Christophe Regouby
 </section>
 <section id="entraînement-du-modèle" class="slide level2">
 <h2>Entraînement du modèle</h2>
-<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb49-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb49-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb49-3"><a href=""></a><span class="in">#| label: "starwars fit"</span></span>
-<span id="cb49-4"><a href=""></a></span>
-<span id="cb49-5"><a href=""></a><span class="in">config &lt;- tabnet_config(</span></span>
-<span id="cb49-6"><a href=""></a><span class="in">  decision_width = 8,</span></span>
-<span id="cb49-7"><a href=""></a><span class="in">  attention_width = 8,</span></span>
-<span id="cb49-8"><a href=""></a><span class="in">  num_steps = 3,</span></span>
-<span id="cb49-9"><a href=""></a><span class="in">  penalty = .003,</span></span>
-<span id="cb49-10"><a href=""></a><span class="in">  cat_emb_dim = 2,</span></span>
-<span id="cb49-11"><a href=""></a><span class="in">  valid_split = 0.2,</span></span>
-<span id="cb49-12"><a href=""></a><span class="in">  learn_rate = 1e-3,</span></span>
-<span id="cb49-13"><a href=""></a><span class="in">  lr_scheduler = "reduce_on_plateau",</span></span>
-<span id="cb49-14"><a href=""></a><span class="in">  early_stopping_monitor = "valid_loss",</span></span>
-<span id="cb49-15"><a href=""></a><span class="in">  early_stopping_patience = 4,</span></span>
-<span id="cb49-16"><a href=""></a><span class="in">  verbose = FALSE</span></span>
-<span id="cb49-17"><a href=""></a><span class="in">)</span></span>
-<span id="cb49-18"><a href=""></a></span>
-<span id="cb49-19"><a href=""></a><span class="in">starw_model &lt;- tabnet_fit(starwars_train_tree, config = config, epoch = 75, checkpoint_epochs = 15)</span></span>
-<span id="cb49-20"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb54-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb54-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb54-3"><a href=""></a><span class="in">#| label: "starwars fit"</span></span>
+<span id="cb54-4"><a href=""></a></span>
+<span id="cb54-5"><a href=""></a><span class="in">config &lt;- tabnet_config(</span></span>
+<span id="cb54-6"><a href=""></a><span class="in">  decision_width = 8,</span></span>
+<span id="cb54-7"><a href=""></a><span class="in">  attention_width = 8,</span></span>
+<span id="cb54-8"><a href=""></a><span class="in">  num_steps = 3,</span></span>
+<span id="cb54-9"><a href=""></a><span class="in">  penalty = .003,</span></span>
+<span id="cb54-10"><a href=""></a><span class="in">  cat_emb_dim = 2,</span></span>
+<span id="cb54-11"><a href=""></a><span class="in">  valid_split = 0.2,</span></span>
+<span id="cb54-12"><a href=""></a><span class="in">  learn_rate = 1e-3,</span></span>
+<span id="cb54-13"><a href=""></a><span class="in">  lr_scheduler = "reduce_on_plateau",</span></span>
+<span id="cb54-14"><a href=""></a><span class="in">  early_stopping_monitor = "valid_loss",</span></span>
+<span id="cb54-15"><a href=""></a><span class="in">  early_stopping_patience = 4,</span></span>
+<span id="cb54-16"><a href=""></a><span class="in">  verbose = FALSE</span></span>
+<span id="cb54-17"><a href=""></a><span class="in">)</span></span>
+<span id="cb54-18"><a href=""></a></span>
+<span id="cb54-19"><a href=""></a><span class="in">starw_model &lt;- tabnet_fit(starwars_train_tree, config = config, epoch = 75, checkpoint_epochs = 15)</span></span>
+<span id="cb54-20"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="diagnostique" class="slide level2">
 <h2>Diagnostique</h2>
-<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb50-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb50-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb50-3"><a href=""></a><span class="in">#| label: "starwars diag"</span></span>
-<span id="cb50-4"><a href=""></a></span>
-<span id="cb50-5"><a href=""></a><span class="in">autoplot(starw_model)</span></span>
-<span id="cb50-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb51-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb51-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb51-3"><a href=""></a><span class="in">#| label: "starwars vip"</span></span>
-<span id="cb51-4"><a href=""></a></span>
-<span id="cb51-5"><a href=""></a><span class="in">vip::vip(starw_model)</span></span>
-<span id="cb51-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb55-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb55-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb55-3"><a href=""></a><span class="in">#| label: "starwars diag"</span></span>
+<span id="cb55-4"><a href=""></a></span>
+<span id="cb55-5"><a href=""></a><span class="in">autoplot(starw_model)</span></span>
+<span id="cb55-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb56-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb56-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb56-3"><a href=""></a><span class="in">#| label: "starwars vip"</span></span>
+<span id="cb56-4"><a href=""></a></span>
+<span id="cb56-5"><a href=""></a><span class="in">vip::vip(starw_model)</span></span>
+<span id="cb56-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="inférence-sur-le-modèle-hierarchique" class="slide level2">
 <h2>Inférence sur le modèle hierarchique</h2>
-<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb52-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb52-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb52-3"><a href=""></a><span class="in">#| label: "starwars inference"</span></span>
-<span id="cb52-4"><a href=""></a><span class="in">starwars_hat &lt;- bind_cols(</span></span>
-<span id="cb52-5"><a href=""></a><span class="in">    predict(starw_model, starwars_test_tree),</span></span>
-<span id="cb52-6"><a href=""></a><span class="in">    node_to_df(starwars_test_tree)$y</span></span>
-<span id="cb52-7"><a href=""></a><span class="in">  )</span></span>
-<span id="cb52-8"><a href=""></a><span class="in">tail(starwars_hat, n = 5)</span></span>
-<span id="cb52-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb57-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb57-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb57-3"><a href=""></a><span class="in">#| label: "starwars inference"</span></span>
+<span id="cb57-4"><a href=""></a><span class="in">starwars_hat &lt;- bind_cols(</span></span>
+<span id="cb57-5"><a href=""></a><span class="in">    predict(starw_model, starwars_test_tree),</span></span>
+<span id="cb57-6"><a href=""></a><span class="in">    node_to_df(starwars_test_tree)$y</span></span>
+<span id="cb57-7"><a href=""></a><span class="in">  )</span></span>
+<span id="cb57-8"><a href=""></a><span class="in">tail(starwars_hat, n = 5)</span></span>
+<span id="cb57-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="gpt2-avec-r" class="title-slide slide level1 center">
@@ -1462,33 +1532,33 @@ Christophe Regouby
 <ul>
 <li>{minhub} : un dépot de <strong>réseau de neurones</strong> classiques pour {torch}</li>
 <li>{hfhub} : l’accès aux téléchargement de <strong>modèles</strong> préentraînés du hub hugging-face</li>
-<li>{tok} : un wrappeur des tokenizers d’hugging-face en R</li>
+<li>{tok} : un wrappeur des tokenizers d’huggingface en R</li>
 <li>{safetensors} : sauvegarde et lecture des données de tenseurs au format <code>.safetensors</code></li>
 </ul>
 </section>
 <section id="téléchargement-du-modèle-et-de-ses-poids" class="slide level2">
 <h2>Téléchargement du modèle et de ses poids</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="fu">library</span>(minhub)</span>
-<span id="cb53-2"><a href=""></a><span class="fu">library</span>(zeallot)</span>
-<span id="cb53-3"><a href=""></a></span>
-<span id="cb53-4"><a href=""></a>identifier <span class="ot">&lt;-</span> <span class="st">"gpt2"</span></span>
-<span id="cb53-5"><a href=""></a>revision <span class="ot">&lt;-</span> <span class="st">"e7da7f2"</span></span>
-<span id="cb53-6"><a href=""></a><span class="co"># instantiate model and load Hugging Face weights</span></span>
-<span id="cb53-7"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">gpt2_from_pretrained</span>(identifier, revision)</span>
-<span id="cb53-8"><a href=""></a><span class="co"># load matching tokenizer</span></span>
-<span id="cb53-9"><a href=""></a>tok <span class="ot">&lt;-</span> tok<span class="sc">::</span>tokenizer<span class="sc">$</span><span class="fu">from_pretrained</span>(identifier,)</span>
-<span id="cb53-10"><a href=""></a>model<span class="sc">$</span><span class="fu">eval</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="fu">library</span>(minhub)</span>
+<span id="cb58-2"><a href=""></a><span class="fu">library</span>(zeallot)</span>
+<span id="cb58-3"><a href=""></a></span>
+<span id="cb58-4"><a href=""></a>identifier <span class="ot">&lt;-</span> <span class="st">"gpt2"</span></span>
+<span id="cb58-5"><a href=""></a>revision <span class="ot">&lt;-</span> <span class="st">"e7da7f2"</span></span>
+<span id="cb58-6"><a href=""></a><span class="co"># instantiate model and load Hugging Face weights</span></span>
+<span id="cb58-7"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">gpt2_from_pretrained</span>(identifier, revision)</span>
+<span id="cb58-8"><a href=""></a><span class="co"># load matching tokenizer</span></span>
+<span id="cb58-9"><a href=""></a>tok <span class="ot">&lt;-</span> tok<span class="sc">::</span>tokenizer<span class="sc">$</span><span class="fu">from_pretrained</span>(identifier,)</span>
+<span id="cb58-10"><a href=""></a>model<span class="sc">$</span><span class="fu">eval</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="tokenisation-de-la-phrase" class="slide level2">
 <h2>Tokenisation de la phrase</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a>text <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"✨ Quel plaisir de participer aux Rencontres R 2025 à Mons !✨"</span>,</span>
-<span id="cb54-2"><a href=""></a>             <span class="st">"Vivement la prochaine"</span> )</span>
-<span id="cb54-3"><a href=""></a></span>
-<span id="cb54-4"><a href=""></a>idx <span class="ot">&lt;-</span> <span class="fu">torch_tensor</span>(tok<span class="sc">$</span><span class="fu">encode</span>(text)<span class="sc">$</span>ids)<span class="sc">$</span><span class="fu">view</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>))</span>
-<span id="cb54-5"><a href=""></a>idx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a>text <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"✨ Quel plaisir de participer aux Rencontres R 2025 à Mons !✨"</span>,</span>
+<span id="cb59-2"><a href=""></a>             <span class="st">"Vivement la prochaine"</span> )</span>
+<span id="cb59-3"><a href=""></a></span>
+<span id="cb59-4"><a href=""></a>idx <span class="ot">&lt;-</span> <span class="fu">torch_tensor</span>(tok<span class="sc">$</span><span class="fu">encode</span>(text)<span class="sc">$</span>ids)<span class="sc">$</span><span class="fu">view</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb59-5"><a href=""></a>idx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 Columns 1 to 11 26486    101   2264    417    458  15152    343    390   1344   9346  27506
@@ -1505,34 +1575,34 @@ Columns 23 to 27   434   8591    386    354   5718
 <p>La génération est un process itératif, chaque prédiction du modèle est ajoutée au prompt qui grossit.</p>
 <p>Ajoutons y 30 tokens :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a>prompt_length <span class="ot">&lt;-</span> idx<span class="sc">$</span><span class="fu">size</span>(<span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb56-2"><a href=""></a></span>
-<span id="cb56-3"><a href=""></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>) { <span class="co"># decide on maximal length of output sequence</span></span>
-<span id="cb56-4"><a href=""></a>  <span class="co"># obtain next prediction (raw score)</span></span>
-<span id="cb56-5"><a href=""></a>  <span class="fu">with_no_grad</span>({</span>
-<span id="cb56-6"><a href=""></a>    logits <span class="ot">&lt;-</span> <span class="fu">model</span>(idx <span class="sc">+</span> <span class="dv">1</span>L)</span>
-<span id="cb56-7"><a href=""></a>  })</span>
-<span id="cb56-8"><a href=""></a>  last_logits <span class="ot">&lt;-</span> logits[, <span class="sc">-</span><span class="dv">1</span>, ]</span>
-<span id="cb56-9"><a href=""></a>  <span class="co"># pick highest scores (how many is up to you)</span></span>
-<span id="cb56-10"><a href=""></a>  <span class="fu">c</span>(prob, ind) <span class="sc">%&lt;-%</span> last_logits<span class="sc">$</span><span class="fu">topk</span>(<span class="dv">50</span>)</span>
-<span id="cb56-11"><a href=""></a>  last_logits <span class="ot">&lt;-</span> <span class="fu">torch_full_like</span>(last_logits, <span class="sc">-</span><span class="cn">Inf</span>)<span class="sc">$</span><span class="fu">scatter_</span>(<span class="sc">-</span><span class="dv">1</span>, ind, prob)</span>
-<span id="cb56-12"><a href=""></a>  <span class="co"># convert to probabilities</span></span>
-<span id="cb56-13"><a href=""></a>  probs <span class="ot">&lt;-</span> <span class="fu">nnf_softmax</span>(last_logits, <span class="at">dim =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb56-14"><a href=""></a>  <span class="co"># probabilistic sampling</span></span>
-<span id="cb56-15"><a href=""></a>  id_next <span class="ot">&lt;-</span> <span class="fu">torch_multinomial</span>(probs, <span class="at">num_samples =</span> <span class="dv">1</span>) <span class="sc">-</span> <span class="dv">1</span>L</span>
-<span id="cb56-16"><a href=""></a>  <span class="co"># stop if end of sequence predicted</span></span>
-<span id="cb56-17"><a href=""></a>  <span class="cf">if</span> (id_next<span class="sc">$</span><span class="fu">item</span>() <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb56-18"><a href=""></a>    <span class="cf">break</span></span>
-<span id="cb56-19"><a href=""></a>  }</span>
-<span id="cb56-20"><a href=""></a>  <span class="co"># append prediction to prompt</span></span>
-<span id="cb56-21"><a href=""></a>  idx <span class="ot">&lt;-</span> <span class="fu">torch_cat</span>(<span class="fu">list</span>(idx, id_next), <span class="at">dim =</span> <span class="dv">2</span>)</span>
-<span id="cb56-22"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a>prompt_length <span class="ot">&lt;-</span> idx<span class="sc">$</span><span class="fu">size</span>(<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb61-2"><a href=""></a></span>
+<span id="cb61-3"><a href=""></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>) { <span class="co"># decide on maximal length of output sequence</span></span>
+<span id="cb61-4"><a href=""></a>  <span class="co"># obtain next prediction (raw score)</span></span>
+<span id="cb61-5"><a href=""></a>  <span class="fu">with_no_grad</span>({</span>
+<span id="cb61-6"><a href=""></a>    logits <span class="ot">&lt;-</span> <span class="fu">model</span>(idx <span class="sc">+</span> <span class="dv">1</span>L)</span>
+<span id="cb61-7"><a href=""></a>  })</span>
+<span id="cb61-8"><a href=""></a>  last_logits <span class="ot">&lt;-</span> logits[, <span class="sc">-</span><span class="dv">1</span>, ]</span>
+<span id="cb61-9"><a href=""></a>  <span class="co"># pick highest scores (how many is up to you)</span></span>
+<span id="cb61-10"><a href=""></a>  <span class="fu">c</span>(prob, ind) <span class="sc">%&lt;-%</span> last_logits<span class="sc">$</span><span class="fu">topk</span>(<span class="dv">50</span>)</span>
+<span id="cb61-11"><a href=""></a>  last_logits <span class="ot">&lt;-</span> <span class="fu">torch_full_like</span>(last_logits, <span class="sc">-</span><span class="cn">Inf</span>)<span class="sc">$</span><span class="fu">scatter_</span>(<span class="sc">-</span><span class="dv">1</span>, ind, prob)</span>
+<span id="cb61-12"><a href=""></a>  <span class="co"># convert to probabilities</span></span>
+<span id="cb61-13"><a href=""></a>  probs <span class="ot">&lt;-</span> <span class="fu">nnf_softmax</span>(last_logits, <span class="at">dim =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb61-14"><a href=""></a>  <span class="co"># probabilistic sampling</span></span>
+<span id="cb61-15"><a href=""></a>  id_next <span class="ot">&lt;-</span> <span class="fu">torch_multinomial</span>(probs, <span class="at">num_samples =</span> <span class="dv">1</span>) <span class="sc">-</span> <span class="dv">1</span>L</span>
+<span id="cb61-16"><a href=""></a>  <span class="co"># stop if end of sequence predicted</span></span>
+<span id="cb61-17"><a href=""></a>  <span class="cf">if</span> (id_next<span class="sc">$</span><span class="fu">item</span>() <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb61-18"><a href=""></a>    <span class="cf">break</span></span>
+<span id="cb61-19"><a href=""></a>  }</span>
+<span id="cb61-20"><a href=""></a>  <span class="co"># append prediction to prompt</span></span>
+<span id="cb61-21"><a href=""></a>  idx <span class="ot">&lt;-</span> <span class="fu">torch_cat</span>(<span class="fu">list</span>(idx, id_next), <span class="at">dim =</span> <span class="dv">2</span>)</span>
+<span id="cb61-22"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="décodage-des-tokens-du-résultat" class="slide level2">
 <h2>décodage des tokens du résultat</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a>tok<span class="sc">$</span><span class="fu">decode</span>(<span class="fu">as.integer</span>(idx))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a>tok<span class="sc">$</span><span class="fu">decode</span>(<span class="fu">as.integer</span>(idx))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "✨ Quel plaisir de participer aux Rencontres R 2025 à Mons !✨ Vivement la prochaine à la prendre l'hève, que hou vous trouve dans le monde cette vous ?—Qu"</code></pre>
 </div>
@@ -1554,7 +1624,7 @@ Columns 23 to 27   434   8591    386    354   5718
 <section id="lora-à-la-rescousse" class="slide level2">
 <h2>LoRA à la rescousse</h2>
 <p>Low Rank Adaptation</p>
-<p><a href="images/lora.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img data-src="images/lora.png"></a></p>
+<p><a href="images/lora.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img data-src="images/lora.png"></a></p>
 </section>
 <section id="method" class="slide level2">
 <h2>Method</h2>
@@ -1581,16 +1651,16 @@ Columns 23 to 27   434   8591    386    354   5718
 <h2>Implémentation avec torch</h2>
 <p>On simule un jeu de données <span class="math inline">\(y = X \theta\)</span> model. <span class="math inline">\(\theta \in \mathbb{R}^{1001, 1000}\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">library</span>(torch)</span>
-<span id="cb59-2"><a href=""></a></span>
-<span id="cb59-3"><a href=""></a>n <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
-<span id="cb59-4"><a href=""></a>d_in <span class="ot">&lt;-</span> <span class="dv">1001</span></span>
-<span id="cb59-5"><a href=""></a>d_out <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb59-6"><a href=""></a></span>
-<span id="cb59-7"><a href=""></a>thetas <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(d_in, d_out)</span>
-<span id="cb59-8"><a href=""></a></span>
-<span id="cb59-9"><a href=""></a>X <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(n, d_in)</span>
-<span id="cb59-10"><a href=""></a>y <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(X, thetas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="fu">library</span>(torch)</span>
+<span id="cb64-2"><a href=""></a></span>
+<span id="cb64-3"><a href=""></a>n <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb64-4"><a href=""></a>d_in <span class="ot">&lt;-</span> <span class="dv">1001</span></span>
+<span id="cb64-5"><a href=""></a>d_out <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb64-6"><a href=""></a></span>
+<span id="cb64-7"><a href=""></a>thetas <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(d_in, d_out)</span>
+<span id="cb64-8"><a href=""></a></span>
+<span id="cb64-9"><a href=""></a>X <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(n, d_in)</span>
+<span id="cb64-10"><a href=""></a>y <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(X, thetas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2">
@@ -1599,35 +1669,35 @@ Columns 23 to 27   434   8591    386    354   5718
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a>lin_model <span class="ot">&lt;-</span> <span class="fu">nn_linear</span>(d_in, d_out, <span class="at">bias =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a>lin_model <span class="ot">&lt;-</span> <span class="fu">nn_linear</span>(d_in, d_out, <span class="at">bias =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a>train <span class="ot">&lt;-</span> <span class="cf">function</span>(model, X, y, <span class="at">batch_size =</span> <span class="dv">128</span>, <span class="at">epochs =</span> <span class="dv">100</span>) {</span>
-<span id="cb61-2"><a href=""></a>  opt <span class="ot">&lt;-</span> <span class="fu">optim_adam</span>(model<span class="sc">$</span>parameters)</span>
-<span id="cb61-3"><a href=""></a></span>
-<span id="cb61-4"><a href=""></a>  <span class="cf">for</span> (epoch <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>epochs) {</span>
-<span id="cb61-5"><a href=""></a>    <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(n<span class="sc">/</span>batch_size)) {</span>
-<span id="cb61-6"><a href=""></a>      idx <span class="ot">&lt;-</span> <span class="fu">sample.int</span>(n, <span class="at">size =</span> batch_size)</span>
-<span id="cb61-7"><a href=""></a>      loss <span class="ot">&lt;-</span> <span class="fu">nnf_mse_loss</span>(<span class="fu">model</span>(X[idx,]), y[idx])</span>
-<span id="cb61-8"><a href=""></a>      </span>
-<span id="cb61-9"><a href=""></a>      <span class="fu">with_no_grad</span>({</span>
-<span id="cb61-10"><a href=""></a>        opt<span class="sc">$</span><span class="fu">zero_grad</span>()</span>
-<span id="cb61-11"><a href=""></a>        loss<span class="sc">$</span><span class="fu">backward</span>()</span>
-<span id="cb61-12"><a href=""></a>        opt<span class="sc">$</span><span class="fu">step</span>()  </span>
-<span id="cb61-13"><a href=""></a>      })</span>
-<span id="cb61-14"><a href=""></a>    }</span>
-<span id="cb61-15"><a href=""></a>    </span>
-<span id="cb61-16"><a href=""></a>    <span class="cf">if</span> (epoch <span class="sc">%%</span> <span class="dv">10</span> <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb61-17"><a href=""></a>      <span class="fu">with_no_grad</span>({</span>
-<span id="cb61-18"><a href=""></a>        loss <span class="ot">&lt;-</span> <span class="fu">nnf_mse_loss</span>(<span class="fu">model</span>(X), y)</span>
-<span id="cb61-19"><a href=""></a>      })</span>
-<span id="cb61-20"><a href=""></a>      <span class="fu">cat</span>(<span class="st">"["</span>, epoch, <span class="st">"] Loss:"</span>, loss<span class="sc">$</span><span class="fu">item</span>(), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb61-21"><a href=""></a>    }</span>
-<span id="cb61-22"><a href=""></a>  }</span>
-<span id="cb61-23"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a>train <span class="ot">&lt;-</span> <span class="cf">function</span>(model, X, y, <span class="at">batch_size =</span> <span class="dv">128</span>, <span class="at">epochs =</span> <span class="dv">100</span>) {</span>
+<span id="cb66-2"><a href=""></a>  opt <span class="ot">&lt;-</span> <span class="fu">optim_adam</span>(model<span class="sc">$</span>parameters)</span>
+<span id="cb66-3"><a href=""></a></span>
+<span id="cb66-4"><a href=""></a>  <span class="cf">for</span> (epoch <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>epochs) {</span>
+<span id="cb66-5"><a href=""></a>    <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(n<span class="sc">/</span>batch_size)) {</span>
+<span id="cb66-6"><a href=""></a>      idx <span class="ot">&lt;-</span> <span class="fu">sample.int</span>(n, <span class="at">size =</span> batch_size)</span>
+<span id="cb66-7"><a href=""></a>      loss <span class="ot">&lt;-</span> <span class="fu">nnf_mse_loss</span>(<span class="fu">model</span>(X[idx,]), y[idx])</span>
+<span id="cb66-8"><a href=""></a>      </span>
+<span id="cb66-9"><a href=""></a>      <span class="fu">with_no_grad</span>({</span>
+<span id="cb66-10"><a href=""></a>        opt<span class="sc">$</span><span class="fu">zero_grad</span>()</span>
+<span id="cb66-11"><a href=""></a>        loss<span class="sc">$</span><span class="fu">backward</span>()</span>
+<span id="cb66-12"><a href=""></a>        opt<span class="sc">$</span><span class="fu">step</span>()  </span>
+<span id="cb66-13"><a href=""></a>      })</span>
+<span id="cb66-14"><a href=""></a>    }</span>
+<span id="cb66-15"><a href=""></a>    </span>
+<span id="cb66-16"><a href=""></a>    <span class="cf">if</span> (epoch <span class="sc">%%</span> <span class="dv">10</span> <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb66-17"><a href=""></a>      <span class="fu">with_no_grad</span>({</span>
+<span id="cb66-18"><a href=""></a>        loss <span class="ot">&lt;-</span> <span class="fu">nnf_mse_loss</span>(<span class="fu">model</span>(X), y)</span>
+<span id="cb66-19"><a href=""></a>      })</span>
+<span id="cb66-20"><a href=""></a>      <span class="fu">cat</span>(<span class="st">"["</span>, epoch, <span class="st">"] Loss:"</span>, loss<span class="sc">$</span><span class="fu">item</span>(), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb66-21"><a href=""></a>    }</span>
+<span id="cb66-22"><a href=""></a>  }</span>
+<span id="cb66-23"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -1637,7 +1707,7 @@ Columns 23 to 27   434   8591    386    354   5718
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="fu">train</span>(lin_model, X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="fu">train</span>(lin_model, X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[ 10 ] Loss: 575.422 
@@ -1659,15 +1729,15 @@ Columns 23 to 27   434   8591    386    354   5718
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a>thetas2 <span class="ot">&lt;-</span> thetas <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb64-2"><a href=""></a></span>
-<span id="cb64-3"><a href=""></a>X2 <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(n, d_in)</span>
-<span id="cb64-4"><a href=""></a>y2 <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(X2, thetas2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a>thetas2 <span class="ot">&lt;-</span> thetas <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb69-2"><a href=""></a></span>
+<span id="cb69-3"><a href=""></a>X2 <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(n, d_in)</span>
+<span id="cb69-4"><a href=""></a>y2 <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(X2, thetas2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Sur ces données, le modèle donne de mauvais résultats :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="fu">nnf_mse_loss</span>(<span class="fu">lin_model</span>(X2), y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a><span class="fu">nnf_mse_loss</span>(<span class="fu">lin_model</span>(X2), y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 1023.75
@@ -1680,27 +1750,27 @@ Columns 23 to 27   434   8591    386    354   5718
 <div class="small">
 <p>Le nouveau LoRA - s’ajoute au modèle <code>linear</code> dont on gèle les poids - avec des tenseurs A et B de dimension intérieure <span class="math inline">\(r\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a>lora_nn_linear <span class="ot">&lt;-</span> <span class="fu">nn_module</span>(</span>
-<span id="cb67-2"><a href=""></a>  <span class="at">initialize =</span> <span class="cf">function</span>(linear, <span class="at">r =</span> <span class="dv">16</span>L, <span class="at">alpha =</span> <span class="dv">1</span>) {</span>
-<span id="cb67-3"><a href=""></a>    self<span class="sc">$</span>linear <span class="ot">&lt;-</span> linear</span>
-<span id="cb67-4"><a href=""></a>    </span>
-<span id="cb67-5"><a href=""></a>    <span class="co"># parameters from the original linear module are 'freezed', so they are not</span></span>
-<span id="cb67-6"><a href=""></a>    <span class="co"># tracked by autograd. They are considered just constants.</span></span>
-<span id="cb67-7"><a href=""></a>    purrr<span class="sc">::</span><span class="fu">walk</span>(self<span class="sc">$</span>linear<span class="sc">$</span>parameters, \(x) x<span class="sc">$</span><span class="fu">requires_grad_</span>(<span class="cn">FALSE</span>))</span>
-<span id="cb67-8"><a href=""></a>    </span>
-<span id="cb67-9"><a href=""></a>    <span class="co"># the low rank parameters that will be trained (shortcut here, specific to our lin_model)</span></span>
-<span id="cb67-10"><a href=""></a>    self<span class="sc">$</span>A <span class="ot">&lt;-</span> <span class="fu">nn_parameter</span>(<span class="fu">torch_randn</span>(linear<span class="sc">$</span>in_features, r))</span>
-<span id="cb67-11"><a href=""></a>    self<span class="sc">$</span>B <span class="ot">&lt;-</span> <span class="fu">nn_parameter</span>(<span class="fu">torch_zeros</span>(r, linear<span class="sc">$</span>out_features))</span>
-<span id="cb67-12"><a href=""></a>    </span>
-<span id="cb67-13"><a href=""></a>    <span class="co"># the scaling constant</span></span>
-<span id="cb67-14"><a href=""></a>    self<span class="sc">$</span>scaling <span class="ot">&lt;-</span> alpha <span class="sc">/</span> r</span>
-<span id="cb67-15"><a href=""></a>  },</span>
-<span id="cb67-16"><a href=""></a>  <span class="at">forward =</span> <span class="cf">function</span>(x) {</span>
-<span id="cb67-17"><a href=""></a>    <span class="co"># the modified forward, that just adds the result from the base model</span></span>
-<span id="cb67-18"><a href=""></a>    <span class="co"># and ABx.</span></span>
-<span id="cb67-19"><a href=""></a>    self<span class="sc">$</span><span class="fu">linear</span>(x) <span class="sc">+</span> <span class="fu">torch_matmul</span>(x, <span class="fu">torch_matmul</span>(self<span class="sc">$</span>A, self<span class="sc">$</span>B) <span class="sc">*</span> self<span class="sc">$</span>scaling)</span>
-<span id="cb67-20"><a href=""></a>  }</span>
-<span id="cb67-21"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a>lora_nn_linear <span class="ot">&lt;-</span> <span class="fu">nn_module</span>(</span>
+<span id="cb72-2"><a href=""></a>  <span class="at">initialize =</span> <span class="cf">function</span>(linear, <span class="at">r =</span> <span class="dv">16</span>L, <span class="at">alpha =</span> <span class="dv">1</span>) {</span>
+<span id="cb72-3"><a href=""></a>    self<span class="sc">$</span>linear <span class="ot">&lt;-</span> linear</span>
+<span id="cb72-4"><a href=""></a>    </span>
+<span id="cb72-5"><a href=""></a>    <span class="co"># parameters from the original linear module are 'freezed', so they are not</span></span>
+<span id="cb72-6"><a href=""></a>    <span class="co"># tracked by autograd. They are considered just constants.</span></span>
+<span id="cb72-7"><a href=""></a>    purrr<span class="sc">::</span><span class="fu">walk</span>(self<span class="sc">$</span>linear<span class="sc">$</span>parameters, \(x) x<span class="sc">$</span><span class="fu">requires_grad_</span>(<span class="cn">FALSE</span>))</span>
+<span id="cb72-8"><a href=""></a>    </span>
+<span id="cb72-9"><a href=""></a>    <span class="co"># the low rank parameters that will be trained (shortcut here, specific to our lin_model)</span></span>
+<span id="cb72-10"><a href=""></a>    self<span class="sc">$</span>A <span class="ot">&lt;-</span> <span class="fu">nn_parameter</span>(<span class="fu">torch_randn</span>(linear<span class="sc">$</span>in_features, r))</span>
+<span id="cb72-11"><a href=""></a>    self<span class="sc">$</span>B <span class="ot">&lt;-</span> <span class="fu">nn_parameter</span>(<span class="fu">torch_zeros</span>(r, linear<span class="sc">$</span>out_features))</span>
+<span id="cb72-12"><a href=""></a>    </span>
+<span id="cb72-13"><a href=""></a>    <span class="co"># the scaling constant</span></span>
+<span id="cb72-14"><a href=""></a>    self<span class="sc">$</span>scaling <span class="ot">&lt;-</span> alpha <span class="sc">/</span> r</span>
+<span id="cb72-15"><a href=""></a>  },</span>
+<span id="cb72-16"><a href=""></a>  <span class="at">forward =</span> <span class="cf">function</span>(x) {</span>
+<span id="cb72-17"><a href=""></a>    <span class="co"># the modified forward, that just adds the result from the base model</span></span>
+<span id="cb72-18"><a href=""></a>    <span class="co"># and ABx.</span></span>
+<span id="cb72-19"><a href=""></a>    self<span class="sc">$</span><span class="fu">linear</span>(x) <span class="sc">+</span> <span class="fu">torch_matmul</span>(x, <span class="fu">torch_matmul</span>(self<span class="sc">$</span>A, self<span class="sc">$</span>B) <span class="sc">*</span> self<span class="sc">$</span>scaling)</span>
+<span id="cb72-20"><a href=""></a>  }</span>
+<span id="cb72-21"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1708,11 +1778,11 @@ Columns 23 to 27   434   8591    386    354   5718
 
 <p>Essayons un LoRA avec <span class="math inline">\(r = 1\)</span> i.e.&nbsp;A et B sont des vecteurs</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a>lora <span class="ot">&lt;-</span> <span class="fu">lora_nn_linear</span>(lin_model, <span class="at">r =</span> <span class="dv">1</span>L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a>lora <span class="ot">&lt;-</span> <span class="fu">lora_nn_linear</span>(lin_model, <span class="at">r =</span> <span class="dv">1</span>L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>entraînement du LoRA sur la nouvelle distribution</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="fu">train</span>(lora, X2, y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href=""></a><span class="fu">train</span>(lora, X2, y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[ 10 ] Loss: 803.9484 
 [ 20 ] Loss: 480.2847 
@@ -1731,15 +1801,15 @@ Columns 23 to 27   434   8591    386    354   5718
 
 <p>Le tenseur <span class="math inline">\(\Delta \theta\)</span> est idéalement constant à 1 :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>delta_theta <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(lora<span class="sc">$</span>A, lora<span class="sc">$</span>B)<span class="sc">*</span>lora<span class="sc">$</span>scaling</span>
-<span id="cb71-2"><a href=""></a>delta_theta[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a>delta_theta <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(lora<span class="sc">$</span>A, lora<span class="sc">$</span>B)<span class="sc">*</span>lora<span class="sc">$</span>scaling</span>
+<span id="cb76-2"><a href=""></a>delta_theta[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.9999  0.9999  1.0000  0.9999  1.0000
- 1.0016  1.0015  1.0016  1.0016  1.0016
- 0.9995  0.9995  0.9996  0.9995  0.9996
- 1.0002  1.0001  1.0002  1.0002  1.0002
- 0.9991  0.9991  0.9992  0.9991  0.9992
+ 0  0  0  0  0
+ 0  0  0  0  0
+-0 -0 -0 -0 -0
+-0 -0 -0 -0 -0
+-0 -0 -0 -0 -0
 [ CPUFloatType{5,5} ][ grad_fn = &lt;SliceBackward0&gt; ]</code></pre>
 </div>
 </div>
@@ -1747,53 +1817,53 @@ Columns 23 to 27   434   8591    386    354   5718
 <section class="slide level2">
 
 <div class="small">
-<p>Pour diminuer le temps d’inférence, unne astuce consiste à ajouter le LoRA directement au poids du modèle avec la fonction <code>$add_</code>. Ainsi on passe de deux inférences séquentielle, à une seule.</p>
+<p>Pour diminuer le temps d’inférence, une astuce consiste à ajouter le LoRA directement au poids du modèle avec la fonction <code>$add_</code>. Ainsi on passe de deux inférences séquentielle, à une seule.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a><span class="fu">with_no_grad</span>({</span>
-<span id="cb73-2"><a href=""></a>  lin_model<span class="sc">$</span>weight<span class="sc">$</span><span class="fu">add_</span>(delta_theta<span class="sc">$</span><span class="fu">t</span>())  </span>
-<span id="cb73-3"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a><span class="fu">with_no_grad</span>({</span>
+<span id="cb78-2"><a href=""></a>  lin_model<span class="sc">$</span>weight<span class="sc">$</span><span class="fu">add_</span>(delta_theta<span class="sc">$</span><span class="fu">t</span>())  </span>
+<span id="cb78-3"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
-Columns 1 to 6 1.4608e+00  1.4832e-01  1.0855e+00 -4.6586e-01  3.4173e+00  2.2003e+00
- 6.3969e-01  1.4460e+00 -8.3464e-01  1.1718e+00  1.5487e-01  1.1839e-01
- 2.3930e+00  3.4553e-01  1.2667e+00  2.0035e+00  3.1237e+00  2.2208e+00
- 2.3505e+00 -8.7305e-01  1.2058e+00  2.6163e+00  2.0951e-01 -3.6495e-01
- 9.9051e-01  8.8047e-01  1.1119e+00  8.0270e-01 -2.7352e+00  3.0182e+00
--5.5888e-01  2.2633e+00  1.9990e-01  8.1551e-01 -7.1926e-02  4.8817e-01
- 1.1169e+00 -8.3901e-01  1.0511e+00  1.0677e+00 -1.5975e-01  2.2745e-01
- 1.5007e+00  1.3094e+00  2.7305e+00  2.5220e+00  2.4543e+00 -4.0146e-01
- 1.1302e+00 -1.3373e+00  1.1700e+00 -7.2382e-01  2.2343e-01  1.5552e+00
--2.5999e-01  1.0585e+00  2.0944e-01  1.1137e+00  1.5470e+00  3.3976e+00
- 1.1989e+00  6.6120e-01  1.3563e+00  3.9246e-01  1.5080e+00  4.5174e-01
- 7.0564e-01  3.0223e-02 -1.0418e+00 -5.4982e-01 -7.2899e-01  8.0567e-01
- 1.2956e+00 -5.2330e-01  6.4052e-01  9.4862e-01  9.1250e-01  1.9367e+00
--4.6782e-01  1.0975e+00  3.2024e-01  1.8246e+00  7.1909e-01  1.0941e+00
- 2.8025e+00  2.8253e+00 -1.2111e+00  1.5760e+00  1.0622e+00  1.0814e+00
--7.5597e-01  7.7020e-01  1.8426e+00  2.2841e+00  7.9444e-01  1.2054e+00
- 1.9494e+00  5.0966e-01  1.0474e-01 -3.7499e-01  6.7931e-01 -6.5781e-01
- 7.9797e-01  3.1237e+00  2.2232e+00  2.5179e+00  1.1920e+00  1.4969e+00
- 5.5161e-02  3.6955e-01  2.8414e-01  5.1382e-01  1.2287e+00  6.0631e-01
- 1.1125e+00  9.3417e-01  6.6432e-01  1.3433e+00  1.5651e+00  4.3941e-01
- 1.6437e-01  7.1616e-01  7.9644e-01  8.8036e-02  1.2231e-02  1.4469e+00
- 2.2355e+00 -7.2850e-01  1.3811e+00  2.0855e+00  1.4528e+00  5.8415e-01
- 1.9571e+00  6.6288e-01  1.1650e-01  2.2784e+00 -1.1371e+00  1.9474e+00
- 7.9449e-01  2.8141e+00  2.9612e-01 -1.4491e+00  1.6438e+00  6.3446e-01
- 1.2263e+00 -6.7014e-01  2.4019e+00  1.1409e+00  1.0557e+00  3.5879e-01
- 9.5502e-02  1.0984e+00  5.7211e-02 -1.9494e+00  3.6906e-01  6.0768e-01
- 1.7602e+00  1.3321e+00  1.3469e+00  5.4957e-01  2.0006e+00  2.0967e+00
- 3.9261e-01  5.5575e-01  1.6822e+00  1.6071e+00  3.5817e-01  1.0657e+00
- 1.2990e+00 -4.3984e-01 -5.2681e-01  4.0141e-02  1.0120e+00  1.8717e+00
- 1.3480e+00  4.3400e-01  7.5643e-01  1.5599e+00  4.4630e-01  2.3230e-01
+Columns 1 to 6 4.6094e-01 -8.5323e-01  8.6000e-02 -1.4660e+00  2.4182e+00  1.2005e+00
+-3.6018e-01  4.4443e-01 -1.8341e+00  1.7169e-01 -8.4419e-01 -8.8143e-01
+ 1.3930e+00 -6.5609e-01  2.6714e-01  1.0032e+00  2.1245e+00  1.2208e+00
+ 1.3506e+00 -1.8746e+00  2.0628e-01  1.6161e+00 -7.8960e-01 -1.3648e+00
+-9.4438e-03 -1.2114e-01  1.1235e-01 -1.9753e-01 -3.7343e+00  2.0183e+00
+-1.5588e+00  1.2618e+00 -7.9961e-01 -1.8467e-01 -1.0710e+00 -5.1168e-01
+ 1.1703e-01 -1.8406e+00  5.1542e-02  6.7522e-02 -1.1589e+00 -7.7242e-01
+ 5.0083e-01  3.0789e-01  1.7310e+00  1.5219e+00  1.4552e+00 -1.4013e+00
+ 1.3033e-01 -2.3388e+00  1.7051e-01 -1.7240e+00 -7.7565e-01  5.5534e-01
+-1.2599e+00  5.6896e-02 -7.9011e-01  1.1345e-01  5.4791e-01  2.3977e+00
+ 1.9895e-01 -3.4036e-01  3.5680e-01 -6.0772e-01  5.0886e-01 -5.4812e-01
+-2.9427e-01 -9.7134e-01 -2.0413e+00 -1.5500e+00 -1.7281e+00 -1.9420e-01
+ 2.9565e-01 -1.5249e+00 -3.5902e-01 -5.1588e-02 -8.6622e-02  9.3684e-01
+-1.4677e+00  9.5954e-02 -6.7929e-01  8.2438e-01 -2.8003e-01  9.4187e-02
+ 1.8025e+00  1.8236e+00 -2.2107e+00  5.7578e-01  6.2997e-02  8.1491e-02
+-1.7559e+00 -2.3136e-01  8.4307e-01  1.2840e+00 -2.0465e-01  2.0555e-01
+ 9.4942e-01 -4.9197e-01 -8.9485e-01 -1.3753e+00 -3.1987e-01 -1.6577e+00
+-2.0196e-01  2.1221e+00  1.2236e+00  1.5177e+00  1.9290e-01  4.9700e-01
+-9.4475e-01 -6.3202e-01 -7.1538e-01 -4.8638e-01  2.2960e-01 -3.9356e-01
+ 1.1261e-01 -6.7372e-02 -3.3518e-01  3.4315e-01  5.6598e-01 -5.6044e-01
+-8.3556e-01 -2.8542e-01 -2.0310e-01 -9.1217e-01 -9.8689e-01  4.4701e-01
+ 1.2356e+00 -1.7301e+00  3.8156e-01  1.0853e+00  4.5367e-01 -4.1571e-01
+ 9.5723e-01 -3.3868e-01 -8.8302e-01  1.2782e+00 -2.1362e+00  9.4752e-01
+-2.0543e-01  1.8125e+00 -7.0341e-01 -2.4494e+00  6.4473e-01 -3.6542e-01
+ 2.2643e-01 -1.6717e+00  1.4024e+00  1.4072e-01  5.6646e-02 -6.4107e-01
+-9.0439e-01  9.6881e-02 -9.4229e-01 -2.9496e+00 -6.3003e-01 -3.9217e-01
+ 7.6028e-01  3.3056e-01  3.4733e-01 -4.5064e-01  1.0015e+00  1.0968e+00
+-6.0730e-01 -4.4582e-01  6.8271e-01  6.0692e-01 -6.4093e-01  6.5788e-02
+ 2.9913e-01 -1.4414e+00 -1.5263e+00 -9.6000e-01  1.2911e-02  8.7187e-01
+ 3.4805e-01 -5.6756e-01 -2.4309e-01  5.5974e-01 -5.5280e-01 -7.6757e-01
 ... [the output was truncated (use n=-1 to disable)]
 [ CPUFloatType{1000,1001} ]</code></pre>
 </div>
 </div>
 <p>Quel est la performance sur la nouvelle distribution ?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="fu">nnf_mse_loss</span>(<span class="fu">lin_model</span>(X2), y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a><span class="fu">nnf_mse_loss</span>(<span class="fu">lin_model</span>(X2), y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
-0.00107044
+1023.75
 [ CPUFloatType{} ]</code></pre>
 </div>
 </div>
@@ -1807,7 +1877,7 @@ Columns 1 to 6 1.4608e+00  1.4832e-01  1.0855e+00 -4.6586e-01  3.4173e+00  2.200
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="images/mlverse.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://github.com/cregouby/happyR-torch-slides">{torch} {tabnet} and friends</a></p>
+<p><a href="https://github.com/cregouby/Tutoriel_torch_slides">{torch}, {tabnet},… par l’usage</a></p>
 </div>
 </div></div>
 
@@ -2246,7 +2316,7 @@ Columns 1 to 6 1.4608e+00  1.4832e-01  1.0855e+00 -4.6586e-01  3.4173e+00  2.200
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+    <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
     (function() {
       let previousOnload = window.onload;
       window.onload = () => {

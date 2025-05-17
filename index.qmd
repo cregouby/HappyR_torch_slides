@@ -1,8 +1,8 @@
 ---
-title: "{torch} {tabnet} and friends"
+title: "{torch} {tabnet} et l'apprentissage profond par l'usage"
 subtitle: "Atelier des Rencontres R 2025" 
 author: "Christophe Regouby"
-footer:  "[{torch} {tabnet} and friends](https://github.com/cregouby/happyR-torch-slides)"
+footer:  "[{torch}, {tabnet},... par l'usage](https://github.com/cregouby/Tutoriel_torch_slides)"
 logo: "images/mlverse.png"
 format: 
   revealjs: 
@@ -37,7 +37,7 @@ Fine-Tuning de GPT2 en français avec un LORA
 
 Un classifieur d'images avec ResNext50 fine-tuning
 
-# Getting started
+# Bien commencer avec torch
 
 ------------------------------------------------------------------------
 
@@ -54,9 +54,9 @@ library(countdown)
 fa_fill <- "#C7B41D"
 ```
 
-## Licensing
+## Licence
 
-<br> <br> This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA4.0).
+<br> <br> Ce contenu est sous licence [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA4.0).
 
 ## Checklist
 
@@ -114,23 +114,20 @@ source https://xkcd.com/1987/
 ::: footer
 :::
 
-## {torch} : pourquoi réinventer l'eau chaude?
+## {torch}: pourquoi réinventer l'eau chaude?
 
 ::: small
--   facilité d'installation CPU, GPU, MPS, ...
-
--   frugalité d'installation
+-   **facilité** et  **frugalité**  d'installation sur CPU, GPU, MPS, ...
 
 -   confort de RStudio pour développer, déverminer, visualiser
 
--   confort de R pour l'indexation à 1
+-   confort de R pour l'**indexation à 1**
 
 -   la qualité des articles de blog de Posit AI blog
 
 -   l'écosystème des packages
 
--   plein de possibilités de contributions
-
+-   plein de possibilités de **contributions**
 
 ![](images/clipboard-torch0130.png)
 ![](images/clipboard-torch0142.png)
@@ -171,7 +168,7 @@ https://torch.mlverse.org/docs/articles/installation.html
 
 ## La pile logicielle
 
-![](images/clipboard-1623978672.png)
+![](images/clipboard-1623978672.png){height=60%}
 
 ## La manipulation de tenseurs
 
@@ -195,17 +192,51 @@ tt
 :::::: columns
 
 :::: {.column width="50%"}
+::: small
+
 ![](images/clipboard-4006123911.png)
+
+```{r, echo=TRUE}
+tt[, 2:N, ]
+```
+
+:::
 ::::
 
 :::: {.column width="50%"}
 ::: small
 
 ```{r, echo=TRUE}
-tt[, 2:N, ]
 tt[1, 2:N, ]
 tt[1:1, 2:N, ]
 torch_squeeze(tt[1:1, 2:N, ])
+```
+
+:::
+::::
+::::::
+
+------------------------------------------------------------------------
+
+:::::: columns
+
+:::: {.column width="50%"}
+![](images/clipboard-torch_device.png)
+
+::: small
+
+```{r, echo=TRUE}
+tt$to(device = "cpu")
+```
+
+:::
+::::
+
+:::: {.column width="50%"}
+::: small
+
+```{r, echo=TRUE}
+as.array(tt$to(device = "cpu"))
 ```
 
 :::
@@ -252,40 +283,84 @@ countdown(
   )
 ```
 
+## les `nn_modules`: construire un réseau
+
+::: small
+
+```{r, echo=TRUE}
+net <- nn_module(
+  "Net",
+  initialize = function() {
+    self$conv1 <- nn_conv2d(1, 32, 3, 1)
+    self$conv2 <- nn_conv2d(32, 64, 3, 1)
+    self$dropout1 <- nn_dropout(0.25)
+    self$dropout2 <- nn_dropout(0.5)
+    self$fc1 <- nn_linear(9216, 128)
+    self$fc2 <- nn_linear(128, 10)
+  },
+  forward = function(x) {
+    x %>% 
+      self$conv1() %>% 
+      nnf_relu() %>% 
+      self$conv2() %>% 
+      nnf_relu() %>% 
+      nnf_max_pool2d(2) %>% 
+      self$dropout1() %>% 
+      torch_flatten(start_dim = 2) %>% 
+      self$fc1() %>% 
+      nnf_relu() %>% 
+      self$dropout2() %>% 
+      self$fc2()
+  }
+)
+```
+
+:::
+
+
+## entraîner un réseau avec luz
+
+::: small
+
+```{r, eval=FALSE}
+fitted <- net %>%
+  setup(
+    loss = nn_cross_entropy_loss(),
+    optimizer = optim_adam,
+    metrics = list(
+      luz_metric_accuracy()
+    )
+  ) %>%
+  fit(train_dl, epochs = 10, valid_data = test_dl)
+```
+
+:::
+
+
 # mlverse
 
 ## Un univers de 📦 dédiés à {torch}
 
-::: small
- ![Packages de fondation](images/tile_torch_tools.png)  ![Vision ](images/tile_torch_vision.png)
- ![données tabulaires](images/tile_torch_tabular.png)
- ![traitement automatique du langage](images/tile_torch_nlp.png)
- ![séries temporelles|](images/tile_torch_ts.png)
-
-: Les paquets par famille de donnée traitées
-:::
-
-
-------------------------------------------------------------------------
+![Packages du mlverse / utilisant torch](images/tile_mlverse.png)
 
 ## Un univers de 📦 en français
 
 ::: small
-| paquetage | messages | l'aide | les vignettes |
+| paquetage | messages | l'aide[^1] | les vignettes |
 |------------------|------------------|-------------------|------------------|
 | {torch} | `r fontawesome::fa("check", fill = fa_fill)` |  |  |
-| {torchvision} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/torchvision.fr](https://github.com/cregouby/torchvision.fr) |  |
-| {tabnet} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/tabnet.fr](https://github.com/cregouby/tabnet.fr) |  |
-| {luz} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/luz.fr](https://github.com/cregouby/luz.fr) | `r fontawesome::fa("check", fill = fa_fill)` [cregouby.github.io/luz.fr/](https://cregouby.github.io/luz.fr/)|
-| {hfhub} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/hfhub.fr](https://github.com/cregouby/hfhub.fr) |  |
-| {tok} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/tok.fr](https://github.com/cregouby/tok.fr) |  |
-| {safetensors} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/safetensors.fr](https://github.com/cregouby/safetensors.fr) |  |
-| {minhub} |  | `r fontawesome::fa("check", fill = fa_fill)` [cregouby/minhub.fr](https://github.com/cregouby/minhub.fr) |  |
+| {torchvision} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [/torchvision.fr](https://github.com/cregouby/torchvision.fr) |  |
+| {tabnet} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [/tabnet.fr](https://github.com/cregouby/tabnet.fr) |  |
+| {luz} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [/luz.fr](https://github.com/cregouby/luz.fr) | `r fontawesome::fa("check", fill = fa_fill)` [cregouby.github.io/luz.fr/](https://cregouby.github.io/luz.fr/)|
+| {hfhub} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [/hfhub.fr](https://github.com/cregouby/hfhub.fr) |  |
+| {tok} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [/tok.fr](https://github.com/cregouby/tok.fr) |  |
+| {safetensors} | `r fontawesome::fa("check", fill = fa_fill)` | `r fontawesome::fa("check", fill = fa_fill)` [/safetensors.fr](https://github.com/cregouby/safetensors.fr) |  |
+| {minhub} |  | `r fontawesome::fa("check", fill = fa_fill)` [/minhub.fr](https://github.com/cregouby/minhub.fr) |  |
 
 : Les paquetages disponibles en français
 :::
 
-
+[^1]: https://github.com/cregouby/...
 
 
 ------------------------------------------------------------------------
@@ -327,7 +402,7 @@ v0.7.0 is on CRAN
 
 ![](images/clipboard-2272997678.png)
 
-## Usage intégré dans tidymodels
+## Usage intégré dans tidymodels {.scrollable .smaller}
 
 ::: small
 Dataset
@@ -852,7 +927,7 @@ basé sur 4 packages {minhub}, {hfhub}, {tok}, {safetensors}
 
 -   {minhub} : un dépot de **réseau de neurones** classiques pour {torch}
 -   {hfhub} : l'accès aux téléchargement de **modèles** préentraînés du hub hugging-face
--   {tok} : un wrappeur des tokenizers d'hugging-face en R
+-   {tok} : un wrappeur des tokenizers d'huggingface en R
 -   {safetensors} : sauvegarde et lecture des données de tenseurs au format `.safetensors`
 
 ## Téléchargement du modèle et de ses poids
@@ -958,11 +1033,13 @@ d'après https://blogs.rstudio.com/ai/posts/2023-06-22-understanding-lora/
 ------------------------------------------------------------------------
 
 ::: small
+
 A simple matrix decomposition is applied for each weight matrix update $\Delta \theta \in \Delta \Theta$. Considering $\Delta \theta_i \in \mathbb{R}^{d \times k}$ the update for the $i$th weight in the network, LoRA approximates it with:
 
 $$\Delta \theta_i  \approx \Delta \phi_i = BA$$ where $B \in \mathbb{R}^{d \times r}$, $A \in \mathbb{R}^{r \times d}$ and the rank $r << min(d, k)$. Thus instead of learning $d \times k$ parameters we now need to learn $(d + k) \times r$ which is easily a lot smaller given the multiplicative aspect. In practice, $\Delta \theta_i$ is scaled by $\frac{\alpha}{r}$ before being added to $\theta_i$, which can be interpreted as a 'learning rate' for the LoRA update.
 
 LoRA does not increase inference latency, as once fine tuning is done, you can simply update the weights in $\Theta$ by adding their respective $\Delta \theta \approx \Delta \phi$. It also makes it simpler to deploy multiple task specific models on top of one large model, as $|\Delta \Phi|$ is much smaller than $|\Delta \Theta|$.
+
 :::
 
 ::: footer
@@ -1112,6 +1189,7 @@ entraînement du LoRA sur la nouvelle distribution
 
 ```{r}
 #| echo: true
+#| cache: true
 #| label: "train LoRA"
 train(lora, X2, y2)
 ```
@@ -1131,7 +1209,7 @@ delta_theta[1:5, 1:5]
 
 ::: small
 
-Pour diminuer le temps d'inférence, unne astuce consiste à ajouter le LoRA directement au poids du modèle avec la fonction `$add_`. Ainsi on passe de deux inférences séquentielle, à une seule.
+Pour diminuer le temps d'inférence, une astuce consiste à ajouter le LoRA directement au poids du modèle avec la fonction `$add_`. Ainsi on passe de deux inférences séquentielle, à une seule.
 ```{r}
 #| echo: true
 with_no_grad({
