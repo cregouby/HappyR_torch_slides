@@ -1,0 +1,22 @@
+---
+title: "Un classifier d'image avec ResNext"
+editor: source
+---
+
+# Un classifieur d'images métier avec le fine tuning de ResNext50
+
+## Resnext préentrainé
+
+```{r}
+#| label: TBC
+library(torchvision)
+resnext <- model_resnext50_32x4d(pretrained = TRUE)
+```
+
+## un jeu de données métier
+
+![](../../_packages/tabnet_experiments/Data Mining with R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg)
+```{r}
+ds <- image_folder_dataset("../../_packages/tabnet_experiments/Data Mining with R/data/Training set")
+```
+

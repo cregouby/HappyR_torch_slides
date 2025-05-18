@@ -1169,20 +1169,19 @@ lora_nn_linear <- nn_module(
   initialize = function(linear, r = 16L, alpha = 1) {
     self$linear <- linear
     
-    # parameters from the original linear module are 'freezed', so they are not
-    # tracked by autograd. They are considered just constants.
+    # les paramêtres du modèle linéirte initial sont  'gelés', donc pas pris en 
+    # considération pr autograd. Ce sont juste des constantes.
     purrr::walk(self$linear$parameters, \(x) x$requires_grad_(FALSE))
     
-    # the low rank parameters that will be trained (shortcut here, specific to our lin_model)
+    # LEs paramêtre du Low-rank à entraîner (shortcut here, specific to our lin_model)
     self$A <- nn_parameter(torch_randn(linear$in_features, r))
     self$B <- nn_parameter(torch_zeros(r, linear$out_features))
     
-    # the scaling constant
+    # la constante de scaling
     self$scaling <- alpha / r
   },
   forward = function(x) {
-    # the modified forward, that just adds the result from the base model
-    # and ABx.
+    # La fonction `forward` modifiée qui ajoute le résultat du LoRA  A.B.x aux résultat du modèle initial
     self$linear(x) + torch_matmul(x, torch_matmul(self$A, self$B) * self$scaling)
   }
 )
@@ -1216,9 +1215,19 @@ Le tenseur $\Delta \theta$ est idéalement constant à 1 :
 ```{r}
 #| echo: true
 #| label: "LoRA check conformity"
-delta_theta <- torch_matmul(lora$A, lora$B)*lora$scaling
+delta_theta <- torch_matmul(lora$A, lora$B) * lora$scaling
+```
+```{r}
+#| echo: true
+#| eval: false
 delta_theta[1:5, 1:5]
-
+#> torch_tensor
+#> 1.0005  1.0005  1.0005  1.0005  1.0005
+#> 1.0000  1.0000  1.0000  1.0000  1.0000
+#> 0.9958  0.9958  0.9958  0.9958  0.9958
+#> 0.9993  0.9993  0.9993  0.9993  0.9993
+#> 0.9997  0.9997  0.9997  0.9997  0.9997
+#>[ CPUFloatType{5,5} ][ grad_fn = <SliceBackward0> ]
 ```
 
 ---
@@ -1233,14 +1242,19 @@ with_no_grad({
 })
 ```
 
+:::
+
+---
+
 Quel est la performance sur la nouvelle distribution ? 
 ```{r}
 #| echo: true
+#| eval: false
 nnf_mse_loss(lin_model(X2), y2)
-
+#> torch_tensor
+#> 0.0012366
+#> [ CPUFloatType{} ]
 ```
 
-:::
 
-
-{includes image_classifier.qmd}
+{{< include _image_classifier.qmd >}}

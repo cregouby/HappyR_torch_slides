@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.6.28">
 
   <meta name="author" content="Christophe Regouby">
-  <title>{torch} {tabnet} et l’apprentissage profond par l’usage</title>
+  <title>included image classifier with resnext</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -397,7 +397,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">{torch} {tabnet} et l’apprentissage profond par l’usage</h1>
+  <h1 class="title">included image classifier with resnext</h1>
   <p class="subtitle">Atelier des Rencontres R 2025</p>
 
 <div class="quarto-title-authors">
@@ -540,14 +540,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.3354  0.5117  0.2015  0.1859
-  0.9558  0.5934  0.2170  0.0405
-  0.5806  0.9157  0.3356  0.3935
+  0.2324  0.8858  0.4447  0.5762
+  0.5846  0.1840  0.1014  0.5258
+  0.1409  0.9935  0.2426  0.0724
 
 (2,.,.) = 
-  0.4713  0.3298  0.4901  0.5336
-  0.7580  0.5090  0.3653  0.1580
-  0.6485  0.8196  0.5122  0.6413
+  0.2885  0.7003  0.5457  0.7249
+  0.0784  0.4727  0.8992  0.2235
+  0.0778  0.1102  0.0879  0.7942
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -564,12 +564,12 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.9558  0.5934  0.2170  0.0405
-  0.5806  0.9157  0.3356  0.3935
+  0.5846  0.1840  0.1014  0.5258
+  0.1409  0.9935  0.2426  0.0724
 
 (2,.,.) = 
-  0.7580  0.5090  0.3653  0.1580
-  0.6485  0.8196  0.5122  0.6413
+  0.0784  0.4727  0.8992  0.2235
+  0.0778  0.1102  0.0879  0.7942
 [ CPUFloatType{2,2,4} ]</code></pre>
 </div>
 </div>
@@ -580,23 +580,23 @@ Christophe Regouby
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>tt[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.9558  0.5934  0.2170  0.0405
- 0.5806  0.9157  0.3356  0.3935
+ 0.5846  0.1840  0.1014  0.5258
+ 0.1409  0.9935  0.2426  0.0724
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.9558  0.5934  0.2170  0.0405
-  0.5806  0.9157  0.3356  0.3935
+  0.5846  0.1840  0.1014  0.5258
+  0.1409  0.9935  0.2426  0.0724
 [ CPUFloatType{1,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">torch_squeeze</span>(tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.9558  0.5934  0.2170  0.0405
- 0.5806  0.9157  0.3356  0.3935
+ 0.5846  0.1840  0.1014  0.5258
+ 0.1409  0.9935  0.2426  0.0724
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 </div>
@@ -614,14 +614,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.3354  0.5117  0.2015  0.1859
-  0.9558  0.5934  0.2170  0.0405
-  0.5806  0.9157  0.3356  0.3935
+  0.2324  0.8858  0.4447  0.5762
+  0.5846  0.1840  0.1014  0.5258
+  0.1409  0.9935  0.2426  0.0724
 
 (2,.,.) = 
-  0.4713  0.3298  0.4901  0.5336
-  0.7580  0.5090  0.3653  0.1580
-  0.6485  0.8196  0.5122  0.6413
+  0.2885  0.7003  0.5457  0.7249
+  0.0784  0.4727  0.8992  0.2235
+  0.0778  0.1102  0.0879  0.7942
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -633,27 +633,27 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>, , 1
 
-          [,1]      [,2]      [,3]
-[1,] 0.3354095 0.9558408 0.5805917
-[2,] 0.4713243 0.7580438 0.6485364
+          [,1]      [,2]       [,3]
+[1,] 0.2324244 0.5846052 0.14090163
+[2,] 0.2884871 0.0784384 0.07779968
 
 , , 2
 
           [,1]      [,2]      [,3]
-[1,] 0.5116684 0.5934370 0.9156755
-[2,] 0.3297623 0.5089548 0.8195550
+[1,] 0.8857586 0.1839507 0.9935249
+[2,] 0.7002753 0.4726905 0.1101813
 
 , , 3
 
           [,1]      [,2]      [,3]
-[1,] 0.2014560 0.2170037 0.3356226
-[2,] 0.4901496 0.3653477 0.5122005
+[1,] 0.4447464 0.1014005 0.2426045
+[2,] 0.5457226 0.8991899 0.0879423
 
 , , 4
 
-          [,1]       [,2]      [,3]
-[1,] 0.1858652 0.04053879 0.3934677
-[2,] 0.5336189 0.15798861 0.6412514</code></pre>
+          [,1]      [,2]       [,3]
+[1,] 0.5761606 0.5257678 0.07238513
+[2,] 0.7249209 0.2234711 0.79416037</code></pre>
 </div>
 </div>
 </div>
@@ -664,7 +664,7 @@ Christophe Regouby
 <p>Installations : <code>00_installation.R</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_dc5da446" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_919755d0" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -676,7 +676,7 @@ Christophe Regouby
 <p>Exercice : <code>01_exercice.</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_3057d09d" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_96ecf249" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -734,7 +734,7 @@ Christophe Regouby
 <p>Exercice : <code>02_exercice.</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_2f40f76a" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_33d645da" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1081,7 +1081,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_a8ec6ac6" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_10d7f100" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1772,23 +1772,22 @@ Columns 23 to 27   434   8591    386    354   5718
 <span id="cb73-2"><a href=""></a>  <span class="at">initialize =</span> <span class="cf">function</span>(linear, <span class="at">r =</span> <span class="dv">16</span>L, <span class="at">alpha =</span> <span class="dv">1</span>) {</span>
 <span id="cb73-3"><a href=""></a>    self<span class="sc">$</span>linear <span class="ot">&lt;-</span> linear</span>
 <span id="cb73-4"><a href=""></a>    </span>
-<span id="cb73-5"><a href=""></a>    <span class="co"># parameters from the original linear module are 'freezed', so they are not</span></span>
-<span id="cb73-6"><a href=""></a>    <span class="co"># tracked by autograd. They are considered just constants.</span></span>
+<span id="cb73-5"><a href=""></a>    <span class="co"># les paramêtres du modèle linéirte initial sont  'gelés', donc pas pris en </span></span>
+<span id="cb73-6"><a href=""></a>    <span class="co"># considération pr autograd. Ce sont juste des constantes.</span></span>
 <span id="cb73-7"><a href=""></a>    purrr<span class="sc">::</span><span class="fu">walk</span>(self<span class="sc">$</span>linear<span class="sc">$</span>parameters, \(x) x<span class="sc">$</span><span class="fu">requires_grad_</span>(<span class="cn">FALSE</span>))</span>
 <span id="cb73-8"><a href=""></a>    </span>
-<span id="cb73-9"><a href=""></a>    <span class="co"># the low rank parameters that will be trained (shortcut here, specific to our lin_model)</span></span>
+<span id="cb73-9"><a href=""></a>    <span class="co"># LEs paramêtre du Low-rank à entraîner (shortcut here, specific to our lin_model)</span></span>
 <span id="cb73-10"><a href=""></a>    self<span class="sc">$</span>A <span class="ot">&lt;-</span> <span class="fu">nn_parameter</span>(<span class="fu">torch_randn</span>(linear<span class="sc">$</span>in_features, r))</span>
 <span id="cb73-11"><a href=""></a>    self<span class="sc">$</span>B <span class="ot">&lt;-</span> <span class="fu">nn_parameter</span>(<span class="fu">torch_zeros</span>(r, linear<span class="sc">$</span>out_features))</span>
 <span id="cb73-12"><a href=""></a>    </span>
-<span id="cb73-13"><a href=""></a>    <span class="co"># the scaling constant</span></span>
+<span id="cb73-13"><a href=""></a>    <span class="co"># la constante de scaling</span></span>
 <span id="cb73-14"><a href=""></a>    self<span class="sc">$</span>scaling <span class="ot">&lt;-</span> alpha <span class="sc">/</span> r</span>
 <span id="cb73-15"><a href=""></a>  },</span>
 <span id="cb73-16"><a href=""></a>  <span class="at">forward =</span> <span class="cf">function</span>(x) {</span>
-<span id="cb73-17"><a href=""></a>    <span class="co"># the modified forward, that just adds the result from the base model</span></span>
-<span id="cb73-18"><a href=""></a>    <span class="co"># and ABx.</span></span>
-<span id="cb73-19"><a href=""></a>    self<span class="sc">$</span><span class="fu">linear</span>(x) <span class="sc">+</span> <span class="fu">torch_matmul</span>(x, <span class="fu">torch_matmul</span>(self<span class="sc">$</span>A, self<span class="sc">$</span>B) <span class="sc">*</span> self<span class="sc">$</span>scaling)</span>
-<span id="cb73-20"><a href=""></a>  }</span>
-<span id="cb73-21"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb73-17"><a href=""></a>    <span class="co"># La fonction `forward` modifiée qui ajoute le résultat du LoRA  A.B.x aux résultat du modèle initial</span></span>
+<span id="cb73-18"><a href=""></a>    self<span class="sc">$</span><span class="fu">linear</span>(x) <span class="sc">+</span> <span class="fu">torch_matmul</span>(x, <span class="fu">torch_matmul</span>(self<span class="sc">$</span>A, self<span class="sc">$</span>B) <span class="sc">*</span> self<span class="sc">$</span>scaling)</span>
+<span id="cb73-19"><a href=""></a>  }</span>
+<span id="cb73-20"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1819,17 +1818,17 @@ Columns 23 to 27   434   8591    386    354   5718
 
 <p>Le tenseur <span class="math inline">\(\Delta \theta\)</span> est idéalement constant à 1 :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>delta_theta <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(lora<span class="sc">$</span>A, lora<span class="sc">$</span>B)<span class="sc">*</span>lora<span class="sc">$</span>scaling</span>
-<span id="cb77-2"><a href=""></a>delta_theta[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>torch_tensor
- 0  0  0  0  0
- 0  0  0  0  0
--0 -0 -0 -0 -0
--0 -0 -0 -0 -0
--0 -0 -0 -0 -0
-[ CPUFloatType{5,5} ][ grad_fn = &lt;SliceBackward0&gt; ]</code></pre>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>delta_theta <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(lora<span class="sc">$</span>A, lora<span class="sc">$</span>B)<span class="sc">*</span>lora<span class="sc">$</span>scaling</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a>delta_theta[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb78-2"><a href=""></a><span class="co">#&gt; torch_tensor</span></span>
+<span id="cb78-3"><a href=""></a><span class="co">#&gt; 1.0005  1.0005  1.0005  1.0005  1.0005</span></span>
+<span id="cb78-4"><a href=""></a><span class="co">#&gt; 1.0000  1.0000  1.0000  1.0000  1.0000</span></span>
+<span id="cb78-5"><a href=""></a><span class="co">#&gt; 0.9958  0.9958  0.9958  0.9958  0.9958</span></span>
+<span id="cb78-6"><a href=""></a><span class="co">#&gt; 0.9993  0.9993  0.9993  0.9993  0.9993</span></span>
+<span id="cb78-7"><a href=""></a><span class="co">#&gt; 0.9997  0.9997  0.9997  0.9997  0.9997</span></span>
+<span id="cb78-8"><a href=""></a><span class="co">#&gt;[ CPUFloatType{5,5} ][ grad_fn = &lt;SliceBackward0&gt; ]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2">
@@ -1876,22 +1875,31 @@ Columns 1 to 6 4.6094e-01 -8.5323e-01  8.6000e-02 -1.4660e+00  2.4182e+00  1.200
 [ CPUFloatType{1000,1001} ]</code></pre>
 </div>
 </div>
+</div>
+</section>
+<section class="slide level2">
+
 <p>Quel est la performance sur la nouvelle distribution ?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a><span class="fu">nnf_mse_loss</span>(<span class="fu">lin_model</span>(X2), y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>torch_tensor
-1023.75
-[ CPUFloatType{} ]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a><span class="fu">nnf_mse_loss</span>(<span class="fu">lin_model</span>(X2), y2)</span>
+<span id="cb81-2"><a href=""></a><span class="co">#&gt; torch_tensor</span></span>
+<span id="cb81-3"><a href=""></a><span class="co">#&gt; 0.0012366</span></span>
+<span id="cb81-4"><a href=""></a><span class="co">#&gt; [ CPUFloatType{} ]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
+<section>
 <section id="un-classifieur-dimages-métier-avec-le-fine-tuning-de-resnext50" class="title-slide slide level1 center">
 <h1>Un classifieur d’images métier avec le fine tuning de ResNext50</h1>
 
 </section>
+<section id="resnext-préentrainé" class="slide level2">
+<h2>Resnext préentrainé</h2>
+</section>
+<section id="un-jeu-de-données-métier" class="slide level2">
+<h2>un jeu de données métier</h2>
+<p><a href="../../_packages/tabnet_experiments/Data%20Mining%20with%20R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img data-src="../../_packages/tabnet_experiments/Data%20Mining%20with%20R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg"></a></p>
 
+</section></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -2336,7 +2344,7 @@ Columns 1 to 6 4.6094e-01 -8.5323e-01  8.6000e-02 -1.4660e+00  2.4182e+00  1.200
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox"});
     (function() {
       let previousOnload = window.onload;
       window.onload = () => {
