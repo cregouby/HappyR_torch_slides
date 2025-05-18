@@ -375,11 +375,12 @@ countdown(
 | {minhub} | `r fontawesome::fa("check", fill = fa_fill)`[^2] | `r fontawesome::fa("check", fill = fa_fill)` [/minhub.fr](https://github.com/cregouby/minhub.fr) |  |
 
 : Les paquetages disponibles en français
+
+[^1]: https://github.com/cregouby/
+[^2]: P.R. en cours
+
 :::
 
-[^1]: https://github.com/cregouby/...
-
-[^2]: P.R. en cours
 ------------------------------------------------------------------------
 
 ```{r, eval=FALSE, echo=TRUE}
@@ -480,9 +481,7 @@ Training
 #| echo: true
 ames_fit <- tabnet_fit(ames_rec, data=ames,  tabnet_model = ames_pretrain, 
                        epoch=50, cat_emb_dim = 1, 
-                       valid_split = 0.2, verbose=TRUE, batch=2930, 
-                       early_stopping_patience = 5L, 
-                       early_stopping_tolerance = 1e-4)
+                       valid_split = 0.2, verbose=TRUE, batch=2930)
 # model diagnostic
 autoplot(ames_fit)
 ```
@@ -496,7 +495,7 @@ autoplot(ames_fit)
 Prediction
 
 ::::: columns
-::: {.column width="30%"}
+::: {.column width="35%"}
 ```{r}
 #| label: "tabnet predict"
 #| echo: true
@@ -505,7 +504,7 @@ predict(ames_fit, ames)
 
 :::
 
-::: {.column width="70%"}
+::: {.column width="65%"}
 ```{r}
 #| echo: true
 metrics <- metric_set(rmse, rsq, ccc)
@@ -797,7 +796,7 @@ head(starwars, 4)
 
 ---
 
-::: small
+::: smaller
 
 On construit la variable de sortie comme un chaîne avec des séparateurs `/` dans une variable `"pathString"` (erronné)
 
@@ -827,7 +826,7 @@ print(starwars_tree, "name","height", "mass", "eye_color", limit = 8)
 
 ## Construction correcte de la variable de sortie `"pathString"`
 
-::: small
+::: smaller
 
 ```{r}
 #| echo: true
@@ -1100,7 +1099,7 @@ lin_model <- nn_linear(d_in, d_out, bias = FALSE)
 #| code-fold: true
 #| label: "pre-LoRA model"
 train <- function(model, X, y, batch_size = 128, epochs = 100) {
-  opt <- optim_adam(model$parameters)
+  opt <- optim_ignite_adam(model$parameters)
 
   for (epoch in 1:epochs) {
     for(i in seq_len(n/batch_size)) {
@@ -1224,7 +1223,7 @@ delta_theta[1:5, 1:5]
 
 ---
 
-::: small
+::: {.smaller .scrollable}
 
 Pour diminuer le temps d'inférence, une astuce consiste à ajouter le LoRA directement au poids du modèle avec la fonction `$add_`. Ainsi on passe de deux inférences séquentielle, à une seule.
 ```{r}
@@ -1244,16 +1243,4 @@ nnf_mse_loss(lin_model(X2), y2)
 :::
 
 
-
-# Un classifieur d'images métier avec le fine tuning de ResNext50
-
-```{r}
-#| label: TBC
-library(minhub)
-library(hfhub)
-withr::with_envvar(new = c("SSL_CERT_FILE"="/Users/to94498/.ssl/airbus-ca.crt"),
-      yolo_8n_nn <- hub_download("nielsr/yolov8n", filename = "model.safetensors")
-      )
-#> Error: Timeout was reached [huggingface.co]: Resolving timed out after 10001 milliseconds
-```
-
+{includes image_classifier.qmd}
