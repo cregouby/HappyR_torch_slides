@@ -290,13 +290,13 @@ countdown(
 ```{r, echo=TRUE}
 net <- nn_module(
   "Net",
-  initialize = function() {
+  initialize = function(num_class) {
     self$conv1 <- nn_conv2d(1, 32, 3, 1)
     self$conv2 <- nn_conv2d(32, 64, 3, 1)
     self$dropout1 <- nn_dropout(0.25)
     self$dropout2 <- nn_dropout(0.5)
     self$fc1 <- nn_linear(9216, 128)
-    self$fc2 <- nn_linear(128, 10)
+    self$fc2 <- nn_linear(128, num_class)
   },
   forward = function(x) {
     x %>% 
@@ -331,6 +331,8 @@ fitted <- net %>%
       luz_metric_accuracy()
     )
   ) %>%
+  set_hparams(num_class = 10) %>% 
+  set_opt_hparams(lr = 0.003) %>%
   fit(train_dl, epochs = 10, valid_data = test_dl)
 ```
 

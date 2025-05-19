@@ -1,5 +1,5 @@
 ---
-title: "Un classifier d'image avec ResNext"
+title: "{torch} {tabnet} et l'apprentissage profond par l'usage"
 editor: source
 ---
 
@@ -15,8 +15,10 @@ resnext <- model_resnext50_32x4d(pretrained = TRUE)
 
 ## un jeu de données métier
 
-![](../../_packages/tabnet_experiments/Data Mining with R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg)
+![](Data_mining_with_R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg)
 ```{r}
-ds <- image_folder_dataset("../../_packages/tabnet_experiments/Data Mining with R/data/Training set")
+ds <- image_folder_dataset("Data_mining_with_R/data/Training set")
 ```
+
+![](images/screenshot_testset_plankton.png)
 

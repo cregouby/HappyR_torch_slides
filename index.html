@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.6.28">
 
   <meta name="author" content="Christophe Regouby">
-  <title>included image classifier with resnext</title>
+  <title>{torch} {tabnet} et l’apprentissage profond par l’usage</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -397,7 +397,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">included image classifier with resnext</h1>
+  <h1 class="title">{torch} {tabnet} et l’apprentissage profond par l’usage</h1>
   <p class="subtitle">Atelier des Rencontres R 2025</p>
 
 <div class="quarto-title-authors">
@@ -540,14 +540,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.2324  0.8858  0.4447  0.5762
-  0.5846  0.1840  0.1014  0.5258
-  0.1409  0.9935  0.2426  0.0724
+  0.1923  0.4526  0.4260  0.2516
+  0.9202  0.6920  0.3944  0.1333
+  0.9070  0.1854  0.5279  0.9146
 
 (2,.,.) = 
-  0.2885  0.7003  0.5457  0.7249
-  0.0784  0.4727  0.8992  0.2235
-  0.0778  0.1102  0.0879  0.7942
+  0.7613  0.3240  0.3752  0.5057
+  0.7995  0.8388  0.1694  0.3732
+  0.1728  0.5037  0.3931  0.4615
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -564,12 +564,12 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.5846  0.1840  0.1014  0.5258
-  0.1409  0.9935  0.2426  0.0724
+  0.9202  0.6920  0.3944  0.1333
+  0.9070  0.1854  0.5279  0.9146
 
 (2,.,.) = 
-  0.0784  0.4727  0.8992  0.2235
-  0.0778  0.1102  0.0879  0.7942
+  0.7995  0.8388  0.1694  0.3732
+  0.1728  0.5037  0.3931  0.4615
 [ CPUFloatType{2,2,4} ]</code></pre>
 </div>
 </div>
@@ -580,23 +580,23 @@ Christophe Regouby
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>tt[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.5846  0.1840  0.1014  0.5258
- 0.1409  0.9935  0.2426  0.0724
+ 0.9202  0.6920  0.3944  0.1333
+ 0.9070  0.1854  0.5279  0.9146
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.5846  0.1840  0.1014  0.5258
-  0.1409  0.9935  0.2426  0.0724
+  0.9202  0.6920  0.3944  0.1333
+  0.9070  0.1854  0.5279  0.9146
 [ CPUFloatType{1,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">torch_squeeze</span>(tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.5846  0.1840  0.1014  0.5258
- 0.1409  0.9935  0.2426  0.0724
+ 0.9202  0.6920  0.3944  0.1333
+ 0.9070  0.1854  0.5279  0.9146
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 </div>
@@ -614,14 +614,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.2324  0.8858  0.4447  0.5762
-  0.5846  0.1840  0.1014  0.5258
-  0.1409  0.9935  0.2426  0.0724
+  0.1923  0.4526  0.4260  0.2516
+  0.9202  0.6920  0.3944  0.1333
+  0.9070  0.1854  0.5279  0.9146
 
 (2,.,.) = 
-  0.2885  0.7003  0.5457  0.7249
-  0.0784  0.4727  0.8992  0.2235
-  0.0778  0.1102  0.0879  0.7942
+  0.7613  0.3240  0.3752  0.5057
+  0.7995  0.8388  0.1694  0.3732
+  0.1728  0.5037  0.3931  0.4615
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -633,27 +633,27 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>, , 1
 
-          [,1]      [,2]       [,3]
-[1,] 0.2324244 0.5846052 0.14090163
-[2,] 0.2884871 0.0784384 0.07779968
+          [,1]     [,2]      [,3]
+[1,] 0.1922764 0.920223 0.9070334
+[2,] 0.7612609 0.799522 0.1728327
 
 , , 2
 
           [,1]      [,2]      [,3]
-[1,] 0.8857586 0.1839507 0.9935249
-[2,] 0.7002753 0.4726905 0.1101813
+[1,] 0.4526056 0.6920232 0.1853677
+[2,] 0.3239697 0.8388326 0.5037003
 
 , , 3
 
           [,1]      [,2]      [,3]
-[1,] 0.4447464 0.1014005 0.2426045
-[2,] 0.5457226 0.8991899 0.0879423
+[1,] 0.4259833 0.3943743 0.5279327
+[2,] 0.3751823 0.1694172 0.3930522
 
 , , 4
 
-          [,1]      [,2]       [,3]
-[1,] 0.5761606 0.5257678 0.07238513
-[2,] 0.7249209 0.2234711 0.79416037</code></pre>
+          [,1]      [,2]      [,3]
+[1,] 0.2515792 0.1332957 0.9145840
+[2,] 0.5057221 0.3732195 0.4615179</code></pre>
 </div>
 </div>
 </div>
@@ -664,7 +664,7 @@ Christophe Regouby
 <p>Installations : <code>00_installation.R</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_919755d0" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_0eb660f5" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -676,7 +676,7 @@ Christophe Regouby
 <p>Exercice : <code>01_exercice.</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_96ecf249" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_7142c112" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -689,13 +689,13 @@ Christophe Regouby
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>net <span class="ot">&lt;-</span> <span class="fu">nn_module</span>(</span>
 <span id="cb16-2"><a href=""></a>  <span class="st">"Net"</span>,</span>
-<span id="cb16-3"><a href=""></a>  <span class="at">initialize =</span> <span class="cf">function</span>() {</span>
+<span id="cb16-3"><a href=""></a>  <span class="at">initialize =</span> <span class="cf">function</span>(num_class) {</span>
 <span id="cb16-4"><a href=""></a>    self<span class="sc">$</span>conv1 <span class="ot">&lt;-</span> <span class="fu">nn_conv2d</span>(<span class="dv">1</span>, <span class="dv">32</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
 <span id="cb16-5"><a href=""></a>    self<span class="sc">$</span>conv2 <span class="ot">&lt;-</span> <span class="fu">nn_conv2d</span>(<span class="dv">32</span>, <span class="dv">64</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
 <span id="cb16-6"><a href=""></a>    self<span class="sc">$</span>dropout1 <span class="ot">&lt;-</span> <span class="fu">nn_dropout</span>(<span class="fl">0.25</span>)</span>
 <span id="cb16-7"><a href=""></a>    self<span class="sc">$</span>dropout2 <span class="ot">&lt;-</span> <span class="fu">nn_dropout</span>(<span class="fl">0.5</span>)</span>
 <span id="cb16-8"><a href=""></a>    self<span class="sc">$</span>fc1 <span class="ot">&lt;-</span> <span class="fu">nn_linear</span>(<span class="dv">9216</span>, <span class="dv">128</span>)</span>
-<span id="cb16-9"><a href=""></a>    self<span class="sc">$</span>fc2 <span class="ot">&lt;-</span> <span class="fu">nn_linear</span>(<span class="dv">128</span>, <span class="dv">10</span>)</span>
+<span id="cb16-9"><a href=""></a>    self<span class="sc">$</span>fc2 <span class="ot">&lt;-</span> <span class="fu">nn_linear</span>(<span class="dv">128</span>, num_class)</span>
 <span id="cb16-10"><a href=""></a>  },</span>
 <span id="cb16-11"><a href=""></a>  <span class="at">forward =</span> <span class="cf">function</span>(x) {</span>
 <span id="cb16-12"><a href=""></a>    x <span class="sc">%&gt;%</span> </span>
@@ -726,7 +726,9 @@ Christophe Regouby
 <span id="cb17-6"><a href=""></a>      <span class="fu">luz_metric_accuracy</span>()</span>
 <span id="cb17-7"><a href=""></a>    )</span>
 <span id="cb17-8"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb17-9"><a href=""></a>  <span class="fu">fit</span>(train_dl, <span class="at">epochs =</span> <span class="dv">10</span>, <span class="at">valid_data =</span> test_dl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-9"><a href=""></a>  <span class="fu">set_hparams</span>(<span class="at">num_class =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-10"><a href=""></a>  <span class="fu">set_opt_hparams</span>(<span class="at">lr =</span> <span class="fl">0.003</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-11"><a href=""></a>  <span class="fu">fit</span>(train_dl, <span class="at">epochs =</span> <span class="dv">10</span>, <span class="at">valid_data =</span> test_dl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2">
@@ -734,7 +736,7 @@ Christophe Regouby
 <p>Exercice : <code>02_exercice.</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_33d645da" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_040d72f5" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1081,7 +1083,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_10d7f100" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_3e578e1d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1818,7 +1820,7 @@ Columns 23 to 27   434   8591    386    354   5718
 
 <p>Le tenseur <span class="math inline">\(\Delta \theta\)</span> est idéalement constant à 1 :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>delta_theta <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(lora<span class="sc">$</span>A, lora<span class="sc">$</span>B)<span class="sc">*</span>lora<span class="sc">$</span>scaling</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>delta_theta <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(lora<span class="sc">$</span>A, lora<span class="sc">$</span>B) <span class="sc">*</span> lora<span class="sc">$</span>scaling</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a>delta_theta[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
@@ -1897,7 +1899,8 @@ Columns 1 to 6 4.6094e-01 -8.5323e-01  8.6000e-02 -1.4660e+00  2.4182e+00  1.200
 </section>
 <section id="un-jeu-de-données-métier" class="slide level2">
 <h2>un jeu de données métier</h2>
-<p><a href="../../_packages/tabnet_experiments/Data%20Mining%20with%20R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img data-src="../../_packages/tabnet_experiments/Data%20Mining%20with%20R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg"></a></p>
+<p><a href="Data_mining_with_R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img data-src="Data_mining_with_R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg"></a></p>
+<p><a href="images/screenshot_testset_plankton.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img data-src="images/screenshot_testset_plankton.png"></a></p>
 
 </section></section>
 
@@ -2344,7 +2347,7 @@ Columns 1 to 6 4.6094e-01 -8.5323e-01  8.6000e-02 -1.4660e+00  2.4182e+00  1.200
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox"});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
     (function() {
       let previousOnload = window.onload;
       window.onload = () => {
