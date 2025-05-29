@@ -414,10 +414,11 @@ Christophe Regouby
 <p>Bien commencer avec torch</p>
 <p>{torch}</p>
 <p>Le mlverse</p>
-<p>{tabnet}</p>
-<p>{tabnet} pour la regression avec valeurs manquantes</p>
-<p>{tabnet} pour la classification hierarchique</p>
-<p>GPT2 avec R</p>
+<p>{tabnet} ::: small - {tabnet} pour la régression avec valeurs manquantes</p>
+<ul>
+<li><p>{tabnet} pour la classification hiérarchique</p></li>
+<li><p>{tabnet} pour la régression logistique déséquilibrée ::: GPT2 avec R</p></li>
+</ul>
 <p>Fine-Tuning de GPT2 en français avec un LORA</p>
 <p>Un classifieur d’images avec ResNext50 fine-tuning</p>
 </section>
@@ -540,14 +541,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.1923  0.4526  0.4260  0.2516
-  0.9202  0.6920  0.3944  0.1333
-  0.9070  0.1854  0.5279  0.9146
+  0.5832  0.7021  0.4655  0.0022
+  0.2604  0.8559  0.7589  0.5254
+  0.1192  0.8889  0.4363  0.5818
 
 (2,.,.) = 
-  0.7613  0.3240  0.3752  0.5057
-  0.7995  0.8388  0.1694  0.3732
-  0.1728  0.5037  0.3931  0.4615
+  0.8458  0.2694  0.7342  0.8336
+  0.0269  0.9242  0.5056  0.5233
+  0.4261  0.4249  0.6897  0.4019
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -564,12 +565,12 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.9202  0.6920  0.3944  0.1333
-  0.9070  0.1854  0.5279  0.9146
+  0.2604  0.8559  0.7589  0.5254
+  0.1192  0.8889  0.4363  0.5818
 
 (2,.,.) = 
-  0.7995  0.8388  0.1694  0.3732
-  0.1728  0.5037  0.3931  0.4615
+  0.0269  0.9242  0.5056  0.5233
+  0.4261  0.4249  0.6897  0.4019
 [ CPUFloatType{2,2,4} ]</code></pre>
 </div>
 </div>
@@ -580,23 +581,23 @@ Christophe Regouby
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>tt[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.9202  0.6920  0.3944  0.1333
- 0.9070  0.1854  0.5279  0.9146
+ 0.2604  0.8559  0.7589  0.5254
+ 0.1192  0.8889  0.4363  0.5818
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.9202  0.6920  0.3944  0.1333
-  0.9070  0.1854  0.5279  0.9146
+  0.2604  0.8559  0.7589  0.5254
+  0.1192  0.8889  0.4363  0.5818
 [ CPUFloatType{1,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">torch_squeeze</span>(tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.9202  0.6920  0.3944  0.1333
- 0.9070  0.1854  0.5279  0.9146
+ 0.2604  0.8559  0.7589  0.5254
+ 0.1192  0.8889  0.4363  0.5818
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 </div>
@@ -614,14 +615,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.1923  0.4526  0.4260  0.2516
-  0.9202  0.6920  0.3944  0.1333
-  0.9070  0.1854  0.5279  0.9146
+  0.5832  0.7021  0.4655  0.0022
+  0.2604  0.8559  0.7589  0.5254
+  0.1192  0.8889  0.4363  0.5818
 
 (2,.,.) = 
-  0.7613  0.3240  0.3752  0.5057
-  0.7995  0.8388  0.1694  0.3732
-  0.1728  0.5037  0.3931  0.4615
+  0.8458  0.2694  0.7342  0.8336
+  0.0269  0.9242  0.5056  0.5233
+  0.4261  0.4249  0.6897  0.4019
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -633,27 +634,27 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>, , 1
 
-          [,1]     [,2]      [,3]
-[1,] 0.1922764 0.920223 0.9070334
-[2,] 0.7612609 0.799522 0.1728327
+        [,1]       [,2]      [,3]
+[1,] 0.58323 0.26039761 0.1191650
+[2,] 0.84583 0.02690542 0.4261141
 
 , , 2
 
           [,1]      [,2]      [,3]
-[1,] 0.4526056 0.6920232 0.1853677
-[2,] 0.3239697 0.8388326 0.5037003
+[1,] 0.7021124 0.8558725 0.8889110
+[2,] 0.2693526 0.9241757 0.4248686
 
 , , 3
 
           [,1]      [,2]      [,3]
-[1,] 0.4259833 0.3943743 0.5279327
-[2,] 0.3751823 0.1694172 0.3930522
+[1,] 0.4654998 0.7588556 0.4362506
+[2,] 0.7342496 0.5055695 0.6897389
 
 , , 4
 
-          [,1]      [,2]      [,3]
-[1,] 0.2515792 0.1332957 0.9145840
-[2,] 0.5057221 0.3732195 0.4615179</code></pre>
+            [,1]      [,2]      [,3]
+[1,] 0.002197444 0.5253544 0.5818002
+[2,] 0.833566725 0.5233281 0.4018916</code></pre>
 </div>
 </div>
 </div>
@@ -664,7 +665,7 @@ Christophe Regouby
 <p>Installations : <code>00_installation.R</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_0eb660f5" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_ae4f8324" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -676,7 +677,7 @@ Christophe Regouby
 <p>Exercice : <code>01_exercice.</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_7142c112" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_fbd6fa29" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -736,7 +737,7 @@ Christophe Regouby
 <p>Exercice : <code>02_exercice.</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_040d72f5" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_7954bc86" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1083,7 +1084,7 @@ Christophe Regouby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_3e578e1d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_a7fa50c3" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1546,6 +1547,93 @@ Christophe Regouby
 <span id="cb58-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
+<section id="tabnet-pour-la-classification-binaire-déséquilibrée" class="title-slide slide level1 center">
+<h1>{tabnet} pour la classification binaire déséquilibrée</h1>
+<p>Prenons le jeu de données <code>lending_club</code> du package {modeldata}</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18.06576</code></pre>
+</div>
+</div>
+<p>Voyons ce que donne tabnet face à XGBoost sur cette tâche</p>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a>tab_rec <span class="ot">&lt;-</span> train <span class="sc">|&gt;</span></span>
+<span id="cb60-2"><a href=""></a>  <span class="fu">recipe</span>() <span class="sc">|&gt;</span></span>
+<span id="cb60-3"><a href=""></a>  <span class="fu">update_role</span>(Class, <span class="at">new_role =</span> <span class="st">"outcome"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb60-4"><a href=""></a>  <span class="fu">update_role</span>(<span class="sc">-</span><span class="fu">has_role</span>(<span class="fu">c</span>(<span class="st">"outcome"</span>, <span class="st">"id"</span>, <span class="st">"case_weights"</span>)), <span class="at">new_role =</span> <span class="st">"predictor"</span>)</span>
+<span id="cb60-5"><a href=""></a></span>
+<span id="cb60-6"><a href=""></a>tab_mod <span class="ot">&lt;-</span> <span class="fu">tabnet</span>(<span class="at">epochs =</span> <span class="dv">100</span>, <span class="at">loss =</span> tabnet<span class="sc">::</span>nn_aum_loss, <span class="at">learn_rate =</span> <span class="fl">0.02</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb60-7"><a href=""></a>  <span class="fu">set_engine</span>(<span class="st">"torch"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb60-8"><a href=""></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span>
+<span id="cb60-9"><a href=""></a></span>
+<span id="cb60-10"><a href=""></a>tab_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb60-11"><a href=""></a>  <span class="fu">add_model</span>(tab_mod) <span class="sc">|&gt;</span> </span>
+<span id="cb60-12"><a href=""></a>  <span class="fu">add_recipe</span>(tab_rec) <span class="sc">|&gt;</span> </span>
+<span id="cb60-13"><a href=""></a>  <span class="fu">add_case_weights</span>(case_wts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a>xgb_rec <span class="ot">&lt;-</span> tab_rec <span class="sc">|&gt;</span> </span>
+<span id="cb61-2"><a href=""></a>  <span class="fu">step_dummy</span>(term, sub_grade, addr_state, verification_status, emp_length)</span>
+<span id="cb61-3"><a href=""></a></span>
+<span id="cb61-4"><a href=""></a>xgb_mod <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>(<span class="at">trees =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb61-5"><a href=""></a>  <span class="fu">set_engine</span>(<span class="st">"xgboost"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb61-6"><a href=""></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span>
+<span id="cb61-7"><a href=""></a></span>
+<span id="cb61-8"><a href=""></a>xgb_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb61-9"><a href=""></a>  <span class="fu">add_model</span>(xgb_mod) <span class="sc">|&gt;</span> </span>
+<span id="cb61-10"><a href=""></a>  <span class="fu">add_recipe</span>(xgb_rec) <span class="sc">|&gt;</span> </span>
+<span id="cb61-11"><a href=""></a>  <span class="fu">add_case_weights</span>(case_wts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a>tab_fit <span class="ot">&lt;-</span> tab_wf <span class="sc">|&gt;</span> <span class="fu">fit</span>(train)</span>
+<span id="cb62-2"><a href=""></a></span>
+<span id="cb62-3"><a href=""></a>tab_test <span class="ot">&lt;-</span> tab_fit <span class="sc">|&gt;</span> <span class="fu">augment</span>(test)</span>
+<span id="cb62-4"><a href=""></a></span>
+<span id="cb62-5"><a href=""></a>tab_test <span class="sc">|&gt;</span> </span>
+<span id="cb62-6"><a href=""></a>  <span class="fu">pr_curve</span>(Class, .pred_good, <span class="at">case_weights =</span> case_wts) <span class="sc">|&gt;</span> </span>
+<span id="cb62-7"><a href=""></a>  <span class="fu">autoplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="index_files/figure-revealjs/tabnet%20lending%20fit-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Tabnet, avec pondération, perte ROC_AUM"><img data-src="index_files/figure-revealjs/tabnet%20lending%20fit-1.png" width="960" alt="Tabnet, avec pondération, perte ROC_AUM"></a></p>
+<figcaption>Tabnet, avec pondération, perte ROC_AUM</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a>xgb_fit <span class="ot">&lt;-</span> xgb_wf <span class="sc">|&gt;</span> <span class="fu">fit</span>(train)</span>
+<span id="cb63-2"><a href=""></a></span>
+<span id="cb63-3"><a href=""></a>xgb_test <span class="ot">&lt;-</span> xgb_fit <span class="sc">|&gt;</span> <span class="fu">augment</span>(test)</span>
+<span id="cb63-4"><a href=""></a></span>
+<span id="cb63-5"><a href=""></a>xgb_test <span class="sc">|&gt;</span></span>
+<span id="cb63-6"><a href=""></a>  <span class="fu">pr_curve</span>(Class, .pred_good, <span class="at">case_weights =</span> case_wts) <span class="sc">|&gt;</span></span>
+<span id="cb63-7"><a href=""></a>  <span class="fu">autoplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="index_files/figure-revealjs/xgboost%20lending%20fit-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="XGBoost, avec pondération"><img data-src="index_files/figure-revealjs/xgboost%20lending%20fit-1.png" width="960" alt="XGBoost, avec pondération"></a></p>
+<figcaption>XGBoost, avec pondération</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
 <section id="gpt2-avec-r" class="title-slide slide level1 center">
 <h1>GPT2 avec R</h1>
 <p>basé sur 4 packages {minhub}, {hfhub}, {tok}, {safetensors}</p>
@@ -1559,26 +1647,26 @@ Christophe Regouby
 <section id="téléchargement-du-modèle-et-de-ses-poids" class="slide level2">
 <h2>Téléchargement du modèle et de ses poids</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">library</span>(minhub)</span>
-<span id="cb59-2"><a href=""></a><span class="fu">library</span>(zeallot)</span>
-<span id="cb59-3"><a href=""></a></span>
-<span id="cb59-4"><a href=""></a>identifier <span class="ot">&lt;-</span> <span class="st">"gpt2"</span></span>
-<span id="cb59-5"><a href=""></a>revision <span class="ot">&lt;-</span> <span class="st">"e7da7f2"</span></span>
-<span id="cb59-6"><a href=""></a><span class="co"># instantiate model and load Hugging Face weights</span></span>
-<span id="cb59-7"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">gpt2_from_pretrained</span>(identifier, revision)</span>
-<span id="cb59-8"><a href=""></a><span class="co"># load matching tokenizer</span></span>
-<span id="cb59-9"><a href=""></a>tok <span class="ot">&lt;-</span> tok<span class="sc">::</span>tokenizer<span class="sc">$</span><span class="fu">from_pretrained</span>(identifier,)</span>
-<span id="cb59-10"><a href=""></a>model<span class="sc">$</span><span class="fu">eval</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="fu">library</span>(minhub)</span>
+<span id="cb64-2"><a href=""></a><span class="fu">library</span>(zeallot)</span>
+<span id="cb64-3"><a href=""></a></span>
+<span id="cb64-4"><a href=""></a>identifier <span class="ot">&lt;-</span> <span class="st">"gpt2"</span></span>
+<span id="cb64-5"><a href=""></a>revision <span class="ot">&lt;-</span> <span class="st">"e7da7f2"</span></span>
+<span id="cb64-6"><a href=""></a><span class="co"># instantiate model and load Hugging Face weights</span></span>
+<span id="cb64-7"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">gpt2_from_pretrained</span>(identifier, revision)</span>
+<span id="cb64-8"><a href=""></a><span class="co"># load matching tokenizer</span></span>
+<span id="cb64-9"><a href=""></a>tok <span class="ot">&lt;-</span> tok<span class="sc">::</span>tokenizer<span class="sc">$</span><span class="fu">from_pretrained</span>(identifier,)</span>
+<span id="cb64-10"><a href=""></a>model<span class="sc">$</span><span class="fu">eval</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="tokenisation-de-la-phrase" class="slide level2">
 <h2>Tokenisation de la phrase</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a>text <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"✨ Quel plaisir de participer aux Rencontres R 2025 à Mons !✨"</span>,</span>
-<span id="cb60-2"><a href=""></a>             <span class="st">"Vivement la prochaine"</span> )</span>
-<span id="cb60-3"><a href=""></a></span>
-<span id="cb60-4"><a href=""></a>idx <span class="ot">&lt;-</span> <span class="fu">torch_tensor</span>(tok<span class="sc">$</span><span class="fu">encode</span>(text)<span class="sc">$</span>ids)<span class="sc">$</span><span class="fu">view</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>))</span>
-<span id="cb60-5"><a href=""></a>idx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a>text <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"✨ Quel plaisir de participer aux Rencontres R 2025 à Mons !✨"</span>,</span>
+<span id="cb65-2"><a href=""></a>             <span class="st">"Vivement la prochaine"</span> )</span>
+<span id="cb65-3"><a href=""></a></span>
+<span id="cb65-4"><a href=""></a>idx <span class="ot">&lt;-</span> <span class="fu">torch_tensor</span>(tok<span class="sc">$</span><span class="fu">encode</span>(text)<span class="sc">$</span>ids)<span class="sc">$</span><span class="fu">view</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb65-5"><a href=""></a>idx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 Columns 1 to 11 26486    101   2264    417    458  15152    343    390   1344   9346  27506
@@ -1595,36 +1683,36 @@ Columns 23 to 27   434   8591    386    354   5718
 <p>La génération est un process itératif, chaque prédiction du modèle est ajoutée au prompt qui grossit.</p>
 <p>Ajoutons y 30 tokens :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a>prompt_length <span class="ot">&lt;-</span> idx<span class="sc">$</span><span class="fu">size</span>(<span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb62-2"><a href=""></a></span>
-<span id="cb62-3"><a href=""></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>) { <span class="co"># decide on maximal length of output sequence</span></span>
-<span id="cb62-4"><a href=""></a>  <span class="co"># obtain next prediction (raw score)</span></span>
-<span id="cb62-5"><a href=""></a>  <span class="fu">with_no_grad</span>({</span>
-<span id="cb62-6"><a href=""></a>    logits <span class="ot">&lt;-</span> <span class="fu">model</span>(idx <span class="sc">+</span> <span class="dv">1</span>L)</span>
-<span id="cb62-7"><a href=""></a>  })</span>
-<span id="cb62-8"><a href=""></a>  last_logits <span class="ot">&lt;-</span> logits[, <span class="sc">-</span><span class="dv">1</span>, ]</span>
-<span id="cb62-9"><a href=""></a>  <span class="co"># pick highest scores (how many is up to you)</span></span>
-<span id="cb62-10"><a href=""></a>  <span class="fu">c</span>(prob, ind) <span class="sc">%&lt;-%</span> last_logits<span class="sc">$</span><span class="fu">topk</span>(<span class="dv">50</span>)</span>
-<span id="cb62-11"><a href=""></a>  last_logits <span class="ot">&lt;-</span> <span class="fu">torch_full_like</span>(last_logits, <span class="sc">-</span><span class="cn">Inf</span>)<span class="sc">$</span><span class="fu">scatter_</span>(<span class="sc">-</span><span class="dv">1</span>, ind, prob)</span>
-<span id="cb62-12"><a href=""></a>  <span class="co"># convert to probabilities</span></span>
-<span id="cb62-13"><a href=""></a>  probs <span class="ot">&lt;-</span> <span class="fu">nnf_softmax</span>(last_logits, <span class="at">dim =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb62-14"><a href=""></a>  <span class="co"># probabilistic sampling</span></span>
-<span id="cb62-15"><a href=""></a>  id_next <span class="ot">&lt;-</span> <span class="fu">torch_multinomial</span>(probs, <span class="at">num_samples =</span> <span class="dv">1</span>) <span class="sc">-</span> <span class="dv">1</span>L</span>
-<span id="cb62-16"><a href=""></a>  <span class="co"># stop if end of sequence predicted</span></span>
-<span id="cb62-17"><a href=""></a>  <span class="cf">if</span> (id_next<span class="sc">$</span><span class="fu">item</span>() <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb62-18"><a href=""></a>    <span class="cf">break</span></span>
-<span id="cb62-19"><a href=""></a>  }</span>
-<span id="cb62-20"><a href=""></a>  <span class="co"># append prediction to prompt</span></span>
-<span id="cb62-21"><a href=""></a>  idx <span class="ot">&lt;-</span> <span class="fu">torch_cat</span>(<span class="fu">list</span>(idx, id_next), <span class="at">dim =</span> <span class="dv">2</span>)</span>
-<span id="cb62-22"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a>prompt_length <span class="ot">&lt;-</span> idx<span class="sc">$</span><span class="fu">size</span>(<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb67-2"><a href=""></a></span>
+<span id="cb67-3"><a href=""></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>) { <span class="co"># decide on maximal length of output sequence</span></span>
+<span id="cb67-4"><a href=""></a>  <span class="co"># obtain next prediction (raw score)</span></span>
+<span id="cb67-5"><a href=""></a>  <span class="fu">with_no_grad</span>({</span>
+<span id="cb67-6"><a href=""></a>    logits <span class="ot">&lt;-</span> <span class="fu">model</span>(idx <span class="sc">+</span> <span class="dv">1</span>L)</span>
+<span id="cb67-7"><a href=""></a>  })</span>
+<span id="cb67-8"><a href=""></a>  last_logits <span class="ot">&lt;-</span> logits[, <span class="sc">-</span><span class="dv">1</span>, ]</span>
+<span id="cb67-9"><a href=""></a>  <span class="co"># pick highest scores (how many is up to you)</span></span>
+<span id="cb67-10"><a href=""></a>  <span class="fu">c</span>(prob, ind) <span class="sc">%&lt;-%</span> last_logits<span class="sc">$</span><span class="fu">topk</span>(<span class="dv">50</span>)</span>
+<span id="cb67-11"><a href=""></a>  last_logits <span class="ot">&lt;-</span> <span class="fu">torch_full_like</span>(last_logits, <span class="sc">-</span><span class="cn">Inf</span>)<span class="sc">$</span><span class="fu">scatter_</span>(<span class="sc">-</span><span class="dv">1</span>, ind, prob)</span>
+<span id="cb67-12"><a href=""></a>  <span class="co"># convert to probabilities</span></span>
+<span id="cb67-13"><a href=""></a>  probs <span class="ot">&lt;-</span> <span class="fu">nnf_softmax</span>(last_logits, <span class="at">dim =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb67-14"><a href=""></a>  <span class="co"># probabilistic sampling</span></span>
+<span id="cb67-15"><a href=""></a>  id_next <span class="ot">&lt;-</span> <span class="fu">torch_multinomial</span>(probs, <span class="at">num_samples =</span> <span class="dv">1</span>) <span class="sc">-</span> <span class="dv">1</span>L</span>
+<span id="cb67-16"><a href=""></a>  <span class="co"># stop if end of sequence predicted</span></span>
+<span id="cb67-17"><a href=""></a>  <span class="cf">if</span> (id_next<span class="sc">$</span><span class="fu">item</span>() <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb67-18"><a href=""></a>    <span class="cf">break</span></span>
+<span id="cb67-19"><a href=""></a>  }</span>
+<span id="cb67-20"><a href=""></a>  <span class="co"># append prediction to prompt</span></span>
+<span id="cb67-21"><a href=""></a>  idx <span class="ot">&lt;-</span> <span class="fu">torch_cat</span>(<span class="fu">list</span>(idx, id_next), <span class="at">dim =</span> <span class="dv">2</span>)</span>
+<span id="cb67-22"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="décodage-des-tokens-du-résultat" class="slide level2">
 <h2>décodage des tokens du résultat</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a>tok<span class="sc">$</span><span class="fu">decode</span>(<span class="fu">as.integer</span>(idx))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a>tok<span class="sc">$</span><span class="fu">decode</span>(<span class="fu">as.integer</span>(idx))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "✨ Quel plaisir de participer aux Rencontres R 2025 à Mons !✨ Vivement la prochaine à la prendre l'hève, que hou vous trouve dans le monde cette vous ?—Qu"</code></pre>
+<pre><code>[1] "✨ Quel plaisir de participer aux Rencontres R 2025 à Mons !✨ Vivement la prochaine ?✨ Et pas tous sont bards de désire, que avez peut parler les rien.\n\nQu"</code></pre>
 </div>
 </div>
 </section></section>
@@ -1644,7 +1732,7 @@ Columns 23 to 27   434   8591    386    354   5718
 <section id="lora-à-la-rescousse" class="slide level2">
 <h2>LoRA à la rescousse</h2>
 <p>Low Rank Adaptation</p>
-<p><a href="images/lora.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img data-src="images/lora.png"></a></p>
+<p><a href="images/lora.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img data-src="images/lora.png"></a></p>
 </section>
 <section id="method" class="slide level2">
 <h2>Method</h2>
@@ -1671,16 +1759,16 @@ Columns 23 to 27   434   8591    386    354   5718
 <h2>Implémentation avec torch</h2>
 <p>On simule un jeu de données <span class="math inline">\(y = X \theta\)</span> model. <span class="math inline">\(\theta \in \mathbb{R}^{1001, 1000}\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="fu">library</span>(torch)</span>
-<span id="cb65-2"><a href=""></a></span>
-<span id="cb65-3"><a href=""></a>n <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
-<span id="cb65-4"><a href=""></a>d_in <span class="ot">&lt;-</span> <span class="dv">1001</span></span>
-<span id="cb65-5"><a href=""></a>d_out <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb65-6"><a href=""></a></span>
-<span id="cb65-7"><a href=""></a>thetas <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(d_in, d_out)</span>
-<span id="cb65-8"><a href=""></a></span>
-<span id="cb65-9"><a href=""></a>X <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(n, d_in)</span>
-<span id="cb65-10"><a href=""></a>y <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(X, thetas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a><span class="fu">library</span>(torch)</span>
+<span id="cb70-2"><a href=""></a></span>
+<span id="cb70-3"><a href=""></a>n <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb70-4"><a href=""></a>d_in <span class="ot">&lt;-</span> <span class="dv">1001</span></span>
+<span id="cb70-5"><a href=""></a>d_out <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb70-6"><a href=""></a></span>
+<span id="cb70-7"><a href=""></a>thetas <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(d_in, d_out)</span>
+<span id="cb70-8"><a href=""></a></span>
+<span id="cb70-9"><a href=""></a>X <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(n, d_in)</span>
+<span id="cb70-10"><a href=""></a>y <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(X, thetas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2">
@@ -1689,35 +1777,35 @@ Columns 23 to 27   434   8591    386    354   5718
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a>lin_model <span class="ot">&lt;-</span> <span class="fu">nn_linear</span>(d_in, d_out, <span class="at">bias =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>lin_model <span class="ot">&lt;-</span> <span class="fu">nn_linear</span>(d_in, d_out, <span class="at">bias =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a>train <span class="ot">&lt;-</span> <span class="cf">function</span>(model, X, y, <span class="at">batch_size =</span> <span class="dv">128</span>, <span class="at">epochs =</span> <span class="dv">100</span>) {</span>
-<span id="cb67-2"><a href=""></a>  opt <span class="ot">&lt;-</span> <span class="fu">optim_ignite_adam</span>(model<span class="sc">$</span>parameters)</span>
-<span id="cb67-3"><a href=""></a></span>
-<span id="cb67-4"><a href=""></a>  <span class="cf">for</span> (epoch <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>epochs) {</span>
-<span id="cb67-5"><a href=""></a>    <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(n<span class="sc">/</span>batch_size)) {</span>
-<span id="cb67-6"><a href=""></a>      idx <span class="ot">&lt;-</span> <span class="fu">sample.int</span>(n, <span class="at">size =</span> batch_size)</span>
-<span id="cb67-7"><a href=""></a>      loss <span class="ot">&lt;-</span> <span class="fu">nnf_mse_loss</span>(<span class="fu">model</span>(X[idx,]), y[idx])</span>
-<span id="cb67-8"><a href=""></a>      </span>
-<span id="cb67-9"><a href=""></a>      <span class="fu">with_no_grad</span>({</span>
-<span id="cb67-10"><a href=""></a>        opt<span class="sc">$</span><span class="fu">zero_grad</span>()</span>
-<span id="cb67-11"><a href=""></a>        loss<span class="sc">$</span><span class="fu">backward</span>()</span>
-<span id="cb67-12"><a href=""></a>        opt<span class="sc">$</span><span class="fu">step</span>()  </span>
-<span id="cb67-13"><a href=""></a>      })</span>
-<span id="cb67-14"><a href=""></a>    }</span>
-<span id="cb67-15"><a href=""></a>    </span>
-<span id="cb67-16"><a href=""></a>    <span class="cf">if</span> (epoch <span class="sc">%%</span> <span class="dv">10</span> <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb67-17"><a href=""></a>      <span class="fu">with_no_grad</span>({</span>
-<span id="cb67-18"><a href=""></a>        loss <span class="ot">&lt;-</span> <span class="fu">nnf_mse_loss</span>(<span class="fu">model</span>(X), y)</span>
-<span id="cb67-19"><a href=""></a>      })</span>
-<span id="cb67-20"><a href=""></a>      <span class="fu">cat</span>(<span class="st">"["</span>, epoch, <span class="st">"] Loss:"</span>, loss<span class="sc">$</span><span class="fu">item</span>(), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb67-21"><a href=""></a>    }</span>
-<span id="cb67-22"><a href=""></a>  }</span>
-<span id="cb67-23"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a>train <span class="ot">&lt;-</span> <span class="cf">function</span>(model, X, y, <span class="at">batch_size =</span> <span class="dv">128</span>, <span class="at">epochs =</span> <span class="dv">100</span>) {</span>
+<span id="cb72-2"><a href=""></a>  opt <span class="ot">&lt;-</span> <span class="fu">optim_ignite_adam</span>(model<span class="sc">$</span>parameters)</span>
+<span id="cb72-3"><a href=""></a></span>
+<span id="cb72-4"><a href=""></a>  <span class="cf">for</span> (epoch <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>epochs) {</span>
+<span id="cb72-5"><a href=""></a>    <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(n<span class="sc">/</span>batch_size)) {</span>
+<span id="cb72-6"><a href=""></a>      idx <span class="ot">&lt;-</span> <span class="fu">sample.int</span>(n, <span class="at">size =</span> batch_size)</span>
+<span id="cb72-7"><a href=""></a>      loss <span class="ot">&lt;-</span> <span class="fu">nnf_mse_loss</span>(<span class="fu">model</span>(X[idx,]), y[idx])</span>
+<span id="cb72-8"><a href=""></a>      </span>
+<span id="cb72-9"><a href=""></a>      <span class="fu">with_no_grad</span>({</span>
+<span id="cb72-10"><a href=""></a>        opt<span class="sc">$</span><span class="fu">zero_grad</span>()</span>
+<span id="cb72-11"><a href=""></a>        loss<span class="sc">$</span><span class="fu">backward</span>()</span>
+<span id="cb72-12"><a href=""></a>        opt<span class="sc">$</span><span class="fu">step</span>()  </span>
+<span id="cb72-13"><a href=""></a>      })</span>
+<span id="cb72-14"><a href=""></a>    }</span>
+<span id="cb72-15"><a href=""></a>    </span>
+<span id="cb72-16"><a href=""></a>    <span class="cf">if</span> (epoch <span class="sc">%%</span> <span class="dv">10</span> <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb72-17"><a href=""></a>      <span class="fu">with_no_grad</span>({</span>
+<span id="cb72-18"><a href=""></a>        loss <span class="ot">&lt;-</span> <span class="fu">nnf_mse_loss</span>(<span class="fu">model</span>(X), y)</span>
+<span id="cb72-19"><a href=""></a>      })</span>
+<span id="cb72-20"><a href=""></a>      <span class="fu">cat</span>(<span class="st">"["</span>, epoch, <span class="st">"] Loss:"</span>, loss<span class="sc">$</span><span class="fu">item</span>(), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb72-21"><a href=""></a>    }</span>
+<span id="cb72-22"><a href=""></a>  }</span>
+<span id="cb72-23"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -1727,19 +1815,19 @@ Columns 23 to 27   434   8591    386    354   5718
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a><span class="fu">train</span>(lin_model, X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a><span class="fu">train</span>(lin_model, X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[ 10 ] Loss: 575.422 
-[ 20 ] Loss: 310.9893 
-[ 30 ] Loss: 154.1616 
-[ 40 ] Loss: 67.88356 
-[ 50 ] Loss: 25.34627 
-[ 60 ] Loss: 7.473612 
-[ 70 ] Loss: 1.557202 
-[ 80 ] Loss: 0.1963304 
-[ 90 ] Loss: 0.01243985 
-[ 100 ] Loss: 0.0003520371 </code></pre>
+<pre><code>[ 10 ] Loss: 577.2964 
+[ 20 ] Loss: 312.2234 
+[ 30 ] Loss: 154.9579 
+[ 40 ] Loss: 68.33264 
+[ 50 ] Loss: 25.57257 
+[ 60 ] Loss: 7.567295 
+[ 70 ] Loss: 1.587781 
+[ 80 ] Loss: 0.2034991 
+[ 90 ] Loss: 0.01349764 
+[ 100 ] Loss: 0.0004562767 </code></pre>
 </div>
 </div>
 </section>
@@ -1749,18 +1837,18 @@ Columns 23 to 27   434   8591    386    354   5718
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a>thetas2 <span class="ot">&lt;-</span> thetas <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb70-2"><a href=""></a></span>
-<span id="cb70-3"><a href=""></a>X2 <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(n, d_in)</span>
-<span id="cb70-4"><a href=""></a>y2 <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(X2, thetas2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a>thetas2 <span class="ot">&lt;-</span> thetas <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb75-2"><a href=""></a></span>
+<span id="cb75-3"><a href=""></a>X2 <span class="ot">&lt;-</span> <span class="fu">torch_randn</span>(n, d_in)</span>
+<span id="cb75-4"><a href=""></a>y2 <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(X2, thetas2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Sur ces données, le modèle donne de mauvais résultats :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="fu">nnf_mse_loss</span>(<span class="fu">lin_model</span>(X2), y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a><span class="fu">nnf_mse_loss</span>(<span class="fu">lin_model</span>(X2), y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
-1023.75
+997.446
 [ CPUFloatType{} ][ grad_fn = &lt;MseLossBackward0&gt; ]</code></pre>
 </div>
 </div>
@@ -1770,26 +1858,26 @@ Columns 23 to 27   434   8591    386    354   5718
 <div class="small">
 <p>Le nouveau LoRA - s’ajoute au modèle <code>linear</code> dont on gèle les poids - avec des tenseurs A et B de dimension intérieure <span class="math inline">\(r\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a>lora_nn_linear <span class="ot">&lt;-</span> <span class="fu">nn_module</span>(</span>
-<span id="cb73-2"><a href=""></a>  <span class="at">initialize =</span> <span class="cf">function</span>(linear, <span class="at">r =</span> <span class="dv">16</span>L, <span class="at">alpha =</span> <span class="dv">1</span>) {</span>
-<span id="cb73-3"><a href=""></a>    self<span class="sc">$</span>linear <span class="ot">&lt;-</span> linear</span>
-<span id="cb73-4"><a href=""></a>    </span>
-<span id="cb73-5"><a href=""></a>    <span class="co"># les paramêtres du modèle linéirte initial sont  'gelés', donc pas pris en </span></span>
-<span id="cb73-6"><a href=""></a>    <span class="co"># considération pr autograd. Ce sont juste des constantes.</span></span>
-<span id="cb73-7"><a href=""></a>    purrr<span class="sc">::</span><span class="fu">walk</span>(self<span class="sc">$</span>linear<span class="sc">$</span>parameters, \(x) x<span class="sc">$</span><span class="fu">requires_grad_</span>(<span class="cn">FALSE</span>))</span>
-<span id="cb73-8"><a href=""></a>    </span>
-<span id="cb73-9"><a href=""></a>    <span class="co"># LEs paramêtre du Low-rank à entraîner (shortcut here, specific to our lin_model)</span></span>
-<span id="cb73-10"><a href=""></a>    self<span class="sc">$</span>A <span class="ot">&lt;-</span> <span class="fu">nn_parameter</span>(<span class="fu">torch_randn</span>(linear<span class="sc">$</span>in_features, r))</span>
-<span id="cb73-11"><a href=""></a>    self<span class="sc">$</span>B <span class="ot">&lt;-</span> <span class="fu">nn_parameter</span>(<span class="fu">torch_zeros</span>(r, linear<span class="sc">$</span>out_features))</span>
-<span id="cb73-12"><a href=""></a>    </span>
-<span id="cb73-13"><a href=""></a>    <span class="co"># la constante de scaling</span></span>
-<span id="cb73-14"><a href=""></a>    self<span class="sc">$</span>scaling <span class="ot">&lt;-</span> alpha <span class="sc">/</span> r</span>
-<span id="cb73-15"><a href=""></a>  },</span>
-<span id="cb73-16"><a href=""></a>  <span class="at">forward =</span> <span class="cf">function</span>(x) {</span>
-<span id="cb73-17"><a href=""></a>    <span class="co"># La fonction `forward` modifiée qui ajoute le résultat du LoRA  A.B.x aux résultat du modèle initial</span></span>
-<span id="cb73-18"><a href=""></a>    self<span class="sc">$</span><span class="fu">linear</span>(x) <span class="sc">+</span> <span class="fu">torch_matmul</span>(x, <span class="fu">torch_matmul</span>(self<span class="sc">$</span>A, self<span class="sc">$</span>B) <span class="sc">*</span> self<span class="sc">$</span>scaling)</span>
-<span id="cb73-19"><a href=""></a>  }</span>
-<span id="cb73-20"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a>lora_nn_linear <span class="ot">&lt;-</span> <span class="fu">nn_module</span>(</span>
+<span id="cb78-2"><a href=""></a>  <span class="at">initialize =</span> <span class="cf">function</span>(linear, <span class="at">r =</span> <span class="dv">16</span>L, <span class="at">alpha =</span> <span class="dv">1</span>) {</span>
+<span id="cb78-3"><a href=""></a>    self<span class="sc">$</span>linear <span class="ot">&lt;-</span> linear</span>
+<span id="cb78-4"><a href=""></a>    </span>
+<span id="cb78-5"><a href=""></a>    <span class="co"># les paramêtres du modèle linéirte initial sont  'gelés', donc pas pris en </span></span>
+<span id="cb78-6"><a href=""></a>    <span class="co"># considération pr autograd. Ce sont juste des constantes.</span></span>
+<span id="cb78-7"><a href=""></a>    purrr<span class="sc">::</span><span class="fu">walk</span>(self<span class="sc">$</span>linear<span class="sc">$</span>parameters, \(x) x<span class="sc">$</span><span class="fu">requires_grad_</span>(<span class="cn">FALSE</span>))</span>
+<span id="cb78-8"><a href=""></a>    </span>
+<span id="cb78-9"><a href=""></a>    <span class="co"># LEs paramêtre du Low-rank à entraîner (shortcut here, specific to our lin_model)</span></span>
+<span id="cb78-10"><a href=""></a>    self<span class="sc">$</span>A <span class="ot">&lt;-</span> <span class="fu">nn_parameter</span>(<span class="fu">torch_randn</span>(linear<span class="sc">$</span>in_features, r))</span>
+<span id="cb78-11"><a href=""></a>    self<span class="sc">$</span>B <span class="ot">&lt;-</span> <span class="fu">nn_parameter</span>(<span class="fu">torch_zeros</span>(r, linear<span class="sc">$</span>out_features))</span>
+<span id="cb78-12"><a href=""></a>    </span>
+<span id="cb78-13"><a href=""></a>    <span class="co"># la constante de scaling</span></span>
+<span id="cb78-14"><a href=""></a>    self<span class="sc">$</span>scaling <span class="ot">&lt;-</span> alpha <span class="sc">/</span> r</span>
+<span id="cb78-15"><a href=""></a>  },</span>
+<span id="cb78-16"><a href=""></a>  <span class="at">forward =</span> <span class="cf">function</span>(x) {</span>
+<span id="cb78-17"><a href=""></a>    <span class="co"># La fonction `forward` modifiée qui ajoute le résultat du LoRA  A.B.x aux résultat du modèle initial</span></span>
+<span id="cb78-18"><a href=""></a>    self<span class="sc">$</span><span class="fu">linear</span>(x) <span class="sc">+</span> <span class="fu">torch_matmul</span>(x, <span class="fu">torch_matmul</span>(self<span class="sc">$</span>A, self<span class="sc">$</span>B) <span class="sc">*</span> self<span class="sc">$</span>scaling)</span>
+<span id="cb78-19"><a href=""></a>  }</span>
+<span id="cb78-20"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1797,11 +1885,11 @@ Columns 23 to 27   434   8591    386    354   5718
 
 <p>Essayons un LoRA avec <span class="math inline">\(r = 1\)</span> i.e.&nbsp;A et B sont des vecteurs</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href=""></a>lora <span class="ot">&lt;-</span> <span class="fu">lora_nn_linear</span>(lin_model, <span class="at">r =</span> <span class="dv">1</span>L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a>lora <span class="ot">&lt;-</span> <span class="fu">lora_nn_linear</span>(lin_model, <span class="at">r =</span> <span class="dv">1</span>L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>entraînement du LoRA sur la nouvelle distribution</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="fu">train</span>(lora, X2, y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a><span class="fu">train</span>(lora, X2, y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[ 10 ] Loss: 803.9484 
 [ 20 ] Loss: 480.2847 
@@ -1820,17 +1908,17 @@ Columns 23 to 27   434   8591    386    354   5718
 
 <p>Le tenseur <span class="math inline">\(\Delta \theta\)</span> est idéalement constant à 1 :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>delta_theta <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(lora<span class="sc">$</span>A, lora<span class="sc">$</span>B) <span class="sc">*</span> lora<span class="sc">$</span>scaling</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a>delta_theta <span class="ot">&lt;-</span> <span class="fu">torch_matmul</span>(lora<span class="sc">$</span>A, lora<span class="sc">$</span>B) <span class="sc">*</span> lora<span class="sc">$</span>scaling</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a>delta_theta[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb78-2"><a href=""></a><span class="co">#&gt; torch_tensor</span></span>
-<span id="cb78-3"><a href=""></a><span class="co">#&gt; 1.0005  1.0005  1.0005  1.0005  1.0005</span></span>
-<span id="cb78-4"><a href=""></a><span class="co">#&gt; 1.0000  1.0000  1.0000  1.0000  1.0000</span></span>
-<span id="cb78-5"><a href=""></a><span class="co">#&gt; 0.9958  0.9958  0.9958  0.9958  0.9958</span></span>
-<span id="cb78-6"><a href=""></a><span class="co">#&gt; 0.9993  0.9993  0.9993  0.9993  0.9993</span></span>
-<span id="cb78-7"><a href=""></a><span class="co">#&gt; 0.9997  0.9997  0.9997  0.9997  0.9997</span></span>
-<span id="cb78-8"><a href=""></a><span class="co">#&gt;[ CPUFloatType{5,5} ][ grad_fn = &lt;SliceBackward0&gt; ]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a>delta_theta[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb83-2"><a href=""></a><span class="co">#&gt; torch_tensor</span></span>
+<span id="cb83-3"><a href=""></a><span class="co">#&gt; 1.0005  1.0005  1.0005  1.0005  1.0005</span></span>
+<span id="cb83-4"><a href=""></a><span class="co">#&gt; 1.0000  1.0000  1.0000  1.0000  1.0000</span></span>
+<span id="cb83-5"><a href=""></a><span class="co">#&gt; 0.9958  0.9958  0.9958  0.9958  0.9958</span></span>
+<span id="cb83-6"><a href=""></a><span class="co">#&gt; 0.9993  0.9993  0.9993  0.9993  0.9993</span></span>
+<span id="cb83-7"><a href=""></a><span class="co">#&gt; 0.9997  0.9997  0.9997  0.9997  0.9997</span></span>
+<span id="cb83-8"><a href=""></a><span class="co">#&gt;[ CPUFloatType{5,5} ][ grad_fn = &lt;SliceBackward0&gt; ]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2">
@@ -1838,41 +1926,41 @@ Columns 23 to 27   434   8591    386    354   5718
 <div class="smaller scrollable">
 <p>Pour diminuer le temps d’inférence, une astuce consiste à ajouter le LoRA directement au poids du modèle avec la fonction <code>$add_</code>. Ainsi on passe de deux inférences séquentielle, à une seule.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a><span class="fu">with_no_grad</span>({</span>
-<span id="cb79-2"><a href=""></a>  lin_model<span class="sc">$</span>weight<span class="sc">$</span><span class="fu">add_</span>(delta_theta<span class="sc">$</span><span class="fu">t</span>())  </span>
-<span id="cb79-3"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a><span class="fu">with_no_grad</span>({</span>
+<span id="cb84-2"><a href=""></a>  lin_model<span class="sc">$</span>weight<span class="sc">$</span><span class="fu">add_</span>(delta_theta<span class="sc">$</span><span class="fu">t</span>())  </span>
+<span id="cb84-3"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
-Columns 1 to 6 4.6094e-01 -8.5323e-01  8.6000e-02 -1.4660e+00  2.4182e+00  1.2005e+00
--3.6018e-01  4.4443e-01 -1.8341e+00  1.7169e-01 -8.4419e-01 -8.8143e-01
- 1.3930e+00 -6.5609e-01  2.6714e-01  1.0032e+00  2.1245e+00  1.2208e+00
- 1.3506e+00 -1.8746e+00  2.0628e-01  1.6161e+00 -7.8960e-01 -1.3648e+00
--9.4438e-03 -1.2114e-01  1.1235e-01 -1.9753e-01 -3.7343e+00  2.0183e+00
--1.5588e+00  1.2618e+00 -7.9961e-01 -1.8467e-01 -1.0710e+00 -5.1168e-01
- 1.1703e-01 -1.8406e+00  5.1542e-02  6.7522e-02 -1.1589e+00 -7.7242e-01
- 5.0083e-01  3.0789e-01  1.7310e+00  1.5219e+00  1.4552e+00 -1.4013e+00
- 1.3033e-01 -2.3388e+00  1.7051e-01 -1.7240e+00 -7.7565e-01  5.5534e-01
--1.2599e+00  5.6896e-02 -7.9011e-01  1.1345e-01  5.4791e-01  2.3977e+00
- 1.9895e-01 -3.4036e-01  3.5680e-01 -6.0772e-01  5.0886e-01 -5.4812e-01
--2.9427e-01 -9.7134e-01 -2.0413e+00 -1.5500e+00 -1.7281e+00 -1.9420e-01
- 2.9565e-01 -1.5249e+00 -3.5902e-01 -5.1588e-02 -8.6622e-02  9.3684e-01
--1.4677e+00  9.5954e-02 -6.7929e-01  8.2438e-01 -2.8003e-01  9.4187e-02
- 1.8025e+00  1.8236e+00 -2.2107e+00  5.7578e-01  6.2997e-02  8.1491e-02
--1.7559e+00 -2.3136e-01  8.4307e-01  1.2840e+00 -2.0465e-01  2.0555e-01
- 9.4942e-01 -4.9197e-01 -8.9485e-01 -1.3753e+00 -3.1987e-01 -1.6577e+00
--2.0196e-01  2.1221e+00  1.2236e+00  1.5177e+00  1.9290e-01  4.9700e-01
--9.4475e-01 -6.3202e-01 -7.1538e-01 -4.8638e-01  2.2960e-01 -3.9356e-01
- 1.1261e-01 -6.7372e-02 -3.3518e-01  3.4315e-01  5.6598e-01 -5.6044e-01
--8.3556e-01 -2.8542e-01 -2.0310e-01 -9.1217e-01 -9.8689e-01  4.4701e-01
- 1.2356e+00 -1.7301e+00  3.8156e-01  1.0853e+00  4.5367e-01 -4.1571e-01
- 9.5723e-01 -3.3868e-01 -8.8302e-01  1.2782e+00 -2.1362e+00  9.4752e-01
--2.0543e-01  1.8125e+00 -7.0341e-01 -2.4494e+00  6.4473e-01 -3.6542e-01
- 2.2643e-01 -1.6717e+00  1.4024e+00  1.4072e-01  5.6646e-02 -6.4107e-01
--9.0439e-01  9.6881e-02 -9.4229e-01 -2.9496e+00 -6.3003e-01 -3.9217e-01
- 7.6028e-01  3.3056e-01  3.4733e-01 -4.5064e-01  1.0015e+00  1.0968e+00
--6.0730e-01 -4.4582e-01  6.8271e-01  6.0692e-01 -6.4093e-01  6.5788e-02
- 2.9913e-01 -1.4414e+00 -1.5263e+00 -9.6000e-01  1.2911e-02  8.7187e-01
- 3.4805e-01 -5.6756e-01 -2.4309e-01  5.5974e-01 -5.5280e-01 -7.6757e-01
+Columns 1 to 6 6.9635e-01  8.5633e-01  3.6512e-01 -2.7534e-02 -7.2543e-01 -1.6177e+00
+-1.3941e+00 -1.4742e-01 -7.3472e-01 -1.1225e+00  1.8824e+00 -7.6791e-01
+-5.3021e-01 -2.0533e-02  2.5176e-01  1.8980e-01 -1.4623e-01 -7.1341e-01
+ 1.5298e-01  6.1951e-01  2.0949e-01  7.6020e-01  4.0103e-01 -1.8658e+00
+-3.8995e-01 -2.0983e-01 -5.6746e-01 -4.8967e-01  9.5089e-01 -3.6876e-01
+-1.0775e+00  1.1845e+00  5.9294e-01 -8.8603e-01 -2.1552e+00 -1.4879e+00
+-6.1032e-01  1.1125e+00 -8.2254e-02  1.7873e-01  1.3694e+00 -3.4433e-01
+ 5.3055e-01  4.0635e-01  3.0086e-01  8.7974e-01  1.7888e-01  1.9024e-01
+-5.7583e-01  1.2306e-01 -4.9771e-01  1.6937e+00  3.3584e-01  9.0796e-01
+-9.6000e-01  6.1155e-01  1.5614e+00 -3.0986e+00 -1.1568e-01 -5.1649e-01
+ 1.1070e+00 -1.4980e-01  9.3203e-01 -1.0135e+00  6.3158e-01  8.9932e-01
+ 6.8857e-01  1.7237e+00  1.1971e+00  3.4926e-01  2.1656e-02 -7.7976e-01
+-5.4752e-02  8.0320e-02 -4.2335e-01 -7.6958e-02  2.0555e+00 -3.5746e-02
+-9.2703e-01  1.0901e+00  6.1265e-01  1.0908e+00  8.7734e-01 -8.7679e-01
+-3.8704e-02 -7.1190e-02 -5.5178e-01 -2.5994e-01 -1.2479e+00  7.7808e-01
+ 5.8467e-01  1.5943e+00 -8.8634e-01  3.8839e-01 -2.5765e-01  7.3346e-01
+-6.6289e-01 -1.1760e+00 -1.2586e+00 -6.4553e-01 -9.0659e-02  1.4097e+00
+ 1.5803e+00 -7.6977e-01  5.9262e-01  1.0192e+00  2.6610e-01  2.1883e-01
+ 9.4743e-01 -5.4591e-01 -2.9541e-01 -9.5220e-01 -1.4322e-01 -4.0145e-01
+ 9.0271e-03 -5.2646e-01  4.0412e-01  9.9133e-01  1.6522e-01  2.6470e-01
+ 8.8969e-01 -1.2952e-02  8.2549e-01  9.7696e-01  4.4207e-02  1.3234e+00
+ 7.1106e-01  1.4034e+00  2.3803e-01  1.9628e-01  2.4002e+00 -8.0399e-01
+ 1.2758e-01 -1.4279e-01 -1.0355e+00  7.5996e-01 -1.1927e-02 -1.9944e-02
+ 8.0727e-01  3.0686e-01  6.2578e-01  6.0036e-01 -1.3367e+00  7.7307e-01
+ 1.7173e+00  6.0431e-02 -1.2567e+00 -9.7863e-01 -1.2615e+00 -6.4713e-01
+-9.8381e-01  1.5534e-01  1.3644e-02  1.9698e+00 -2.3401e-01 -4.5572e-01
+-8.4714e-01  1.2188e+00  8.6097e-01  1.4176e+00  8.1845e-01  1.1954e+00
+-1.3005e+00 -1.0262e+00  1.9080e+00  1.3645e+00  1.3427e+00 -2.3264e-01
+ 1.7207e-01  2.4262e-01  1.0381e+00 -1.5378e+00  9.0688e-01  1.0666e+00
+-1.2527e-01  1.9382e-01  5.0908e-01  1.0041e+00 -1.3542e+00 -5.7865e-01
 ... [the output was truncated (use n=-1 to disable)]
 [ CPUFloatType{1000,1001} ]</code></pre>
 </div>
@@ -1883,10 +1971,10 @@ Columns 1 to 6 4.6094e-01 -8.5323e-01  8.6000e-02 -1.4660e+00  2.4182e+00  1.200
 
 <p>Quel est la performance sur la nouvelle distribution ?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a><span class="fu">nnf_mse_loss</span>(<span class="fu">lin_model</span>(X2), y2)</span>
-<span id="cb81-2"><a href=""></a><span class="co">#&gt; torch_tensor</span></span>
-<span id="cb81-3"><a href=""></a><span class="co">#&gt; 0.0012366</span></span>
-<span id="cb81-4"><a href=""></a><span class="co">#&gt; [ CPUFloatType{} ]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a><span class="fu">nnf_mse_loss</span>(<span class="fu">lin_model</span>(X2), y2)</span>
+<span id="cb86-2"><a href=""></a><span class="co">#&gt; torch_tensor</span></span>
+<span id="cb86-3"><a href=""></a><span class="co">#&gt; 0.0012366</span></span>
+<span id="cb86-4"><a href=""></a><span class="co">#&gt; [ CPUFloatType{} ]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
 <section>
@@ -1899,8 +1987,8 @@ Columns 1 to 6 4.6094e-01 -8.5323e-01  8.6000e-02 -1.4660e+00  2.4182e+00  1.200
 </section>
 <section id="un-jeu-de-données-métier" class="slide level2">
 <h2>un jeu de données métier</h2>
-<p><a href="Data_mining_with_R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img data-src="Data_mining_with_R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg"></a></p>
-<p><a href="images/screenshot_testset_plankton.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img data-src="images/screenshot_testset_plankton.png"></a></p>
+<p><a href="Data_mining_with_R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img data-src="Data_mining_with_R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg"></a></p>
+<p><a href="images/screenshot_testset_plankton.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img data-src="images/screenshot_testset_plankton.png"></a></p>
 
 </section></section>
 
@@ -2347,7 +2435,7 @@ Columns 1 to 6 4.6094e-01 -8.5323e-01  8.6000e-02 -1.4660e+00  2.4182e+00  1.200
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom"});
     (function() {
       let previousOnload = window.onload;
       window.onload = () => {

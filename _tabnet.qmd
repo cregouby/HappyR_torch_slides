@@ -1,0 +1,616 @@
+---
+title: "{torch} {tabnet} et l'apprentissage profond par l'usage"
+format: 
+  revealjs: 
+    theme: [night, slides.scss]
+editor: visual
+---
+
+# {tabnet}
+
+## ![](images/clipboard-534052795.png)
+
+v0.7.0 is on CRAN
+
+## Fonctionnement
+
+![](images/clipboard-2272997678.png)
+
+## Usage intégré dans tidymodels {.scrollable .smaller}
+
+::: small
+Dataset
+
+```{r}
+#| label: "dataset"
+#| echo: true
+library(tidymodels, quietly = TRUE)
+data("ames", package = "modeldata")
+str(ames)
+```
+
+Recipe
+
+```{r}
+#| label: "tabnet recipe"
+#| echo: true
+ames <- ames |> mutate(Sale_Price = log10(Sale_Price))
+ames_rec <- recipe(Sale_Price ~ ., data=ames) |> 
+  step_normalize(all_numeric(), -all_outcomes()) 
+```
+:::
+
+::: footer
+:::
+
+------------------------------------------------------------------------
+
+::: small
+Pre-training
+
+```{r}
+#| label: "tabnet pretrain"
+#| cache: true
+#| echo: true
+library(tabnet)
+ames_pretrain <- tabnet_pretrain(
+  ames_rec, data=ames,  epoch=50, cat_emb_dim = 1,
+  valid_split = 0.2, verbose=TRUE, 
+  early_stopping_patience = 3L, 
+  early_stopping_tolerance = 1e-4
+)
+# model diagnostic
+autoplot(ames_pretrain)
+```
+:::
+
+------------------------------------------------------------------------
+
+::: small
+Training
+
+```{r}
+#| label: "tabnet fit"
+#| cache: true
+#| echo: true
+ames_fit <- tabnet_fit(ames_rec, data=ames,  tabnet_model = ames_pretrain, 
+                       epoch=50, cat_emb_dim = 1, 
+                       valid_split = 0.2, verbose=TRUE, batch=2930)
+# model diagnostic
+autoplot(ames_fit)
+```
+:::
+
+------------------------------------------------------------------------
+
+:::::: small
+Prediction
+
+::::: columns
+::: {.column width="35%"}
+```{r}
+#| label: "tabnet predict"
+#| echo: true
+predict(ames_fit, ames)
+```
+:::
+
+::: {.column width="65%"}
+```{r}
+#| echo: true
+metrics <- metric_set(rmse, rsq, ccc)
+cbind(ames, predict(ames_fit, ames)) |> 
+  metrics(Sale_Price, estimate = .pred)
+```
+:::
+:::::
+::::::
+
+------------------------------------------------------------------------
+
+::: small
+```{r}
+#| label: "tabnet vip"
+#| echo: true
+# variable importance
+vip::vip(ames_fit)
+```
+:::
+
+------------------------------------------------------------------------
+
+::: small
+Explainability
+
+```{r}
+#| label: "tabnet explain"
+#| echo: true
+ames_explain <- tabnet::tabnet_explain(ames_fit, ames)
+# variable importance
+autoplot(ames_explain, quantile = 0.99)
+```
+:::
+
+## À vous de jouer, exercise 02
+
+::: question
+Complete 02_exercise to practice tabnet model training.
+:::
+
+```{r}
+countdown::countdown(minutes = 7)
+```
+
+::: footer
+:::
+
+# {tabnet} pour les valeurs manquantes
+
+## retour sur le jeu de données Ames
+
+:::: small
+-   les tenseurs ne peuvent pas inclure de valeur manquantes.
+
+-   `ames` nous fait le plaisir d'être sans valeur manquante.
+
+::: question
+Quelle est la surface de la piscine quand il n'y a pas de piscine?
+:::
+::::
+
+------------------------------------------------------------------------
+
+```{r, echo=TRUE}
+data("ames", package = "modeldata")
+qplot(ames$Mas_Vnr_Area)
+```
+
+::: question
+Comment le modèle peut-il capturer cette distribution ?
+:::
+
+------------------------------------------------------------------------
+
+Et si on l'applique à toute les colonnes ?
+
+::: small
+```{r}
+#| echo: TRUE
+#| code-fold: TRUE
+#| label: "tabnet missing dataset"
+col_with_zero_as_na <- ames |>  
+  select(where(is.numeric)) |>  
+  select(matches("_SF|Area|Misc_Val|[Pp]orch$")) |> 
+  summarise_each(min) |> 
+  select_if(~.x==0) |> 
+  names()
+ames_missing <- ames |>mutate_at(col_with_zero_as_na, na_if, 0) |> 
+  mutate_at("Alley", na_if, "No_Alley_Access")  |>  
+  mutate_at("Fence", na_if, "No_Fence") |> 
+  mutate_at(c("Garage_Cond", "Garage_Finish"), na_if, "No_Garage") |> 
+  mutate_at(c("Bsmt_Exposure", "BsmtFin_Type_1", "BsmtFin_Type_2"), na_if, "No_Basement")
+
+visdat::vis_miss(ames_missing)
+```
+:::
+
+------------------------------------------------------------------------
+
+::: small
+Recipe
+
+```{r}
+#| label: "tabnet missing recipe"
+#| echo: true
+ames_missing <- ames_missing |> mutate(Sale_Price = log10(Sale_Price))
+ames_missing_rec <- recipe(Sale_Price ~ ., data=ames_missing) |> 
+  step_normalize(all_numeric(), -all_outcomes()) 
+```
+
+Pre-training
+
+```{r}
+#| label: "tabnet missing pretrain"
+#| echo: true
+library(tabnet)
+ames_missing_pretrain <- tabnet_pretrain(
+  ames_missing_rec, data=ames_missing,  epoch=50, cat_emb_dim = 1,  valid_split = 0.2,
+  verbose=TRUE,   early_stopping_patience = 3L,   early_stopping_tolerance = 1e-4
+)
+# model diagnostic
+autoplot(ames_missing_pretrain)
+```
+:::
+
+------------------------------------------------------------------------
+
+::: small
+Training
+
+```{r}
+#| label: "tabnet missing fit"
+#| cache: true
+#| echo: true
+#| code-fold: TRUE
+
+ames_missing_fit <- tabnet_fit(
+  ames_missing_rec,   data = ames_missing,
+  tabnet_model = ames_missing_pretrain,
+  epoch = 50,  cat_emb_dim = 1,  valid_split = 0.2,
+  verbose = TRUE,  batch = 2930,
+  early_stopping_patience = 5L,
+  early_stopping_tolerance = 1e-4
+)
+# model diagnostic
+autoplot(ames_missing_fit)
+```
+:::
+
+------------------------------------------------------------------------
+
+:::::: small
+Prediction
+
+::::: columns
+::: {.column width="30%"}
+```{r}
+#| label: "tabnet missing predict"
+#| echo: true
+predict(ames_missing_fit, ames_missing)
+```
+:::
+
+::: {.column width="70%"}
+```{r}
+#| echo: true
+metrics <- metric_set(rmse, rsq, ccc)
+cbind(ames_missing, predict(ames_missing_fit, ames_missing)) |> 
+  metrics(Sale_Price, estimate = .pred)
+```
+:::
+:::::
+::::::
+
+------------------------------------------------------------------------
+
+:::::: small
+Variable importance
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| code-fold: TRUE
+col_with_missings <- ames_missing |>
+  summarise_all(~sum(is.na(.))>0) |>
+  t() |> enframe(name="Variable") |>
+  rename(has_missing="value")
+
+vip_color <- function(object, col_has_missing) {
+  vip_data <- vip::vip(object)$data |> arrange(Importance)
+  vis_miss_plus <- left_join(vip_data, col_has_missing , by="Variable") |>
+    mutate(Variable=factor(Variable, levels = vip_data$Variable))
+  vis_miss_plus
+  ggplot(vis_miss_plus, aes(x=Variable, y=Importance, fill=has_missing)) +
+    geom_col() + coord_flip() + scale_fill_grey()
+}
+```
+
+```{r}
+#| label: "tabnet pretrain vip color"
+#| echo: TRUE
+# original ames
+vip_color(ames_pretrain, col_with_missings)
+vip_color(ames_fit, col_with_missings)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| label: "tabnet pretrain missing vip color"
+#| echo: true
+# ames with missing values
+vip_color(ames_missing_pretrain, col_with_missings)
+vip_color(ames_missing_fit, col_with_missings)
+```
+:::
+:::::
+::::::
+
+------------------------------------------------------------------------
+
+::: small
+Explainability
+
+```{r}
+#| label: "tabnet missing explain"
+#| echo: true
+ames_missing_explain <- tabnet::tabnet_explain(ames_missing_fit, ames_missing)
+# variable importance
+autoplot(ames_missing_explain, quantile = 0.99, type="step")
+```
+:::
+
+# {tabnet} avec un `outcome()` hiérarchique
+
+------------------------------------------------------------------------
+
+-   {tabnet} admet des variable à prédire catégorielle, multi-label multi-class.
+
+-   et si on pouvait mettre une contrainte entre les classes des différents labels ?
+
+-   le dataset doit être de type `data.tree::as.Node()`
+
+    -   conversion de trainset et testset avec `as.Node()` avant les fonctions `tabnet_`
+    -   conversion de inverse avec `node_to_df()`
+
+-   nouveauté de la 0.5.0
+
+## Exemple avec `starwars`
+
+::: small
+```{r}
+#| echo: true
+
+library(data.tree)
+data(starwars, package = "dplyr")
+head(starwars, 4)
+```
+:::
+
+------------------------------------------------------------------------
+
+::: smaller
+On construit la variable de sortie comme un chaîne avec des séparateurs `/` dans une variable `"pathString"` (erronné)
+
+```{r}
+#| echo: true
+starwars_tree <- starwars |> 
+  mutate(pathString = paste("StarWars_characters", species, sex, `name`, sep = "/"))  |> 
+  as.Node()
+print(starwars_tree, "name","height", "mass", "eye_color", limit = 8)
+```
+:::
+
+## Mais avec des règles sur les noms et les types
+
+::: small
+-   pas d'usage des noms internes de {data.tree} :
+    -   `name`, `height` sont interdits
+    -   comme tous les noms de `NODE_RESERVED_NAMES_CONST`. (Ils seraient supprimés au moment de la conversion.)
+-   pas de `factor()`
+-   pas de colonne nommée `level_*`
+-   le dernier niveau hiérarchique doit être l'individu (donc un Id unique)
+-   il doit y avoir une racine à la hiérarchie
+:::
+
+## Construction correcte de la variable de sortie `"pathString"`
+
+::: smaller
+```{r}
+#| echo: true
+starwars_tree <- starwars |>
+  rename(`_name` = "name", `_height` = "height") |> 
+  mutate(pathString = paste("StarWars_characters", species, sex, `_name`, sep = "/"))  |> 
+  as.Node()
+print(starwars_tree, "name", "_name","_height", "mass", "eye_color", limit = 8)
+```
+:::
+
+## Initial split et construction
+
+`starwars` a des colonnes de `list()` qu'il faut dérouler
+
+::: small
+```{r}
+#| echo: true
+starw_split <- starwars |> 
+  tidyr::unnest_longer(films) |> 
+  tidyr::unnest_longer(vehicles, keep_empty = TRUE) |> 
+  tidyr::unnest_longer(starships, keep_empty = TRUE) |> 
+  initial_split( prop = .8, strata = "species")
+```
+:::
+
+------------------------------------------------------------------------
+
+::: small
+```{r}
+#| echo: true
+starwars_train_tree <- starw_split |> 
+  training() |>
+  rename(`_name` = "name", `_height` = "height") |>
+  rowid_to_column() |>
+  mutate(pathString = paste("StarWars_characters", species, sex, rowid, sep = "/")) |>
+  # remove outcomes labels from predictors
+  select(-species, -sex, -`_name`, -rowid) |>
+  # turn it as hierarchical Node
+  as.Node()
+
+starwars_test_tree <- starw_split |>
+  testing() |>
+  rename(`_name` = "name", `_height` = "height") |>
+  rowid_to_column() |>
+  mutate(pathString = paste("StarWars_characters", species, sex, rowid, sep = "/")) |>
+  select(-species, -sex, -`_name`, -rowid) |>
+  as.Node()
+```
+
+Les `$attributesAll` du Node seront les predicteurs :
+
+```{r}
+#| echo: true
+starwars_train_tree$attributesAll
+```
+:::
+
+## Entraînement du modèle
+
+```{{r}}
+#| echo: true
+#| label: "starwars fit"
+
+config <- tabnet_config(
+  decision_width = 8,
+  attention_width = 8,
+  num_steps = 3,
+  penalty = .003,
+  cat_emb_dim = 2,
+  valid_split = 0.2,
+  learn_rate = 1e-3,
+  lr_scheduler = "reduce_on_plateau",
+  early_stopping_monitor = "valid_loss",
+  early_stopping_patience = 4,
+  verbose = FALSE
+)
+
+starw_model <- tabnet_fit(starwars_train_tree, config = config, epoch = 75, checkpoint_epochs = 15)
+```
+
+## Diagnostique
+
+```{{r}}
+#| echo: true
+#| label: "starwars diag"
+
+autoplot(starw_model)
+```
+
+```{{r}}
+#| echo: true
+#| label: "starwars vip"
+
+vip::vip(starw_model)
+```
+
+## Inférence avec le modèle hiérarchique
+
+```{{r}}
+#| echo: true
+#| label: "starwars inference"
+starwars_hat <- bind_cols(
+    predict(starw_model, starwars_test_tree),
+    node_to_df(starwars_test_tree)$y
+  )
+tail(starwars_hat, n = 5)
+```
+
+# {tabnet} pour la classification binaire déséquilibrée
+
+------------------------------------------------------------------------
+
+Prenons le jeu de données `lending_club` du package {modeldata}
+
+```{r}
+#| echo: TRUE
+data("lending_club", package = "modeldata")
+class_ratio <- lending_club |> 
+  summarise(sum( Class == "good") / sum( Class == "bad")) |> 
+  pull() 
+
+class_ratio
+```
+
+```{r}
+#| code-fold: TRUE
+#| code-line-numbers: "|4"
+lending_club <- lending_club |>
+  mutate(
+    case_wts = if_else(Class == "bad", class_ratio, 1),
+    case_wts = importance_weights(case_wts)
+  )
+
+split <- initial_split(lending_club, strata = Class)
+train <- training(split)
+test  <- testing(split)
+```
+
+
+------------------------------------------------------------------------
+
+Voyons ce que donne tabnet face à XGBoost sur cette tâche
+
+::::: columns
+
+::: {.column width="50%"}
+```{r}
+#| label: "tabnet lending wf"
+#| echo: TRUE
+#| code-line-numbers: "|4|12"
+tab_rec <- train |>
+  recipe() |>
+  update_role(
+    Class, 
+    new_role = "outcome") |>
+  update_role(
+    -has_role(c("outcome", "id", "case_weights")), 
+    new_role = "predictor")
+
+tab_mod <- tabnet(epochs = 100, 
+                  loss = tabnet::nn_aum_loss, 
+                  learn_rate = 0.02) |> 
+  set_engine("torch") |> 
+  set_mode("classification")
+
+tab_wf <- workflow() |> 
+  add_model(tab_mod) |> 
+  add_recipe(tab_rec) |> 
+  add_case_weights(case_wts)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| label: "xgboost lending wf"
+#| echo: true
+#| code-line-numbers: "|11"
+xgb_rec <- tab_rec |> 
+  step_dummy(term, sub_grade, addr_state, verification_status, emp_length)
+
+xgb_mod <- boost_tree(trees = 100) |> 
+  set_engine("xgboost") |> 
+  set_mode("classification")
+
+xgb_wf <- workflow() |> 
+  add_model(xgb_mod) |> 
+  add_recipe(xgb_rec) |> 
+  add_case_weights(case_wts)
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| label: "tabnet lending fit"
+#| echo: TRUE
+#| fig-cap: 
+#|   - "Tabnet, avec pondération, perte ROC_AUM"
+tab_fit <- tab_wf |> fit(train)
+
+tab_test <- tab_fit |> augment(test)
+
+tab_test |> 
+  pr_curve(Class, .pred_good, case_weights = case_wts) |> 
+  autoplot() 
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| label: "xgboost lending fit"
+#| echo: true
+#| fig-cap: 
+#|   - "XGBoost, avec pondération"
+#| 
+xgb_fit <- xgb_wf |> fit(train)
+
+xgb_test <- xgb_fit |> augment(test)
+
+xgb_test |>
+  pr_curve(Class, .pred_good, case_weights = case_wts) |>
+  autoplot() 
+```
+:::
+:::::

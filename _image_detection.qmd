@@ -1,0 +1,19 @@
+---
+title: "included image classifier with resnext"
+editor: source
+---
+
+# Un classifieur d'images métier avec le fine tuning de ResNext50
+
+```{r}
+#| label: TBC
+library(minhub)
+library(hfhub)
+library(torchvisionlib)
+library(safetensors)
+yolo_8n_nn_file <- hub_download("nielsr/yolov8n", filename = "model.safetensors")
+#> Error: Timeout was reached [huggingface.co]: Resolving timed out after 10001 milliseconds
+#> 
+yolo_8n_nn <- safe_load_file(yolo_8n_nn_file)
+```
+
