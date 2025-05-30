@@ -3,6 +3,7 @@ title: "{torch} {tabnet} et l'apprentissage profond par l'usage"
 format: 
   revealjs: 
     theme: [night, slides.scss]
+    lightbox: true
 editor: visual
 ---
 
@@ -251,7 +252,7 @@ autoplot(ames_missing_fit)
 :::::: small
 Prediction
 
-::::: columns
+::::: {.columns}
 ::: {.column width="30%"}
 ```{r}
 #| label: "tabnet missing predict"
@@ -566,7 +567,7 @@ tab_wf <- workflow() |>
 xgb_rec <- tab_rec |> 
   step_dummy(term, sub_grade, addr_state, verification_status, emp_length)
 
-xgb_mod <- boost_tree(trees = 100) |> 
+xgb_mod <- boost_tree(trees = 100, tree_depth = 10, learn_rate = 0.1, mtry = 1, sample_size = 0.8) |> 
   set_engine("xgboost") |> 
   set_mode("classification")
 
@@ -578,38 +579,79 @@ xgb_wf <- workflow() |>
 :::
 :::::
 
+```{r}
+#| label: "tabnet lending wf bce"
+tab_mod_bce <- tabnet(epochs = 100) |> 
+  set_engine("torch") |> 
+  set_mode("classification")
+
+tab_wf_bce <- workflow() |> 
+  add_model(tab_mod_bce) |> 
+  add_recipe(tab_rec) |> 
+  add_case_weights(case_wts)
+```
+:::
+
 ------------------------------------------------------------------------
 
 ::::: columns
-::: {.column width="50%"}
+::: {.column width="33%" .small}
+
 ```{r}
 #| label: "tabnet lending fit"
 #| echo: TRUE
-#| fig-cap: 
-#|   - "Tabnet, avec pondération, perte ROC_AUM"
-tab_fit <- tab_wf |> fit(train)
+#| fig-cap: "Tabnet, avec pondération, perte ROC_AUM"
+#| fig-width: 5
+tab_fit <- tab_wf |>
+  fit(train)
 
-tab_test <- tab_fit |> augment(test)
+tab_test <- tab_fit |>
+  augment(test)
 
 tab_test |> 
-  pr_curve(Class, .pred_good, case_weights = case_wts) |> 
+  pr_curve(
+    Class, .pred_good, 
+    case_weights = case_wts) |> 
   autoplot() 
 ```
 :::
 
-::: {.column width="50%"}
+::: {.column width="33%" .small}
+```{r}
+#| label: "tabnet lending fit bce"
+#| echo: TRUE
+#| fig-cap: "Tabnet, avec pondération, perte BCE"
+#| fig-width: 5
+tab_fit_bce <- tab_wf_bce |>
+  fit(train)
+
+tab_test <- tab_fit_bce |>
+  augment(test)
+
+tab_test |> 
+  pr_curve(
+    Class, .pred_good, 
+    case_weights = case_wts) |> 
+  autoplot() 
+```
+:::
+
+::: {.column width="30%"}
 ```{r}
 #| label: "xgboost lending fit"
 #| echo: true
-#| fig-cap: 
-#|   - "XGBoost, avec pondération"
-#| 
-xgb_fit <- xgb_wf |> fit(train)
+#| fig-cap: "XGBoost, avec pondération"
+#| fig-width: 5
+xgb_fit <- xgb_wf |>
+  fit(train)
 
-xgb_test <- xgb_fit |> augment(test)
+xgb_test <- xgb_fit |>
+  augment(test)
 
 xgb_test |>
-  pr_curve(Class, .pred_good, case_weights = case_wts) |>
+  pr_curve(
+    Class, .pred_good,
+    case_weights = case_wts) |>
   autoplot() 
 ```
 :::

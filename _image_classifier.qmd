@@ -1,5 +1,9 @@
 ---
 title: "{torch} {tabnet} et l'apprentissage profond par l'usage"
+format: 
+  revealjs: 
+    theme: [night, slides.scss]
+    lightbox: true
 editor: source
 ---
 
@@ -15,10 +19,20 @@ resnext <- model_resnext50_32x4d(pretrained = TRUE)
 
 ## un jeu de données métier
 
+::::: {.columns}
+::: {.column width="30%"}
+![](images/screenshot_testset_plankton.png)
+:::
+
+::: {.column width="70%"}
 ![](Data_mining_with_R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg)
+:::
+:::::
+::::::
+
+
 ```{r}
 ds <- image_folder_dataset("Data_mining_with_R/data/Training set")
 ```
 
-![](images/screenshot_testset_plankton.png)
 
