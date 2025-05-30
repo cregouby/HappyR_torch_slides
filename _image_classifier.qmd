@@ -7,17 +7,10 @@ format:
 editor: source
 ---
 
-# Un classifieur d'images métier avec le fine tuning de ResNext50
+# Un classifieur d'images métier par le fine-tuning de ResNext50
 
-## Resnext préentrainé
 
-```{r}
-#| label: TBC
-library(torchvision)
-resnext <- model_resnext50_32x4d(pretrained = TRUE)
-```
-
-## un jeu de données métier
+## un jeu de données sur le plancton
 
 ::::: {.columns}
 ::: {.column width="30%"}
@@ -30,9 +23,60 @@ resnext <- model_resnext50_32x4d(pretrained = TRUE)
 :::::
 ::::::
 
+---
 
 ```{r}
-ds <- image_folder_dataset("Data_mining_with_R/data/Training set")
+#| label: "placton dataset"
+#| echo: true
+library(torch)
+library(torchvision)
+train_ds <- image_folder_dataset(
+  "Data_mining_with_R/data/Training set",
+  transform = function(x) {
+    x |> transform_to_tensor() |> 
+      transform_resize(c(224, 224))
+  })
+test_ds <- image_folder_dataset(
+  "Data_mining_with_R/data/Test sets",
+  transform = function(x) {
+    x |> transform_to_tensor() |> 
+      transform_resize(c(224, 224))
+  })
+
+
+train_ds$.length()
+test_ds$.length()
+```
+---
+
+## ResNext préentrainé
+
+```{r}
+#| label: resnext
+#| echo: true
+resnext <- model_resnext50_32x4d(pretrained = TRUE)
+resnext
+```
+## réentrainement de la tête de classification
+
+explorons la transformation des images par le réseau préentrainé
+
+```{r}
+#| echo: true
+resnext_embedding <- resnext |> 
+  nn_prune_head(1)
+resnext_embedding
+```
+
+---
+
+```{r}
+#| echo: true
+dl <- dataloader(train_ds, batch_size = 1)
+iter <- dataloader_make_iter(dl)
+img1 <- dataloader_next(iter)
+
+resnext_embedding(img1[[1]])$squeeze()
 ```
 
 

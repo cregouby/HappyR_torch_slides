@@ -12,6 +12,7 @@ format:
     slide-number: true
     chalkboard: true
     lightbox: true
+    code-line-numbers: false
 editor: visual
 execute:
   freeze: auto
