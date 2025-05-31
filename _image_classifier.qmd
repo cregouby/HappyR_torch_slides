@@ -74,9 +74,12 @@ resnext_embedding
 #| echo: true
 dl <- dataloader(train_ds, batch_size = 1)
 iter <- dataloader_make_iter(dl)
-img1 <- dataloader_next(iter)
+img_class <- dataloader_next(iter)
 
-resnext_embedding(img1[[1]])$squeeze()
+resnext_embedding(img_class[[1]])$squeeze()
 ```
 
+un tenseur d'embedding de l'image de taille 2048...
+
+---
 
