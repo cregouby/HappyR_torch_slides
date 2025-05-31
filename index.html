@@ -541,14 +541,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.2306  0.2052  0.5911  0.8114
-  0.9927  0.2941  0.7558  0.8247
-  0.8584  0.0879  0.9286  0.4706
+  0.4079  0.0998  0.9692  0.3966
+  0.9698  0.6952  0.4114  0.5033
+  0.3710  0.9156  0.5753  0.9652
 
 (2,.,.) = 
-  0.8659  0.6079  0.1348  0.7582
-  0.3627  0.2080  0.0592  0.9366
-  0.6069  0.0938  0.1939  0.3134
+  0.9233  0.0845  0.7120  0.4559
+  0.7467  0.2555  0.0890  0.9118
+  0.9246  0.0170  0.3035  0.4190
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -565,12 +565,12 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.9927  0.2941  0.7558  0.8247
-  0.8584  0.0879  0.9286  0.4706
+  0.9698  0.6952  0.4114  0.5033
+  0.3710  0.9156  0.5753  0.9652
 
 (2,.,.) = 
-  0.3627  0.2080  0.0592  0.9366
-  0.6069  0.0938  0.1939  0.3134
+  0.7467  0.2555  0.0890  0.9118
+  0.9246  0.0170  0.3035  0.4190
 [ CPUFloatType{2,2,4} ]</code></pre>
 </div>
 </div>
@@ -581,23 +581,23 @@ Christophe Regouby
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>tt[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.9927  0.2941  0.7558  0.8247
- 0.8584  0.0879  0.9286  0.4706
+ 0.9698  0.6952  0.4114  0.5033
+ 0.3710  0.9156  0.5753  0.9652
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.9927  0.2941  0.7558  0.8247
-  0.8584  0.0879  0.9286  0.4706
+  0.9698  0.6952  0.4114  0.5033
+  0.3710  0.9156  0.5753  0.9652
 [ CPUFloatType{1,2,4} ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">torch_squeeze</span>(tt[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>N, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
- 0.9927  0.2941  0.7558  0.8247
- 0.8584  0.0879  0.9286  0.4706
+ 0.9698  0.6952  0.4114  0.5033
+ 0.3710  0.9156  0.5753  0.9652
 [ CPUFloatType{2,4} ]</code></pre>
 </div>
 </div>
@@ -615,14 +615,14 @@ Christophe Regouby
 <div class="cell-output cell-output-stdout">
 <pre><code>torch_tensor
 (1,.,.) = 
-  0.2306  0.2052  0.5911  0.8114
-  0.9927  0.2941  0.7558  0.8247
-  0.8584  0.0879  0.9286  0.4706
+  0.4079  0.0998  0.9692  0.3966
+  0.9698  0.6952  0.4114  0.5033
+  0.3710  0.9156  0.5753  0.9652
 
 (2,.,.) = 
-  0.8659  0.6079  0.1348  0.7582
-  0.3627  0.2080  0.0592  0.9366
-  0.6069  0.0938  0.1939  0.3134
+  0.9233  0.0845  0.7120  0.4559
+  0.7467  0.2555  0.0890  0.9118
+  0.9246  0.0170  0.3035  0.4190
 [ CPUFloatType{2,3,4} ]</code></pre>
 </div>
 </div>
@@ -635,26 +635,26 @@ Christophe Regouby
 <pre><code>, , 1
 
           [,1]      [,2]      [,3]
-[1,] 0.2305908 0.9926975 0.8584067
-[2,] 0.8659223 0.3626602 0.6069376
+[1,] 0.4078748 0.9698158 0.3709612
+[2,] 0.9233411 0.7466968 0.9245820
 
 , , 2
 
-          [,1]      [,2]       [,3]
-[1,] 0.2051584 0.2940537 0.08790416
-[2,] 0.6079168 0.2079659 0.09384495
+           [,1]      [,2]      [,3]
+[1,] 0.09983665 0.6951594 0.9156380
+[2,] 0.08450621 0.2555134 0.0169853
 
 , , 3
 
           [,1]       [,2]      [,3]
-[1,] 0.5911379 0.75578660 0.9285921
-[2,] 0.1347727 0.05924731 0.1938964
+[1,] 0.9691979 0.41144335 0.5753279
+[2,] 0.7120048 0.08904105 0.3034682
 
 , , 4
 
           [,1]      [,2]      [,3]
-[1,] 0.8113626 0.8246691 0.4706351
-[2,] 0.7581856 0.9366229 0.3133761</code></pre>
+[1,] 0.3966429 0.5032980 0.9652201
+[2,] 0.4559080 0.9118193 0.4190165</code></pre>
 </div>
 </div>
 </div>
@@ -665,7 +665,7 @@ Christophe Regouby
 <p>Installations : <code>00_installation.R</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_f060a970" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_82f80826" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -677,7 +677,7 @@ Christophe Regouby
 <p>Exercice : <code>01_exercice.</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_a99c831c" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_d8d1b952" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -737,7 +737,7 @@ Christophe Regouby
 <p>Exercice : <code>02_exercice.</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_4c3f348a" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_c4f11765" data-update-every="1" data-play-sound="true" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1077,14 +1077,14 @@ Christophe Regouby
 </div>
 </div>
 </section>
-<section id="à-vous-de-jouer-exercise-02" class="slide level2">
-<h2>À vous de jouer, exercise 02</h2>
+<section id="à-vous-de-jouer-exercice-03" class="slide level2">
+<h2>À vous de jouer, exercice 03</h2>
 <div class="question">
-<p>Complete 02_exercise to practice tabnet model training.</p>
+<p>Complete 03_exercise to practice tabnet model training.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_95f111f0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_2a8ebdad" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1614,17 +1614,17 @@ Christophe Regouby
 <div class="columns">
 <div class="column small" style="width:33%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="" aria-hidden="true" tabindex="-1"></a>tab_fit <span class="ot">&lt;-</span> tab_wf <span class="sc">|&gt;</span></span>
-<span id="cb63-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(train)</span>
-<span id="cb63-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-4"><a href="" aria-hidden="true" tabindex="-1"></a>tab_test <span class="ot">&lt;-</span> tab_fit <span class="sc">|&gt;</span></span>
-<span id="cb63-5"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">augment</span>(test)</span>
-<span id="cb63-6"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-7"><a href="" aria-hidden="true" tabindex="-1"></a>tab_test <span class="sc">|&gt;</span> </span>
-<span id="cb63-8"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pr_curve</span>(</span>
-<span id="cb63-9"><a href="" aria-hidden="true" tabindex="-1"></a>    Class, .pred_good, </span>
-<span id="cb63-10"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="at">case_weights =</span> case_wts) <span class="sc">|&gt;</span> </span>
-<span id="cb63-11"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a>tab_fit <span class="ot">&lt;-</span> tab_wf <span class="sc">|&gt;</span></span>
+<span id="cb63-2"><a href=""></a>  <span class="fu">fit</span>(train)</span>
+<span id="cb63-3"><a href=""></a></span>
+<span id="cb63-4"><a href=""></a>tab_test <span class="ot">&lt;-</span> tab_fit <span class="sc">|&gt;</span></span>
+<span id="cb63-5"><a href=""></a>  <span class="fu">augment</span>(test)</span>
+<span id="cb63-6"><a href=""></a></span>
+<span id="cb63-7"><a href=""></a>tab_test <span class="sc">|&gt;</span> </span>
+<span id="cb63-8"><a href=""></a>  <span class="fu">pr_curve</span>(</span>
+<span id="cb63-9"><a href=""></a>    Class, .pred_good, </span>
+<span id="cb63-10"><a href=""></a>    <span class="at">case_weights =</span> case_wts) <span class="sc">|&gt;</span> </span>
+<span id="cb63-11"><a href=""></a>  <span class="fu">autoplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1636,17 +1636,17 @@ Christophe Regouby
 </div>
 </div><div class="column small" style="width:33%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="" aria-hidden="true" tabindex="-1"></a>tab_fit_bce <span class="ot">&lt;-</span> tab_wf_bce <span class="sc">|&gt;</span></span>
-<span id="cb64-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(train)</span>
-<span id="cb64-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-4"><a href="" aria-hidden="true" tabindex="-1"></a>tab_test <span class="ot">&lt;-</span> tab_fit_bce <span class="sc">|&gt;</span></span>
-<span id="cb64-5"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">augment</span>(test)</span>
-<span id="cb64-6"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-7"><a href="" aria-hidden="true" tabindex="-1"></a>tab_test <span class="sc">|&gt;</span> </span>
-<span id="cb64-8"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pr_curve</span>(</span>
-<span id="cb64-9"><a href="" aria-hidden="true" tabindex="-1"></a>    Class, .pred_good, </span>
-<span id="cb64-10"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="at">case_weights =</span> case_wts) <span class="sc">|&gt;</span> </span>
-<span id="cb64-11"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a>tab_fit_bce <span class="ot">&lt;-</span> tab_wf_bce <span class="sc">|&gt;</span></span>
+<span id="cb64-2"><a href=""></a>  <span class="fu">fit</span>(train)</span>
+<span id="cb64-3"><a href=""></a></span>
+<span id="cb64-4"><a href=""></a>tab_test <span class="ot">&lt;-</span> tab_fit_bce <span class="sc">|&gt;</span></span>
+<span id="cb64-5"><a href=""></a>  <span class="fu">augment</span>(test)</span>
+<span id="cb64-6"><a href=""></a></span>
+<span id="cb64-7"><a href=""></a>tab_test <span class="sc">|&gt;</span> </span>
+<span id="cb64-8"><a href=""></a>  <span class="fu">pr_curve</span>(</span>
+<span id="cb64-9"><a href=""></a>    Class, .pred_good, </span>
+<span id="cb64-10"><a href=""></a>    <span class="at">case_weights =</span> case_wts) <span class="sc">|&gt;</span> </span>
+<span id="cb64-11"><a href=""></a>  <span class="fu">autoplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1658,17 +1658,17 @@ Christophe Regouby
 </div>
 </div><div class="column" style="width:30%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="" aria-hidden="true" tabindex="-1"></a>xgb_fit <span class="ot">&lt;-</span> xgb_wf <span class="sc">|&gt;</span></span>
-<span id="cb65-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(train)</span>
-<span id="cb65-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-4"><a href="" aria-hidden="true" tabindex="-1"></a>xgb_test <span class="ot">&lt;-</span> xgb_fit <span class="sc">|&gt;</span></span>
-<span id="cb65-5"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">augment</span>(test)</span>
-<span id="cb65-6"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-7"><a href="" aria-hidden="true" tabindex="-1"></a>xgb_test <span class="sc">|&gt;</span></span>
-<span id="cb65-8"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pr_curve</span>(</span>
-<span id="cb65-9"><a href="" aria-hidden="true" tabindex="-1"></a>    Class, .pred_good,</span>
-<span id="cb65-10"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="at">case_weights =</span> case_wts) <span class="sc">|&gt;</span></span>
-<span id="cb65-11"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a>xgb_fit <span class="ot">&lt;-</span> xgb_wf <span class="sc">|&gt;</span></span>
+<span id="cb65-2"><a href=""></a>  <span class="fu">fit</span>(train)</span>
+<span id="cb65-3"><a href=""></a></span>
+<span id="cb65-4"><a href=""></a>xgb_test <span class="ot">&lt;-</span> xgb_fit <span class="sc">|&gt;</span></span>
+<span id="cb65-5"><a href=""></a>  <span class="fu">augment</span>(test)</span>
+<span id="cb65-6"><a href=""></a></span>
+<span id="cb65-7"><a href=""></a>xgb_test <span class="sc">|&gt;</span></span>
+<span id="cb65-8"><a href=""></a>  <span class="fu">pr_curve</span>(</span>
+<span id="cb65-9"><a href=""></a>    Class, .pred_good,</span>
+<span id="cb65-10"><a href=""></a>    <span class="at">case_weights =</span> case_wts) <span class="sc">|&gt;</span></span>
+<span id="cb65-11"><a href=""></a>  <span class="fu">autoplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2025,17 +2025,169 @@ Columns 1 to 6-1.3702e+00 -1.8230e+00 -6.2842e-02 -6.6632e-01  3.9145e-01 -1.084
 </div>
 </section></section>
 <section>
-<section id="un-classifieur-dimages-métier-avec-le-fine-tuning-de-resnext50" class="title-slide slide level1 center">
-<h1>Un classifieur d’images métier avec le fine tuning de ResNext50</h1>
+<section id="un-classifieur-dimages-métier-par-le-fine-tuning-de-resnext50" class="title-slide slide level1 center">
+<h1>Un classifieur d’images métier par le fine-tuning de ResNext50</h1>
 
 </section>
-<section id="resnext-préentrainé" class="slide level2">
-<h2>Resnext préentrainé</h2>
+<section id="un-jeu-de-données-sur-le-plancton" class="slide level2">
+<h2>un jeu de données sur le plancton</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><a href="images/screenshot_testset_plankton.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img data-src="images/screenshot_testset_plankton.png"></a></p>
+</div><div class="column" style="width:70%;">
+<p><a href="Data_mining_with_R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-31"><img data-src="Data_mining_with_R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg"></a></p>
+</div></div>
+<p>::::::</p>
 </section>
-<section id="un-jeu-de-données-métier" class="slide level2">
-<h2>un jeu de données métier</h2>
-<p><a href="Data_mining_with_R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img data-src="Data_mining_with_R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg"></a></p>
-<p><a href="images/screenshot_testset_plankton.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31"><img data-src="images/screenshot_testset_plankton.png"></a></p>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a><span class="fu">library</span>(torch)</span>
+<span id="cb89-2"><a href=""></a><span class="fu">library</span>(torchvision)</span>
+<span id="cb89-3"><a href=""></a>train_ds <span class="ot">&lt;-</span> <span class="fu">image_folder_dataset</span>(</span>
+<span id="cb89-4"><a href=""></a>  <span class="st">"Data_mining_with_R/data/Training set"</span>,</span>
+<span id="cb89-5"><a href=""></a>  <span class="at">transform =</span> <span class="cf">function</span>(x) {</span>
+<span id="cb89-6"><a href=""></a>    x <span class="sc">|&gt;</span> <span class="fu">transform_to_tensor</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb89-7"><a href=""></a>      <span class="fu">transform_resize</span>(<span class="fu">c</span>(<span class="dv">224</span>, <span class="dv">224</span>))</span>
+<span id="cb89-8"><a href=""></a>  })</span>
+<span id="cb89-9"><a href=""></a>test_ds <span class="ot">&lt;-</span> <span class="fu">image_folder_dataset</span>(</span>
+<span id="cb89-10"><a href=""></a>  <span class="st">"Data_mining_with_R/data/Test sets"</span>,</span>
+<span id="cb89-11"><a href=""></a>  <span class="at">transform =</span> <span class="cf">function</span>(x) {</span>
+<span id="cb89-12"><a href=""></a>    x <span class="sc">|&gt;</span> <span class="fu">transform_to_tensor</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb89-13"><a href=""></a>      <span class="fu">transform_resize</span>(<span class="fu">c</span>(<span class="dv">224</span>, <span class="dv">224</span>))</span>
+<span id="cb89-14"><a href=""></a>  })</span>
+<span id="cb89-15"><a href=""></a></span>
+<span id="cb89-16"><a href=""></a></span>
+<span id="cb89-17"><a href=""></a>train_ds<span class="sc">$</span><span class="fu">.length</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2873</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a>test_ds<span class="sc">$</span><span class="fu">.length</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4866</code></pre>
+</div>
+</div>
+</section>
+<section id="resnext-préentrainé" class="slide level2">
+<h2>ResNext préentrainé</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a>resnext <span class="ot">&lt;-</span> <span class="fu">model_resnext50_32x4d</span>(<span class="at">pretrained =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb93-2"><a href=""></a>resnext</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>An `nn_module` containing 25,028,904 parameters.
+
+── Modules ─────────────────────────────────────────────────────────────────────
+• conv1: &lt;nn_conv2d&gt; #9,408 parameters
+• bn1: &lt;nn_batch_norm2d&gt; #128 parameters
+• relu: &lt;nn_relu&gt; #0 parameters
+• maxpool: &lt;nn_max_pool2d&gt; #0 parameters
+• layer1: &lt;nn_sequential&gt; #205,824 parameters
+• layer2: &lt;nn_sequential&gt; #1,197,056 parameters
+• layer3: &lt;nn_sequential&gt; #7,022,592 parameters
+• layer4: &lt;nn_sequential&gt; #14,544,896 parameters
+• avgpool: &lt;nn_adaptive_avg_pool2d&gt; #0 parameters
+• fc: &lt;nn_linear&gt; #2,049,000 parameters</code></pre>
+</div>
+</div>
+<aside class="notes">
+<p><code>model_resnext50_32x4d(pretrained = TRUE, num_classes = length(train_ds$classes))</code> devrait être disponible bientôt. Pour le moment, il faut le faire à la main</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="à-vous-de-jouer-exercice-04" class="slide level2">
+<h2>À vous de jouer, exercice 04</h2>
+<div class="question">
+<p>Complete 04_exercise to practice ResNext model fine-tuning.</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_03e38e6f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section>
+<section id="réentrainement-de-la-tête-de-classification" class="slide level2">
+<h2>réentrainement de la tête de classification</h2>
+<p>explorons la transformation des images par le réseau préentrainé</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href=""></a>resnext_embedding <span class="ot">&lt;-</span> resnext <span class="sc">|&gt;</span> </span>
+<span id="cb95-2"><a href=""></a>  <span class="fu">nn_prune_head</span>(<span class="dv">1</span>)</span>
+<span id="cb95-3"><a href=""></a>resnext_embedding</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>An `nn_module` containing 22,979,904 parameters.
+
+── Modules ─────────────────────────────────────────────────────────────────────
+• conv1: &lt;nn_conv2d&gt; #9,408 parameters
+• bn1: &lt;nn_batch_norm2d&gt; #128 parameters
+• relu: &lt;nn_relu&gt; #0 parameters
+• maxpool: &lt;nn_max_pool2d&gt; #0 parameters
+• layer1: &lt;nn_sequential&gt; #205,824 parameters
+• layer2: &lt;nn_sequential&gt; #1,197,056 parameters
+• layer3: &lt;nn_sequential&gt; #7,022,592 parameters
+• layer4: &lt;nn_sequential&gt; #14,544,896 parameters
+• avgpool: &lt;nn_adaptive_avg_pool2d&gt; #0 parameters</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href=""></a>dl <span class="ot">&lt;-</span> <span class="fu">dataloader</span>(train_ds, <span class="at">batch_size =</span> <span class="dv">1</span>)</span>
+<span id="cb97-2"><a href=""></a>iter <span class="ot">&lt;-</span> <span class="fu">dataloader_make_iter</span>(dl)</span>
+<span id="cb97-3"><a href=""></a>img_class <span class="ot">&lt;-</span> <span class="fu">dataloader_next</span>(iter)</span>
+<span id="cb97-4"><a href=""></a></span>
+<span id="cb97-5"><a href=""></a><span class="fu">resnext_embedding</span>(img_class[[<span class="dv">1</span>]])<span class="sc">$</span><span class="fu">squeeze</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>torch_tensor
+ 0.4956
+ 0.4499
+ 0.4132
+ 0.4217
+ 0.4663
+ 0.4511
+ 0.5266
+ 0.3839
+ 0.4600
+ 0.4451
+ 0.4153
+ 0.4536
+ 0.4079
+ 0.3616
+ 0.4893
+ 0.4373
+ 0.4254
+ 0.5138
+ 0.4923
+ 0.4400
+ 0.4237
+ 0.3764
+ 0.4559
+ 0.5589
+ 0.4151
+ 0.3832
+ 0.4681
+ 0.4256
+ 0.4372
+ 0.3886
+... [the output was truncated (use n=-1 to disable)]
+[ CPUFloatType{2048} ][ grad_fn = &lt;SqueezeBackward0&gt; ]</code></pre>
+</div>
+</div>
+<p>un tenseur d’embedding de l’image de taille 2048…</p>
+</section>
+<section class="slide level2">
+
 
 </section></section>
 
@@ -2480,7 +2632,7 @@ Columns 1 to 6-1.3702e+00 -1.8230e+00 -6.2842e-02 -6.6632e-01  3.9145e-01 -1.084
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false});
     (function() {
       let previousOnload = window.onload;
       window.onload = () => {

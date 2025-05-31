@@ -9,10 +9,9 @@ editor: source
 
 # Un classifieur d'images métier par le fine-tuning de ResNext50
 
-
 ## un jeu de données sur le plancton
 
-::::: {.columns}
+::::: columns
 ::: {.column width="30%"}
 ![](images/screenshot_testset_plankton.png)
 :::
@@ -21,9 +20,10 @@ editor: source
 ![](Data_mining_with_R/data/Samples/MTLG.2005-05-24.H1/MTLG.2005-05-24.H1+B2_392.jpg)
 :::
 :::::
+
 ::::::
 
----
+------------------------------------------------------------------------
 
 ```{r}
 #| label: "placton dataset"
@@ -47,7 +47,8 @@ test_ds <- image_folder_dataset(
 train_ds$.length()
 test_ds$.length()
 ```
----
+
+------------------------------------------------------------------------
 
 ## ResNext préentrainé
 
@@ -57,6 +58,23 @@ test_ds$.length()
 resnext <- model_resnext50_32x4d(pretrained = TRUE)
 resnext
 ```
+
+::: {.notes}
+
+`model_resnext50_32x4d(pretrained = TRUE, num_classes = length(train_ds$classes))` devrait être disponible bientôt. Pour le moment, il faut le faire à la main
+:::
+
+## À vous de jouer, exercice 04
+
+::: question
+Complete 04_exercise to practice ResNext model fine-tuning.
+:::
+
+```{r}
+countdown::countdown(minutes = 7)
+```
+
+
 ## réentrainement de la tête de classification
 
 explorons la transformation des images par le réseau préentrainé
@@ -68,7 +86,7 @@ resnext_embedding <- resnext |>
 resnext_embedding
 ```
 
----
+------------------------------------------------------------------------
 
 ```{r}
 #| echo: true
@@ -81,5 +99,4 @@ resnext_embedding(img_class[[1]])$squeeze()
 
 un tenseur d'embedding de l'image de taille 2048...
 
----
-
+------------------------------------------------------------------------

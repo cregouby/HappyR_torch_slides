@@ -132,10 +132,10 @@ autoplot(ames_explain, quantile = 0.99)
 ```
 :::
 
-## À vous de jouer, exercise 02
+## À vous de jouer, exercice 03
 
 ::: question
-Complete 02_exercise to practice tabnet model training.
+Complete 03_exercise to practice tabnet model training.
 :::
 
 ```{r}
