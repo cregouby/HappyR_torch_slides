@@ -90,8 +90,8 @@ resnext_embedding
 
 ```{r}
 #| echo: true
-dl <- dataloader(train_ds, batch_size = 1)
-iter <- dataloader_make_iter(dl)
+train_dl <- dataloader(train_ds, batch_size = 1)
+iter <- dataloader_make_iter(train_dl)
 img_class <- dataloader_next(iter)
 
 resnext_embedding(img_class[[1]])$squeeze()
@@ -100,3 +100,40 @@ resnext_embedding(img_class[[1]])$squeeze()
 un tenseur d'embedding de l'image de taille 2048...
 
 ------------------------------------------------------------------------
+
+Première étape, une classification à 6 classes {.small}
+```{r}
+#| echo: true
+resnext_classifier <- nn_module(
+  "Resnext_classifier",
+  initialize = function(num_class) {
+    self$fc <- nn_linear(2048, num_class)
+  },
+  forward = function(x) {
+    x %>% 
+      resnext_embedding() %>% 
+      self$fc()
+  }
+)
+
+```
+
+```{r}
+#| echo: true
+library(luz)
+train_dl <- dataloader(train_ds, batch_size = 1)
+test_dl <- dataloader(test_ds, batch_size = 1)
+
+fitted <- resnext_classifier %>%
+  setup(
+    loss = nn_cross_entropy_loss(),
+    optimizer = optim_ignite_adam,
+    metrics = list(
+      luz_metric_accuracy()
+    )
+  ) %>%
+  set_hparams(num_class = 6) %>% 
+  set_opt_hparams(lr = 0.003) %>%
+  fit(train_dl, epochs = 50, valid_data = test_dl)
+```
+

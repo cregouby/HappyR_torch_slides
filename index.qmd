@@ -290,7 +290,8 @@ countdown(
 
 ::: small
 
-```{r, echo=TRUE}
+```{r}
+#| echo: true
 net <- nn_module(
   "Net",
   initialize = function(num_class) {
