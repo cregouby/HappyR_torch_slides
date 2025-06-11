@@ -97,7 +97,7 @@ img_class <- dataloader_next(iter)
 resnext_embedding(img_class[[1]])$squeeze()
 ```
 
-un tenseur d'embedding de l'image de taille 2048...
+un tenseur d'embedding de l'image de taille 2048... (en réalité [1, 2048, 1, 1])
 
 ------------------------------------------------------------------------
 
@@ -112,6 +112,8 @@ resnext_classifier <- nn_module(
   forward = function(x) {
     x %>% 
       resnext_embedding() %>% 
+      torch_squeeze(4) %>%
+      torch_squeeze(3) %>%
       self$fc()
   }
 )
@@ -120,9 +122,11 @@ resnext_classifier <- nn_module(
 
 ```{r}
 #| echo: true
+#| label: "Resnext fine tuning"
+#| eval: false
 library(luz)
-train_dl <- dataloader(train_ds, batch_size = 1)
-test_dl <- dataloader(test_ds, batch_size = 1)
+train_dl <- dataloader(train_ds, batch_size = 10)
+test_dl <- dataloader(test_ds, batch_size = 10)
 
 fitted <- resnext_classifier %>%
   setup(
@@ -134,6 +138,16 @@ fitted <- resnext_classifier %>%
   ) %>%
   set_hparams(num_class = 6) %>% 
   set_opt_hparams(lr = 0.003) %>%
-  fit(train_dl, epochs = 50, valid_data = test_dl)
+  fit(train_dl, epochs = 3, valid_data = test_dl, verbose = TRUE)
 ```
+## À vous de jouer, exercice 05
+
+::: question
+Complete 05_exercise to practice ResNext model fine-tuning.
+:::
+
+```{r}
+countdown::countdown(minutes = 7)
+```
+
 
