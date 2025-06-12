@@ -557,6 +557,7 @@ tab_wf <- workflow() |>
   add_recipe(tab_rec) |> 
   add_case_weights(case_wts)
 ```
+
 :::
 
 ::: {.column width="50%"}
@@ -576,7 +577,9 @@ xgb_wf <- workflow() |>
   add_recipe(xgb_rec) |> 
   add_case_weights(case_wts)
 ```
+
 :::
+
 :::::
 
 ```{r}
